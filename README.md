@@ -1,7 +1,15 @@
 # family-support-services
 
 This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+This is the client-side Single Page Application (SPA) for Family Support Services. This uses the Ember Framework.
+If you are not familiar with this framework, please review the resources below before making changes and have
+`@jamesleebaker` review these changes as long as he is active in the project to make sure said changes follow the
+best practices and patterns provided. Doing so will ensure we maintain a Secure by Default approach and can maintain
+this application over a longer lifespan. If not time sensitive, pull requests are best.
+
+Please generate your components, services, mixins, and helpers using `ember generate` so tests are created. Also,
+please take the time to write tests for your changes so we can ensure ongoing code coverage with tests being a source
+of truth.
 
 ## Prerequisites
 

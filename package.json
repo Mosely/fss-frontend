@@ -2,9 +2,9 @@
   "name": "family-support-services",
   "version": "0.0.0",
   "private": true,
-  "description": "Small description for family-support-services goes here",
+  "description": "The client-side SPA for FSS",
   "license": "MIT",
-  "author": "",
+  "author": "jamesleebaker",
   "directories": {
     "doc": "doc",
     "test": "tests"
