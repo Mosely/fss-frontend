@@ -1,0 +1,47 @@
+<nav class="site-navigation">
+  <h1 class="site-navigation__branding">Family Support Services</h1>
+  <div class="site-navigation__actions">
+    <div class="site-navigation__search">
+      {{fa-icon "search" class="site-navigation__search-icon"}}
+      <input type="text" class="site-navigation__search-input form-control" placeholder="Search for patients or users..." />
+    </div>
+    <ul class="list-inline site-navigation__links">
+      <li class="site-navigation__link-item list-inline-item">
+        {{#link-to "dashboard" title="Dashboard" class="site-navigation__link"}}
+          {{fa-icon "home" ariaLabel="Dashboard" class="site-navigation__icon"}}
+        {{/link-to}}
+      </li>
+      <li class="site-navigation__link-item list-inline-item">
+        {{#link-to "dashboard" title="Patients" class="site-navigation__link"}}
+          {{fa-icon "user" ariaLabel="Patients" class="site-navigation__icon"}}
+        {{/link-to}}
+      </li>
+      <li class="site-navigation__link-item list-inline-item">
+        {{#link-to "dashboard" title="Form Results" class="site-navigation__link"}}
+          {{fa-icon "folder-open" ariaLabel="Form Results" class="site-navigation__icon"}}
+        {{/link-to}}
+      </li>
+      <li class="site-navigation__link-item list-inline-item">
+        {{! TODO: Make a dropdown component for this !}}
+        <div class="dropdown">
+          <button
+            class="btn btn-link dropdown-toggle site-navigation__dropdown-button"
+            title="User Preferences"
+            type="button" id="navigation-user-button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false">
+            {{fa-icon "gear" ariaLabel="Account" class="site-navigation__icon"}}
+          </button>
+          <div class="site-navigation__dropdown-menu dropdown-menu dropdown-menu-right" aria-labelledby="navigation-user-button">
+            {{#link-to "dashboard" user class="site-navigation__dropdown-link dropdown-item"}}My Account{{/link-to}}
+            {{#if showAdminLink}}
+              {{#link-to "dashboard" class="site-navigation__dropdown-link dropdown-item"}}Admin{{/link-to}}
+            {{/if}}
+            {{#link-to "dashboard" class="site-navigation__dropdown-link dropdown-item"}}Sign Out{{/link-to}}
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
