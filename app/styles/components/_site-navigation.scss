@@ -1,0 +1,158 @@
+.site-navigation {
+  background-color: $white;
+  color: $logo-blue;
+  height: 50px;
+  width: 100%;
+  display: flex;
+  border-bottom: 1px solid #ddd;
+}
+
+.site-navigation__branding {
+  font-size: 1.1rem;
+  line-height: 50px;
+  @include make-col-ready();
+
+  // Tablet
+  @include media-breakpoint-up(md) {
+    @include make-col(4);
+  }
+
+  // Desktop
+  @include media-breakpoint-up(lg) {
+    @include make-col(2);
+  }
+}
+
+.site-navigation__search {
+  position: relative;
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.site-navigation__search-icon {
+  position: absolute;
+  left: 0;
+  margin: 17px 10px;
+}
+
+.site-navigation__search-input {
+  margin-top: 5px;
+  text-indent: 20px;
+
+  // Tablet
+  @include media-breakpoint-up(md) {
+    width: 250px;
+  }
+
+  // Tablet
+  @include media-breakpoint-up(lg) {
+    width: 400px;
+  }
+}
+
+.site-navigation__actions {
+  @include make-col-ready();
+
+  // Tablet
+  @include media-breakpoint-up(md) {
+    @include make-col(8);
+  }
+
+  // Desktop
+  @include media-breakpoint-up(lg) {
+    @include make-col(10);
+  }
+
+  line-height: 50px;
+  text-align: right;
+}
+
+.site-navigation__links {
+  display: inline-block;
+}
+
+.site-navigation__link-item {
+  &#{&} {
+    margin-right: 20px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.site-navigation__link {
+   color: rgba(255, 255, 255, 0.9);
+   padding-bottom: 13px;
+
+   &:hover, &.active {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.8);
+    color: $logo-blue;
+    text-decoration: none;
+   }
+ }
+
+ .site-navigation__icon {
+   font-size: 1.4em;
+ }
+
+ .site-navigation__dropdown-button {
+   padding: 0;
+   line-height: unset;
+   border: none;
+   color: $logo-blue;
+   vertical-align: inherit;
+
+   &:focus,
+   &:active,
+   &:hover {
+     color: $logo-blue;
+     text-decoration: none;
+     cursor: pointer;
+   }
+
+   &::after {
+     border: none;
+   }
+ }
+
+ .site-navigation__dropdown-menu  {
+   padding: 0;
+   right: 10px;
+
+   &::after {
+     position: absolute;
+     top: -8px;
+     right: 10px;
+     display: inline-block;
+     border-right: 8px solid transparent;
+     border-bottom: 8px solid #ffffff;
+     border-left: 8px solid transparent;
+     content: '';
+   }
+
+   &::before {
+    position: absolute;
+    top: -9px;
+    right: 9px;
+    display: inline-block;
+    border-right: 9px solid transparent;
+    border-bottom: 9px solid #ccc;
+    border-left: 9px solid transparent;
+    border-bottom-color: rgba(0, 0, 0, 0.2);
+    content: '';
+  }
+ }
+
+ .site-navigation__dropdown-link {
+   line-height: 25px;
+   padding: 5px 10px;
+   font-size: .9rem;
+   color: #555;
+
+   &.active,
+   &:active,
+   &:focus {
+     background-color: $logo-blue;
+   }
+ }
