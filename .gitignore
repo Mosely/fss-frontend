@@ -3,7 +3,7 @@
 # compiled output
 /dist
 /tmp
-/models
+/model-schemas
 
 # dependencies
 /node_modules
