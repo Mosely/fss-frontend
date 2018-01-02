@@ -1,4 +1,3 @@
-
 import DS from 'ember-data';
 
 export default DS.Model.extend({
@@ -26,7 +25,7 @@ export default DS.Model.extend({
   previousCounselingWhere: DS.attr('string'),
   previousCounselingWhen: DS.attr('date'),
   currentlyInCounseling: DS.attr('boolean'),
-  currentCounselor: DS.attr('string')
+  currentCounselor: DS.attr('string'),
 
   //relationships, if any
   updatedBy: DS.belongsTo('person')

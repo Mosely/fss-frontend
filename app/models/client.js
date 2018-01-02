@@ -1,4 +1,3 @@
-
 import DS from 'ember-data';
 
 export default DS.Model.extend({
@@ -8,7 +7,7 @@ export default DS.Model.extend({
   isServiceMemberOrVeteran: DS.attr('boolean'),
   hasFamilyWhoIsServiceMemberOrVeteran: DS.attr('boolean'),
   isReferredByVeteranResourceCenter: DS.attr('boolean'),
-  referral: DS.attr('string')
+  referral: DS.attr('string'),
 
   //relationships, if any
   updatedBy: DS.belongsTo('person')
