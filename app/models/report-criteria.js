@@ -3,10 +3,10 @@ import DS from 'ember-data';
 
 export default DS.Model.extend({
   //attributes, if any
-  ageWhenFirstUsed: DS.attr('number')
+  relation: DS.attr('string'),
+  criteriaValue: DS.attr('string')
 
   //relationships, if any
-  counseleeId: DS.belongsTo('counselee'),
-  drugUseId: DS.belongsTo('drug-use'),
+  reportColumnId: DS.belongsTo('report-column'),
   updatedBy: DS.belongsTo('person')
 });
