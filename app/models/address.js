@@ -1,4 +1,3 @@
-
 import DS from 'ember-data';
 
 export default DS.Model.extend({
@@ -8,7 +7,7 @@ export default DS.Model.extend({
   streetSuffix: DS.attr('string'),
   zipcode: DS.attr('number'),
   zipcodePlusFour: DS.attr('number'),
-  apartmentNumber: DS.attr('number')
+  apartmentNumber: DS.attr('number'),
 
   //relationships, if any
   cityDataId: DS.belongsTo('city-data'),

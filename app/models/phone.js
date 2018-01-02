@@ -1,4 +1,3 @@
-
 import DS from 'ember-data';
 
 export default DS.Model.extend({
@@ -6,7 +5,7 @@ export default DS.Model.extend({
   areaCode: DS.attr('number'),
   phoneNumber: DS.attr('number'),
   extension: DS.attr('number'),
-  phoneType: DS.attr('string')
+  phoneType: DS.attr('string'),
 
   //relationships, if any
   updatedBy: DS.belongsTo('person')

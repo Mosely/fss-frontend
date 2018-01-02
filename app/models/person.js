@@ -1,4 +1,3 @@
-
 import DS from 'ember-data';
 
 export default DS.Model.extend({
@@ -7,7 +6,7 @@ export default DS.Model.extend({
   lastName: DS.attr('string'),
   middleName: DS.attr('string'),
   dateOfBirth: DS.attr('date'),
-  age: DS.attr('number')
+  age: DS.attr('number'),
 
   //relationships, if any
   genderId: DS.belongsTo('gender'),

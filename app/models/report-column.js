@@ -1,4 +1,3 @@
-
 import DS from 'ember-data';
 
 export default DS.Model.extend({
@@ -7,7 +6,7 @@ export default DS.Model.extend({
   tableName: DS.attr('string'),
   columnName: DS.attr('string'),
   columnOrder: DS.attr('number'),
-  width: DS.attr('number')
+  width: DS.attr('number'),
 
   //relationships, if any
   reportId: DS.belongsTo('report'),

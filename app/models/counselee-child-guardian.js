@@ -1,4 +1,3 @@
-
 import DS from 'ember-data';
 
 export default DS.Model.extend({
@@ -7,7 +6,7 @@ export default DS.Model.extend({
   age: DS.attr('number'),
   occupation: DS.attr('string'),
   isCurrentlyLivingWithChild: DS.attr('boolean'),
-  dateFirstLivedWithChild: DS.attr('date')
+  dateFirstLivedWithChild: DS.attr('date'),
 
   //relationships, if any
   counseleeChildId: DS.belongsTo('counselee-child'),

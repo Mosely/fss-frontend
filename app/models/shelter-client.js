@@ -1,4 +1,3 @@
-
 import DS from 'ember-data';
 
 export default DS.Model.extend({
@@ -11,7 +10,7 @@ export default DS.Model.extend({
   hasTanfForm: DS.attr('boolean'),
   enterDate: DS.attr('date'),
   exitDate: DS.attr('date'),
-  notes: DS.attr('string')
+  notes: DS.attr('string'),
 
   //relationships, if any
   advocateUserId: DS.belongsTo('advocate-user'),
