@@ -11,5 +11,5 @@ export default DS.Model.extend({
   username: DS.attr('string'),
 
   // Relationships
-  updatedBy: DS.belongsTo('person')
+  updatedBy: DS.hasMany('person')
 });
