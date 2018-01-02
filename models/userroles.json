@@ -1,0 +1,176 @@
+{
+    "swaggerVersion": "1.2",
+    "apiVersion": "1.0",
+    "resourcePath": "/userroles",
+    "apis": [
+        {
+            "path": "/userroles",
+            "description": "{@inheritdoc}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Fetch UserRole",
+                    "nickname": "readAll",
+                    "type": "UserRole"
+                },
+                {
+                    "method": "POST",
+                    "summary": "Creates a UserRole.  See UserRole model for details.",
+                    "nickname": "create",
+                    "type": "UserRole",
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Error occurred"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/userroles/{filter}/{value}",
+            "description": "{@inheritdoc}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Displays UserRole that meet the property=value search criteria",
+                    "nickname": "readAllWithFilter",
+                    "type": "UserRole",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "filter",
+                            "type": "string",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "property to search for in the related model."
+                        },
+                        {
+                            "paramType": "path",
+                            "name": "value",
+                            "type": "object",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "value to search for, given the property."
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 404,
+                            "message": "UserRole not found"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/userroles/{id}",
+            "description": "{@inheritdoc}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Displays a UserRole",
+                    "nickname": "read",
+                    "type": "UserRole",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "id",
+                            "type": "integer",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "id of UserRole to fetch"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 404,
+                            "message": "UserRole not found"
+                        }
+                    ]
+                },
+                {
+                    "method": "PUT",
+                    "summary": "Updates a UserRole.  See the UserRole model for details.",
+                    "nickname": "update",
+                    "type": "UserRole",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "id",
+                            "type": "integer",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "id of UserRole to update"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Error occurred"
+                        }
+                    ]
+                },
+                {
+                    "method": "DELETE",
+                    "summary": "Deletes a UserRole",
+                    "nickname": "delete",
+                    "type": "UserRole",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "id",
+                            "type": "integer",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "id of UserRole to delete"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 404,
+                            "message": "UserRole not found"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "models": {
+        "UserRole": {
+            "id": "UserRole",
+            "description": "The \"user_role\" model.",
+            "required": [
+                "created_at",
+                "id",
+                "role_id",
+                "updated_at",
+                "updated_by",
+                "user_id"
+            ],
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "user_id": {
+                    "type": "integer"
+                },
+                "role_id": {
+                    "type": "integer"
+                },
+                "created_at": {
+                    "type": "integer"
+                },
+                "updated_at": {
+                    "type": "integer"
+                },
+                "updated_by": {
+                    "type": "integer"
+                }
+            }
+        }
+    },
+    "produces": [
+        "application/json"
+    ]
+}

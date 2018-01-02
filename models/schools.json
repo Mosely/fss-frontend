@@ -1,0 +1,191 @@
+{
+    "swaggerVersion": "1.2",
+    "apiVersion": "1.0",
+    "resourcePath": "/schools",
+    "apis": [
+        {
+            "path": "/schools",
+            "description": "{@inheritdoc}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Fetch School",
+                    "nickname": "readAll",
+                    "type": "School"
+                },
+                {
+                    "method": "POST",
+                    "summary": "Creates a School.  See School model for details.",
+                    "nickname": "create",
+                    "type": "School",
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Error occurred"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/schools/{filter}/{value}",
+            "description": "{@inheritdoc}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Displays School that meet the property=value search criteria",
+                    "nickname": "readAllWithFilter",
+                    "type": "School",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "filter",
+                            "type": "string",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "property to search for in the related model."
+                        },
+                        {
+                            "paramType": "path",
+                            "name": "value",
+                            "type": "object",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "value to search for, given the property."
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 404,
+                            "message": "School not found"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/schools/{id}",
+            "description": "{@inheritdoc}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Displays a School",
+                    "nickname": "read",
+                    "type": "School",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "id",
+                            "type": "integer",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "id of School to fetch"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 404,
+                            "message": "School not found"
+                        }
+                    ]
+                },
+                {
+                    "method": "PUT",
+                    "summary": "Updates a School.  See the School model for details.",
+                    "nickname": "update",
+                    "type": "School",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "id",
+                            "type": "integer",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "id of School to update"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Error occurred"
+                        }
+                    ]
+                },
+                {
+                    "method": "DELETE",
+                    "summary": "Deletes a School",
+                    "nickname": "delete",
+                    "type": "School",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "id",
+                            "type": "integer",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "id of School to delete"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 404,
+                            "message": "School not found"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "models": {
+        "School": {
+            "id": "School",
+            "description": "The \"school\" model.",
+            "required": [
+                "city_data_id",
+                "created_at",
+                "id",
+                "name",
+                "state_data_id",
+                "street",
+                "updated_at",
+                "updated_by",
+                "zipcode"
+            ],
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "city_data_id": {
+                    "type": "integer"
+                },
+                "state_data_id": {
+                    "type": "integer"
+                },
+                "street": {
+                    "type": "string"
+                },
+                "zipcode": {
+                    "type": "integer"
+                },
+                "zipcode_plus_four": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "integer"
+                },
+                "updated_at": {
+                    "type": "integer"
+                },
+                "updated_by": {
+                    "type": "integer"
+                }
+            }
+        }
+    },
+    "produces": [
+        "application/json"
+    ]
+}

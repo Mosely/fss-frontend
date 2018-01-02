@@ -1,0 +1,172 @@
+{
+    "swaggerVersion": "1.2",
+    "apiVersion": "1.0",
+    "resourcePath": "/medications",
+    "apis": [
+        {
+            "path": "/medications",
+            "description": "{@inheritdoc}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Fetch Medication",
+                    "nickname": "readAll",
+                    "type": "Medication"
+                },
+                {
+                    "method": "POST",
+                    "summary": "Creates a Medication.  See Medication model for details.",
+                    "nickname": "create",
+                    "type": "Medication",
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Error occurred"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/medications/{filter}/{value}",
+            "description": "{@inheritdoc}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Displays Medication that meet the property=value search criteria",
+                    "nickname": "readAllWithFilter",
+                    "type": "Medication",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "filter",
+                            "type": "string",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "property to search for in the related model."
+                        },
+                        {
+                            "paramType": "path",
+                            "name": "value",
+                            "type": "object",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "value to search for, given the property."
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 404,
+                            "message": "Medication not found"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/medications/{id}",
+            "description": "{@inheritdoc}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Displays a Medication",
+                    "nickname": "read",
+                    "type": "Medication",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "id",
+                            "type": "integer",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "id of Medication to fetch"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 404,
+                            "message": "Medication not found"
+                        }
+                    ]
+                },
+                {
+                    "method": "PUT",
+                    "summary": "Updates a Medication.  See the Medication model for details.",
+                    "nickname": "update",
+                    "type": "Medication",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "id",
+                            "type": "integer",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "id of Medication to update"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Error occurred"
+                        }
+                    ]
+                },
+                {
+                    "method": "DELETE",
+                    "summary": "Deletes a Medication",
+                    "nickname": "delete",
+                    "type": "Medication",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "id",
+                            "type": "integer",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "id of Medication to delete"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 404,
+                            "message": "Medication not found"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "models": {
+        "Medication": {
+            "id": "Medication",
+            "description": "The \"medication\" model.",
+            "required": [
+                "created_at",
+                "id",
+                "name",
+                "updated_at",
+                "updated_by"
+            ],
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "integer"
+                },
+                "updated_at": {
+                    "type": "integer"
+                },
+                "updated_by": {
+                    "type": "integer"
+                }
+            }
+        }
+    },
+    "produces": [
+        "application/json"
+    ]
+}

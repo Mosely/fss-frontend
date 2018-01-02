@@ -1,0 +1,183 @@
+{
+    "swaggerVersion": "1.2",
+    "apiVersion": "1.0",
+    "resourcePath": "/clientlanguages",
+    "apis": [
+        {
+            "path": "/clientlanguages",
+            "description": "{@inheritdoc}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Fetch client languages",
+                    "nickname": "readAll",
+                    "type": "ClientLanguage"
+                },
+                {
+                    "method": "POST",
+                    "summary": "Creates a client language.  See ClientLanguage model for details.",
+                    "nickname": "create",
+                    "type": "ClientLanguage",
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Error occurred"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/clientlanguages/{filter}/{value}",
+            "description": "{@inheritdoc}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Displays client languages that meet the property=value search criteria",
+                    "nickname": "readAllWithFilter",
+                    "type": "ClientLanguage",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "filter",
+                            "type": "string",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "property to search for in the related model."
+                        },
+                        {
+                            "paramType": "path",
+                            "name": "value",
+                            "type": "object",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "value to search for, given the property."
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 404,
+                            "message": "client language not found"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/clientlanguages/{id}",
+            "description": "{@inheritdoc}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Displays a client language record",
+                    "nickname": "read",
+                    "type": "ClientLanguage",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "id",
+                            "type": "integer",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "id of client language record to fetch"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 404,
+                            "message": "client language not found"
+                        }
+                    ]
+                },
+                {
+                    "method": "PUT",
+                    "summary": "Updates a client language record.  See the ClientLanguage model for details.",
+                    "nickname": "update",
+                    "type": "ClientLanguage",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "id",
+                            "type": "integer",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "id of client language record to update"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Error occurred"
+                        }
+                    ]
+                },
+                {
+                    "method": "DELETE",
+                    "summary": "Deletes a client language record",
+                    "nickname": "delete",
+                    "type": "ClientLanguage",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "id",
+                            "type": "integer",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "id of client language to delete"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 404,
+                            "message": "client language not found"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "models": {
+        "ClientLanguage": {
+            "id": "ClientLanguage",
+            "description": "The \"client_language\" model.",
+            "required": [
+                "client_id",
+                "created_at",
+                "id",
+                "is_primary",
+                "language_id",
+                "updated_at",
+                "updated_by"
+            ],
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "client_id": {
+                    "type": "integer"
+                },
+                "language_id": {
+                    "type": "integer"
+                },
+                "is_primary": {
+                    "type": "boolean"
+                },
+                "other_note": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "integer"
+                },
+                "updated_at": {
+                    "type": "integer"
+                },
+                "updated_by": {
+                    "type": "integer"
+                }
+            }
+        }
+    },
+    "produces": [
+        "application/json"
+    ]
+}

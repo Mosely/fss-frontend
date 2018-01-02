@@ -1,0 +1,172 @@
+{
+    "swaggerVersion": "1.2",
+    "apiVersion": "1.0",
+    "resourcePath": "/druguses",
+    "apis": [
+        {
+            "path": "/druguses",
+            "description": "{@inheritdoc}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Fetch DrugUse",
+                    "nickname": "readAll",
+                    "type": "DrugUse"
+                },
+                {
+                    "method": "POST",
+                    "summary": "Creates a DrugUse.  See DrugUse model for details.",
+                    "nickname": "create",
+                    "type": "DrugUse",
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Error occurred"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/druguses/{filter}/{value}",
+            "description": "{@inheritdoc}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Displays DrugUse that meet the property=value search criteria",
+                    "nickname": "readAllWithFilter",
+                    "type": "DrugUse",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "filter",
+                            "type": "string",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "property to search for in the related model."
+                        },
+                        {
+                            "paramType": "path",
+                            "name": "value",
+                            "type": "object",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "value to search for, given the property."
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 404,
+                            "message": "DrugUse not found"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/druguses/{id}",
+            "description": "{@inheritdoc}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Displays a DrugUse",
+                    "nickname": "read",
+                    "type": "DrugUse",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "id",
+                            "type": "integer",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "id of DrugUse to fetch"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 404,
+                            "message": "DrugUse not found"
+                        }
+                    ]
+                },
+                {
+                    "method": "PUT",
+                    "summary": "Updates a DrugUse.  See the DrugUse model for details.",
+                    "nickname": "update",
+                    "type": "DrugUse",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "id",
+                            "type": "integer",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "id of DrugUse to update"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Error occurred"
+                        }
+                    ]
+                },
+                {
+                    "method": "DELETE",
+                    "summary": "Deletes a DrugUse",
+                    "nickname": "delete",
+                    "type": "DrugUse",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "id",
+                            "type": "integer",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "id of DrugUse to delete"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 404,
+                            "message": "DrugUse not found"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "models": {
+        "DrugUse": {
+            "id": "DrugUse",
+            "description": "The \"drug_use\" model.",
+            "required": [
+                "created_at",
+                "id",
+                "type",
+                "updated_at",
+                "updated_by"
+            ],
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "integer"
+                },
+                "updated_at": {
+                    "type": "integer"
+                },
+                "updated_by": {
+                    "type": "integer"
+                }
+            }
+        }
+    },
+    "produces": [
+        "application/json"
+    ]
+}

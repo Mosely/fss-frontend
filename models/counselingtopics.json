@@ -1,0 +1,175 @@
+{
+    "swaggerVersion": "1.2",
+    "apiVersion": "1.0",
+    "resourcePath": "/counselingtopics",
+    "apis": [
+        {
+            "path": "/counselingtopics",
+            "description": "{@inheritdoc}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Fetch CounselingTopic",
+                    "nickname": "readAll",
+                    "type": "CounselingTopic"
+                },
+                {
+                    "method": "POST",
+                    "summary": "Creates a CounselingTopic.  See CounselingTopic model for details.",
+                    "nickname": "create",
+                    "type": "CounselingTopic",
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Error occurred"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/counselingtopics/{filter}/{value}",
+            "description": "{@inheritdoc}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Displays CounselingTopic that meet the property=value search criteria",
+                    "nickname": "readAllWithFilter",
+                    "type": "CounselingTopic",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "filter",
+                            "type": "string",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "property to search for in the related model."
+                        },
+                        {
+                            "paramType": "path",
+                            "name": "value",
+                            "type": "object",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "value to search for, given the property."
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 404,
+                            "message": "CounselingTopic not found"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/counselingtopics/{id}",
+            "description": "{@inheritdoc}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Displays a CounselingTopic",
+                    "nickname": "read",
+                    "type": "CounselingTopic",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "id",
+                            "type": "integer",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "id of CounselingTopic to fetch"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 404,
+                            "message": "CounselingTopic not found"
+                        }
+                    ]
+                },
+                {
+                    "method": "PUT",
+                    "summary": "Updates a CounselingTopic.  See the CounselingTopic model for details.",
+                    "nickname": "update",
+                    "type": "CounselingTopic",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "id",
+                            "type": "integer",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "id of CounselingTopic to update"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Error occurred"
+                        }
+                    ]
+                },
+                {
+                    "method": "DELETE",
+                    "summary": "Deletes a CounselingTopic",
+                    "nickname": "delete",
+                    "type": "CounselingTopic",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "id",
+                            "type": "integer",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "id of CounselingTopic to delete"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 404,
+                            "message": "CounselingTopic not found"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "models": {
+        "CounselingTopic": {
+            "id": "CounselingTopic",
+            "description": "The \"counseling_topic\" model.",
+            "required": [
+                "created_at",
+                "id",
+                "topic",
+                "updated_at",
+                "updated_by"
+            ],
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "topic": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "integer"
+                },
+                "updated_at": {
+                    "type": "integer"
+                },
+                "updated_by": {
+                    "type": "integer"
+                }
+            }
+        }
+    },
+    "produces": [
+        "application/json"
+    ]
+}

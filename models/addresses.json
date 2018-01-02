@@ -1,0 +1,199 @@
+{
+    "swaggerVersion": "1.2",
+    "apiVersion": "1.0",
+    "resourcePath": "/addresses",
+    "apis": [
+        {
+            "path": "/addresses",
+            "description": "{@inheritdoc}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Fetch addresses",
+                    "nickname": "readAll",
+                    "type": "Address"
+                },
+                {
+                    "method": "POST",
+                    "summary": "Creates an address.  See Address model for details.",
+                    "nickname": "create",
+                    "type": "Address",
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Error occurred"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/addresses/{filter}/{value}",
+            "description": "{@inheritdoc}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Displays addresses that meet the property=value search criteria",
+                    "nickname": "readAllWithFilter",
+                    "type": "Address",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "filter",
+                            "type": "string",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "property to search for in the related model."
+                        },
+                        {
+                            "paramType": "path",
+                            "name": "value",
+                            "type": "object",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "value to search for, given the property."
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 404,
+                            "message": "address not found"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/addresses/{id}",
+            "description": "{@inheritdoc}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Displays an address",
+                    "nickname": "read",
+                    "type": "Address",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "id",
+                            "type": "integer",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "id of address to fetch"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 404,
+                            "message": "address not found"
+                        }
+                    ]
+                },
+                {
+                    "method": "PUT",
+                    "summary": "Updates an address.  See the Address model for details.",
+                    "nickname": "update",
+                    "type": "Address",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "id",
+                            "type": "integer",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "id of address to update"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Error occurred"
+                        }
+                    ]
+                },
+                {
+                    "method": "DELETE",
+                    "summary": "Deletes an address",
+                    "nickname": "delete",
+                    "type": "Address",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "id",
+                            "type": "integer",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "id of address to delete"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 404,
+                            "message": "address not found"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "models": {
+        "Address": {
+            "id": "Address",
+            "description": "The \"address\" model.",
+            "required": [
+                "city_data_id",
+                "created_at",
+                "id",
+                "state_data_id",
+                "street_name",
+                "updated_at",
+                "updated_by",
+                "zipcode"
+            ],
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "street_number": {
+                    "type": "integer"
+                },
+                "street_name": {
+                    "type": "string"
+                },
+                "street_suffix": {
+                    "type": "string"
+                },
+                "zipcode": {
+                    "type": "integer"
+                },
+                "zipcode_plus_four": {
+                    "type": "integer"
+                },
+                "city_data_id": {
+                    "type": "integer"
+                },
+                "state_data_id": {
+                    "type": "integer"
+                },
+                "county_data_id": {
+                    "type": "integer"
+                },
+                "apartment_number": {
+                    "type": "integer"
+                },
+                "created_at": {
+                    "type": "integer"
+                },
+                "updated_at": {
+                    "type": "integer"
+                },
+                "updated_by": {
+                    "type": "integer"
+                }
+            }
+        }
+    },
+    "produces": [
+        "application/json"
+    ]
+}

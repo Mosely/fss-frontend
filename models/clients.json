@@ -1,0 +1,179 @@
+{
+    "swaggerVersion": "1.2",
+    "apiVersion": "1.0",
+    "resourcePath": "/clients",
+    "apis": [
+        {
+            "path": "/clients",
+            "description": "{@inheritdoc}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Fetch clients",
+                    "nickname": "readAll",
+                    "type": "Client"
+                },
+                {
+                    "method": "POST",
+                    "summary": "Creates a client.  See Client model for details.",
+                    "nickname": "create",
+                    "type": "Client",
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Error occurred"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/clients/{filter}/{value}",
+            "description": "{@inheritdoc}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Displays clients that meet the property=value search criteria",
+                    "nickname": "readAllWithFilter",
+                    "type": "Client",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "filter",
+                            "type": "string",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "property to search for in the related model."
+                        },
+                        {
+                            "paramType": "path",
+                            "name": "value",
+                            "type": "object",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "value to search for, given the property."
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 404,
+                            "message": "client not found"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/clients/{id}",
+            "description": "{@inheritdoc}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Displays a client",
+                    "nickname": "read",
+                    "type": "Client",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "id",
+                            "type": "integer",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "id of client to fetch"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 404,
+                            "message": "client not found"
+                        }
+                    ]
+                },
+                {
+                    "method": "PUT",
+                    "summary": "Updates a client.  See the Client model for details.",
+                    "nickname": "update",
+                    "type": "Client",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "id",
+                            "type": "integer",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "id of client to update"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Error occurred"
+                        }
+                    ]
+                },
+                {
+                    "method": "DELETE",
+                    "summary": "Deletes a client",
+                    "nickname": "delete",
+                    "type": "Client",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "id",
+                            "type": "integer",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "id of client to delete"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 404,
+                            "message": "client not found"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "models": {
+        "Client": {
+            "id": "Client",
+            "description": "The \"client\" model.",
+            "required": [
+                "has_family_who_is_service_member_or_veteran",
+                "id",
+                "is_referred_by_veteran_resource_center",
+                "is_service_member_or_veteran",
+                "place_of_employment",
+                "social_security_number"
+            ],
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "social_security_number": {
+                    "type": "integer"
+                },
+                "place_of_employment": {
+                    "type": "string"
+                },
+                "is_service_member_or_veteran": {
+                    "type": "boolean"
+                },
+                "has_family_who_is_service_member_or_veteran": {
+                    "type": "boolean"
+                },
+                "is_referred_by_veteran_resource_center": {
+                    "type": "boolean"
+                },
+                "referral": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "produces": [
+        "application/json"
+    ]
+}

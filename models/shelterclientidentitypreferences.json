@@ -1,0 +1,176 @@
+{
+    "swaggerVersion": "1.2",
+    "apiVersion": "1.0",
+    "resourcePath": "/shelterclientidentitypreferences",
+    "apis": [
+        {
+            "path": "/shelterclientidentitypreferences",
+            "description": "{@inheritdoc}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Fetch ShelterClientIdentityPreference",
+                    "nickname": "readAll",
+                    "type": "ShelterClientIdentityPreference"
+                },
+                {
+                    "method": "POST",
+                    "summary": "Creates a ShelterClientIdentityPreference.  See ShelterClientIdentityPreference model for details.",
+                    "nickname": "create",
+                    "type": "ShelterClientIdentityPreference",
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Error occurred"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/shelterclientidentitypreferences/{filter}/{value}",
+            "description": "{@inheritdoc}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Displays ShelterClientIdentityPreference that meet the property=value search criteria",
+                    "nickname": "readAllWithFilter",
+                    "type": "ShelterClientIdentityPreference",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "filter",
+                            "type": "string",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "property to search for in the related model."
+                        },
+                        {
+                            "paramType": "path",
+                            "name": "value",
+                            "type": "object",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "value to search for, given the property."
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 404,
+                            "message": "ShelterClientIdentityPreference not found"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/shelterclientidentitypreferences/{id}",
+            "description": "{@inheritdoc}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Displays a ShelterClientIdentityPreference",
+                    "nickname": "read",
+                    "type": "ShelterClientIdentityPreference",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "id",
+                            "type": "integer",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "id of ShelterClientIdentityPreference to fetch"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 404,
+                            "message": "ShelterClientIdentityPreference not found"
+                        }
+                    ]
+                },
+                {
+                    "method": "PUT",
+                    "summary": "Updates a ShelterClientIdentityPreference.  See the ShelterClientIdentityPreference model for details.",
+                    "nickname": "update",
+                    "type": "ShelterClientIdentityPreference",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "id",
+                            "type": "integer",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "id of ShelterClientIdentityPreference to update"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Error occurred"
+                        }
+                    ]
+                },
+                {
+                    "method": "DELETE",
+                    "summary": "Deletes a ShelterClientIdentityPreference",
+                    "nickname": "delete",
+                    "type": "ShelterClientIdentityPreference",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "id",
+                            "type": "integer",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "id of ShelterClientIdentityPreference to delete"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 404,
+                            "message": "ShelterClientIdentityPreference not found"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "models": {
+        "ShelterClientIdentityPreference": {
+            "id": "ShelterClientIdentityPreference",
+            "description": "The \"shelter_client_identity_preference\" model.",
+            "required": [
+                "created_at",
+                "id",
+                "identity_preference_id",
+                "shelter_client_id",
+                "updated_at",
+                "updated_by"
+            ],
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "shelter_client_id": {
+                    "type": "integer"
+                },
+                "identity_preference_id": {
+                    "type": "integer"
+                },
+                "created_at": {
+                    "type": "integer"
+                },
+                "updated_at": {
+                    "type": "integer"
+                },
+                "updated_by": {
+                    "type": "integer"
+                }
+            }
+        }
+    },
+    "produces": [
+        "application/json"
+    ]
+}

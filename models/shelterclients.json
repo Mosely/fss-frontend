@@ -1,0 +1,199 @@
+{
+    "swaggerVersion": "1.2",
+    "apiVersion": "1.0",
+    "resourcePath": "/shelterclients",
+    "apis": [
+        {
+            "path": "/shelterclients",
+            "description": "{@inheritdoc}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Fetch ShelterClient",
+                    "nickname": "readAll",
+                    "type": "ShelterClient"
+                },
+                {
+                    "method": "POST",
+                    "summary": "Creates a ShelterClient.  See ShelterClient model for details.",
+                    "nickname": "create",
+                    "type": "ShelterClient",
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Error occurred"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/shelterclients/{filter}/{value}",
+            "description": "{@inheritdoc}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Displays ShelterClient that meet the property=value search criteria",
+                    "nickname": "readAllWithFilter",
+                    "type": "ShelterClient",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "filter",
+                            "type": "string",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "property to search for in the related model."
+                        },
+                        {
+                            "paramType": "path",
+                            "name": "value",
+                            "type": "object",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "value to search for, given the property."
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 404,
+                            "message": "ShelterClient not found"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/shelterclients/{id}",
+            "description": "{@inheritdoc}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Displays a ShelterClient",
+                    "nickname": "read",
+                    "type": "ShelterClient",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "id",
+                            "type": "integer",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "id of ShelterClient to fetch"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 404,
+                            "message": "ShelterClient not found"
+                        }
+                    ]
+                },
+                {
+                    "method": "PUT",
+                    "summary": "Updates a ShelterClient.  See the ShelterClient model for details.",
+                    "nickname": "update",
+                    "type": "ShelterClient",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "id",
+                            "type": "integer",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "id of ShelterClient to update"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Error occurred"
+                        }
+                    ]
+                },
+                {
+                    "method": "DELETE",
+                    "summary": "Deletes a ShelterClient",
+                    "nickname": "delete",
+                    "type": "ShelterClient",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "id",
+                            "type": "integer",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "id of ShelterClient to delete"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 404,
+                            "message": "ShelterClient not found"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "models": {
+        "ShelterClient": {
+            "id": "ShelterClient",
+            "description": "The \"shelter_client\" model",
+            "required": [
+                "created_at",
+                "id",
+                "updated_at",
+                "updated_by",
+                "used_form_assistance"
+            ],
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "used_form_assistance": {
+                    "type": "boolean"
+                },
+                "assistant_name": {
+                    "type": "string"
+                },
+                "assistant_relationship": {
+                    "type": "string"
+                },
+                "is_rural": {
+                    "type": "boolean"
+                },
+                "is_urban": {
+                    "type": "boolean"
+                },
+                "has_tanf_form_": {
+                    "type": "boolean"
+                },
+                "advocate_user_id": {
+                    "type": "integer"
+                },
+                "enter_date": {
+                    "type": "string"
+                },
+                "exit_date": {
+                    "type": "string"
+                },
+                "notes": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "integer"
+                },
+                "updated_at": {
+                    "type": "integer"
+                },
+                "updated_by": {
+                    "type": "integer"
+                }
+            }
+        }
+    },
+    "produces": [
+        "application/json"
+    ]
+}

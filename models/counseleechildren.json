@@ -1,0 +1,169 @@
+{
+    "swaggerVersion": "1.2",
+    "apiVersion": "1.0",
+    "resourcePath": "/counseleechildren",
+    "apis": [
+        {
+            "path": "/counseleechildren",
+            "description": "{@inheritdoc}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Fetch counselee children",
+                    "nickname": "readAll",
+                    "type": "CounseleeChild"
+                },
+                {
+                    "method": "POST",
+                    "summary": "Creates a counselee child.  See CounseleeChild model for details.",
+                    "nickname": "create",
+                    "type": "CounseleeChild",
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Error occurred"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/counseleechildren/{filter}/{value}",
+            "description": "{@inheritdoc}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Displays counselee children that meet the property=value search criteria",
+                    "nickname": "readAllWithFilter",
+                    "type": "CounseleeChild",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "filter",
+                            "type": "string",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "property to search for in the related model."
+                        },
+                        {
+                            "paramType": "path",
+                            "name": "value",
+                            "type": "object",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "value to search for, given the property."
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 404,
+                            "message": "veteran not found"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/counseleechildren/{id}",
+            "description": "{@inheritdoc}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Displays a counselee child",
+                    "nickname": "read",
+                    "type": "CounseleeChild",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "id",
+                            "type": "integer",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "id of counselee child to fetch"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 404,
+                            "message": "counselee child not found"
+                        }
+                    ]
+                },
+                {
+                    "method": "PUT",
+                    "summary": "Updates a counselee child.  See the CounseleeChild model for details.",
+                    "nickname": "update",
+                    "type": "CounseleeChild",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "id",
+                            "type": "integer",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "id of counselee child to update"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Error occurred"
+                        }
+                    ]
+                },
+                {
+                    "method": "DELETE",
+                    "summary": "Deletes a counselee child",
+                    "nickname": "delete",
+                    "type": "CounseleeChild",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "id",
+                            "type": "integer",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "id of counselee child to delete"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 404,
+                            "message": "counselee child not found"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "models": {
+        "CounseleeChild": {
+            "id": "CounseleeChild",
+            "description": "The \"counselee_child\" model.",
+            "required": [
+                "id",
+                "school_id"
+            ],
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "school_id": {
+                    "type": "integer"
+                },
+                "school_problems": {
+                    "type": "string"
+                },
+                "long_standing_illnesses": {
+                    "type": "string"
+                },
+                "who_else_raised_child": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "produces": [
+        "application/json"
+    ]
+}

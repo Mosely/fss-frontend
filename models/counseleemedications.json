@@ -1,0 +1,180 @@
+{
+    "swaggerVersion": "1.2",
+    "apiVersion": "1.0",
+    "resourcePath": "/counseleemedications",
+    "apis": [
+        {
+            "path": "/counseleemedications",
+            "description": "{@inheritdoc}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Fetch CounseleeMedication",
+                    "nickname": "readAll",
+                    "type": "CounseleeMedication"
+                },
+                {
+                    "method": "POST",
+                    "summary": "Creates a CounseleeMedication.  See CounseleeMedication model for details.",
+                    "nickname": "create",
+                    "type": "CounseleeMedication",
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Error occurred"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/counseleemedications/{filter}/{value}",
+            "description": "{@inheritdoc}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Displays CounseleeMedication that meet the property=value search criteria",
+                    "nickname": "readAllWithFilter",
+                    "type": "CounseleeMedication",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "filter",
+                            "type": "string",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "property to search for in the related model."
+                        },
+                        {
+                            "paramType": "path",
+                            "name": "value",
+                            "type": "object",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "value to search for, given the property."
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 404,
+                            "message": "CounseleeMedication not found"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/counseleemedications/{id}",
+            "description": "{@inheritdoc}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Displays a CounseleeMedication",
+                    "nickname": "read",
+                    "type": "CounseleeMedication",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "id",
+                            "type": "integer",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "id of CounseleeMedication to fetch"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 404,
+                            "message": "CounseleeMedication not found"
+                        }
+                    ]
+                },
+                {
+                    "method": "PUT",
+                    "summary": "Updates a CounseleeMedication.  See the CounseleeMedication model for details.",
+                    "nickname": "update",
+                    "type": "CounseleeMedication",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "id",
+                            "type": "integer",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "id of CounseleeMedication to update"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Error occurred"
+                        }
+                    ]
+                },
+                {
+                    "method": "DELETE",
+                    "summary": "Deletes a CounseleeMedication",
+                    "nickname": "delete",
+                    "type": "CounseleeMedication",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "id",
+                            "type": "integer",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "id of CounseleeMedication to delete"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 404,
+                            "message": "CounseleeMedication not found"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "models": {
+        "CounseleeMedication": {
+            "id": "CounseleeMedication",
+            "description": "The \"counselee_medication\" model.",
+            "required": [
+                "counselee_id",
+                "created_at",
+                "id",
+                "medication_id",
+                "reason",
+                "updated_at",
+                "updated_by"
+            ],
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "counselee_id": {
+                    "type": "integer"
+                },
+                "medication_id": {
+                    "type": "integer"
+                },
+                "reason": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "integer"
+                },
+                "updated_at": {
+                    "type": "integer"
+                },
+                "updated_by": {
+                    "type": "integer"
+                }
+            }
+        }
+    },
+    "produces": [
+        "application/json"
+    ]
+}

@@ -1,0 +1,180 @@
+{
+    "swaggerVersion": "1.2",
+    "apiVersion": "1.0",
+    "resourcePath": "/personaddresses",
+    "apis": [
+        {
+            "path": "/personaddresses",
+            "description": "{@inheritdoc}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Fetch PersonAddress",
+                    "nickname": "readAll",
+                    "type": "PersonAddress"
+                },
+                {
+                    "method": "POST",
+                    "summary": "Creates a PersonAddress.  See PersonAddress model for details.",
+                    "nickname": "create",
+                    "type": "PersonAddress",
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Error occurred"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/personaddresses/{filter}/{value}",
+            "description": "{@inheritdoc}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Displays PersonAddress that meet the property=value search criteria",
+                    "nickname": "readAllWithFilter",
+                    "type": "PersonAddress",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "filter",
+                            "type": "string",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "property to search for in the related model."
+                        },
+                        {
+                            "paramType": "path",
+                            "name": "value",
+                            "type": "object",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "value to search for, given the property."
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 404,
+                            "message": "PersonAddress not found"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/personaddresses/{id}",
+            "description": "{@inheritdoc}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Displays a PersonAddress",
+                    "nickname": "read",
+                    "type": "PersonAddress",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "id",
+                            "type": "integer",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "id of PersonAddress to fetch"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 404,
+                            "message": "PersonAddress not found"
+                        }
+                    ]
+                },
+                {
+                    "method": "PUT",
+                    "summary": "Updates a PersonAddress.  See the PersonAddress model for details.",
+                    "nickname": "update",
+                    "type": "PersonAddress",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "id",
+                            "type": "integer",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "id of PersonAddress to update"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Error occurred"
+                        }
+                    ]
+                },
+                {
+                    "method": "DELETE",
+                    "summary": "Deletes a PersonAddress",
+                    "nickname": "delete",
+                    "type": "PersonAddress",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "id",
+                            "type": "integer",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "id of PersonAddress to delete"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 404,
+                            "message": "PersonAddress not found"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "models": {
+        "PersonAddress": {
+            "id": "PersonAddress",
+            "description": "The \"person_address\" model.",
+            "required": [
+                "address_id",
+                "created_at",
+                "id",
+                "is_primary",
+                "person_id",
+                "updated_at",
+                "updated_by"
+            ],
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "person_id": {
+                    "type": "integer"
+                },
+                "address_id": {
+                    "type": "integer"
+                },
+                "is_primary": {
+                    "type": "boolean"
+                },
+                "created_at": {
+                    "type": "integer"
+                },
+                "updated_at": {
+                    "type": "integer"
+                },
+                "updated_by": {
+                    "type": "integer"
+                }
+            }
+        }
+    },
+    "produces": [
+        "application/json"
+    ]
+}

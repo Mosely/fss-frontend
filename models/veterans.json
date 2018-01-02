@@ -1,0 +1,206 @@
+{
+    "swaggerVersion": "1.2",
+    "apiVersion": "1.0",
+    "resourcePath": "/veterans",
+    "apis": [
+        {
+            "path": "/veterans",
+            "description": "{@inheritdoc}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Fetch veterans",
+                    "nickname": "readAll",
+                    "type": "Veteran"
+                },
+                {
+                    "method": "POST",
+                    "summary": "Creates a veteran.  See Veteran model for details.",
+                    "nickname": "create",
+                    "type": "Veteran",
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Error occurred"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/veterans/{filter}/{value}",
+            "description": "{@inheritdoc}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Displays veterans that meet the property=value search criteria",
+                    "nickname": "readAllWithFilter",
+                    "type": "Veteran",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "filter",
+                            "type": "string",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "property to search for in the related model."
+                        },
+                        {
+                            "paramType": "path",
+                            "name": "value",
+                            "type": "object",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "value to search for, given the property."
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 404,
+                            "message": "veteran not found"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/veterans/{id}",
+            "description": "{@inheritdoc}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Displays a veteran",
+                    "nickname": "read",
+                    "type": "Veteran",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "id",
+                            "type": "integer",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "id of veteran to fetch"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 404,
+                            "message": "veteran not found"
+                        }
+                    ]
+                },
+                {
+                    "method": "PUT",
+                    "summary": "Updates a veteran.  See the Veteran model for details.",
+                    "nickname": "update",
+                    "type": "Veteran",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "id",
+                            "type": "integer",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "id of veteran to update"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Error occurred"
+                        }
+                    ]
+                },
+                {
+                    "method": "DELETE",
+                    "summary": "Deletes a veteran",
+                    "nickname": "delete",
+                    "type": "Veteran",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "id",
+                            "type": "integer",
+                            "required": true,
+                            "allowMultiple": false,
+                            "description": "id of veteran to delete"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 404,
+                            "message": "veteran not found"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "models": {
+        "Veteran": {
+            "id": "Veteran",
+            "description": "The \"veteran\" model.",
+            "required": [
+                "branch_of_service_id",
+                "created_at",
+                "has_dd214",
+                "household_income",
+                "id",
+                "is_homeless",
+                "is_on_disability",
+                "is_registered_with_va",
+                "military_discharge_type_id",
+                "referred_by",
+                "updated_at",
+                "updated_by"
+            ],
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "referred_by": {
+                    "type": "string"
+                },
+                "branch_of_service_id": {
+                    "type": "integer"
+                },
+                "military_discharge_type_id": {
+                    "type": "integer"
+                },
+                "has_dd214": {
+                    "type": "boolean"
+                },
+                "is_registered_with_va": {
+                    "type": "boolean"
+                },
+                "va_id": {
+                    "type": "integer"
+                },
+                "job_title": {
+                    "type": "string"
+                },
+                "is_on_disability": {
+                    "type": "boolean"
+                },
+                "is_homeless": {
+                    "type": "boolean"
+                },
+                "household_income": {
+                    "type": "integer"
+                },
+                "created_at": {
+                    "type": "integer"
+                },
+                "updated_at": {
+                    "type": "integer"
+                },
+                "updated_by": {
+                    "type": "integer"
+                }
+            }
+        }
+    },
+    "produces": [
+        "application/json"
+    ]
+}
