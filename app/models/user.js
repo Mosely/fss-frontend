@@ -7,7 +7,7 @@ export default DS.Model.extend({
   is_disabled: DS.attr('boolean'),
   password: DS.attr('string'),
   password2: DS.attr('string'),
-  password_created_at: DS.attr('number'),
+  password_created_at: DS.attr('date'),
   updated_at: DS.attr('date'),
   updated_by: DS.attr('number'),
   username: DS.attr('string')
