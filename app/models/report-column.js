@@ -9,6 +9,7 @@ export default DS.Model.extend({
   width: DS.attr('number'),
 
   //relationships, if any
-  reportId: DS.belongsTo('report'),
-  updatedBy: DS.belongsTo('person')
+  report: DS.belongsTo('report'),
+  updatedBy: DS.belongsTo('person'),
+  reportCriterias: DS.hasMany('report-criteria')
 });

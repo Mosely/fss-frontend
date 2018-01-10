@@ -5,7 +5,7 @@ export default DS.Model.extend({
   isPrimary: DS.attr('boolean'),
 
   //relationships, if any
-  personId: DS.belongsTo('person'),
-  addressId: DS.belongsTo('address'),
+  person: DS.belongsTo('person'),
+  address: DS.belongsTo('address'),
   updatedBy: DS.belongsTo('person')
 });

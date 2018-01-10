@@ -5,7 +5,7 @@ export default DS.Model.extend({
   reason: DS.attr('string'),
 
   //relationships, if any
-  counseleeId: DS.belongsTo('counselee'),
-  medicationId: DS.belongsTo('medication'),
+  counselee: DS.belongsTo('counselee'),
+  medication: DS.belongsTo('medication'),
   updatedBy: DS.belongsTo('person')
 });

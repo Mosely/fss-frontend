@@ -13,6 +13,6 @@ export default DS.Model.extend({
   causeOfDeath: DS.attr('string'),
 
   //relationships, if any
-  counseleeChildId: DS.belongsTo('counselee-child'),
+  counseleeChild: DS.belongsTo('counselee-child'),
   updatedBy: DS.belongsTo('person')
 });

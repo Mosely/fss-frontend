@@ -9,6 +9,8 @@ export default DS.Model.extend({
   age: DS.attr('number'),
 
   //relationships, if any
-  genderId: DS.belongsTo('gender'),
-  updatedBy: DS.belongsTo('person')
+  gender: DS.belongsTo('gender'),
+  updatedBy: DS.belongsTo('person'),
+  personAddresses: DS.hasMany('person-address'),
+  personPhones: DS.hasMany('person-phone')
 });

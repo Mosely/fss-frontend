@@ -10,5 +10,7 @@ export default DS.Model.extend({
   referral: DS.attr('string'),
 
   //relationships, if any
-  updatedBy: DS.belongsTo('person')
+  updatedBy: DS.belongsTo('person'),
+  clientEthnicities: DS.hasMany('client-ethnicity'),
+  clientLanguages: DS.hasMany('client-language')
 });

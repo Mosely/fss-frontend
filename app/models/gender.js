@@ -5,5 +5,7 @@ export default DS.Model.extend({
   name: DS.attr('string'),
 
   //relationships, if any
-  updatedBy: DS.belongsTo('person')
+  updatedBy: DS.belongsTo('person'),
+  counseleeChildSiblings: DS.hasMany('counselee-child-sibling'),
+  persons: DS.hasMany('person')
 });

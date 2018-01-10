@@ -8,7 +8,8 @@ export default DS.Model.extend({
   zipcodePlusFour: DS.attr('number'),
 
   //relationships, if any
-  cityDataId: DS.belongsTo('city-data'),
-  stateDataId: DS.belongsTo('state-data'),
-  updatedBy: DS.belongsTo('person')
+  cityData: DS.belongsTo('city-data'),
+  stateData: DS.belongsTo('state-data'),
+  updatedBy: DS.belongsTo('person'),
+  counseleeChildren: DS.hasMany('counselee-child')
 });

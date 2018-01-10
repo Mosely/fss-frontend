@@ -6,5 +6,6 @@ export default DS.Model.extend({
   type: DS.attr('string'),
 
   //relationships, if any
-  updatedBy: DS.belongsTo('person')
+  updatedBy: DS.belongsTo('person'),
+  reportColumns: DS.hasMany('report-column')
 });

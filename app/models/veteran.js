@@ -12,7 +12,7 @@ export default DS.Model.extend({
   householdIncome: DS.attr('number'),
 
   //relationships, if any
-  branchOfServiceId: DS.belongsTo('branch-of-service'),
-  militaryDischargeTypeId: DS.belongsTo('military-discharge-type'),
+  branchOfService: DS.belongsTo('branch-of-service'),
+  militaryDischargeType: DS.belongsTo('military-discharge-type'),
   updatedBy: DS.belongsTo('person')
 });

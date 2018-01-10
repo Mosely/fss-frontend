@@ -8,5 +8,6 @@ export default DS.Model.extend({
   phoneType: DS.attr('string'),
 
   //relationships, if any
-  updatedBy: DS.belongsTo('person')
+  updatedBy: DS.belongsTo('person'),
+  personPhones: DS.hasMany('person-phone')
 });

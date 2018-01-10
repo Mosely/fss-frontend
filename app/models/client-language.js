@@ -6,7 +6,7 @@ export default DS.Model.extend({
   otherNote: DS.attr('string'),
 
   //relationships, if any
-  clientId: DS.belongsTo('client'),
-  languageId: DS.belongsTo('language'),
+  client: DS.belongsTo('client'),
+  language: DS.belongsTo('language'),
   updatedBy: DS.belongsTo('person')
 });

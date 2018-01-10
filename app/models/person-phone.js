@@ -6,7 +6,7 @@ export default DS.Model.extend({
   canCall: DS.attr('boolean'),
 
   //relationships, if any
-  personId: DS.belongsTo('person'),
-  phoneId: DS.belongsTo('phone'),
+  person: DS.belongsTo('person'),
+  phone: DS.belongsTo('phone'),
   updatedBy: DS.belongsTo('person')
 });

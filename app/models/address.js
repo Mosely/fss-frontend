@@ -10,8 +10,9 @@ export default DS.Model.extend({
   apartmentNumber: DS.attr('number'),
 
   //relationships, if any
-  cityDataId: DS.belongsTo('city-data'),
-  stateDataId: DS.belongsTo('state-data'),
-  countyDataId: DS.belongsTo('county-data'),
-  updatedBy: DS.belongsTo('person')
+  cityData: DS.belongsTo('city-data'),
+  stateData: DS.belongsTo('state-data'),
+  countyData: DS.belongsTo('county-data'),
+  updatedBy: DS.belongsTo('person'),
+  personAddresses: DS.hasMany('person-address')
 });
