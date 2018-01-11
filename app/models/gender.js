@@ -7,5 +7,5 @@ export default DS.Model.extend({
   //relationships, if any
   updatedBy: DS.belongsTo('user'),
   counseleeChildSiblings: DS.hasMany('counselee-child-sibling'),
-  persons: DS.hasMany('person')
+  people: DS.hasMany('person')
 });
