@@ -7,10 +7,13 @@ export default DS.Model.extend({
   middleName: DS.attr('string'),
   dateOfBirth: DS.attr('date'),
   age: DS.attr('number'),
+  genderId: DS.attr('number'),
+  gender: DS.attr('string'),
+  username: DS.attr('string'),
+  password: DS.attr('string'),
+  passwordCreatedAt: DS.attr('date'),
+  isDisabled: DS.attr('boolean')
 
   //relationships, if any
-  gender: DS.belongsTo('gender'),
-  updatedBy: DS.belongsTo('user'),
-  personAddresses: DS.hasMany('person-address'),
-  personPhones: DS.hasMany('person-phone')
+
 });

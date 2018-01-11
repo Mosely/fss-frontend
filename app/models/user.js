@@ -1,15 +1,16 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  createdAt: DS.attr('date'),
-  email: DS.attr('string'),
-  isDisabled: DS.attr('boolean'),
-  password: DS.attr('string'),
-  password2: DS.attr('string'),
-  passwordCreatedAt: DS.attr('date'),
-  updatedAt: DS.attr('date'),
+  //attributes, if any
   username: DS.attr('string'),
+  email: DS.attr('string'),
+  password: DS.attr('string'),
+  passwordCreatedAt: DS.attr('date'),
+  isDisabled: DS.attr('boolean'),
 
-  // Relationships
-  updatedBy: DS.hasMany('person')
+  //relationships, if any
+  updatedBy: DS.belongsTo('user'),
+  shelterClientAdditionalStaffs: DS.hasMany('shelter-client-additional-staff'),
+  userRoles: DS.hasMany('user-role'),
+  person: DS.belongsTo('person')
 });
