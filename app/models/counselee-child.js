@@ -8,8 +8,9 @@ export default DS.Model.extend({
 
   //relationships, if any
   school: DS.belongsTo('school'),
-  updatedBy: DS.belongsTo('person'),
+  updatedBy: DS.belongsTo('user'),
   counseleeChildBioParents: DS.hasMany('counselee-child-bio-parent'),
   counseleeChildGuardians: DS.hasMany('counselee-child-guardian'),
-  counseleeChildSiblings: DS.hasMany('counselee-child-sibling')
+  counseleeChildSiblings: DS.hasMany('counselee-child-sibling'),
+  counselee: DS.belongsTo('counselee')
 });

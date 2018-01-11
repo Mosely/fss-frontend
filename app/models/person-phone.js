@@ -8,5 +8,5 @@ export default DS.Model.extend({
   //relationships, if any
   person: DS.belongsTo('person'),
   phone: DS.belongsTo('phone'),
-  updatedBy: DS.belongsTo('person')
+  updatedBy: DS.belongsTo('user')
 });

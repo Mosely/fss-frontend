@@ -8,5 +8,5 @@ export default DS.Model.extend({
   //relationships, if any
   client: DS.belongsTo('client'),
   language: DS.belongsTo('language'),
-  updatedBy: DS.belongsTo('person')
+  updatedBy: DS.belongsTo('user')
 });

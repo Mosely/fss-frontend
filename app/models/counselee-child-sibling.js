@@ -11,5 +11,5 @@ export default DS.Model.extend({
   //relationships, if any
   counseleeChild: DS.belongsTo('counselee-child'),
   gender: DS.belongsTo('gender'),
-  updatedBy: DS.belongsTo('person')
+  updatedBy: DS.belongsTo('user')
 });

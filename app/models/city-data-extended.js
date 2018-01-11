@@ -10,5 +10,5 @@ export default DS.Model.extend({
   //relationships, if any
   city: DS.belongsTo('c'),
   stateCode: DS.belongsTo('state-c'),
-  updatedBy: DS.belongsTo('person')
+  updatedBy: DS.belongsTo('user')
 });

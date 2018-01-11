@@ -28,8 +28,9 @@ export default DS.Model.extend({
   currentCounselor: DS.attr('string'),
 
   //relationships, if any
-  updatedBy: DS.belongsTo('person'),
+  updatedBy: DS.belongsTo('user'),
   counseleeCounselingTopics: DS.hasMany('counselee-counseling-topic'),
   counseleeDrugUses: DS.hasMany('counselee-drug-use'),
-  counseleeMedications: DS.hasMany('counselee-medication')
+  counseleeMedications: DS.hasMany('counselee-medication'),
+  client: DS.belongsTo('client')
 });

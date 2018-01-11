@@ -7,5 +7,5 @@ export default DS.Model.extend({
   //relationships, if any
   counselee: DS.belongsTo('counselee'),
   medication: DS.belongsTo('medication'),
-  updatedBy: DS.belongsTo('person')
+  updatedBy: DS.belongsTo('user')
 });

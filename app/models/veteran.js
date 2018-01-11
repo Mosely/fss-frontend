@@ -14,5 +14,6 @@ export default DS.Model.extend({
   //relationships, if any
   branchOfService: DS.belongsTo('branch-of-service'),
   militaryDischargeType: DS.belongsTo('military-discharge-type'),
-  updatedBy: DS.belongsTo('person')
+  updatedBy: DS.belongsTo('user'),
+  client: DS.belongsTo('client')
 });

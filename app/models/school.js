@@ -10,6 +10,6 @@ export default DS.Model.extend({
   //relationships, if any
   cityData: DS.belongsTo('city-data'),
   stateData: DS.belongsTo('state-data'),
-  updatedBy: DS.belongsTo('person'),
+  updatedBy: DS.belongsTo('user'),
   counseleeChildren: DS.hasMany('counselee-child')
 });

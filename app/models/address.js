@@ -13,6 +13,6 @@ export default DS.Model.extend({
   cityData: DS.belongsTo('city-data'),
   stateData: DS.belongsTo('state-data'),
   countyData: DS.belongsTo('county-data'),
-  updatedBy: DS.belongsTo('person'),
+  updatedBy: DS.belongsTo('user'),
   personAddresses: DS.hasMany('person-address')
 });

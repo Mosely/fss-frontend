@@ -10,7 +10,7 @@ export default DS.Model.extend({
 
   //relationships, if any
   gender: DS.belongsTo('gender'),
-  updatedBy: DS.belongsTo('person'),
+  updatedBy: DS.belongsTo('user'),
   personAddresses: DS.hasMany('person-address'),
   personPhones: DS.hasMany('person-phone')
 });

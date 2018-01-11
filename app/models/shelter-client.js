@@ -14,8 +14,9 @@ export default DS.Model.extend({
 
   //relationships, if any
   advocateUser: DS.belongsTo('advocate-user'),
-  updatedBy: DS.belongsTo('person'),
+  updatedBy: DS.belongsTo('user'),
   shelterClientAdditionalStaffs: DS.hasMany('shelter-client-additional-staff'),
   shelterClientFundingSources: DS.hasMany('shelter-client-funding-source'),
-  shelterClientIdentityPreferences: DS.hasMany('shelter-client-identity-preference')
+  shelterClientIdentityPreferences: DS.hasMany('shelter-client-identity-preference'),
+  client: DS.belongsTo('client')
 });

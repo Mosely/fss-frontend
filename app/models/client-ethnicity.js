@@ -7,5 +7,5 @@ export default DS.Model.extend({
   //relationships, if any
   client: DS.belongsTo('client'),
   ethnicity: DS.belongsTo('ethnicity'),
-  updatedBy: DS.belongsTo('person')
+  updatedBy: DS.belongsTo('user')
 });
