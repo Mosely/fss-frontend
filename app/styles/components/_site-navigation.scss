@@ -1,7 +1,7 @@
 .site-navigation {
   background-color: $white;
   color: $logo-blue;
-  height: 50px;
+  height: 6em;
   width: 100%;
   display: flex;
   border-bottom: 1px solid #ddd;
@@ -10,23 +10,15 @@
 .site-navigation__branding {
   font-size: 1.1rem;
   line-height: 50px;
+  width: 9.7em !important;
   @include make-col-ready();
-
-  // Tablet
-  @include media-breakpoint-up(md) {
-    @include make-col(4);
-  }
-
-  // Desktop
-  @include media-breakpoint-up(lg) {
-    @include make-col(2);
-  }
 }
 
 .site-navigation__search {
   position: relative;
   display: inline-block;
   margin-right: 20px;
+  vertical-align: text-top;
 }
 
 .site-navigation__search-icon {
@@ -53,22 +45,13 @@
 .site-navigation__actions {
   @include make-col-ready();
 
-  // Tablet
-  @include media-breakpoint-up(md) {
-    @include make-col(8);
-  }
-
-  // Desktop
-  @include media-breakpoint-up(lg) {
-    @include make-col(10);
-  }
-
   line-height: 50px;
   text-align: right;
 }
 
 .site-navigation__links {
   display: inline-block;
+  vertical-align: text-top;
 }
 
 .site-navigation__link-item {
@@ -82,12 +65,13 @@
 }
 
 .site-navigation__link {
-   color: rgba(255, 255, 255, 0.9);
+   color: $logo-blue;
    padding-bottom: 13px;
+   transition: color 0.3s ease;
 
    &:hover, &.active {
-    border-bottom: 2px solid rgba(255, 255, 255, 0.8);
-    color: $logo-blue;
+    // border-bottom: 2px solid rgba(255, 255, 255, 0.8);
+    color: $second-blue;
     text-decoration: none;
    }
  }
@@ -102,11 +86,12 @@
    border: none;
    color: $logo-blue;
    vertical-align: inherit;
+   transition: color 0.3s ease;
 
    &:focus,
    &:active,
    &:hover {
-     color: $logo-blue;
+     color: $second-blue;
      text-decoration: none;
      cursor: pointer;
    }
@@ -149,10 +134,14 @@
    padding: 5px 10px;
    font-size: .9rem;
    color: #555;
+   transition: background-color 0.3s ease;
 
    &.active,
    &:active,
    &:focus {
      background-color: $logo-blue;
+   }
+   &.active:hover{
+     background-color: $second-blue;
    }
  }

@@ -1,5 +1,5 @@
 <nav class="site-navigation">
-  <h1 class="site-navigation__branding">Family Support Services</h1>
+  <img src="assets/images/logo.png" alt="Family Support Services" class="site-navigation__branding">
   <div class="site-navigation__actions">
     <div class="site-navigation__search">
       {{fa-icon "search" class="site-navigation__search-icon"}}
@@ -38,6 +38,7 @@
             {{#if showAdminLink}}
               {{#link-to "dashboard" class="site-navigation__dropdown-link dropdown-item"}}Admin{{/link-to}}
             {{/if}}
+            {{#link-to "login" class="site-navigation__dropdown-link dropdown-item"}}Sign In{{/link-to}}
             {{#link-to "dashboard" class="site-navigation__dropdown-link dropdown-item"}}Sign Out{{/link-to}}
           </div>
         </div>
