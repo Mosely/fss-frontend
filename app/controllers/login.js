@@ -3,5 +3,5 @@ import Ember from 'ember';
 
 
 export default Controller.extend({
-  
+    session: Ember.inject.service('session')  
 });

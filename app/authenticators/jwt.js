@@ -4,7 +4,8 @@ import config from '../config/environment';
 const { RSVP: { Promise }, $: { ajax }, run } = Ember;
 export default Base.extend({
 
-  tokenEndpoint: `${config.host}/login.php`,
+  //tokenEndpoint: `${config.host}/login`,
+  tokenEndpoint: `http://nginx3.pantheon.local/login`,
 
   restore(data) {
     return new Promise((resolve, reject) => {
