@@ -21,10 +21,10 @@ export default Base.extend({
     const { identification, password } = creds;
     // Constructing JSON object from credentials
     const data = JSON.stringify({
-      auth: {
+      //auth: {
         username: identification,
         password
-      }
+      //}
     });
 
     // request option with the url of the tokenEndPoint, the JSON-ified creds
