@@ -4,6 +4,22 @@
 
 @import "components/site-navigation";
 @import "components/login-form";
+@import "components/sidebar-navigation";
+
+
+.all-wrapper{
+  position: relative;
+  height: 100vh;
+  background-color: #f7f7f7;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.main-content{
+  position: relative;
+  width: calc(100% - 260px);
+
+}
 
 .page-placeholder {
   height: 600px;
@@ -26,7 +42,11 @@ body {
   font-size: .9rem;
   background-color: #f3f3f3;
 }
-
+.img-responsive{
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 .page-container {
   min-width: 1024px;
   max-width: 1280px;

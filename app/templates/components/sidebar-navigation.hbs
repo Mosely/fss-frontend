@@ -1,0 +1,30 @@
+<div class="sidebar-brand">
+  {{#link-to "dashboard" title="Dashboard" class="sidebar-brand__link"}}
+  <img
+    src="assets/images/logo.png"
+    class="sidebar-brand__logo img-responsive"
+    alt="Family Support Services">
+  {{/link-to}}
+</div>
+<div class="sidebar-wrapper">
+  <ul class="sidebar-wrapper__nav">
+    <li class="sidebar-wrapper__nav-item">
+      {{#link-to "dashboard" title="Dashboard" class="sidebar-wrapper__link"}}
+        {{fa-icon
+          "tachometer"
+          ariaLabel="Dashboard"
+          class="sidebar-wrapper__icon"}}
+          Dashboard
+      {{/link-to}}
+    </li>
+    <li class="sidebar-wrapper__nav-item">
+      {{#link-to "login" title="All Users" class="sidebar-wrapper__link"}}
+        {{fa-icon
+          "users"
+          ariaLabel="All Users"
+          class="sidebar-wrapper__icon"}}
+          View All Users
+      {{/link-to}}
+    </li>
+  </ul>
+</div>

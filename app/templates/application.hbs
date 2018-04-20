@@ -1,2 +1,9 @@
-{{site-navigation}}
-{{outlet}}
+<div class="all-wrapper">
+  <div id="sidebar" class="sidebar">
+    {{sidebar-navigation}}
+  </div>
+  <div id="main-content" class="main-content">
+    {{site-navigation}}
+    {{outlet}}
+  </div>
+</div>
