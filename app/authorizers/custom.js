@@ -1,16 +1,20 @@
-import Base from 'ember-simple-auth/authorizers/base';
-import Ember from 'ember';
+import Base from "ember-simple-auth/authorizers/base";
+import Ember from "ember";
 
+const {
+  inject: { service }
+} = Ember;
 export default Base.extend({
-  session: Ember.inject.service(),
+  // injecting session service
+  session: service("session"),
 
   authorize(data, block) {
     if (Ember.testing) {
-      block('Authorization', 'Bearer');
+      block("Authorization", "Bearer");
     }
     const { token } = data;
-    if (this.get('session.isAuthenticated') && token) {
-      block('Authorization', `Bearer ${token}`);
+    if (this.get("session.isAuthenticated") && token) {
+      block("Authorization", `Bearer ${token}`);
     }
   }
 });

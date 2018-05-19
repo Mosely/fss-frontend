@@ -1,0 +1,41 @@
+<main class="page-container">
+  <div class="page-card">
+    <div class="page-card--header">
+      <h4 class="header--title">All Users</h4>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          {{users-table}}
+        </div>
+      </div>
+    </div>
+    <div class="modal fade"
+      id="deleteModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="deleteModal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="yeild-symbol">
+              <span class="yeild-line"></span>
+              <span class="yeild-dot"></span>
+            </div>
+            <h2>Are you sure?</h2>
+            <div class="text-muted">
+              You will not be able to undo this action.
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-close" data-dismiss="modal">
+              Cancel
+            </button>
+            <button type="button" class="btn btn-comfirm"> Yes, delete!</button>
+          </div>
+        </div>
+      </div>
+    </div>
+		{{outlet}}
+  </div>
+</main>

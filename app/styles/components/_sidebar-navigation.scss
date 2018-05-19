@@ -12,7 +12,6 @@
 .sidebar-brand{
   position: relative;
   padding: 5px 1.8em;
-  border-bottom: 1px solid #5b5c5d;
 
   .sidebar-brand__link{
     position: relative;
@@ -23,12 +22,12 @@
 }
 .sidebar-wrapper{
   position: relative;
-  height: calc(100vh);
+  height: calc(100vh - 5em);
   overflow: auto;
   width: 260px;
 }
 .sidebar-wrapper__nav{
-  margin-top: 20px;
+  margin-top: 3em;
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
@@ -36,10 +35,34 @@
 .sidebar-wrapper__nav-item{
   position: relative;
   display: block;
+
   &:hover{
     .sidebar-wrapper__link{
-      opacity: 0.83;
+      opacity: 0.6;
       background: rgba(255, 255, 255, 0.3);
+    }
+  }
+
+  &.abso{
+    position: absolute;
+    width: 100%;
+    bottom: 10px;
+
+    &:hover{
+      .sidebar-wrapper__link{
+        background: $logo-blue;
+        opacity: 1;
+      }
+    }
+
+
+  }
+}
+.sidebar-wrapper__nav-item.abso{
+  &:hover{
+    .sidebar-wrapper__link.logout{
+      background: #8c2c26;
+      opacity: 1;
     }
   }
 }
@@ -47,13 +70,14 @@
   display: flex;
   align-items: center;
   color: #f1f1f1;
-  padding: 0.8em 1em;
-  margin: 5px 1em;
-  opacity: 0.83;
+  padding: 1.5em 1em;
+  margin: 1.5em 1em;
+  opacity: 0.6;
   border-radius: 4px;
   text-decoration: none;
   text-transform: uppercase;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
+
   &:hover{
     color:inherit;
     text-decoration: none;
@@ -63,9 +87,35 @@
     text-decoration: none;
     opacity: 1;
     background: rgba(255, 255, 255, 0.3);
+    &:hover{
+      opacity: 1;
+    }
   }
   i.sidebar-wrapper__icon{
-    font-size: 28px;
-    margin-right: 15px;
+    font-size: 1.8em;
+    margin-right: 1em;
+  }
+}
+.sidebar-wrapper__link.login{
+  background: $second-blue;
+  opacity: 1;
+
+  &:hover{
+    background: $logo-blue;
+  }
+  &.active{
+    background: $logo-blue;
+  }
+}
+
+.sidebar-wrapper__link.logout{
+  background: #b43831;
+  opacity: 1;
+
+  &:hover{
+    background: #8c2c26;
+  }
+  &.active{
+    background: #8c2c26;
   }
 }

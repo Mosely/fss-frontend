@@ -1,0 +1,73 @@
+<form class="form add-user--form" {{action "submit" on="submit"}}>
+	<div class="card">
+		<div class="card--header">
+			<h4 class="header--title">Add User</h4>
+		</div>
+		<div class="card--content row">
+			<div class="col">
+				<div class="form-group">
+					<label class="form-label">
+						First Name
+						<span class="star">*</span>
+					</label>
+					{{input type="text"
+									value=user.firstName
+									class="form-control"
+									required="required"}}
+				</div>
+			</div>
+			<div class="col">
+				<div class="form-group">
+					<label class="form-label">
+						Last Name
+						<span class="star">*</span>
+					</label>
+					{{input type="text"
+									value=user.lastName
+									class="form-control"
+									required="required"}}
+				</div>
+			</div>
+			<div class="col-12">
+				<div class="form-group">
+					<label class="form-label">
+						Username
+						<span class="star">*</span>
+					</label>
+					{{input type="text"
+									value=user.username
+									class="form-control"
+									required="required"}}
+				</div>
+				<div class="form-group">
+					<label class="form-label">
+						Email Address
+						<span class="star">*</span>
+					</label>
+					{{input type="email"
+									value=user.email
+									class="form-control"
+									required="required"}}
+				</div>
+				<div class="form-group">
+					<label class="form-label">
+						Password
+						<span class="star">*</span>
+					</label>
+					{{input type="password"
+									value=user.password
+									class="form-control"
+								required="required"}}
+				</div>
+				<div class="card--details">
+					<span class="star">*</span>
+					Required Fields
+				</div>
+				<button class="btn btn-card pull-right" type="submit">Add User</button>
+			</div>
+		</div>
+	</div>
+</form>
+{{#if errorMessage}}
+	{{errorMessage}}
+{{/if}}

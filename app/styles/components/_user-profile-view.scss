@@ -1,0 +1,22 @@
+.profile--title{
+	display: block;
+  position: relative;
+  color: #a9a9a9;
+  font-size: 1.3em;
+}
+.profile-data {
+  width: 80%;
+  margin: 0 auto;
+}
+.profile-data__title {
+  display: block;
+  font-size: 1.5em;
+  margin: 0.4em 0 0.3em;
+  text-transform: uppercase;
+}
+.profile-data__detail {
+  display: inline-block;
+  font-size: 1.4em;
+  color: #6e6e6e;
+  margin: 0 0 0.7em;
+}

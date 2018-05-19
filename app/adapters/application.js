@@ -4,5 +4,5 @@ import config from '../config/environment';
 
 export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
   host: `${config.host}`,
-  authorizer: 'authorize:custom'
+  authorizer: 'authorizer:custom',
 });

@@ -1,5 +1,5 @@
 <div class="sidebar-brand">
-  {{#link-to "dashboard" title="Dashboard" class="sidebar-brand__link"}}
+  {{#link-to "dashboard" title="Dashboard" class="link sidebar-brand__link"}}
   <img
     src="assets/images/logo.png"
     class="sidebar-brand__logo img-responsive"
@@ -8,23 +8,66 @@
 </div>
 <div class="sidebar-wrapper">
   <ul class="sidebar-wrapper__nav">
-    <li class="sidebar-wrapper__nav-item">
-      {{#link-to "dashboard" title="Dashboard" class="sidebar-wrapper__link"}}
-        {{fa-icon
-          "tachometer"
-          ariaLabel="Dashboard"
-          class="sidebar-wrapper__icon"}}
-          Dashboard
-      {{/link-to}}
-    </li>
-    <li class="sidebar-wrapper__nav-item">
-      {{#link-to "login" title="All Users" class="sidebar-wrapper__link"}}
-        {{fa-icon
-          "users"
-          ariaLabel="All Users"
-          class="sidebar-wrapper__icon"}}
-          View All Users
-      {{/link-to}}
-    </li>
+    {{#if session.isAuthenticated}}
+      <li class="sidebar-wrapper__nav-item">
+        {{#link-to "dashboard" title="Dashboard" class="link sidebar-wrapper__link"}}
+          {{fa-icon
+            "tachometer"
+            ariaLabel="Dashboard"
+            class="sidebar-wrapper__icon"}}
+            Dashboard
+        {{/link-to}}
+      </li>
+      <li class="sidebar-wrapper__nav-item">
+        {{#link-to "user-profile" title="User Profile" class="link sidebar-wrapper__link"}}
+          {{fa-icon
+            "user-circle"
+            ariaLabel="User Profile"
+            class="sidebar-wrapper__icon"}}
+            User Profile
+        {{/link-to}}
+      </li>
+      <li class="sidebar-wrapper__nav-item">
+        {{#link-to "add-user" title="Add Users" class="link sidebar-wrapper__link"}}
+          {{fa-icon
+            "user-plus"
+            ariaLabel="Add Users"
+            class="sidebar-wrapper__icon"}}
+            Add New Users
+        {{/link-to}}
+      </li>
+      <li class="sidebar-wrapper__nav-item">
+        {{#link-to "users" title="All Users" class="link sidebar-wrapper__link"}}
+          {{fa-icon
+            "users"
+            ariaLabel="All Users"
+            class="sidebar-wrapper__icon"}}
+            View All Users
+        {{/link-to}}
+      </li>
+      <li class="sidebar-wrapper__nav-item abso">
+        <a
+          href="#"
+          title="Log Out"
+          class="link sidebar-wrapper__link logout"
+          {{action 'invalidateSession'}}>
+          {{fa-icon
+            "sign-out"
+            ariaLabel="Login"
+            class="sidebar-wrapper__icon"}}
+            Log Out
+        </a>
+      </li>
+    {{else}}
+      <li class="sidebar-wrapper__nav-item abso">
+        {{#link-to "login" title="Login" class="link sidebar-wrapper__link login"}}
+          {{fa-icon
+            "sign-in"
+            ariaLabel="Login"
+            class="sidebar-wrapper__icon"}}
+            Login
+        {{/link-to}}
+      </li>
+    {{/if}}
   </ul>
 </div>

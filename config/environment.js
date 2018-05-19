@@ -27,7 +27,18 @@ module.exports = function(environment) {
   ENV['ember-simple-auth'] = {
     authorizer: 'authorizer:custom',
     routeAfterAuthentication: '/'
-};
+  };
+  // config/environment.js
+  ENV['ember-simple-auth-token'] = {
+    serverTokenEndpoint: '/login',
+    identificationField: 'username',
+    passwordField: 'password',
+    tokenPropertyName: 'token',
+    refreshTokenPropertyName: 'refresh_token',
+    authorizationPrefix: 'Bearer ',
+    authorizationHeaderName: 'Authorization',
+    headers: {},
+  };
 
   if (environment === 'development') {
     //ENV.host = 'http://localhost:4202';

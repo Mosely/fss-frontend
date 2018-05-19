@@ -5,6 +5,7 @@
 @import "components/site-navigation";
 @import "components/login-form";
 @import "components/sidebar-navigation";
+@import "components/user-profile-view";
 
 
 .all-wrapper{
@@ -18,6 +19,7 @@
 .main-content{
   position: relative;
   width: calc(100% - 260px);
+  background: #f5f5f5;
 
 }
 
@@ -30,9 +32,29 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 4px;
+  webkit-box-shadow: $line-shadow;
+  box-shadow: $line-shadow;
+}
+.page-card{
+  padding: 1em;
+  background-color: white;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  border-radius: 4px;
+  webkit-box-shadow: $line-shadow;
+  box-shadow: $line-shadow;
+
+  .header--title{
+    margin: 0.5em 0.5em 2em;
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid #dedede;
+    color: #2d2d2d;
+  }
 }
 
-html, body, .page-container, body > .ember-view {
+html, body, body > .ember-view {
   width: 100%;
   height: 100%;
 }
@@ -48,9 +70,9 @@ body {
   display: block;
 }
 .page-container {
-  min-width: 1024px;
-  max-width: 1280px;
+  width: 100%;
   margin: 0 auto;
+  padding: 2em 1.45em;
 }
 
 .page-module {
@@ -78,4 +100,179 @@ body {
 
 .loading__icon {
   color: white;
+}
+/*Important star*/
+.star{
+  color: $error-red;
+  padding-left: 5px;
+}
+/*button style*/
+.btn-card,
+.btn-blue{
+  cursor: pointer;
+  padding: 0.375em 2em;
+  background: $light-blue;
+  color: #fff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+
+  &:hover{
+    background: #0070f7;
+  }
+}
+/*
+** Action Colors **
+*/
+.profile{
+  color: $logo-blue;
+}
+.edit{
+  color: $logo-green;
+}
+.delete{
+  color: $error-red;
+}
+/*
+** Card Elements **
+*/
+.card {
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(63, 63, 68, 0.1);
+  margin-bottom: 30px;
+  border: none;
+}
+.card--header {
+  padding: 1.5em 1em 0;
+  color: #2d2d2d;
+
+  .header--title{
+    margin: 0;
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid #dedede;
+    color: #2d2d2d;
+  }
+}
+.card--content {
+  padding: 1em 3em;
+}
+.card--footer {
+  padding: 1em 0 2em;
+  display: block;
+  margin: 0 auto;
+}
+/*
+** Form Elements **
+*/
+.form-label{
+  color: #2d2d2d;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  max-width: 100%;
+}
+.form-control {
+  border: 1px solid #dedede;
+  color: #2d2d2d;
+
+  &:focus{
+    border-color: #495057;
+    box-shadow: none;
+  }
+}
+/*
+** Table Elements **
+*/
+.table thead th{
+  border-top: none;
+  color: #9a9a9a;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+.btn-action {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+
+  &:hover{
+    opacity: 1;
+  }
+}
+/*
+** Modal Elements Styles**
+*/
+
+/*Yeild Style */
+.yeild-symbol {
+  position: relative;
+  width: 6em;
+  height: 6em;
+  border: 4px solid #f8d486;
+  border-radius: 50%;
+  margin: 0 auto 2em;
+}
+.yeild-line {
+  position: absolute;
+  width: 4px;
+  border-radius: 7px;
+  height: 45px;
+  background: #f8d486;
+  left: 50%;
+  top: 8px;
+  transform: translateX(-50%);
+}
+.yeild-dot {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #f8d486;
+  left: 50%;
+  bottom: 12px;
+  transform: translateX(-50%);
+}
+/*Delete Modal*/
+.btn-close,
+.btn-comfirm{
+  cursor: pointer;
+  border-radius: 6px;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+
+  &:hover{
+    opacity: 1;
+  }
+}
+.btn-comfirm{
+  background: transparent;
+  border: 1px solid $light-blue;
+  color: $light-blue;
+}
+.btn-close{
+  background: #fb404b;
+  border: 1px solid #fb404b;
+  color: #fff;
+}
+.modal-content{
+  border-radius: 5px;
+  border: none;
+
+  h2{
+    color: #575757;
+    text-align: center;
+  }
+  .text-muted{
+    color: #868e96;
+    text-align: center;
+    font-size: 1.3em;
+  }
+}
+.modal-footer{
+  border-top: none;
+  justify-content: space-evenly;
+}
+#deleteModal{
+
 }
