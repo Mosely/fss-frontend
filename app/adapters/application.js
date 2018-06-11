@@ -6,7 +6,8 @@ const {
   inject: { service }
 } = Ember;
 
-export default DS.RESTAdapter.extend(DataAdapterMixin, {
+//export default DS.RESTAdapter.extend(DataAdapterMixin, {
+  export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
   host: `${config.host}`,
   session: service('session'),
   authorize(xhr) {
