@@ -6,12 +6,15 @@ const Router = EmberRouter.extend({
   rootURL: config.rootURL
 });
 
-Router.map(function() {
-  this.route('dashboard', { path: '/' });
+Router.map(function () {
   this.route('login');
+  this.route('dashboard', { path: '/' });
   this.route('users');
   this.route('add-user');
   this.route('user-profile');
+  this.route('authenticated', { path: '' }, function () {
+    // all routes that require the session to be authenticated
+  });
 });
 
 export default Router;
