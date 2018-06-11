@@ -8,6 +8,6 @@ export default DS.RESTAdapter.extend(DataAdapterMixin, {
   authorize(xhr) {
     let { access_token } = this.get('session.data.authenticated');
     xhr.setRequestHeader('Authorization', `Bearer ${access_token}`);
+    debugger;
   }
 });
-debugger;
