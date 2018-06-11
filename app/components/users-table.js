@@ -20,6 +20,6 @@ export default Component.extend({
 				console.log("Hello " + username);
 			});
     });
-    debugger;
+    //debugger;
   },
 });
