@@ -3,8 +3,13 @@
   color: $logo-blue;
   width: 100%;
   display: flex;
+  flex-flow: column;
   padding: 0 1.2em;
   border-bottom: 1px solid #dedede;
+
+  @include media-breakpoint-up(md){
+    flex-flow: row;
+  }
 }
 .site-navigation__title{
   display: block;
@@ -12,6 +17,10 @@
   color: #777;
   font-size: 1.4em;
   align-self: center;
+  margin: 0.7em auto 0;
+  @include media-breakpoint-up(md){
+    margin: 0 auto;
+  }
 }
 .site-navigation__branding {
   font-size: 1.1rem;
@@ -45,6 +54,7 @@
 .site-navigation__search-input {
   margin-top: 5px;
   text-indent: 20px;
+  width: 100%;
 
   // Tablet
   @include media-breakpoint-up(md) {
@@ -53,15 +63,22 @@
 
   // Tablet
   @include media-breakpoint-up(lg) {
-    width: 400px;
+    width: 20em;
   }
 }
 
 .site-navigation__actions {
   @include make-col-ready();
-
+  display: flex;
+  justify-content: flex-end;
+  flex-flow: row;
   line-height: 50px;
+  padding: 1em;
   text-align: right;
+
+  @include media-breakpoint-down(md) {
+    flex-flow: column;
+  }
 }
 
 .site-navigation__links {

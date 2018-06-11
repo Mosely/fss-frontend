@@ -1,5 +1,5 @@
 import Ember from "ember";
-import Base from "ember-simple-auth/authenticators/base";
+import OAuth2PasswordGrantAuthenticator from 'ember-simple-auth/authenticators/oauth2-password-grant';
 import config from "../config/environment";
 
 const {
@@ -8,14 +8,14 @@ const {
   run
 } = Ember;
 
-export default Base.extend({
+export default OAuth2PasswordGrantAuthenticator.extend({
   tokenEndpoint: `${config.host}`,
 
   //tokenEndpoint: `http://nginx3.pantheon.local/login`,
 
   restore(data) {
     return new Promise((resolve, reject) => {
-      if (!Ember.isEmpty(data.token)) {
+      if (!Ember.isEmpty(data.access_token)) {
         resolve(data);
       } else {
         reject();
@@ -28,7 +28,11 @@ export default Base.extend({
     // Constructing JSON object from credentials
     const data = JSON.stringify({
       username: identification,
-      password
+      password,
+      grant_type: 'password',
+      client_id: 'fssfrontend',
+      client_secret: '123',
+      scope: ''
     });
 
     // request option with the url of the tokenEndPoint, the JSON-ified creds
@@ -43,23 +47,23 @@ export default Base.extend({
 
     // Creating a new Promise that makes the ajax request the endpoint
     return new Promise((resolve, reject) => {
-      ajax(requestOptions).then(
-        response => {
-          const { token, id } = response;
-          // Wrapping aync operation in Ember.run
-          run(() => {
-            resolve({
-              token: token,
-              id: id
-            });
+      return ajax(requestOptions).then ( (response) => {
+        const { access_token, refresh_token } = response;
+        // Wrapping aync operation in Ember.run
+        run(() => {
+          resolve({
+            access_token: access_token,
+            refresh_token: refresh_token
           });
-        },
-        error => {
-          // Wrapping aync operation in Ember.run
-          run(() => {
-            reject(error);
-          });
-        }
+        });
+        debugger;
+      },
+      error => {
+        // Wrapping aync operation in Ember.run
+        run(() => {
+          reject(error);
+        });
+      }
       );
     });
   },

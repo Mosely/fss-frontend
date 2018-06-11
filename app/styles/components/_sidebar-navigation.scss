@@ -8,6 +8,10 @@
   z-index: 1;
   color: #f1f1f1;
   background: $dark-blue;
+  transform: translateX(-100%);
+  @include media-breakpoint-up(sm) {
+    transform: translateX(0%);
+  }
 }
 .sidebar-brand{
   position: relative;

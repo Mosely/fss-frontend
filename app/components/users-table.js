@@ -8,6 +8,7 @@ const {
 
 export default Component.extend({
 	// injecting session service
+  session: service("session"),
   store: service("store"),
 	endpoint: `${config.host}`,
 
@@ -19,5 +20,6 @@ export default Component.extend({
 				console.log("Hello " + username);
 			});
     });
+    debugger;
   },
 });

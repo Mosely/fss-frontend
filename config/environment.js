@@ -21,19 +21,25 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+    oauth2: {
+      sessionServiceName: 'session',
     }
   };
 
   ENV['ember-simple-auth'] = {
     authorizer: 'authorizer:custom',
-    routeAfterAuthentication: '/'
+    routeAfterAuthentication: '/',
+    refreshTokenPropertyName: 'refresh_token',
+    authorizationPrefix: 'Bearer ',
+    authorizationHeaderName: 'Authorization',
   };
   // config/environment.js
   ENV['ember-simple-auth-token'] = {
     serverTokenEndpoint: '/login',
     identificationField: 'username',
     passwordField: 'password',
-    tokenPropertyName: 'token',
+    tokenPropertyName: 'access_token',
     refreshTokenPropertyName: 'refresh_token',
     authorizationPrefix: 'Bearer ',
     authorizationHeaderName: 'Authorization',

@@ -1,20 +1,17 @@
-import Base from "ember-simple-auth/authorizers/base";
+import DataAdapterMixin from 'ember-simple-auth/mixins/data-adapter-mixin';
+import OAuth2Bearer from 'ember-simple-auth/authorizers/oauth2-bearer';
 import Ember from "ember";
 
 const {
   inject: { service }
 } = Ember;
-export default Base.extend({
-  // injecting session service
-  session: service("session"),
+export default OAuth2Bearer.extend(DataAdapterMixin, {
+  session: service('session'),
 
-  authorize(data, block) {
-    if (Ember.testing) {
-      block("Authorization", "Bearer");
-    }
-    const { token } = data;
-    if (this.get("session.isAuthenticated") && token) {
-      block("Authorization", `Bearer ${token}`);
-    }
+  authorize(xhr) {
+    const { access_token } = this.get('session.data.authenticated');
+    const authData = `Bearer ${access_token}`;
+    xhr.setRequestHeader('Authorization', authData);
+    debugger;
   }
 });

@@ -12,15 +12,16 @@ export default Controller.extend({
     authenticate() {
       let session = this.get("session");
       let credentials = this.getProperties("identification", "password"),
-        authenticator = "authenticator:jwt";
+        authenticator = "authenticator:oauth2";
 
       //calling authenticate method to authenticate user
       session
         .authenticate(authenticator, credentials)
         .then(() => {
-          let uid = this.get("session.data.authenticated.id");
-          this.store.findRecord("user", uid).then(user => {
-            session.set("currentUser", user);
+          this.store.queryRecord('user', {}).then((user) => {
+            console.log("User " + user);
+            session.set('currentUser', user);
+            debugger;
           });
         })
         .catch(reason => {
