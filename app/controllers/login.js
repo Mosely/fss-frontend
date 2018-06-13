@@ -17,13 +17,13 @@ export default Controller.extend({
       //calling authenticate method to authenticate user
       session
         .authenticate(authenticator, credentials)
-        .then(() => {
-          this.store.queryRecord('user', {}).then((user) => {
-            console.log("User " + user);
-            session.set('currentUser', user);
-            debugger;
-          });
-        })
+        //.then(() => {
+        //  this.store.queryRecord('user', {}).then((user) => {
+        //    console.log("User " + user);
+        //    session.set('currentUser', user);
+        //    debugger;
+        //  });
+        //})
         .catch(reason => {
           this.set("errorMessage", reason.error || reason);
         });
