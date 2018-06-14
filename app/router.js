@@ -12,9 +12,6 @@ Router.map(function () {
   this.route('users');
   this.route('add-user');
   this.route('user-profile');
-  this.route('authenticated', { path: '' }, function () {
-    // all routes that require the session to be authenticated
-  });
 });
 
 export default Router;
