@@ -8,7 +8,7 @@ export default DS.Model.extend({
   passwordCreatedAt: DS.attr('date'),
   isDisabled: DS.attr('boolean'),
 
-  //relationships, if any 
+  //relationships, if any
   updatedBy: DS.belongsTo('user'),
   shelterClientAdditionalStaffs: DS.hasMany('shelter-client-additional-staff'),
   userRoles: DS.hasMany('user-role'),
