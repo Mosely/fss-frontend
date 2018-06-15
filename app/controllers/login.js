@@ -1,9 +1,6 @@
 import Controller from "@ember/controller";
-import Ember from "ember";
+import { inject as service } from '@ember/service';
 
-const {
-  inject: { service }
-} = Ember;
 export default Controller.extend({
   // injecting session service
   session: service("session"),
@@ -19,9 +16,7 @@ export default Controller.extend({
         .authenticate(authenticator, credentials)
         .then(() => {
           this.store.queryRecord('user', {}).then((user) => {
-            console.log("User " + user);
             session.set('currentUser', user);
-        //    debugger;
           });
         })
         .catch(reason => {

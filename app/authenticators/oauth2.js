@@ -56,7 +56,6 @@ export default OAuth2PasswordGrantAuthenticator.extend({
             refresh_token: refresh_token
           });
         });
-        debugger;
       },
       error => {
         // Wrapping aync operation in Ember.run
