@@ -4,6 +4,6 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 export default Route.extend(AuthenticatedRouteMixin, {
   // NOTE: May ahve to deserialize the returned date for it to display
   model(params) {
-    return this.store.find('person', param.id);
+    return this.store.find('person', params.id);
   }
 });
