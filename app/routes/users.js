@@ -10,7 +10,7 @@ export default Route.extend(AuthenticatedRouteMixin, {
     var promise = new Ember.RSVP.Promise(function (resolve, reject) {
       this.store.findAll('user').then(function (users) {
         var personPromises = users.map(function(s){ return s.get('person') });
-        Em.RSVP.all(personPromises).then(function () {
+        Ember.RSVP.all(personPromises).then(function () {
           resolve(users);
         });
       });
