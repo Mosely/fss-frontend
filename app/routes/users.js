@@ -3,7 +3,18 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 
 export default Route.extend(AuthenticatedRouteMixin, {
   // NOTE: May ahve to deserialize the returned date for it to display
-    model() {
-      return this.store.findAll('user', { include: 'person' });
-    }
-  });
+  //model() {
+  //  return this.store.findAll('user');
+  //}
+  model() {
+    var promise = new Ember.RSVP.Promise(function (resolve, reject) {
+      this.store.findAll('user').then(function (users) {
+        var personPromises = users.map(function(s){ return s.get('person') });
+        Em.RSVP.all(personPromises).then(function () {
+          resolve(users);
+        });
+      });
+    });
+    return promise;
+  }
+});
