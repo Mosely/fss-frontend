@@ -19,7 +19,9 @@ export default Route.extend(AuthenticatedRouteMixin, {
  // }
   model() {
     return this.store.findAll('user').then(function (users) {
-      users.get('person');
+      return Ember.RSVP.all(users.getEach('person')).then(function(){
+        return users;
+      });
     });
   }
 });
