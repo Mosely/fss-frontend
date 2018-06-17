@@ -56,7 +56,7 @@
 								</div>
 						</div>
 					</div>
-					<div class="column">
+					<div class="col-2">
 						<div class="form-group">
 							<label class="form-label">
 								Current Age
@@ -129,6 +129,104 @@
 											placeholder="Zip code"
 											min="0"
 											class="form-control"}}
+						</div>
+					</div>
+				</div>
+				<label class="form-label">
+					Which category best describes:
+					<span class="star">*</span>
+				</label>
+				<div class="row justify-content-between">
+					<div class="col-3">
+						<div class="form-check">
+							{{input type="radio"
+											class="form-check-input"
+											name="choice-ethnicity"
+											id="choice-ethnicity-americanIndian-alaskaNative"
+											value=choiceAmericanIndianAlaskaNative}}
+							<label for="choice-ethnicity-americanIndian-alaskaNative"
+										 class="form-check-label">
+								American Indian or Alaska Native
+							</label>
+						</div>
+						<div class="form-check">
+							{{input type="radio"
+											class="form-check-input"
+											name="choice-ethnicity"
+											id="choice-ethnicity-asain"
+											value=choiceAsain}}
+							<label for="choice-ethnicity-asain" class="form-check-label">
+								Asain
+							</label>
+						</div>
+						<div class="form-check">
+							{{input type="radio"
+											class="form-check-input"
+											name="choice-ethnicity"
+											id="choice-ethnicity-african-american"
+											value=choiceAfricanAmerican}}
+							<label for="choice-ethnicity-african-american"
+										 class="form-check-label">
+								Black or African American
+							</label>
+						</div>
+					</div>
+					<div class="col-3">
+						<div class="form-check">
+							{{input type="radio"
+											class="form-check-input"
+											name="choice-ethnicity"
+											id="choice-ethnicity-hispanic-latino-spanish"
+											value=choiceHispanicLatinoSpanish}}
+							<label for="choice-ethnicity-hispanic-latino-spanish"
+										 class="form-check-label">
+								Hispanic, Latino, or Spanish origin
+							</label>
+						</div>
+						<div class="form-check">
+							{{input type="radio"
+											class="form-check-input"
+											name="choice-ethnicity"
+											id="choice-ethnicity-middleEastern-northAfrican"
+											value=choiceMiddleEasternNorthAfrican}}
+							<label for="choice-ethnicity-middleEastern-northAfrican"
+										 class="form-check-label">
+								Middle Eastern or North African
+							</label>
+						</div>
+						<div class="form-check">
+							{{input type="radio"
+											class="form-check-input"
+											name="choice-ethnicity"
+											id="choice-ethnicity-nativeHawaiian-pacificIslander"
+											value=choiceNativeHawaiianPacificIslander}}
+							<label for="choice-ethnicity-nativeHawaiian-pacificIslander"
+										 class="form-check-label">
+								Native Hawaiian or Pacific Islander
+							</label>
+						</div>
+					</div>
+					<div class="col-3">
+						<div class="form-check">
+							{{input type="radio"
+											class="form-check-input"
+											name="choice-ethnicity"
+											id="choice-ethnicity-white"
+											value=choiceWhite}}
+							<label for="choice-ethnicity-white" class="form-check-label">
+								White
+							</label>
+						</div>
+						<div class="form-check">
+							{{input type="radio"
+											class="form-check-input"
+											name="choice-ethnicity"
+											id="choice-ethnicity-other"
+											value=choiceOther}}
+							<label for="choice-ethnicity-other"
+										 class="form-check-label">
+								Other race, ethnicity, or origin
+							</label>
 						</div>
 					</div>
 				</div>
