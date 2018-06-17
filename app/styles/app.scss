@@ -106,7 +106,7 @@ body {
     margin-bottom: 0;
   }
 }
-
+.input-group-addon{background: #fff; color: $second-blue;}
 .loading__container {
   width: 100%;
   height: 100%;
@@ -161,8 +161,8 @@ body {
 */
 .card {
   border-radius: 4px;
-  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(63, 63, 68, 0.1);
-          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(63, 63, 68, 0.1);
+  -webkit-box-shadow: $line-shadow;
+          box-shadow: $line-shadow;
   margin-bottom: 30px;
   border: none;
 }
@@ -200,7 +200,7 @@ body {
   color: #2d2d2d;
 
   &:focus{
-    border-color: #495057;
+    border-color: $light-blue;
     -webkit-box-shadow: none;
             box-shadow: none;
   }
@@ -285,8 +285,8 @@ body {
   color: $light-blue;
 }
 .btn-close{
-  background: #fb404b;
-  border: 1px solid #fb404b;
+  background: $error-red;
+  border: 1px solid $error-red;
   color: #fff;
 }
 .modal-content{
@@ -334,8 +334,8 @@ body {
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 
   &:hover{
-    -webkit-box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    -webkit-box-shadow: $heavy-shadow;
+            box-shadow: $heavy-shadow;
     color: inherit;
     text-decoration: none;
   }
@@ -364,7 +364,7 @@ body {
       -ms-flex-align: center;
           align-items: center;
   color: #f8f8f8;
-  background: #316cb4;
+  background: $second-blue;
   -webkit-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   -o-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
