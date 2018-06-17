@@ -15,6 +15,7 @@ Router.map(function () {
   this.route('person', { path: '/people/:id' });
   this.route('add-user');
   this.route('user-profile');
+  this.route('adult-intake');
 });
 
 export default Router;
