@@ -18,10 +18,11 @@ export default Route.extend(AuthenticatedRouteMixin, {
   //  return promise;
  // }
   model() {
-    return this.store.findAll('user').then(function (users) {
-      return users.forEach((user) => {
-        user.get('person');
-      });
-    });
+    //return this.store.findAll('user').then(function (users) {
+    //  return users.forEach((user) => {
+    //    user.get('person');
+    //  });
+    //});
+    return this.store.findAll('user', { include: 'person' });
   }
 });
