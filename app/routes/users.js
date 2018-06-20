@@ -11,17 +11,21 @@ export default Route.extend(AuthenticatedRouteMixin, {
        });
      });
    },*/
-   /*model() {
+   model() {
     return this.store.findAll('user').then(function(users){
       return Ember.RSVP.all(users.getEach('person')).then(function(){
-        alert(users.person.id);
+
+        users.forEach(user => {
+          let person = user.person;
+          console.log("user id = " + user.id + " and firstName = " + person.firstName);
+        });
         return users;
       });
     });
-   }*/
-   model() {
-     return this.store.findAll('user');
    }
+   //model() {
+   //  return this.store.findAll('user');
+   //}
   //model() {
   //  return RSVP.hash({
   //    users: this.store.findAll('user'),
