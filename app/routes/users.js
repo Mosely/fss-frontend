@@ -4,13 +4,13 @@ import RSVP from 'rsvp';
 
 export default Route.extend(AuthenticatedRouteMixin, {
   // NOTE: May ahve to deserialize the returned date for it to display
-  // model() {
-  //   return this.store.findAll('user').then(function (users) {
-  //     return users.forEach((user) => {
-  //       user.get('person');
-  //     });
-  //   });
-  // },
+   model() {
+     return this.store.findAll('user').then(function (users) {
+       return users.forEach((user) => {
+         user.get('person');
+       });
+     });
+   },
   //model() {
   //  return RSVP.hash({
   //    users: this.store.findAll('user'),
@@ -28,7 +28,7 @@ export default Route.extend(AuthenticatedRouteMixin, {
   //   controller.set('people', model.people);
   // },
 
-  model() {
+  /*model() {
     var promise = new Ember.RSVP.Promise(function (resolve, reject) {
       this.store.findAll('user').then(function (users) {
         var personPromises = users.map(function(s){ return s.get('person') });
@@ -38,5 +38,5 @@ export default Route.extend(AuthenticatedRouteMixin, {
       });
     });
     return promise;
- }
+ }*/
 });
