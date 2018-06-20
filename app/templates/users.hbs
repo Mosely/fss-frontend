@@ -23,9 +23,7 @@
                 {{#each model as |user|}}
                   <tr>
                     <td>{{user.id}}</td>
-                    {{#each model.person as |person|}}
-                    <td>{{person.firstName}} {{person.lastName}}</td>
-                    {{/each}}
+                    <td>{{user.person.firstName}} {{user.person.lastName}}</td>
                     <td>{{user.username}}</td>
                     <td>{{user.email}}</td>
                     <td>{{moment-format user.passwordCreatedAt 'YYYY-MM-DD HH:mm'}}</td>

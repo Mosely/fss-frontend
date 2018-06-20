@@ -14,6 +14,7 @@ export default Route.extend(AuthenticatedRouteMixin, {
    model() {
     return this.store.findAll('user').then(function(users){
       return Ember.RSVP.all(users.getEach('person')).then(function(){
+        alert(users);
         return users;
       });
     });
