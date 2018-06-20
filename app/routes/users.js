@@ -7,6 +7,7 @@ export default Route.extend(AuthenticatedRouteMixin, {
    model() {
      return this.store.findAll('user').then(function (users) {
        return users.forEach((user) => {
+         user.set('person', this.store.findRecord('person', user.id));
          user.get('person');
        });
      });
