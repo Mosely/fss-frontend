@@ -5,8 +5,8 @@
 				<h4 class="header--title">Adult Intake Form</h4>
 			</div>
 			<div class="card--content">
-				{{#form-multi-step as |act|}}
-					<div id="adult-intake-1" class="form-step--item">
+				{{#multi-step-form as |act|}}
+					<div id="adult-intake-1" class="form-step--item active">
 						<label class="form-label mt-3">
 							Client Name
 							<span class="star">*</span>
@@ -234,11 +234,6 @@
 								</div>
 							</div>
 						</div>
-						<button class="btn btn-card mt-3 pull-right form-step--btn"
-										data-target="#adult-intake-2"
-										onclick={{action act}}>
-							Next
-						</button>
 					</div>
 					<div id="adult-intake-2" class="form-step--item hidden">
 						<label class="form-label mt-3">
@@ -372,11 +367,6 @@
 								</div>
 							</div>
 						</div>
-						<button class="btn btn-card mt-3 pull-right form-step--btn"
-										data-target="#adult-intake-3"
-										onclick={{action act}}>
-							Next
-						</button>
 					</div>
 					<div id="adult-intake-3" class="form-step--item hidden">
 						<label class="form-label mt-3">
@@ -416,14 +406,9 @@
 							Which category best describes:
 							<span class="star">*</span>
 						</label>
-						<button class="btn btn-card mt-3 pull-right form-step--btn"
-										data-target=""
-										onclick={{action act}}>
-							Next
-						</button>
 					</div>
 					{{body}}
-				{{/form-multi-step}}
+				{{/multi-step-form}}
 			</div>
 			<div class="card--footer">
 

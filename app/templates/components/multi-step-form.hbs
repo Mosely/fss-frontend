@@ -1,3 +1,9 @@
 <div class="form-step--container">
 	{{yield (action "multiStep")}}
+
+<button class="btn btn-card mt-3 pull-right form-step--btn"
+					data-target=""
+					onclick={{action (action "multiStep")}}>
+		Next
+	</button>
 </div>
