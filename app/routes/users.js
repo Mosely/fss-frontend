@@ -4,13 +4,19 @@ import RSVP from 'rsvp';
 
 export default Route.extend(AuthenticatedRouteMixin, {
   // NOTE: May ahve to deserialize the returned date for it to display
+  // model() {
+  //   return this.store.findAll('user').then(function (users) {
+  //     return users.forEach((user) => {
+  //       user.get('person');
+  //     });
+  //   });
+  // },
   model() {
-    return this.store.findAll('user').then(function (users) {
-      return users.forEach((user) => {
-        user.get('person');
-      });
+    return RSVP.hash({
+      users: this.store.findAll('user'),
+      people: this.store.findAll('person'),
     });
-  },
+  }
   // afterModel(model, transition) {
   //   this._super(controller, model);
   //   return RSVP.all(model.getEach('people'));
