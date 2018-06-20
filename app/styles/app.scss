@@ -190,9 +190,9 @@ body {
 */
 .form-label{
   color: #2d2d2d;
-  font-size: 0.8em;
+  font-size: 1.19em;
   text-transform: uppercase;
-  margin-bottom: 5px;
+  margin-bottom: 0.5em;
   max-width: 100%;
 }
 .form-control {
@@ -211,8 +211,8 @@ body {
 }
 .form-check-label {
   cursor: pointer;
-  position: relative;
   display: inline-block;
+  margin: 0 0.7em;
 
   &::before{
     content: '';
