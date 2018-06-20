@@ -20,10 +20,10 @@
           			</tr>
           		</thead>
           		<tbody>
-                {{#each users as |user|}}
+                {{#each-in model as |user person|}}
                   <tr>
                     <td>{{user.id}}</td>
-                    <td>{{user.person.firstName}} {{user.person.lastName}}</td>
+                    <td>{{person.firstName}} {{person.lastName}}</td>
                     <td>{{user.username}}</td>
                     <td>{{user.email}}</td>
                     <td>{{moment-format user.passwordCreatedAt 'YYYY-MM-DD HH:mm'}}</td>
