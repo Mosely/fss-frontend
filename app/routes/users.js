@@ -11,12 +11,12 @@ export default Route.extend(AuthenticatedRouteMixin, {
   //     });
   //   });
   // },
-  model() {
-    return RSVP.hash({
-      users: this.store.findAll('user'),
-      people: this.store.findAll('person'),
-    });
-  }
+  //model() {
+  //  return RSVP.hash({
+  //    users: this.store.findAll('user'),
+  //    people: this.store.findAll('person'),
+  //  });
+  //}
   // afterModel(model, transition) {
   //   this._super(controller, model);
   //   return RSVP.all(model.getEach('people'));
@@ -28,15 +28,15 @@ export default Route.extend(AuthenticatedRouteMixin, {
   //   controller.set('people', model.people);
   // },
 
-  //model() {
-  //  var promise = new Ember.RSVP.Promise(function (resolve, reject) {
-  //    this.store.findAll('user').then(function (users) {
-  //      var personPromises = users.map(function(s){ return s.get('person') });
-  //      Ember.RSVP.all(personPromises).then(function () {
-  //        resolve(users);
-  //      });
-  //    });
-  //  });
-  //  return promise;
- // }
+  model() {
+    var promise = new Ember.RSVP.Promise(function (resolve, reject) {
+      this.store.findAll('user').then(function (users) {
+        var personPromises = users.map(function(s){ return s.get('person') });
+        Ember.RSVP.all(personPromises).then(function () {
+          resolve(users);
+        });
+      });
+    });
+    return promise;
+ }
 });
