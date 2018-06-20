@@ -4,14 +4,20 @@ import RSVP from 'rsvp';
 
 export default Route.extend(AuthenticatedRouteMixin, {
   // NOTE: May ahve to deserialize the returned date for it to display
-   model() {
+   /*model() {
      return this.store.findAll('user').then(function (users) {
        return users.forEach((user) => {
-         user.set('person', this.store.findRecord('person', user.id));
          user.get('person');
        });
      });
-   },
+   },*/
+   model() {
+    return this.store.findAll('user').then(function(users){
+      return Ember.RSVP.all(users.getEach('person')).then(function(){
+        return users;
+      });
+    });
+   }
   //model() {
   //  return RSVP.hash({
   //    users: this.store.findAll('user'),
