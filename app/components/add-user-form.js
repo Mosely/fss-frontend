@@ -5,7 +5,7 @@ export default Component.extend({
   session: service("session"),
 
   actions: {
-    triggerSave() {
+    submit() {
       this.sendAction('triggerSave');
     }
   }

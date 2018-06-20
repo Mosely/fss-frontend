@@ -4,11 +4,11 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 export default Route.extend(AuthenticatedRouteMixin, {
   // model hook to return an empty User record
   actions: {
-    addUser() {
-      let userInfo = this.getProperties('firstName', 'lastName', 'username', 'email', 'password');
-      let newUser = this.store.createRecord('user', userInfo);
-      console.log("Hello");
-      return newUser.save();
+    model() {
+      // let userInfo = this.getProperties('firstName', 'lastName', 'username', 'email', 'password');
+      // let newUser = this.store.createRecord('user', userInfo);
+      // return newUser.save();
+      console.log("Model in route");
     }
   }
 });
