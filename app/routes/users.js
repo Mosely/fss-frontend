@@ -11,13 +11,16 @@ export default Route.extend(AuthenticatedRouteMixin, {
        });
      });
    },*/
-   model() {
+   /*model() {
     return this.store.findAll('user').then(function(users){
       return Ember.RSVP.all(users.getEach('person')).then(function(){
-        alert(users);
+        alert(users.person.id);
         return users;
       });
     });
+   }*/
+   model() {
+     return this.store.findAll('user');
    }
   //model() {
   //  return RSVP.hash({
