@@ -14,7 +14,7 @@ export default Route.extend(AuthenticatedRouteMixin, {
    model() {
     let store = this.store;
     return store.findAll('user').then(function(users){
-      store.find('person');
+      store.findAll('person');
       return Ember.RSVP.all(users.getEach('person')).then(function(){
 
         users.forEach(user => {
