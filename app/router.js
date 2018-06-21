@@ -54,7 +54,7 @@ Router.map(function () {
   this.route('shelter-client-additional-staff', { path: '/shelterclientadditionalstaff/:id' });
   this.route('shelter-client-funding-source', { path: '/shelterclientfundingsources/:id' });
   this.route('shelter-client-identity-preference', { path: '/shelterclientidentitypreferences/:id' });
-  this.route('state-data', { path: '/statedata/:id' });
+  this.route('statedata', { path: '/statedata/:id' });
   this.route('user-role', { path: '/userroles/:id' });
   this.route('user-view', { path: '/userviews/:id' });
   this.route('veteran', { path: '/veterans/:id' });
