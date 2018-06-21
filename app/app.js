@@ -3,6 +3,8 @@ import Resolver from './resolver';
 import loadInitializers from 'ember-load-initializers';
 import config from './config/environment';
 import Ember from 'ember';
+// sets up Ember.Inflector
+import './models/custom-inflector-rules';
 
 const App = Application.extend({
   LOG_TRANSITIONS_INTERNAL:  true,

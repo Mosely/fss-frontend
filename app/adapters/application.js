@@ -7,6 +7,9 @@ import config from '../config/environment';
 export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
 
   host: `${config.host}`,
+  pathForType: function(type) {
+    return type.replace(/-/g,'');
+  },
   session: service('session'),
   authorize(xhr) {
     let { access_token } = this.get('session.data.authenticated');
