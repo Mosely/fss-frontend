@@ -17,7 +17,6 @@ export default Route.extend(AuthenticatedRouteMixin, {
       users.forEach(user => {
         store.findRecord('person', user.id).then(function(person) {
           user.set('person', person);
-          //console.log("user id = " + user.id + " and firstName = " + person.firstName);
         });
       });
       return users;
