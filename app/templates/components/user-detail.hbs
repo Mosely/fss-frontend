@@ -1,7 +1,8 @@
 <ul>
-	<li>{{person.id}}</li>
-	<li>{{person.fisrtName}} {{person.middleName}} {{person.lastName}}</li>
-	<li>{{person.username}}</li>
-	<li>{{person.email}}</li>
-	<li>{{person.age}}</li>
+	<li>ID: <b> {{person.id}}</b></li>
+	<li>Name: <b>{{person.firstName}} {{person.middleName}} {{person.lastName}}</b></li>
+	<li>Username: <b>{{person.username}}</b></li>
+	<li>Email: <b>{{person.email}}</b></li>
+	<li>Password Created At: <b>{{moment-format person.passwordCreatedAt 'YYYY-MM-DD HH:mm'}}</b></li>
+	<li>Age: <b>{{person.age}}</b></li>
 </ul>
