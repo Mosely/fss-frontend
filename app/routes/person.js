@@ -8,5 +8,6 @@ export default Route.extend(AuthenticatedRouteMixin, {
     //this.store.query('person', { filter: { id: params.id } }).then(function (person) {
     //  return person.get('firstObject');
     //});
+    debugger;
   }
 });
