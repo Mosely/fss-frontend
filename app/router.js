@@ -60,7 +60,7 @@ Router.map(function () {
   this.route('veteran', { path: '/veterans/:id' });
 
   this.route('addresses', { path: '/addresses' });
-  this.route('branches-of-services', { path: '/branchesofservice' });
+  this.route('branches-of-service', { path: '/branchesofservice' });
   this.route('city-datas', { path: '/citydata' });
   this.route('city-data-extendeds', { path: '/citydataextended' });
   this.route('clients', { path: '/clients' });
