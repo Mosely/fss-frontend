@@ -8,7 +8,8 @@ export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
 
   host: `${config.host}`,
   pathForType: function(type) {
-    return type.replace(/-/g,'');
+    let typeCleaned = type.replace(/-/g,'');
+    return Ember.String.pluralize(typeCleaned);
   },
   session: service('session'),
   authorize(xhr) {
