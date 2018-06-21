@@ -14,15 +14,18 @@ export default Route.extend(AuthenticatedRouteMixin, {
    model() {
     let store = this.store;
     return store.findAll('user').then(function(users){
-      store.findAll('person');
-      return Ember.RSVP.all(users.getEach('person')).then(function(){
-
+      users.forEach(user => {
+        store.findRecord('person', user.id).then(function(person) {
+          user.set('person', person);
+        });
+      });
+      /*return Ember.RSVP.all(users.getEach('person')).then(function(){
         users.forEach(user => {
           let person = user.person;
           console.log("user id = " + user.id + " and firstName = " + person.firstName);
         });
         return users;
-      });
+      });*/
     });
    }
    //model() {
