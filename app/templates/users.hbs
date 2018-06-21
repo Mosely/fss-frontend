@@ -29,14 +29,11 @@
                     <td>{{moment-format user.passwordCreatedAt 'YYYY-MM-DD HH:mm'}}</td>
                     <td>{{user.person.age}}</td>
                     <td>
-                    	<button class="btn-action profile"
-                    		type="button"
-                    		name="button"
-                    		data-toggle="tooltip"
-                    		data-placement="top"
-                    		title="View User">
-                    		{{fa-icon "user"}}
-                    	</button>
+                      {{#link-to "person" user
+                        title="View User"
+                        class="btn-action profile"}}
+                        {{fa-icon "user"}}
+                      {{/link-to}}
                     	<button class="btn-action edit"
                     		type="button"
                     		name="button"
