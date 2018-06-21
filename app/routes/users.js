@@ -13,6 +13,7 @@ export default Route.extend(AuthenticatedRouteMixin, {
    },*/
    model() {
     return this.store.findAll('user').then(function(users){
+      this.store.find('person');
       return Ember.RSVP.all(users.getEach('person')).then(function(){
 
         users.forEach(user => {
