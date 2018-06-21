@@ -18,7 +18,7 @@ export default Route.extend(AuthenticatedRouteMixin, {
         store.findRecord('person', user.id).then(function(person) {
           user.set('person', person);
           user.get('person');
-          console.log("user id = " + user.id + " and firstName = " + person.firstName);
+          console.log("user id = " + user.id + " and firstName = " + user.person.firstName);
         });
       });
       /*return Ember.RSVP.all(users.getEach('person')).then(function(){
