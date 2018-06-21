@@ -2,6 +2,7 @@ import DS from 'ember-data';
 import DataAdapterMixin from 'ember-simple-auth/mixins/data-adapter-mixin';
 import { inject as service } from '@ember/service';
 import config from '../config/environment';
+import { pluralize } from 'ember-inflector';
 
 //export default DS.RESTAdapter.extend(DataAdapterMixin, {
 export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
@@ -9,7 +10,7 @@ export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
   host: `${config.host}`,
   pathForType: function(type) {
     let typeCleaned = type.replace(/-/g,'');
-    return Ember.String.pluralize(typeCleaned);
+    return pluralize(typeCleaned);
   },
   session: service('session'),
   authorize(xhr) {
