@@ -5,7 +5,7 @@ export default DS.Model.extend({
 
 
   //relationships, if any
-  shelterClient: DS.belongsTo('shelter-client'),
-  identityPreference: DS.belongsTo('identity-preference'),
+  shelterClient: DS.belongsTo('shelterclient'),
+  identityPreference: DS.belongsTo('identitypreference'),
   updatedBy: DS.belongsTo('user')
 });

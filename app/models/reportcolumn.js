@@ -11,5 +11,5 @@ export default DS.Model.extend({
   //relationships, if any
   report: DS.belongsTo('report'),
   updatedBy: DS.belongsTo('user'),
-  reportCriterias: DS.hasMany('report-criteria')
+  reportCriterias: DS.hasMany('reportcriteria')
 });

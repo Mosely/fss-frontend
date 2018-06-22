@@ -6,5 +6,5 @@ export default DS.Model.extend({
 
   //relationships, if any
   updatedBy: DS.belongsTo('user'),
-  clientLanguages: DS.hasMany('client-language')
+  clientLanguages: DS.hasMany('clientlanguage')
 });

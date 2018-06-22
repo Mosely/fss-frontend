@@ -10,7 +10,7 @@ export default DS.Model.extend({
 
   //relationships, if any
   updatedBy: DS.belongsTo('user'),
-  shelterClientAdditionalStaffs: DS.hasMany('shelter-client-additional-staff'),
+  shelterClientAdditionalStaff: DS.hasMany('shelterclientadditionalstaff'),
   userRoles: DS.hasMany('user-role'),
   person: DS.belongsTo('person')
 });

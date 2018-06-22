@@ -6,6 +6,6 @@ export default DS.Model.extend({
 
   //relationships, if any
   counselee: DS.belongsTo('counselee'),
-  counselingTopic: DS.belongsTo('counseling-topic'),
+  counselingTopic: DS.belongsTo('counselingtopic'),
   updatedBy: DS.belongsTo('user')
 });

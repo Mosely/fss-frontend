@@ -7,5 +7,5 @@ export default DS.Model.extend({
 
   //relationships, if any
   updatedBy: DS.belongsTo('user'),
-  reportColumns: DS.hasMany('report-column')
+  reportColumns: DS.hasMany('reportcolumn')
 });
