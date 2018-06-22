@@ -12,5 +12,6 @@ export default DS.Model.extend({
   gender: DS.belongsTo('gender'),
   updatedBy: DS.belongsTo('user'),
   personAddresses: DS.hasMany('person-address'),
-  personPhones: DS.hasMany('person-phone')
+  personPhones: DS.hasMany('person-phone'),
+  user: DS.belongsTo('user', { inverse: 'person' })
 });
