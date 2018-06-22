@@ -5,11 +5,11 @@ export default Route.extend(AuthenticatedRouteMixin, {
    model() {
     let store = this.store;
     return store.findAll('user').then(function(users){
-      //users.forEach(user => {
-      //  store.findRecord('person', user.id).then(function(person) {
-      //    user.set('person', person);
-      //  });
-      //});
+      users.forEach(user => {
+        store.findRecord('person', user.id).then(function(person) {
+          user.set('person', person);
+        });
+      });
       return users;
     });
    }

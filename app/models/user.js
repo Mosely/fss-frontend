@@ -12,5 +12,5 @@ export default DS.Model.extend({
   updatedBy: DS.belongsTo('user'),
   shelterClientAdditionalStaffs: DS.hasMany('shelter-client-additional-staff'),
   userRoles: DS.hasMany('user-role'),
-  person: DS.belongsTo('person', { inverse: 'user' })
+  person: DS.belongsTo('person')
 });
