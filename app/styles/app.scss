@@ -241,6 +241,9 @@ body {
 .form-check-input:checked + .form-check-label::after{
   transform: scale(0.8);
 }
+.form-check-input:checked + .form-check-label::before{
+  border-color: #2a8aff;
+}
 /*
 ** Table Elements **
 */
