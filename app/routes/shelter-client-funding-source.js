@@ -3,6 +3,6 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 
 export default Route.extend(AuthenticatedRouteMixin, {
     model(params) {
-        return this.store.findRecord('shelter-client-funding-source', params.id);
+        return this.store.findRecord('shelterclientfundingsource', params.id);
     }
 });

@@ -3,6 +3,6 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 
 export default Route.extend(AuthenticatedRouteMixin, {
     model(params) {
-        return this.store.findRecord('county-data', params.id);
+        return this.store.findRecord('countydata', params.id);
     }
 });

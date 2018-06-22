@@ -2,11 +2,16 @@ import Inflector from 'ember-inflector';
 
 const inflector = Inflector.inflector;
 
-// Tell the inflector that the plural of "campus" is "campuses"
 inflector.irregular('branchofservice', 'branchesofservice');
+inflector.irregular('counseleechild', 'counseleechildren');
+inflector.irregular('ethnicity', 'ethnicities');
+inflector.irregular('clientethnicity', 'clientethnicities');
+inflector.irregular('person', 'people');
 
-// Tell the inflector that the plural of "advice" is "advice"
-//inflector.uncountable('advice');
+inflector.uncountable('shelterclientadditionalstaff');
+inflector.uncountable('citydata');
+inflector.uncountable('countydata');
+inflector.uncountable('statedata');
 
 // Modules must have an export, so we just export an empty object here
 export default {};

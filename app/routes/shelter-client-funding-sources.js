@@ -4,7 +4,7 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 export default Route.extend(AuthenticatedRouteMixin, {
    model() {
     let store = this.store;
-    return store.findAll('shelter-client-funding-source').then(function(primaryModels){
+    return store.findAll('shelterclientfundingsource').then(function(primaryModels){
       // Modify the following to pull in any related models as needed
       //primaryModels.forEach(primaryModel => {
       //  store.findRecord('REPLACEWITHRELATEDMODEL', primaryModel.id).then(function(secondaryModel) {
