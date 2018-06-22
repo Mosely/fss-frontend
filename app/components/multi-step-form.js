@@ -3,24 +3,25 @@ import Component from '@ember/component';
 export default Component.extend({
 
 	actions: {
-		currentItem: 0,
+
+		showItem(num) {
+			let item = document.querySelectorAll('.form-step--item');
+			//take the param and add block display to the specified item
+			item[num].classList.add('active');
+		},
 
 		nextPrev() {
-			// let item = document.querySelectorAll('.form-step--item');
-			// let i = 0;
-			//
-			// item[i].classList.remove('active');
-			// item[i].classList.add('hidden');
-			// i++;
-			//
-			// if (i > item.length) {
-			// 	i = 0;
-			// }
-			//
-			// item[i].classList.remove('hidden');
-			// item[i].classList.add('active');
-			//
-			// console.log(i);
+			let currentItem = 0;
+			let item = document.querySelectorAll('.form-step--item');
+			//make the current item display none
+			item[currentItem].classList.add('hidden');
+			item[currentItem].classList.remove('active');
+			// increase item index by one
+			currentItem = currentItem + 1;
+
+			if (currentItem >= item.length) {
+				return false;
+			}
 		},
 	}
 
