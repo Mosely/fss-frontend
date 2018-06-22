@@ -6,6 +6,7 @@
 @import "components/login-form";
 @import "components/sidebar-navigation";
 @import "components/user-profile-view";
+@import "components/multi-step-form";
 
 
 .all-wrapper{
@@ -223,7 +224,7 @@ body {
     left: 0;
     width: 18px;
     height: 18px;
-    border: 1px solid #dedede;
+    border: 1px solid #ababab;
     border-radius: 100%;
   }
   &::after{
@@ -244,6 +245,10 @@ body {
 }
 .form-check-input:checked + .form-check-label::before{
   border-color: #2a8aff;
+}
+.input-group-text{
+  background: #fff;
+  color: #316cb4;
 }
 /*
 ** Table Elements **
