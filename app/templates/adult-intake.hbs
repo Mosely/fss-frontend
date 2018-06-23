@@ -6,408 +6,410 @@
 			</div>
 			<div class="card--content">
 				{{#multi-step-form}}
-					<div id="adult-intake-1" class="form-step--item active">
-						<label class="form-label mt-3">
-							Client Name
-							<span class="star">*</span>
-						</label>
-						<div class="row">
-							<div class="col">
-								<div class="form-group">
-									{{input type="text"
-													value=firstName
-													class="form-control"
-													placeholder="First Name"
-													required="required"}}
+					<form id="form" class="form" {{action "submit" on="submit"}}>
+						<div id="adult-intake-1" class="form-step--item active">
+							<label class="form-label mt-3">
+								Client Name
+								<span class="star">*</span>
+							</label>
+							<div class="row">
+								<div class="col">
+									<div class="form-group">
+										{{input type="text"
+														value=firstName
+														class="form-control"
+														placeholder="First Name"
+														required="required"}}
+									</div>
+								</div>
+								<div class="col">
+									<div class="form-group">
+										{{input type="text"
+														value=middleName
+														class="form-control"
+														placeholder="Middle Name"
+														required="required"}}
+									</div>
+								</div>
+								<div class="col">
+									<div class="form-group">
+										{{input type="text"
+														value=lastName
+														class="form-control"
+														placeholder="Last Name"
+														required="required"}}
+									</div>
 								</div>
 							</div>
-							<div class="col">
-								<div class="form-group">
-									{{input type="text"
-													value=middleName
-													class="form-control"
-													placeholder="Middle Name"
-													required="required"}}
-								</div>
-							</div>
-							<div class="col">
-								<div class="form-group">
-									{{input type="text"
-													value=lastName
-													class="form-control"
-													placeholder="Last Name"
-													required="required"}}
-								</div>
-							</div>
-						</div>
-						<div class="row justify-content-between mb-3">
-							<div class="col">
-								<div class="form-group">
-									<label class="form-label">
-										Date of Birth
-										<span class="star">*</span>
-									</label>
-										<div class="input-group">
-											{{input type="date"
-															value=dateOfBirth
-															class="form-control datepicker date"}}
-											<div class="input-group-prepend">
-												<span class="input-group-text">
-													{{fa-icon "calendar"
-																		ariaLabel="Pick a Date"}}
-												</span>
+							<div class="row justify-content-between mb-3">
+								<div class="col">
+									<div class="form-group">
+										<label class="form-label">
+											Date of Birth
+											<span class="star">*</span>
+										</label>
+											<div class="input-group">
+												{{input type="date"
+																value=dateOfBirth
+																class="form-control datepicker date"}}
+												<div class="input-group-prepend">
+													<span class="input-group-text">
+														{{fa-icon "calendar"
+																			ariaLabel="Pick a Date"}}
+													</span>
+												</div>
 											</div>
-										</div>
+									</div>
+								</div>
+								<div class="col-2">
+									<div class="form-group">
+										<label class="form-label">
+											Current Age
+											<span class="star">*</span>
+										</label>
+										{{input type="number"
+														value=age
+														placeholder="XX"
+														min="0"
+														class="form-control"}}
+									</div>
+								</div>
+								<div class="col">
+									<div class="form-group">
+										<label class="form-label">
+											Social Security #
+											<span class="star">*</span>
+										</label>
+										{{input type="number"
+														value=socialSecurityNumber
+														data-inputmask="'mask':'999-99-9999'"
+														placeholder="XXX-XX-XXXX"
+														min="0"
+														class="form-control"}}
+									</div>
 								</div>
 							</div>
-							<div class="col-2">
-								<div class="form-group">
-									<label class="form-label">
-										Current Age
-										<span class="star">*</span>
-									</label>
-									{{input type="number"
-													value=age
-													placeholder="XX"
-													min="0"
-													class="form-control"}}
+							<label class="form-label">
+								Address
+								<span class="star">*</span>
+							</label>
+							<div class="row mb-3">
+								<div class="col-10">
+									<div class="form-group">
+										{{input type="text"
+														value=streetName
+														placeholder="Street"
+														class="form-control"}}
+									</div>
+								</div>
+								<div class="col-2">
+									<div class="form-group">
+										{{input type="number"
+														value=streetNumber
+														placeholder="(Apt. #)"
+														min="0"
+														class="form-control"}}
+									</div>
+								</div>
+								<div class="col-4">
+									<div class="form-group">
+										{{input type="text"
+														value=cityData.name
+														placeholder="City"
+														class="form-control"}}
+									</div>
+								</div>
+								<div class="col-4">
+									<div class="form-group">
+										{{input type="text"
+														value=stateData.name
+														placeholder="State"
+														class="form-control"}}
+									</div>
+								</div>
+								<div class="col-4">
+									<div class="form-group">
+										{{input type="number"
+														value=zipcode
+														placeholder="Zip code"
+														min="0"
+														class="form-control"}}
+									</div>
 								</div>
 							</div>
-							<div class="col">
-								<div class="form-group">
-									<label class="form-label">
-										Social Security #
-										<span class="star">*</span>
-									</label>
-									{{input type="number"
-													value=socialSecurityNumber
-													data-inputmask="'mask':'999-99-9999'"
-													placeholder="XXX-XX-XXXX"
-													min="0"
-													class="form-control"}}
+							<label class="form-label mb-4">
+								Which category best describes:
+								<span class="star">*</span>
+							</label>
+							<div class="row justify-content-between mb-2">
+								<div class="col-3">
+									<div class="form-check">
+										{{input type="radio"
+														class="form-check-input"
+														name="choice-ethnicity"
+														id="choice-ethnicity-americanIndian-alaskaNative"
+														value=choiceAmericanIndianAlaskaNative}}
+										<label for="choice-ethnicity-americanIndian-alaskaNative"
+													 class="form-check-label">
+											American Indian or Alaska Native
+										</label>
+									</div>
+									<div class="form-check">
+										{{input type="radio"
+														class="form-check-input"
+														name="choice-ethnicity"
+														id="choice-ethnicity-asain"
+														value=choiceAsain}}
+										<label for="choice-ethnicity-asain" class="form-check-label">
+											Asain
+										</label>
+									</div>
+									<div class="form-check">
+										{{input type="radio"
+														class="form-check-input"
+														name="choice-ethnicity"
+														id="choice-ethnicity-african-american"
+														value=choiceAfricanAmerican}}
+										<label for="choice-ethnicity-african-american"
+													 class="form-check-label">
+											Black or African American
+										</label>
+									</div>
 								</div>
-							</div>
-						</div>
-						<label class="form-label">
-							Address
-							<span class="star">*</span>
-						</label>
-						<div class="row mb-3">
-							<div class="col-10">
-								<div class="form-group">
-									{{input type="text"
-													value=streetName
-													placeholder="Street"
-													class="form-control"}}
+								<div class="col-3">
+									<div class="form-check">
+										{{input type="radio"
+														class="form-check-input"
+														name="choice-ethnicity"
+														id="choice-ethnicity-hispanic-latino-spanish"
+														value=choiceHispanicLatinoSpanish}}
+										<label for="choice-ethnicity-hispanic-latino-spanish"
+													 class="form-check-label">
+											Hispanic, Latino, or Spanish origin
+										</label>
+									</div>
+									<div class="form-check">
+										{{input type="radio"
+														class="form-check-input"
+														name="choice-ethnicity"
+														id="choice-ethnicity-middleEastern-northAfrican"
+														value=choiceMiddleEasternNorthAfrican}}
+										<label for="choice-ethnicity-middleEastern-northAfrican"
+													 class="form-check-label">
+											Middle Eastern or North African
+										</label>
+									</div>
+									<div class="form-check">
+										{{input type="radio"
+														class="form-check-input"
+														name="choice-ethnicity"
+														id="choice-ethnicity-nativeHawaiian-pacificIslander"
+														value=choiceNativeHawaiianPacificIslander}}
+										<label for="choice-ethnicity-nativeHawaiian-pacificIslander"
+													 class="form-check-label">
+											Native Hawaiian or Pacific Islander
+										</label>
+									</div>
 								</div>
-							</div>
-							<div class="col-2">
-								<div class="form-group">
-									{{input type="number"
-													value=streetNumber
-													placeholder="(Apt. #)"
-													min="0"
-													class="form-control"}}
-								</div>
-							</div>
-							<div class="col-4">
-								<div class="form-group">
-									{{input type="text"
-													value=cityData.name
-													placeholder="City"
-													class="form-control"}}
-								</div>
-							</div>
-							<div class="col-4">
-								<div class="form-group">
-									{{input type="text"
-													value=stateData.name
-													placeholder="State"
-													class="form-control"}}
-								</div>
-							</div>
-							<div class="col-4">
-								<div class="form-group">
-									{{input type="number"
-													value=zipcode
-													placeholder="Zip code"
-													min="0"
-													class="form-control"}}
-								</div>
-							</div>
-						</div>
-						<label class="form-label mb-4">
-							Which category best describes:
-							<span class="star">*</span>
-						</label>
-						<div class="row justify-content-between mb-2">
-							<div class="col-3">
-								<div class="form-check">
-									{{input type="radio"
-													class="form-check-input"
-													name="choice-ethnicity"
-													id="choice-ethnicity-americanIndian-alaskaNative"
-													value=choiceAmericanIndianAlaskaNative}}
-									<label for="choice-ethnicity-americanIndian-alaskaNative"
-												 class="form-check-label">
-										American Indian or Alaska Native
-									</label>
-								</div>
-								<div class="form-check">
-									{{input type="radio"
-													class="form-check-input"
-													name="choice-ethnicity"
-													id="choice-ethnicity-asain"
-													value=choiceAsain}}
-									<label for="choice-ethnicity-asain" class="form-check-label">
-										Asain
-									</label>
-								</div>
-								<div class="form-check">
-									{{input type="radio"
-													class="form-check-input"
-													name="choice-ethnicity"
-													id="choice-ethnicity-african-american"
-													value=choiceAfricanAmerican}}
-									<label for="choice-ethnicity-african-american"
-												 class="form-check-label">
-										Black or African American
-									</label>
-								</div>
-							</div>
-							<div class="col-3">
-								<div class="form-check">
-									{{input type="radio"
-													class="form-check-input"
-													name="choice-ethnicity"
-													id="choice-ethnicity-hispanic-latino-spanish"
-													value=choiceHispanicLatinoSpanish}}
-									<label for="choice-ethnicity-hispanic-latino-spanish"
-												 class="form-check-label">
-										Hispanic, Latino, or Spanish origin
-									</label>
-								</div>
-								<div class="form-check">
-									{{input type="radio"
-													class="form-check-input"
-													name="choice-ethnicity"
-													id="choice-ethnicity-middleEastern-northAfrican"
-													value=choiceMiddleEasternNorthAfrican}}
-									<label for="choice-ethnicity-middleEastern-northAfrican"
-												 class="form-check-label">
-										Middle Eastern or North African
-									</label>
-								</div>
-								<div class="form-check">
-									{{input type="radio"
-													class="form-check-input"
-													name="choice-ethnicity"
-													id="choice-ethnicity-nativeHawaiian-pacificIslander"
-													value=choiceNativeHawaiianPacificIslander}}
-									<label for="choice-ethnicity-nativeHawaiian-pacificIslander"
-												 class="form-check-label">
-										Native Hawaiian or Pacific Islander
-									</label>
-								</div>
-							</div>
-							<div class="col-3">
-								<div class="form-check">
-									{{input type="radio"
-													class="form-check-input"
-													name="choice-ethnicity"
-													id="choice-ethnicity-white"
-													value=choiceWhite}}
-									<label for="choice-ethnicity-white" class="form-check-label">
-										White
-									</label>
-								</div>
-								<div class="form-check">
-									{{input type="radio"
-													class="form-check-input"
-													name="choice-ethnicity"
-													id="choice-ethnicity-other"
-													value=choiceOther}}
-									<label for="choice-ethnicity-other"
-												 class="form-check-label">
-										Other race, ethnicity, or origin
-									</label>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div id="adult-intake-2" class="form-step--item hidden">
-						<label class="form-label mt-3">
-							Client Name
-							<span class="star">*</span>
-						</label>
-						<div class="row">
-							<div class="col">
-								<div class="form-group">
-									{{input type="text"
-													value=firstName
-													class="form-control"
-													placeholder="First Name"
-													required="required"}}
-								</div>
-							</div>
-							<div class="col">
-								<div class="form-group">
-									{{input type="text"
-													value=middleName
-													class="form-control"
-													placeholder="Middle Name"
-													required="required"}}
-								</div>
-							</div>
-							<div class="col">
-								<div class="form-group">
-									{{input type="text"
-													value=lastName
-													class="form-control"
-													placeholder="Last Name"
-													required="required"}}
+								<div class="col-3">
+									<div class="form-check">
+										{{input type="radio"
+														class="form-check-input"
+														name="choice-ethnicity"
+														id="choice-ethnicity-white"
+														value=choiceWhite}}
+										<label for="choice-ethnicity-white" class="form-check-label">
+											White
+										</label>
+									</div>
+									<div class="form-check">
+										{{input type="radio"
+														class="form-check-input"
+														name="choice-ethnicity"
+														id="choice-ethnicity-other"
+														value=choiceOther}}
+										<label for="choice-ethnicity-other"
+													 class="form-check-label">
+											Other race, ethnicity, or origin
+										</label>
+									</div>
 								</div>
 							</div>
 						</div>
-						<label class="form-label mb-4">
-							Which category best describes:
-							<span class="star">*</span>
-						</label>
-						<div class="row justify-content-between mb-2">
-							<div class="col-3">
-								<div class="form-check">
-									{{input type="radio"
-													class="form-check-input"
-													name="choice-ethnicity"
-													id="choice-ethnicity-americanIndian-alaskaNative"
-													value=choiceAmericanIndianAlaskaNative}}
-									<label for="choice-ethnicity-americanIndian-alaskaNative"
-												 class="form-check-label">
-										American Indian or Alaska Native
-									</label>
+						<div id="adult-intake-2" class="form-step--item hidden">
+							<label class="form-label mt-3">
+								Client Name
+								<span class="star">*</span>
+							</label>
+							<div class="row">
+								<div class="col">
+									<div class="form-group">
+										{{input type="text"
+														value=firstName
+														class="form-control"
+														placeholder="First Name"
+														required="required"}}
+									</div>
 								</div>
-								<div class="form-check">
-									{{input type="radio"
-													class="form-check-input"
-													name="choice-ethnicity"
-													id="choice-ethnicity-asain"
-													value=choiceAsain}}
-									<label for="choice-ethnicity-asain" class="form-check-label">
-										Asain
-									</label>
+								<div class="col">
+									<div class="form-group">
+										{{input type="text"
+														value=middleName
+														class="form-control"
+														placeholder="Middle Name"
+														required="required"}}
+									</div>
 								</div>
-								<div class="form-check">
-									{{input type="radio"
-													class="form-check-input"
-													name="choice-ethnicity"
-													id="choice-ethnicity-african-american"
-													value=choiceAfricanAmerican}}
-									<label for="choice-ethnicity-african-american"
-												 class="form-check-label">
-										Black or African American
-									</label>
+								<div class="col">
+									<div class="form-group">
+										{{input type="text"
+														value=lastName
+														class="form-control"
+														placeholder="Last Name"
+														required="required"}}
+									</div>
 								</div>
 							</div>
-							<div class="col-3">
-								<div class="form-check">
-									{{input type="radio"
-													class="form-check-input"
-													name="choice-ethnicity"
-													id="choice-ethnicity-hispanic-latino-spanish"
-													value=choiceHispanicLatinoSpanish}}
-									<label for="choice-ethnicity-hispanic-latino-spanish"
-												 class="form-check-label">
-										Hispanic, Latino, or Spanish origin
-									</label>
+							<label class="form-label mb-4">
+								Which category best describes:
+								<span class="star">*</span>
+							</label>
+							<div class="row justify-content-between mb-2">
+								<div class="col-3">
+									<div class="form-check">
+										{{input type="radio"
+														class="form-check-input"
+														name="choice-ethnicity"
+														id="choice-ethnicity-americanIndian-alaskaNative"
+														value=choiceAmericanIndianAlaskaNative}}
+										<label for="choice-ethnicity-americanIndian-alaskaNative"
+													 class="form-check-label">
+											American Indian or Alaska Native
+										</label>
+									</div>
+									<div class="form-check">
+										{{input type="radio"
+														class="form-check-input"
+														name="choice-ethnicity"
+														id="choice-ethnicity-asain"
+														value=choiceAsain}}
+										<label for="choice-ethnicity-asain" class="form-check-label">
+											Asain
+										</label>
+									</div>
+									<div class="form-check">
+										{{input type="radio"
+														class="form-check-input"
+														name="choice-ethnicity"
+														id="choice-ethnicity-african-american"
+														value=choiceAfricanAmerican}}
+										<label for="choice-ethnicity-african-american"
+													 class="form-check-label">
+											Black or African American
+										</label>
+									</div>
 								</div>
-								<div class="form-check">
-									{{input type="radio"
-													class="form-check-input"
-													name="choice-ethnicity"
-													id="choice-ethnicity-middleEastern-northAfrican"
-													value=choiceMiddleEasternNorthAfrican}}
-									<label for="choice-ethnicity-middleEastern-northAfrican"
-												 class="form-check-label">
-										Middle Eastern or North African
-									</label>
+								<div class="col-3">
+									<div class="form-check">
+										{{input type="radio"
+														class="form-check-input"
+														name="choice-ethnicity"
+														id="choice-ethnicity-hispanic-latino-spanish"
+														value=choiceHispanicLatinoSpanish}}
+										<label for="choice-ethnicity-hispanic-latino-spanish"
+													 class="form-check-label">
+											Hispanic, Latino, or Spanish origin
+										</label>
+									</div>
+									<div class="form-check">
+										{{input type="radio"
+														class="form-check-input"
+														name="choice-ethnicity"
+														id="choice-ethnicity-middleEastern-northAfrican"
+														value=choiceMiddleEasternNorthAfrican}}
+										<label for="choice-ethnicity-middleEastern-northAfrican"
+													 class="form-check-label">
+											Middle Eastern or North African
+										</label>
+									</div>
+									<div class="form-check">
+										{{input type="radio"
+														class="form-check-input"
+														name="choice-ethnicity"
+														id="choice-ethnicity-nativeHawaiian-pacificIslander"
+														value=choiceNativeHawaiianPacificIslander}}
+										<label for="choice-ethnicity-nativeHawaiian-pacificIslander"
+													 class="form-check-label">
+											Native Hawaiian or Pacific Islander
+										</label>
+									</div>
 								</div>
-								<div class="form-check">
-									{{input type="radio"
-													class="form-check-input"
-													name="choice-ethnicity"
-													id="choice-ethnicity-nativeHawaiian-pacificIslander"
-													value=choiceNativeHawaiianPacificIslander}}
-									<label for="choice-ethnicity-nativeHawaiian-pacificIslander"
-												 class="form-check-label">
-										Native Hawaiian or Pacific Islander
-									</label>
-								</div>
-							</div>
-							<div class="col-3">
-								<div class="form-check">
-									{{input type="radio"
-													class="form-check-input"
-													name="choice-ethnicity"
-													id="choice-ethnicity-white"
-													value=choiceWhite}}
-									<label for="choice-ethnicity-white" class="form-check-label">
-										White
-									</label>
-								</div>
-								<div class="form-check">
-									{{input type="radio"
-													class="form-check-input"
-													name="choice-ethnicity"
-													id="choice-ethnicity-other"
-													value=choiceOther}}
-									<label for="choice-ethnicity-other"
-												 class="form-check-label">
-										Other race, ethnicity, or origin
-									</label>
+								<div class="col-3">
+									<div class="form-check">
+										{{input type="radio"
+														class="form-check-input"
+														name="choice-ethnicity"
+														id="choice-ethnicity-white"
+														value=choiceWhite}}
+										<label for="choice-ethnicity-white" class="form-check-label">
+											White
+										</label>
+									</div>
+									<div class="form-check">
+										{{input type="radio"
+														class="form-check-input"
+														name="choice-ethnicity"
+														id="choice-ethnicity-other"
+														value=choiceOther}}
+										<label for="choice-ethnicity-other"
+													 class="form-check-label">
+											Other race, ethnicity, or origin
+										</label>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-					<div id="adult-intake-3" class="form-step--item hidden">
-						<label class="form-label mt-3">
-							Client Name
-							<span class="star">*</span>
-						</label>
-						<div class="row">
-							<div class="col">
-								<div class="form-group">
-									{{input type="text"
-													value=firstName
-													class="form-control"
-													placeholder="First Name"
-													required="required"}}
+						<div id="adult-intake-3" class="form-step--item hidden">
+							<label class="form-label mt-3">
+								Client Name
+								<span class="star">*</span>
+							</label>
+							<div class="row">
+								<div class="col">
+									<div class="form-group">
+										{{input type="text"
+														value=firstName
+														class="form-control"
+														placeholder="First Name"
+														required="required"}}
+									</div>
+								</div>
+								<div class="col">
+									<div class="form-group">
+										{{input type="text"
+														value=middleName
+														class="form-control"
+														placeholder="Middle Name"
+														required="required"}}
+									</div>
+								</div>
+								<div class="col">
+									<div class="form-group">
+										{{input type="text"
+														value=lastName
+														class="form-control"
+														placeholder="Last Name"
+														required="required"}}
+									</div>
 								</div>
 							</div>
-							<div class="col">
-								<div class="form-group">
-									{{input type="text"
-													value=middleName
-													class="form-control"
-													placeholder="Middle Name"
-													required="required"}}
-								</div>
-							</div>
-							<div class="col">
-								<div class="form-group">
-									{{input type="text"
-													value=lastName
-													class="form-control"
-													placeholder="Last Name"
-													required="required"}}
-								</div>
-							</div>
+							<label class="form-label mb-4">
+								Which category best describes:
+								<span class="star">*</span>
+							</label>
 						</div>
-						<label class="form-label mb-4">
-							Which category best describes:
-							<span class="star">*</span>
-						</label>
-					</div>
-					{{body}}
+						{{body}}
+					</form>
 				{{/multi-step-form}}
 			</div>
 			<div class="card--footer">
