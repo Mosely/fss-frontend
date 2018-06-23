@@ -12,6 +12,5 @@ export default Route.extend(AuthenticatedRouteMixin, {
       });
       return people;
     });
-    debugger;
   }
 });

@@ -8,7 +8,6 @@ export default Route.extend(AuthenticatedRouteMixin, {
       // let userInfo = this.getProperties('firstName', 'lastName', 'username', 'email', 'password');
       // let newUser = this.store.createRecord('user', userInfo);
       // return newUser.save();
-      console.log("Model in route");
     }
   }
 });

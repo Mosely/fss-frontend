@@ -8,7 +8,6 @@ export default Controller.extend({
     addUser() {
       let userInfo = this.getProperties('firstName', 'lastName', 'username', 'email', 'password');
       let newUser = this.store.createRecord('user', userInfo);
-      console.log("Hello");
       return newUser.save();
 
     }

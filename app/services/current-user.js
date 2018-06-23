@@ -3,7 +3,7 @@ import Ember from "ember";
 import { inject as service } from '@ember/service';
 
 const {
-  RSVP: { Promise },
+  RSVP,
 } = Ember;
 
 export default Service.extend({
