@@ -1,8 +1,56 @@
-<ul>
+{{!-- <ul>
 	<li>ID: <b> {{user.id}}</b></li>
 	<li>Name: <b>{{user.person.firstName}} {{user.person.middleName}} {{user.person.lastName}}</b></li>
 	<li>Username: <b>{{user.username}}</b></li>
 	<li>Email: <b>{{user.email}}</b></li>
 	<li>Password Created At: <b>{{moment-format user.passwordCreatedAt 'YYYY-MM-DD HH:mm'}}</b></li>
 	<li>Age: <b>{{user.person.age}}</b></li>
-</ul>
+</ul> --}}
+<div class="container">
+	<div class="row">
+		<div class="col-2">
+			<div class="detail">
+				<h4 class="detail-title"> User ID: </h4>
+				<span class="detail-value"> {{user.id}} </span>
+			</div>
+		</div>
+		<div class="col-7">
+			<div class="detail">
+				<h4 class="detail-title"> Full Name: </h4>
+				<span class="detail-value">
+					{{user.person.firstName}}
+					{{user.person.middleName}}
+					{{user.person.lastName}}
+				</span>
+			</div>
+		</div>
+		<div class="col-3">
+			<div class="detail">
+				<h4 class="detail-title"> User Age: </h4>
+				<span class="detail-value"> {{user.person.age}} </span>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-5">
+			<div class="detail">
+				<h4 class="detail-title"> User Email: </h4>
+				<span class="detail-value"> {{user.email}} </span>
+			</div>
+		</div>
+		<div class="col-4">
+			<div class="detail">
+				<h4 class="detail-title"> Password Created At: </h4>
+				<span class="detail-value">
+					{{moment-format user.passwordCreatedAt 'YYYY-MM-DD HH:mm'}}
+				</span>
+			</div>
+		</div>
+		<div class="col-3">
+			<div class="detail">
+				<h4 class="detail-title"> Date of Birth: </h4>
+				<span class="detail-value"> {{moment-format user.person.dateOfBirth 'YYYY-MM-DD'}}</span>
+			</div>
+		</div>
+	</div>
+</div>
