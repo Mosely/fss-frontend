@@ -3,67 +3,104 @@
 		<div class="card--header">
 			<h4 class="header--title">Add User</h4>
 		</div>
-		<div class="card--content row">
-			<div class="col">
-				<div class="form-group">
+		<div class="card--content">
+			<div class="row">
+				<div class="col">
+					<div class="form-group">
+						<label class="form-label">
+							First Name
+							<span class="star">*</span>
+						</label>
+						{{input type="text"
+										value=firstName
+										class="form-control"
+										required="required"}}
+					</div>
+				</div>
+				<div class="col-3">
 					<label class="form-label">
-						First Name
+						Middle Name
 						<span class="star">*</span>
 					</label>
 					{{input type="text"
-									value=firstName
+									value=middleName
 									class="form-control"
 									required="required"}}
+				</div>
+				<div class="col">
+					<div class="form-group">
+						<label class="form-label">
+							Last Name
+							<span class="star">*</span>
+						</label>
+						{{input type="text"
+										value=lastName
+										class="form-control"
+										required="required"}}
+					</div>
 				</div>
 			</div>
-			<div class="col">
-				<div class="form-group">
-					<label class="form-label">
-						Last Name
-						<span class="star">*</span>
-					</label>
-					{{input type="text"
-									value=lastName
-									class="form-control"
-									required="required"}}
+			<div class="row">
+				<div class="col-6">
+					<div class="form-group">
+						<label class="form-label">
+							Username
+							<span class="star">*</span>
+						</label>
+						{{input type="text"
+										value=username
+										class="form-control"
+										required="required"}}
+					</div>
+				</div>
+				<div class="col-6">
+					<div class="form-group">
+						<label class="form-label">
+							Date of Birth
+							<span class="star">*</span>
+						</label>
+							<div class="input-group">
+								{{input type="date"
+												value=dateOfBirth
+												class="form-control datepicker date"}}
+								<div class="input-group-prepend">
+									<span class="input-group-text">
+										{{fa-icon "calendar"
+															ariaLabel="Pick a Date"}}
+									</span>
+								</div>
+							</div>
+					</div>
 				</div>
 			</div>
-			<div class="col-12">
-				<div class="form-group">
-					<label class="form-label">
-						Username
-						<span class="star">*</span>
-					</label>
-					{{input type="text"
-									value=username
-									class="form-control"
+			<div class="row">
+				<div class="col-12">
+					<div class="form-group">
+						<label class="form-label">
+							Email Address
+							<span class="star">*</span>
+						</label>
+						{{input type="email"
+										value=email
+										class="form-control"
+										required="required"}}
+					</div>
+					<div class="form-group">
+						<label class="form-label">
+							Password
+							<span class="star">*</span>
+						</label>
+						{{input type="password"
+										value=password
+										class="form-control"
 									required="required"}}
-				</div>
-				<div class="form-group">
-					<label class="form-label">
-						Email Address
+					</div>
+					<div class="card--details">
 						<span class="star">*</span>
-					</label>
-					{{input type="email"
-									value=email
-									class="form-control"
-									required="required"}}
+						Required Fields
+					</div>
+					<button class="btn btn-card pull-right form-step--btn" type="submit">Add User</button>
 				</div>
-				<div class="form-group">
-					<label class="form-label">
-						Password
-						<span class="star">*</span>
-					</label>
-					{{input type="password"
-									value=password
-									class="form-control"
-								required="required"}}
-				</div>
-				<div class="card--details">
-					<span class="star">*</span>
-					Required Fields
-				</div>
-				<button class="btn btn-card pull-right" type="submit">Add User</button>
 			</div>
 		</div>
 	</div>
