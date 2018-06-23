@@ -34,7 +34,7 @@ export default Component.extend({
 			this.currentItem += x;
 
 			if (this.currentItem >= item.length) {
-
+				form.submit();
 				return false;
 			}
 			return this.showItem(this.currentItem);

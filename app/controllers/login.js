@@ -18,7 +18,6 @@ export default Controller.extend({
           this.store.queryRecord('user', {}).then((user) => {
             session.set('currentUser', user);
           });
-          debugger;
         })
         .catch(reason => {
           this.set("errorMessage", reason.error || reason);
