@@ -11,7 +11,7 @@ export default Component.extend({
 	},
 
 	actions: {
-		nextPrev() {
+		nextPrev(x) {
 			let item = document.querySelectorAll('.form-step--item');
 			//make the current item display none
 			item[this.currentItem].classList.add('hidden');
