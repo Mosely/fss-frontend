@@ -10,18 +10,12 @@ export default Service.extend({
 	session: service('session'),
 
 	loadUser() {
-		return Promise((resolve, reject) => {
-			const token = this.session.data.authenticated.access_token;
-
-			if (!isEmpty(token)) {
-				return this.store.findRecord('user', {}).then((user) => {
-					this.session.set("user", user);
-					resolve();
-					debugger;
-				}, reject);
-			} else {
-				resolve();
-			}
-		});
+		if (this.get('session.isAuthenticated')) {
+      return this.store.queryRecord('user', {id: true}).then((user) {
+        this.set("user", user);
+      });
+    } else {
+      return RSVP.resolve();
+    }
 	}
 });
