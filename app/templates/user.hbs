@@ -2,10 +2,10 @@
   <div class="container-fluid">
     <div class="dashboard-card card">
       <div class="card--header">
-        <h4 class="header--title">User - {{model.username}}</h4>
+        <h4 class="header--title">User Details - {{model.person.lastName}}, {{model.person.firstName}}</h4>
       </div>
       <div class="card--content">
-				{{user-detail person=model}}
+				{{user-detail user=model}}
       </div>
       <div class="card--footer">
 
