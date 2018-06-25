@@ -245,7 +245,7 @@
 									<div class="form-check">
 										{{input type="radio"
 														class="form-check-input"
-														name="choice-language"
+														name="isPrimary"
 														id="english"
 														value=english}}
 										<label for="english"
@@ -258,7 +258,7 @@
 									<div class="form-check">
 										{{input type="radio"
 														class="form-check-input"
-														name="choice-language"
+														name="isPrimary"
 														id="spanish"
 														value=spanish}}
 										<label for="spanish"
@@ -280,10 +280,9 @@
 										</label>
 										{{input type="text"
 														class="form-control"
-														name="choice-language"
-														for="other_language"
+														name="otherNote"
 														id="other_language_input"
-														value=other_language_input}}
+														value=otherNote}}
 									</div>
 								</div>
 							</div>
@@ -312,17 +311,15 @@
 										( {{input type="number"
 														min="0"
 														class="form-control number"
-														name="areaCode"
-														id="areaCode"
+														name="workPhoneArea"
 														placeholder="XXX"
-														value=areaCode}} )
+														value=areaCodeWork}} )
 										{{input type="number"
 														min="0"
 														class="form-control number phone"
-														name="phoneNumber"
-														id="phoneNumber"
+														name="workPhoneNumber"
 														placeholder="XXX-XXXX"
-														value=phoneNumber}}
+														value=phoneNumberWork}}
 									</div>
 									<label class="block">
 										May we call you here?
@@ -330,10 +327,10 @@
 									<div class="form-check inline-block">
 										{{input type="radio"
 														class="form-check-input"
-														name="canCall"
-														id="canCall1"
+														name="canCallWork"
+														id="canCallWorkYes"
 														value=yes}}
-										<label for="canCall1"
+										<label for="canCallWorkYes"
 													 class="form-check-label">
 											Yes
 										</label>
@@ -341,10 +338,10 @@
 									<div class="form-check inline-block">
 										{{input type="radio"
 														class="form-check-input"
-														name="canCall"
-														id="canCall2"
+														name="canCallWork"
+														id="canCallWorkNo"
 														value=no}}
-										<label for="canCall2"
+										<label for="canCallWorkNo"
 													 class="form-check-label">
 											No
 										</label>
@@ -360,16 +357,14 @@
 														min="0"
 														class="form-control number"
 														name="areaCode"
-														id="areaCode"
 														placeholder="XXX"
-														value=areaCode}} )
+														value=areaCodeHome}} )
 										{{input type="number"
 														min="0"
 														class="form-control number phone"
 														name="phoneNumber"
-														id="phoneNumber"
 														placeholder="XXX-XXXX"
-														value=phoneNumber}}
+														value=phoneNumberHome}}
 									</div>
 									<label class="block">
 										May we call you here?
@@ -377,10 +372,10 @@
 									<div class="form-check inline-block">
 										{{input type="radio"
 														class="form-check-input"
-														name="canCall"
-														id="canCall3"
+														name="canCallHome"
+														id="canCallHomeYes"
 														value=yes}}
-										<label for="canCall3"
+										<label for="canCallHomeYes"
 													 class="form-check-label">
 											Yes
 										</label>
@@ -388,10 +383,10 @@
 									<div class="form-check inline-block">
 										{{input type="radio"
 														class="form-check-input"
-														name="canCall"
-														id="canCall4"
+														name="canCallHome"
+														id="canCallHomeNo"
 														value=no}}
-										<label for="canCall4"
+										<label for="canCallHomeNo"
 													 class="form-check-label">
 											No
 										</label>
@@ -407,16 +402,14 @@
 														min="0"
 														class="form-control number"
 														name="areaCode"
-														id="areaCode"
 														placeholder="XXX"
-														value=areaCode}} )
+														value=areaCodeCell}} )
 										{{input type="number"
 														min="0"
 														class="form-control number phone"
 														name="phoneNumber"
-														id="phoneNumber"
 														placeholder="XXX-XXXX"
-														value=phoneNumber}}
+														value=phoneNumberCell}}
 									</div>
 									<label class="block">
 										May we call you here?
@@ -424,10 +417,10 @@
 									<div class="form-check inline-block">
 										{{input type="radio"
 														class="form-check-input"
-														name="canCall"
-														id="canCall5"
+														name="canCallCell"
+														id="canCallCellYes"
 														value=yes}}
-										<label for="canCall5"
+										<label for="canCallCellYes"
 													 class="form-check-label">
 											Yes
 										</label>
@@ -435,15 +428,436 @@
 									<div class="form-check inline-block">
 										{{input type="radio"
 														class="form-check-input"
-														name="canCall"
-														id="canCall6"
+														name="canCallCell"
+														id="canCallCellNo"
 														value=no}}
-										<label for="canCall6"
+										<label for="canCallCellNo"
 													 class="form-check-label">
 											No
 										</label>
 									</div>
 								</div>
+							</div>
+							<div class="row mt-5">
+								<div class="col">
+									<label class="form-label">
+										Are you a Service Member or a Veteran?
+										<span class="star">*</span>
+									</label>
+									<div class="form-check inline-block">
+										{{input type="radio"
+														class="form-check-input"
+														name="isServiceMemberOrVeteran"
+														id="isServiceMemberOrVeteranYes"
+														value=Yes}}
+										<label for="isServiceMemberOrVeteranYes"
+													 class="form-check-label">
+											Yes
+										</label>
+									</div>
+									<div class="form-check inline-block">
+										{{input type="radio"
+														class="form-check-input"
+														name="isServiceMemberOrVeteran"
+														id="isServiceMemberOrVeteranNo"
+														value=no}}
+										<label for="isServiceMemberOrVeteranNo"
+													 class="form-check-label">
+											No
+										</label>
+									</div>
+								</div>
+								<div class="col">
+									<label class="form-label">
+										Are you a family member of a Service Member or a Veteran?
+										<span class="star">*</span>
+									</label>
+									<div class="form-check inline-block">
+										{{input type="radio"
+														class="form-check-input"
+														name="hasFamilyWhoIsServiceMemberOrVeteran"
+														id="hasFamilyWhoIsServiceMemberOrVeteranYes"
+														value=Yes}}
+										<label for="hasFamilyWhoIsServiceMemberOrVeteranYes"
+													 class="form-check-label">
+											Yes
+										</label>
+									</div>
+									<div class="form-check inline-block">
+										{{input type="radio"
+														class="form-check-input"
+														name="hasFamilyWhoIsServiceMemberOrVeteran"
+														id="hasFamilyWhoIsServiceMemberOrVeteranNo"
+														value=no}}
+										<label for="hasFamilyWhoIsServiceMemberOrVeteranNo"
+													 class="form-check-label">
+											No
+										</label>
+									</div>
+								</div>
+								<div class="col">
+									<label class="form-label">
+										Were you referred by the Veteran Resource Center?
+										<span class="star">*</span>
+									</label>
+									<div class="form-check inline-block">
+										{{input type="radio"
+														class="form-check-input"
+														name="isReferredByVeteranResourceCenter"
+														id="isReferredByVeteranResourceCenterYes"
+														value=Yes}}
+										<label for="isReferredByVeteranResourceCenterYes"
+													 class="form-check-label">
+											Yes
+										</label>
+									</div>
+									<div class="form-check inline-block">
+										{{input type="radio"
+														class="form-check-input"
+														name="isReferredByVeteranResourceCenter"
+														id="isReferredByVeteranResourceCenterNo"
+														value=no}}
+										<label for="isReferredByVeteranResourceCenterNo"
+													 class="form-check-label">
+											No
+										</label>
+									</div>
+								</div>
+							</div>
+							<label class="form-label mt-5 mb-3">
+								Check any topic(s) you would like addressed in counseling:
+								<span class="star">*</span>
+							</label>
+							<div class="row">
+								<div class="col">
+									<div class="form-check">
+										{{input type="checkbox"
+														class="form-check-input"
+														name="topic"
+														checked=abortion
+														id="abortion"}}
+										<label class="form-check-label checkbox" for="abortion">
+											Abortion
+										</label>
+									</div>
+									<div class="form-check">
+										{{input type="checkbox"
+														class="form-check-input"
+														name="topic"
+														checked=alcholDrugs
+														id="alcholDrugs"}}
+										<label class="form-check-label checkbox" for="alcholDrugs">
+											Alchol/Drugs
+										</label>
+									</div>
+									<div class="form-check">
+										{{input type="checkbox"
+														class="form-check-input"
+														name="topic"
+														checked=anger
+														id="anger"}}
+										<label class="form-check-label checkbox" for="anger">
+											Anger
+										</label>
+									</div>
+									<div class="form-check">
+										{{input type="checkbox"
+														class="form-check-input"
+														name="topic"
+														checked=appetiteChange
+														id="appetiteChange"}}
+										<label class="form-check-label checkbox" for="appetiteChange">
+											Appetite Change
+										</label>
+									</div>
+									<div class="form-check">
+										{{input type="checkbox"
+														class="form-check-input"
+														name="topic"
+														checked=assertiveness
+														id="assertiveness"}}
+										<label class="form-check-label checkbox" for="assertiveness">
+											Assertiveness
+										</label>
+									</div>
+									<div class="form-check">
+										{{input type="checkbox"
+														class="form-check-input"
+														name="topic"
+														checked=bothersomeHabits
+														id="bothersomeHabits"}}
+										<label class="form-check-label checkbox" for="bothersomeHabits">
+											Bothersome Habits
+										</label>
+									</div>
+									<div class="form-check">
+										{{input type="checkbox"
+														class="form-check-input"
+														name="topic"
+														checked=careerDecisions
+														id="careerDecisions"}}
+										<label class="form-check-label checkbox" for="careerDecisions">
+											Career Decisions
+										</label>
+									</div>
+									<div class="form-check">
+										{{input type="checkbox"
+														class="form-check-input"
+														name="topic"
+														checked=confusion
+														id="confusion"}}
+										<label class="form-check-label checkbox" for="confusion">
+											Confusion
+										</label>
+									</div>
+								</div>
+								<div class="col">
+									<div class="form-check">
+										{{input type="checkbox"
+														class="form-check-input"
+														name="topic"
+														checked=decisionMaking
+														id="decisionMaking"}}
+										<label class="form-check-label checkbox" for="decisionMaking">
+											Decision Making
+										</label>
+									</div>
+									<div class="form-check">
+										{{input type="checkbox"
+														class="form-check-input"
+														name="topic"
+														checked=delusions
+														id="delusions"}}
+										<label class="form-check-label checkbox" for="delusions">
+											Delusions
+										</label>
+									</div>
+									<div class="form-check">
+										{{input type="checkbox"
+														class="form-check-input"
+														name="topic"
+														checked=depression
+														id="depression"}}
+										<label class="form-check-label checkbox" for="depression">
+											Depression
+										</label>
+									</div>
+									<div class="form-check">
+										{{input type="checkbox"
+														class="form-check-input"
+														name="topic"
+														checked=divorce
+														id="divorce"}}
+										<label class="form-check-label checkbox" for="divorce">
+											Divorce
+										</label>
+									</div>
+									<div class="form-check">
+										{{input type="checkbox"
+														class="form-check-input"
+														name="topic"
+														checked=familyConfilct
+														id="familyConfilct"}}
+										<label class="form-check-label checkbox" for="familyConfilct">
+											Family Confilct
+										</label>
+									</div>
+									<div class="form-check">
+										{{input type="checkbox"
+														class="form-check-input"
+														name="topic"
+														checked=fearOfFuture
+														id="fearOfFuture"}}
+										<label class="form-check-label checkbox" for="fearOfFuture">
+											Fear of Future
+										</label>
+									</div>
+									<div class="form-check">
+										{{input type="checkbox"
+														class="form-check-input"
+														name="topic"
+														checked=hallucinations
+														id="hallucinations"}}
+										<label class="form-check-label checkbox" for="hallucinations">
+											Hallucinations
+										</label>
+									</div>
+									<div class="form-check">
+										{{input type="checkbox"
+														class="form-check-input"
+														name="topic"
+														checked=legalIssues
+														id="legalIssues"}}
+										<label class="form-check-label checkbox" for="legalIssues">
+											Legal Issues
+										</label>
+									</div>
+								</div>
+								<div class="col">
+									<div class="form-check">
+										{{input type="checkbox"
+														class="form-check-input"
+														name="topic"
+														checked=loneliness
+														id="loneliness"}}
+										<label class="form-check-label checkbox" for="loneliness">
+											Loneliness
+										</label>
+									</div>
+									<div class="form-check">
+										{{input type="checkbox"
+														class="form-check-input"
+														name="topic"
+														checked=lossGriefDeath
+														id="lossGriefDeath"}}
+										<label class="form-check-label checkbox" for="lossGriefDeath">
+											Loss/Grief/Death
+										</label>
+									</div>
+									<div class="form-check">
+										{{input type="checkbox"
+														class="form-check-input"
+														name="topic"
+														checked=motivation
+														id="motivation"}}
+										<label class="form-check-label checkbox" for="motivation">
+											Motivation
+										</label>
+									</div>
+									<div class="form-check">
+										{{input type="checkbox"
+														class="form-check-input"
+														name="topic"
+														checked=obsessions
+														id="obsessions"}}
+										<label class="form-check-label checkbox" for="obsessions">
+											Obsessions
+										</label>
+									</div>
+									<div class="form-check">
+										{{input type="checkbox"
+														class="form-check-input"
+														name="topic"
+														checked=physicalHealth
+														id="physicalHealth"}}
+										<label class="form-check-label checkbox" for="physicalHealth">
+											Physical Health
+										</label>
+									</div>
+									<div class="form-check">
+										{{input type="checkbox"
+														class="form-check-input"
+														name="topic"
+														checked=pregnancy
+														id="pregnancy"}}
+										<label class="form-check-label checkbox" for="pregnancy">
+											Pregnancy
+										</label>
+									</div>
+									<div class="form-check">
+										{{input type="checkbox"
+														class="form-check-input"
+														name="topic"
+														checked=relationshipIssues
+														id="relationshipIssues"}}
+										<label class="form-check-label checkbox" for="relationshipIssues">
+											Relationship Issues
+										</label>
+									</div>
+									<div class="form-check">
+										{{input type="checkbox"
+														class="form-check-input"
+														name="topic"
+														checked=schoolAnxiety
+														id="schoolAnxiety"}}
+										<label class="form-check-label checkbox" for="schoolAnxiety">
+											School Anxiety
+										</label>
+									</div>
+								</div>
+								<div class="col">
+									<div class="form-check">
+										{{input type="checkbox"
+														class="form-check-input"
+														name="topic"
+														checked=selfconfidence
+														id="selfconfidence"}}
+										<label class="form-check-label checkbox" for="selfconfidence">
+											Self-Confidence
+										</label>
+									</div>
+									<div class="form-check">
+										{{input type="checkbox"
+														class="form-check-input"
+														name="topic"
+														checked=selfImage
+														id="selfImage"}}
+										<label class="form-check-label checkbox" for="selfImage">
+											Self-Image
+										</label>
+									</div>
+									<div class="form-check">
+										{{input type="checkbox"
+														class="form-check-input"
+														name="topic"
+														checked=sexualAssult
+														id="sexualAssult"}}
+										<label class="form-check-label checkbox" for="sexualAssult">
+											Sexual Assult
+										</label>
+									</div>
+									<div class="form-check">
+										{{input type="checkbox"
+														class="form-check-input"
+														name="topic"
+														checked=sexuality
+														id="sexuality"}}
+										<label class="form-check-label checkbox" for="obsessions">
+											Sexuality
+										</label>
+									</div>
+									<div class="form-check">
+										{{input type="checkbox"
+														class="form-check-input"
+														name="topic"
+														checked=sleep
+														id="sleep"}}
+										<label class="form-check-label checkbox" for="sleep">
+											Sleep
+										</label>
+									</div>
+									<div class="form-check">
+										{{input type="checkbox"
+														class="form-check-input"
+														name="topic"
+														checked=stressAnxiety
+														id="stressAnxiety"}}
+										<label class="form-check-label checkbox" for="stressAnxiety">
+											Stress Anxiety
+										</label>
+									</div>
+									<div class="form-check">
+										{{input type="checkbox"
+														class="form-check-input"
+														name="topic"
+														checked=sucidalThoughts
+														id="sucidalThoughts"}}
+										<label class="form-check-label checkbox" for="sucidalThoughts">
+											Sucidal Thoughts
+										</label>
+									</div>
+									<div class="form-check">
+										{{input type="checkbox"
+														class="form-check-input"
+														name="topic"
+														checked=weightLossGain
+														id="weightLossGain"}}
+										<label class="form-check-label checkbox" for="weightLossGain">
+											Weight Loss/Gain
+										</label>
+									</div>
+								</div>
+
 							</div>
 						</div>
 						<div id="adult-intake-3" class="form-step--item hidden">
