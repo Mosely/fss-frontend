@@ -238,74 +238,20 @@
 						</div>
 						<div id="adult-intake-2" class="form-step--item hidden">
 							<label class="form-label mt-3">
-								Client Name
+								Primary Language:
 								<span class="star">*</span>
 							</label>
-							<div class="row">
-								<div class="col">
-									<div class="form-group">
-										{{input type="text"
-														value=firstName
-														class="form-control"
-														placeholder="First Name"
-														required="required"}}
-									</div>
-								</div>
-								<div class="col">
-									<div class="form-group">
-										{{input type="text"
-														value=middleName
-														class="form-control"
-														placeholder="Middle Name"
-														required="required"}}
-									</div>
-								</div>
-								<div class="col">
-									<div class="form-group">
-										{{input type="text"
-														value=lastName
-														class="form-control"
-														placeholder="Last Name"
-														required="required"}}
-									</div>
-								</div>
-							</div>
-							<label class="form-label mb-4">
-								Which category best describes:
-								<span class="star">*</span>
-							</label>
-							<div class="row justify-content-between mb-2">
+							<div class="row justify-content-between mb-2 align-items-center">
 								<div class="col-3">
 									<div class="form-check">
 										{{input type="radio"
 														class="form-check-input"
-														name="choice-ethnicity"
-														id="choice-ethnicity-americanIndian-alaskaNative"
-														value=choiceAmericanIndianAlaskaNative}}
-										<label for="choice-ethnicity-americanIndian-alaskaNative"
-													 class="form-check-label">
-											American Indian or Alaska Native
-										</label>
-									</div>
-									<div class="form-check">
-										{{input type="radio"
-														class="form-check-input"
-														name="choice-ethnicity"
-														id="choice-ethnicity-asain"
-														value=choiceAsain}}
-										<label for="choice-ethnicity-asain" class="form-check-label">
-											Asain
-										</label>
-									</div>
-									<div class="form-check">
-										{{input type="radio"
-														class="form-check-input"
-														name="choice-ethnicity"
-														id="choice-ethnicity-african-american"
-														value=choiceAfricanAmerican}}
-										<label for="choice-ethnicity-african-american"
-													 class="form-check-label">
-											Black or African American
+														name="choice-language"
+														id="english"
+														value=english}}
+										<label for="english"
+													 class="form-check-label box">
+											English
 										</label>
 									</div>
 								</div>
@@ -313,34 +259,12 @@
 									<div class="form-check">
 										{{input type="radio"
 														class="form-check-input"
-														name="choice-ethnicity"
-														id="choice-ethnicity-hispanic-latino-spanish"
-														value=choiceHispanicLatinoSpanish}}
-										<label for="choice-ethnicity-hispanic-latino-spanish"
-													 class="form-check-label">
-											Hispanic, Latino, or Spanish origin
-										</label>
-									</div>
-									<div class="form-check">
-										{{input type="radio"
-														class="form-check-input"
-														name="choice-ethnicity"
-														id="choice-ethnicity-middleEastern-northAfrican"
-														value=choiceMiddleEasternNorthAfrican}}
-										<label for="choice-ethnicity-middleEastern-northAfrican"
-													 class="form-check-label">
-											Middle Eastern or North African
-										</label>
-									</div>
-									<div class="form-check">
-										{{input type="radio"
-														class="form-check-input"
-														name="choice-ethnicity"
-														id="choice-ethnicity-nativeHawaiian-pacificIslander"
-														value=choiceNativeHawaiianPacificIslander}}
-										<label for="choice-ethnicity-nativeHawaiian-pacificIslander"
-													 class="form-check-label">
-											Native Hawaiian or Pacific Islander
+														name="choice-language"
+														id="spanish"
+														value=spanish}}
+										<label for="spanish"
+													 class="form-check-label box">
+											Spanish
 										</label>
 									</div>
 								</div>
@@ -348,23 +272,19 @@
 									<div class="form-check">
 										{{input type="radio"
 														class="form-check-input"
-														name="choice-ethnicity"
-														id="choice-ethnicity-white"
-														value=choiceWhite}}
-										<label for="choice-ethnicity-white" class="form-check-label">
-											White
-										</label>
-									</div>
-									<div class="form-check">
-										{{input type="radio"
-														class="form-check-input"
-														name="choice-ethnicity"
-														id="choice-ethnicity-other"
-														value=choiceOther}}
-										<label for="choice-ethnicity-other"
+														name="choice-language"
+														id="other_language"
+														value=other_language}}
+										<label for="other_language"
 													 class="form-check-label">
-											Other race, ethnicity, or origin
+											Other
 										</label>
+										{{input type="text"
+														class="form-control"
+														name="choice-language"
+														for="other_language"
+														id="other_language_input"
+														value=other_language_input}}
 									</div>
 								</div>
 							</div>

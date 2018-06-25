@@ -251,6 +251,62 @@ body {
   background: #fff;
   color: #316cb4;
 }
+.form-check-label.box{
+  position: relative;
+  display: inline-block;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(191, 191, 191, 0.6);
+  background: #fff;
+  padding: 2.5em 2em;
+  margin: 0;
+  text-align: center;
+  width: 100%;
+  color: #2d2d2d;
+  border-radius: 3px;
+
+  &::before{
+    display: none;
+  }
+  &::after{
+    border-radius: 0px;
+    background: unset;
+    opacity: 0;
+    -moz-transform: scaleX(-1) rotate(135deg);
+    -ms-transform: scaleX(-1) rotate(135deg);
+    -webkit-transform: scaleX(-1) rotate(135deg);
+    transform: scaleX(-1) rotate(135deg) !important;
+    -moz-transform-origin: left top;
+    -ms-transform-origin: left top;
+    -webkit-transform-origin: left top;
+    transform-origin: left top;
+    border-right: 4px solid #2a8aff;
+    border-top: 4px solid #2a8aff;
+    display: block;
+    left: 92%;
+    top: 8%;
+    width: 1.2em;
+    height: 1.9em;
+  }
+}
+.form-check-input:checked + .form-check-label.box::after{
+  animation: checkMark 0.4s ease;
+  opacity: 1;
+}
+@keyframes checkMark {
+  0%{
+    width: 0;
+    height: 0;
+  }
+  50% {
+    width: 1.2em;
+    height: 0;
+  }
+  100% {
+    width: 1.2em;
+    height: 1.9em;
+  }
+}
 /*
 ** Table Elements **
 */
