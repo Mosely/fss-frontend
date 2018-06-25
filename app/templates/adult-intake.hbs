@@ -82,7 +82,6 @@
 										</label>
 										{{input type="number"
 														value=socialSecurityNumber
-														data-inputmask="'mask':'999-99-9999'"
 														placeholder="XXX-XX-XXXX"
 														min="0"
 														class="form-control"}}
@@ -285,6 +284,164 @@
 														for="other_language"
 														id="other_language_input"
 														value=other_language_input}}
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col">
+									<label class="form-label mt-3">
+										Place of Employment:
+										<span class="star">*</span>
+									</label>
+									<div class="form-group">
+										{{input type="text"
+														class="form-control"
+														name="placeOfEmployment"
+														id="placeOfEmployment"
+														value=placeOfEmployment}}
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col">
+									<label class="form-label mt-3">
+										Work Phone:
+										<span class="star">*</span>
+									</label>
+									<div class="form-group phone-number">
+										( {{input type="number"
+														min="0"
+														class="form-control number"
+														name="areaCode"
+														id="areaCode"
+														placeholder="XXX"
+														value=areaCode}} )
+										{{input type="number"
+														min="0"
+														class="form-control number phone"
+														name="phoneNumber"
+														id="phoneNumber"
+														placeholder="XXX-XXXX"
+														value=phoneNumber}}
+									</div>
+									<label class="block">
+										May we call you here?
+									</label>
+									<div class="form-check inline-block">
+										{{input type="radio"
+														class="form-check-input"
+														name="canCall"
+														id="canCall1"
+														value=yes}}
+										<label for="canCall1"
+													 class="form-check-label">
+											Yes
+										</label>
+									</div>
+									<div class="form-check inline-block">
+										{{input type="radio"
+														class="form-check-input"
+														name="canCall"
+														id="canCall2"
+														value=no}}
+										<label for="canCall2"
+													 class="form-check-label">
+											No
+										</label>
+									</div>
+								</div>
+								<div class="col">
+									<label class="form-label mt-3">
+										Home Phone:
+										<span class="star">*</span>
+									</label>
+									<div class="form-group phone-number">
+										( {{input type="number"
+														min="0"
+														class="form-control number"
+														name="areaCode"
+														id="areaCode"
+														placeholder="XXX"
+														value=areaCode}} )
+										{{input type="number"
+														min="0"
+														class="form-control number phone"
+														name="phoneNumber"
+														id="phoneNumber"
+														placeholder="XXX-XXXX"
+														value=phoneNumber}}
+									</div>
+									<label class="block">
+										May we call you here?
+									</label>
+									<div class="form-check inline-block">
+										{{input type="radio"
+														class="form-check-input"
+														name="canCall"
+														id="canCall3"
+														value=yes}}
+										<label for="canCall3"
+													 class="form-check-label">
+											Yes
+										</label>
+									</div>
+									<div class="form-check inline-block">
+										{{input type="radio"
+														class="form-check-input"
+														name="canCall"
+														id="canCall4"
+														value=no}}
+										<label for="canCall4"
+													 class="form-check-label">
+											No
+										</label>
+									</div>
+								</div>
+								<div class="col">
+									<label class="form-label mt-3">
+										Cell Phone:
+										<span class="star">*</span>
+									</label>
+									<div class="form-group phone-number">
+										( {{input type="number"
+														min="0"
+														class="form-control number"
+														name="areaCode"
+														id="areaCode"
+														placeholder="XXX"
+														value=areaCode}} )
+										{{input type="number"
+														min="0"
+														class="form-control number phone"
+														name="phoneNumber"
+														id="phoneNumber"
+														placeholder="XXX-XXXX"
+														value=phoneNumber}}
+									</div>
+									<label class="block">
+										May we call you here?
+									</label>
+									<div class="form-check inline-block">
+										{{input type="radio"
+														class="form-check-input"
+														name="canCall"
+														id="canCall5"
+														value=yes}}
+										<label for="canCall5"
+													 class="form-check-label">
+											Yes
+										</label>
+									</div>
+									<div class="form-check inline-block">
+										{{input type="radio"
+														class="form-check-input"
+														name="canCall"
+														id="canCall6"
+														value=no}}
+										<label for="canCall6"
+													 class="form-check-label">
+											No
+										</label>
 									</div>
 								</div>
 							</div>
