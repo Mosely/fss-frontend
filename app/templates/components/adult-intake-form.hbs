@@ -10,7 +10,7 @@
 					<div class="form-group">
 						{{input type="text"
 										value=firstName
-										class="form-control"
+										class="form-control required"
 										placeholder="First Name"
 										required="required"}}
 					</div>
@@ -28,7 +28,7 @@
 					<div class="form-group">
 						{{input type="text"
 										value=lastName
-										class="form-control"
+										class="form-control required"
 										placeholder="Last Name"
 										required="required"}}
 					</div>
@@ -44,7 +44,7 @@
 							<div class="input-group">
 								{{input type="date"
 												value=dateOfBirth
-												class="form-control datepicker date"}}
+												class="form-control datepicker date required"}}
 								<div class="input-group-prepend">
 									<span class="input-group-text">
 										{{fa-icon "calendar"
@@ -64,7 +64,7 @@
 										value=age
 										placeholder="XX"
 										min="0"
-										class="form-control"}}
+										class="form-control required"}}
 					</div>
 				</div>
 				<div class="col">
@@ -77,7 +77,7 @@
 										value=socialSecurityNumber
 										placeholder="XXX-XX-XXXX"
 										min="0"
-										class="form-control"}}
+										class="form-control required"}}
 					</div>
 				</div>
 			</div>
@@ -91,7 +91,7 @@
 						{{input type="text"
 										value=streetName
 										placeholder="Street"
-										class="form-control"}}
+										class="form-control required"}}
 					</div>
 				</div>
 				<div class="col-2">
@@ -100,7 +100,7 @@
 										value=streetNumber
 										placeholder="(Apt. #)"
 										min="0"
-										class="form-control"}}
+										class="form-control required"}}
 					</div>
 				</div>
 				<div class="col-4">
@@ -108,7 +108,7 @@
 						{{input type="text"
 										value=cityData.name
 										placeholder="City"
-										class="form-control"}}
+										class="form-control required"}}
 					</div>
 				</div>
 				<div class="col-4">
@@ -116,7 +116,7 @@
 						{{input type="text"
 										value=stateData.name
 										placeholder="State"
-										class="form-control"}}
+										class="form-control required"}}
 					</div>
 				</div>
 				<div class="col-4">
@@ -125,7 +125,7 @@
 										value=zipcode
 										placeholder="Zip code"
 										min="0"
-										class="form-control"}}
+										class="form-control required"}}
 					</div>
 				</div>
 			</div>
