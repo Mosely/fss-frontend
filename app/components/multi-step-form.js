@@ -7,6 +7,7 @@ export default Component.extend({
     let next,
       previous,
       item = document.querySelectorAll(".form-step--item");
+
     (next = document.getElementById("next")),
       (previous = document.getElementById("prev"));
     //take the param and add block display to the specified item
@@ -30,6 +31,7 @@ export default Component.extend({
       i,
       reqElm,
       valid = true;
+
     item = document.querySelectorAll(".form-step--item");
     reqElm = item[this.currentItem].querySelectorAll(".required");
 
@@ -48,6 +50,7 @@ export default Component.extend({
     nextPrev(x) {
       let form,
         item = document.querySelectorAll(".form-step--item");
+
       form = document.getElementById("form");
       if (x == 1 && !this.validateForm()) {
         return false;
@@ -63,6 +66,10 @@ export default Component.extend({
         return false;
       }
       this.showItem(this.currentItem);
-    }
+    },
+
+		ifYesToggle() {
+			console.log("Hello World");
+		}
   }
 });
