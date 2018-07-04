@@ -28,17 +28,17 @@ export default Component.extend({
   validateForm() {
     var item,
       i,
-      input,
+      reqElm,
       valid = true;
     item = document.querySelectorAll(".form-step--item");
-    input = item[this.currentItem].querySelectorAll("input.required");
+    reqElm = item[this.currentItem].querySelectorAll(".required");
 
-    for (i = 0; i < input.length; i++) {
-      if (input[i].value == "") {
-        input[i].classList.add("invalid");
+    for (i = 0; i < reqElm.length; i++) {
+      if (reqElm[i].value == "") {
+        reqElm[i].classList.add("invalid");
 				valid = false;
       } else {
-        input[i].classList.remove("invalid");
+        reqElm[i].classList.remove("invalid");
       }
     }
     return valid;
