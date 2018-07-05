@@ -104,7 +104,7 @@
 										value=streetNumber
 										placeholder="(Apt. #)"
 										min="0"
-										class="form-control required"}}
+										class="form-control"}}
 					</div>
 				</div>
 				<div class="col-4">
@@ -815,7 +815,7 @@
 										name="topic"
 										checked=sexuality
 										id="sexuality"}}
-						<label class="form-check-label checkbox" for="obsessions">
+						<label class="form-check-label checkbox" for="sexuality">
 							Sexuality
 						</label>
 					</div>
@@ -881,7 +881,7 @@
 										class="form-check-input"
 										name="hasBeenAbused"
 										id="hasBeenAbusedYes"
-										onEvent="checked"
+										onEvent="changed"
 										action="ifYesToggle"
 										value=Yes}}
 						<label for="hasBeenAbusedYes"
@@ -899,6 +899,109 @@
 									 class="form-check-label">
 							No
 						</label>
+					</div>
+				</div>
+				<div class="if-yes hidden">
+					<div class="col-6">
+						<div class="form-group">
+							<label class="form-label sub-label">
+								By whom?
+							</label>
+							{{input type="text"
+											value=abusedByWhom
+											min="0"
+											class="form-control"}}
+						</div>
+					</div>
+					<div class="col-3">
+						<div class="form-group">
+							<label class="form-label sub-label">
+								How many times?
+							</label>
+							{{input type="number"
+											value=abusedCount
+											placeholder="XX"
+											min="0"
+											class="form-control w-50"}}
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row mt-2">
+				<div class="col-12">
+					<label class="form-label mb-3">
+						Have there been any serious illnesses, injuries, emotional problems,
+						or deaths in the immediate family, including yourself
+						<span class="star">*</span>
+					</label>
+					<div class="form-check inline-block">
+						{{input type="radio"
+										class="form-check-input"
+										name="seriousProblemsInFamily"
+										id="seriousProblemsInFamilyYes"
+										onEvent="changed"
+										action="ifYesToggle"
+										value=Yes}}
+						<label for="seriousProblemsInFamilyYes"
+									 class="form-check-label">
+							Yes
+						</label>
+					</div>
+					<div class="form-check inline-block">
+						{{input type="radio"
+										class="form-check-input"
+										name="seriousProblemsInFamily"
+										id="seriousProblemsInFamilyNo"
+										value=no}}
+						<label for="seriousProblemsInFamilyNo"
+									 class="form-check-label">
+							No
+						</label>
+					</div>
+				</div>
+				<div class="if-yes hidden">
+					<div class="col-12">
+						<div class="form-group">
+							<label for="seriousFamilyProblemsDesc" class="form-label sub-label">
+								If yes, please describe:
+							</label>
+							<textarea id="seriousFamilyProblemsDesc"
+								class="form-control"
+								name="seriousFamilyProblemsDesc"
+								rows="3"></textarea>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row mt-3">
+				<div class="col-12">
+					<label class="form-label mb-3 w-75">
+						What medications are you presently taking (include home remedies and
+						over-the-counter drugs such as aspirin, etc.)
+					</label>
+					<div class="form-table">
+						<div class="col-6">
+							<div class="form-group">
+								<label class="form-label">
+									Medication
+									<span class="star">*</span>
+								</label>
+								{{input type="text"
+												value=medication.name
+												class="form-control required"}}
+							</div>
+						</div>
+						<div class="col-6">
+							<div class="form-group">
+								<label class="form-label">
+									For
+									<span class="star">*</span>
+								</label>
+								{{input type="text"
+												value=counseleemedication.reason
+												class="form-control required"}}
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
