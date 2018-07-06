@@ -984,7 +984,6 @@
 							<div class="form-group">
 								<label class="form-label">
 									Medication
-									<span class="star">*</span>
 								</label>
 								{{input type="text"
 												value=medication.name
@@ -995,12 +994,99 @@
 							<div class="form-group">
 								<label class="form-label">
 									For
-									<span class="star">*</span>
 								</label>
 								{{input type="text"
 												value=counseleemedication.reason
 												class="form-control required"}}
 							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row mt-4">
+				<div class="col">
+					<label class="form-label mb-3">
+						Any problems with alcohol?
+						<span class="star">*</span>
+					</label>
+					<div class="form-check inline-block">
+						{{input type="radio"
+										class="form-check-input"
+										name="alcoholProblem"
+										id="alcoholProblemYes"
+										value=Yes}}
+						<label for="alcoholProblemYes"
+									 class="form-check-label">
+							Yes
+						</label>
+					</div>
+					<div class="form-check inline-block">
+						{{input type="radio"
+										class="form-check-input"
+										name="alcoholProblem"
+										id="alcoholProblemNo"
+										value=no}}
+						<label for="alcoholProblemNo"
+									 class="form-check-label">
+							No
+						</label>
+					</div>
+				</div>
+				<div class="col">
+					<label class="form-label mb-3">
+						Have you ever had a drug/alcohol related black out?
+						<span class="star">*</span>
+					</label>
+					<div class="form-check inline-block">
+						{{input type="radio"
+										class="form-check-input"
+										name="hadBlackOut"
+										id="hadBlackOutYes"
+										action="ifYesToggle"
+										value=Yes}}
+						<label for="hadBlackOutYes"
+									 class="form-check-label">
+							Yes
+						</label>
+					</div>
+					<div class="form-check inline-block">
+						{{input type="radio"
+										class="form-check-input"
+										name="hadBlackOut"
+										id="hadBlackOutNo"
+										value=no}}
+						<label for="hadBlackOutNo"
+									 class="form-check-label">
+							No
+						</label>
+					</div>
+				</div>
+				<div class="if-yes hidden">
+					<div class="col">
+						<div class="form-group">
+							<label class="form-label">
+								If yes, where:
+							</label>
+							{{input type="text"
+											value=blackOutLocation
+											class="form-control required"}}
+						</div>
+					</div>
+					<div class="col">
+						<div class="form-group">
+							<label class="form-label">
+								Date of Birth
+							</label>
+								<div class="input-group">
+									{{input type="date"
+													value=blackOutDate
+													class="form-control datepicker date required"}}
+									<div class="input-group-prepend">
+										<span class="input-group-text">
+											{{fa-icon "calendar" ariaLabel="Pick a Date"}}
+										</span>
+									</div>
+								</div>
 						</div>
 					</div>
 				</div>

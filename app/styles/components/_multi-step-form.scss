@@ -17,6 +17,7 @@
   background: rgba(42, 138, 255, 0.54);
 }
 .form-table{
+  margin: 0 -15px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -50,5 +51,9 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
   width: 100%;
 }
