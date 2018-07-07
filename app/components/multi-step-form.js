@@ -66,10 +66,6 @@ export default Component.extend({
         return false;
       }
       this.showItem(this.currentItem);
-    },
-
-		ifYesToggle() {
-			console.log("Hello World");
-		}
+    }
   }
 });
