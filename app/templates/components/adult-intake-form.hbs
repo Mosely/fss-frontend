@@ -8,7 +8,7 @@
 						<span class="star">*</span>
 					</label>
 				</div>
-				<div class="col">
+				<div class="col-12 col-sm">
 					<div class="form-group">
 						{{input type="text"
 										value=firstName
@@ -19,7 +19,7 @@
 										required="required"}}
 					</div>
 				</div>
-				<div class="col">
+				<div class="col-12 col-sm">
 					<div class="form-group">
 						{{input type="text"
 										value=middleName
@@ -28,18 +28,20 @@
 										required="required"}}
 					</div>
 				</div>
-				<div class="col">
+				<div class="col-12 col-sm">
 					<div class="form-group">
 						{{input type="text"
 										value=lastName
 										class="form-control required"
 										placeholder="Last Name"
+										onEvent="keyPress"
+										action="inputValidation"
 										required="required"}}
 					</div>
 				</div>
 			</div>
 			<div class="row justify-content-between mb-3">
-				<div class="col">
+				<div class="col-12 col-sm">
 					<div class="form-group">
 						<label class="form-label">
 							Date of Birth
@@ -58,7 +60,7 @@
 							</div>
 					</div>
 				</div>
-				<div class="col-2">
+				<div class="col-12 col-sm-2">
 					<div class="form-group">
 						<label class="form-label">
 							Current Age
@@ -71,7 +73,7 @@
 										class="form-control required"}}
 					</div>
 				</div>
-				<div class="col">
+				<div class="col-12 col-sm">
 					<div class="form-group">
 						<label class="form-label">
 							Social Security #
@@ -92,7 +94,7 @@
 						<span class="star">*</span>
 					</label>
 				</div>
-				<div class="col-10">
+				<div class="col-12 col-sm-10">
 					<div class="form-group">
 						{{input type="text"
 										value=streetName
@@ -100,7 +102,7 @@
 										class="form-control required"}}
 					</div>
 				</div>
-				<div class="col-2">
+				<div class="col-5 col-sm-2">
 					<div class="form-group">
 						{{input type="number"
 										value=streetNumber
@@ -109,7 +111,7 @@
 										class="form-control"}}
 					</div>
 				</div>
-				<div class="col-4">
+				<div class="col-7 col-sm-4">
 					<div class="form-group">
 						{{input type="text"
 										value=cityData.name
@@ -117,7 +119,7 @@
 										class="form-control required"}}
 					</div>
 				</div>
-				<div class="col-4">
+				<div class="col-7 col-sm-4">
 					<div class="form-group">
 						{{input type="text"
 										value=stateData.name
@@ -125,7 +127,7 @@
 										class="form-control required"}}
 					</div>
 				</div>
-				<div class="col-4">
+				<div class="col-5 col-sm-4">
 					<div class="form-group">
 						{{input type="number"
 										value=zipcode
@@ -142,7 +144,7 @@
 						<span class="star">*</span>
 					</label>
 				</div>
-				<div class="col-3">
+				<div class="col-12 col-sm-3">
 					<div class="form-check">
 						{{input type="radio"
 										class="form-check-input"
@@ -176,7 +178,7 @@
 						</label>
 					</div>
 				</div>
-				<div class="col-3">
+				<div class="col-12 col-sm-3">
 					<div class="form-check">
 						{{input type="radio"
 										class="form-check-input"
@@ -211,7 +213,7 @@
 						</label>
 					</div>
 				</div>
-				<div class="col-3">
+				<div class="col-12 col-sm-3">
 					<div class="form-check">
 						{{input type="radio"
 										class="form-check-input"
@@ -244,7 +246,7 @@
 						<span class="star">*</span>
 					</label>
 				</div>
-				<div class="col-3">
+				<div class="col-12 col-sm-3">
 					<div class="form-check">
 						{{input type="radio"
 										class="form-check-input"
@@ -257,7 +259,7 @@
 						</label>
 					</div>
 				</div>
-				<div class="col-3">
+				<div class="col-12 col-sm-3">
 					<div class="form-check">
 						{{input type="radio"
 										class="form-check-input"
@@ -270,7 +272,7 @@
 						</label>
 					</div>
 				</div>
-				<div class="col-3">
+				<div class="col-12 col-sm-3">
 					<div class="form-check">
 						{{input type="radio"
 										class="form-check-input"
@@ -308,7 +310,6 @@
 				<div class="col">
 					<label class="form-label mt-3">
 						Work Phone:
-						<span class="star">*</span>
 					</label>
 					<div class="form-group phone-number">
 						( {{input type="number"
@@ -353,7 +354,6 @@
 				<div class="col">
 					<label class="form-label mt-3">
 						Home Phone:
-						<span class="star">*</span>
 					</label>
 					<div class="form-group phone-number">
 						( {{input type="number"
@@ -398,7 +398,6 @@
 				<div class="col">
 					<label class="form-label mt-3">
 						Cell Phone:
-						<span class="star">*</span>
 					</label>
 					<div class="form-group phone-number">
 						( {{input type="number"
@@ -442,7 +441,7 @@
 				</div>
 			</div>
 			<div class="row mt-5">
-				<div class="col">
+				<div class="col-12 col-sm mb-2">
 					<label class="form-label">
 						Are you a Service Member or a Veteran?
 						<span class="star">*</span>
@@ -470,7 +469,7 @@
 						</label>
 					</div>
 				</div>
-				<div class="col">
+				<div class="col-12 col-sm mb-2">
 					<label class="form-label">
 						Are you a family member of a Service Member or a Veteran?
 						<span class="star">*</span>
@@ -498,7 +497,7 @@
 						</label>
 					</div>
 				</div>
-				<div class="col">
+				<div class="col-12 col-sm mb-2">
 					<label class="form-label">
 						Were you referred by the Veteran Resource Center?
 						<span class="star">*</span>
