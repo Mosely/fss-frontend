@@ -1,1 +1,5 @@
-{{yield}}
+{{input value=value
+				key-up=(action 'handleFilter')
+				class="form-control"
+				placeholder="Search by Name"}}
+{{yield results}}
