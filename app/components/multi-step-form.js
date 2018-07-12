@@ -27,7 +27,7 @@ export default Component.extend({
   },
 
   validateForm() {
-    var item,
+    let item,
       i,
       reqElm,
       valid = true;
@@ -60,7 +60,8 @@ export default Component.extend({
       item[this.currentItem].classList.remove("active");
       // increase item index by one
       this.currentItem += x;
-
+      console.log("this.currentItem " + this.currentItem);
+      console.log("x " + x);
       if (this.currentItem >= item.length) {
         form.submit();
         return false;

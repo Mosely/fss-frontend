@@ -1092,8 +1092,100 @@
 					</div>
 				</div>
 			</div>
+			<div class="row justify-content-between mb-2 align-items-center">
+				<div class="col-12">
+					<label class="form-label mt-3">
+						Any family members with a drug or alcohol problem?
+						<span class="star">*</span>
+					</label>
+				</div>
+				<div class="col-12 col-sm-3">
+					<div class="form-check">
+						{{input type="radio"
+										class="form-check-input"
+										name="familyDrugAlcoholProblem"
+										id="parent"
+										value=parent}}
+						<label for="parent"
+									 class="form-check-label box">
+							Parent/Step-parent
+						</label>
+					</div>
+				</div>
+				<div class="col-12 col-sm-3">
+					<div class="form-check">
+						{{input type="radio"
+										class="form-check-input"
+										name="familyDrugAlcoholProblem"
+										id="sibling"
+										value=sibling}}
+						<label for="sibling"
+									 class="form-check-label box">
+							Sibling
+						</label>
+					</div>
+				</div>
+				<div class="col-12 col-sm-3">
+					<div class="form-check">
+						{{input type="radio"
+										class="form-check-input"
+										name="familyDrugAlcoholProblem"
+										id="grandparent"
+										value=grandparent}}
+						<label for="grandparent"
+									 class="form-check-label box">
+							Grandparent
+						</label>
+					</div>
+				</div>
+				<div class="col-12 col-sm-3">
+					<div class="form-check">
+						{{input type="radio"
+										class="form-check-input"
+										name="familyDrugAlcoholProblem"
+										id="friend"
+										value=friend}}
+						<label for="friend"
+									 class="form-check-label box">
+							Friend
+						</label>
+					</div>
+				</div>
+				<div class="col-12 col-sm-3">
+					<div class="form-check">
+						{{input type="radio"
+										class="form-check-input"
+										name="familyDrugAlcoholProblem"
+										id="child"
+										value=child}}
+						<label for="child"
+									 class="form-check-label box">
+							Child
+						</label>
+					</div>
+				</div>
+				<div class="col-12">
+					<div class="form-check">
+						{{input type="radio"
+										class="form-check-input"
+										name="familyDrugAlcoholProblem"
+										id="familyDrugAlcoholProblemOther"}}
+						<label for="familyDrugAlcoholProblemOther"
+									 class="form-check-label mb-1">
+							Other
+						</label>
+						{{input type="text"
+										class="form-control"
+										name="familyDrugProblemOtherDetail"
+										id="familyDrugProblemOtherDetail"
+										value=familyDrugProblemOtherDetail}}
+					</div>
+				</div>
+			</div>
 		</div>
-		{{body}}
+		<div id="adult-intake-4" class="form-step--item hidden">
+
+		</div>
 	</form>
 {{/multi-step-form}}
 {{yield}}
