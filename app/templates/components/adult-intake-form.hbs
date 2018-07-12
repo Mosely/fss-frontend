@@ -1184,7 +1184,148 @@
 			</div>
 		</div>
 		<div id="adult-intake-4" class="form-step--item hidden">
-			Yeet
+			<div class="row">
+				<div class="col-12 col-sm-4">
+					<label class="form-label mt-3">
+						Current desire to harm him/herself?
+					</label>
+					<div class="form-check inline-block">
+						{{input type="radio"
+										class="form-check-input"
+										name="currentHarmSelf"
+										id="currentHarmSelfYes"
+										value=yes}}
+						<label for="currentHarmSelfYes"
+									 class="form-check-label">
+							Yes
+						</label>
+					</div>
+					<div class="form-check inline-block">
+						{{input type="radio"
+										class="form-check-input"
+										name="currentHarmSelf"
+										id="currentHarmSelfNo"
+										value=no}}
+						<label for="currentHarmSelfNo"
+									 class="form-check-label">
+							No
+						</label>
+					</div>
+					<div class="form-group">
+						<label class="block">
+							Please Provide Example
+						</label>
+						{{input type="text"
+										value=currentHarmSelfExample
+										class="form-control"}}
+					</div>
+				</div>
+				<div class="col-12 col-sm-4">
+					<label class="form-label mt-3">
+						Have you attempted to harm yourself before?
+					</label>
+					<div class="form-check inline-block">
+						{{input type="radio"
+										class="form-check-input"
+										name="pastHarmSelf"
+										id="pastHarmSelfYes"
+										value=yes}}
+						<label for="pastHarmSelfYes"
+									 class="form-check-label">
+							Yes
+						</label>
+					</div>
+					<div class="form-check inline-block">
+						{{input type="radio"
+										class="form-check-input"
+										name="pastHarmSelf"
+										id="pastHarmSelfNo"
+										value=no}}
+						<label for="pastHarmSelfNo"
+									 class="form-check-label">
+							No
+						</label>
+					</div>
+					<div class="form-group">
+						<label class="block">
+							Please Provide Example
+						</label>
+						{{input type="text"
+										value=pastHarmSelfExample
+										class="form-control"}}
+					</div>
+				</div>
+				<div class="col-12 col-sm-4">
+					<label class="form-label mt-3">
+						Current desire to harm others?
+					</label>
+					<div class="form-check inline-block">
+						{{input type="radio"
+										class="form-check-input"
+										name="currentHarmOthers"
+										id="currentHarmOthersYes"
+										value=yes}}
+						<label for="currentHarmOthersYes"
+									 class="form-check-label">
+							Yes
+						</label>
+					</div>
+					<div class="form-check inline-block">
+						{{input type="radio"
+										class="form-check-input"
+										name="currentHarmOthers"
+										id="currentHarmOthersNo"
+										value=no}}
+						<label for="currentHarmOthersNo"
+									 class="form-check-label">
+							No
+						</label>
+					</div>
+					<div class="form-group">
+						<label class="block">
+							Please Provide Example
+						</label>
+						{{input type="text"
+										value=currentHarmOthersExample
+										class="form-control"}}
+					</div>
+				</div>
+				<div class="col-12 col-sm-4">
+					<label class="form-label mt-3">
+						Have you attempted to harm others in the past?
+					</label>
+					<div class="form-check inline-block">
+						{{input type="radio"
+										class="form-check-input"
+										name="pastHarmOthers"
+										id="pastHarmOthersYes"
+										value=yes}}
+						<label for="pastHarmOthersYes"
+									 class="form-check-label">
+							Yes
+						</label>
+					</div>
+					<div class="form-check inline-block">
+						{{input type="radio"
+										class="form-check-input"
+										name="pastHarmOthers"
+										id="pastHarmOthersNo"
+										value=no}}
+						<label for="pastHarmOthersNo"
+									 class="form-check-label">
+							No
+						</label>
+					</div>
+					<div class="form-group">
+						<label class="block">
+							Please Provide Example
+						</label>
+						{{input type="text"
+										value=pastHarmOthersExample
+										class="form-control"}}
+					</div>
+				</div>
+			</div>
 		</div>
 	</form>
 {{/multi-step-form}}
