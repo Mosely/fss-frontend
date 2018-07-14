@@ -4,6 +4,10 @@ export default Component.extend({
   classNames: ["list-filter"],
   value: "",
 
+  /**
+   * Initial hook displaying items calling the filter action with an empty
+   * value.
+   **/
   init() {
     this._super(...arguments);
     //send initial listings calling filter action with an empty value
@@ -11,6 +15,10 @@ export default Component.extend({
   },
 
   actions: {
+    /**
+     * Applies the search term filter to the list of users/patients.
+     * Passing 'results' to the {{yield}}
+     **/
     handleFilter() {
       let filterInputValue = this.get("value");
       let filterAction = this.get("filter");

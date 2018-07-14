@@ -1326,6 +1326,52 @@
 					</div>
 				</div>
 			</div>
+			<div class="row">
+				<div class="col-6">
+					<label class="form-label mb-3">
+						History of Drug Use
+					</label>
+					<div class="form-check">
+						{{input type="checkbox"
+										class="form-check-input"
+										name="topic"
+										checked=abortion
+										id="abortion"}}
+						<label class="form-check-label checkbox" for="abortion">
+							Abortion
+						</label>
+					</div>
+					<div class="form-check">
+						{{input type="checkbox"
+										class="form-check-input"
+										name="adult.druguse.type"
+										value=alcohol}}
+					</div>
+					<div class="form-check">
+						{{input type="radio"
+										class="form-check-input"
+										name="familyDrugAlcoholProblem"
+										id="familyDrugAlcoholProblemOther"}}
+						<label for="familyDrugAlcoholProblemOther"
+									 class="form-check-label mb-1">
+							Other
+						</label>
+						{{input type="text"
+										class="form-control"
+										name="familyDrugProblemOtherDetail"
+										id="familyDrugProblemOtherDetail"
+										value=familyDrugProblemOtherDetail}}
+					</div>
+					<div class="form-group">
+						<label class="block">
+							Alcohol
+						</label>
+						{{input type="text"
+										value=pastHarmOthersExample
+										class="form-control"}}
+					</div>
+				</div>
+			</div>
 		</div>
 	</form>
 {{/multi-step-form}}
