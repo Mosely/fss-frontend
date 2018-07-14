@@ -5,7 +5,7 @@ export default Route.extend(AuthenticatedRouteMixin, {
     model(params) {
         let store = this.store;
         return this.store.findRecord('shelterclient', params.id).then(function(shelterclient) {
-            store.findRecord('client', counselee.id).then(function(client) {
+            store.findRecord('client', shelterclient.id).then(function(client) {
                 shelterclient.set('client', client);
               });
         });
