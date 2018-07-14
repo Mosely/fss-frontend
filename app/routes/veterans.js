@@ -10,6 +10,9 @@ export default Route.extend(AuthenticatedRouteMixin, {
         store.findRecord('client', primaryModel.id).then(function(secondaryModel) {
           primaryModel.set('client', secondaryModel);
         });
+        store.findRecord('person', primaryModel.id).then(function(secondaryModel) {
+          primaryModel.set('person', secondaryModel);
+        });
       });
       return primaryModels;
     });

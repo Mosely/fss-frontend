@@ -8,6 +8,9 @@ export default Route.extend(AuthenticatedRouteMixin, {
             store.findRecord('client', counselee.id).then(function(client) {
                 counselee.set('client', client);
               });
+            store.findRecord('person', counselee.id).then(function(person) {
+                counselee.set('person', person);
+              });
         });
     }
 });
