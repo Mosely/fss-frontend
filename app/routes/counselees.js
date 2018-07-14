@@ -6,11 +6,11 @@ export default Route.extend(AuthenticatedRouteMixin, {
     let store = this.store;
     return store.findAll('counselee').then(function(primaryModels){
       // Modify the following to pull in any related models as needed
-      //primaryModels.forEach(primaryModel => {
-      //  store.findRecord('REPLACEWITHRELATEDMODEL', primaryModel.id).then(function(secondaryModel) {
-      //    primaryModel.set('REPLACEWITHRELATEDMODEL', secondaryModel);
-      //  });
-      //});
+      primaryModels.forEach(primaryModel => {
+        store.findRecord('client', primaryModel.id).then(function(secondaryModel) {
+          primaryModel.set('client', secondaryModel);
+        });
+      });
       return primaryModels;
     });
    }
