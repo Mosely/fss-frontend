@@ -1,12 +1,13 @@
 import Controller from "@ember/controller";
 import { inject as service } from '@ember/service';
 
-export default function parseBase64(token) {
+function parseBase64(token) {
   let tokenData;
   try {
     tokenData = atob(token.split('.')[1]);
     return JSON.parse(tokenData);
   } catch (e) {
+    
     return token;
   }
 }
