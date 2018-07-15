@@ -7,7 +7,7 @@ function parseBase64(token) {
     tokenData = atob(token.split('.')[1]);
     return JSON.parse(tokenData);
   } catch (e) {
-    
+
     return token;
   }
 }
@@ -34,6 +34,8 @@ export default Controller.extend({
         this.store.findRecord('user', t['sub']).then((user) => {
           // we can store the current user in the ember-simple-auth session
           session.set('currentUser', user);
+          console.log("The current user id is: " + t['sub']);
+          
         });
 
           //this.store.queryRecord('user', {}).then((user) => {
