@@ -13,7 +13,7 @@ export default DS.Model.extend({
   notes: DS.attr('string'),
 
   //relationships, if any
-  advocateUser: DS.belongsTo('advocate-user'),
+  advocateUser: DS.belongsTo('person', {inverse: null}),
   updatedBy: DS.belongsTo('user'),
   user: DS.belongsTo('user'),
   shelterClientAdditionalStaffs: DS.hasMany('shelterclientadditionalstaff'),
