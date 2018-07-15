@@ -41,7 +41,7 @@ export default Controller.extend({
           //});
         })
         .catch(reason => {
-          this.set("errorMessage", reason.error || reason);
+          this.set("errorMessage", reason.responseJSON.message || reason);
         });
     },
     handleInput() {
