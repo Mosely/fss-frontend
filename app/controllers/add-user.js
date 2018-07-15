@@ -16,13 +16,19 @@ export default Controller.extend({
         "age"
       );
       let userProps = this.getProperties("username", "email", "password");
+
+			let newPerson = store.createRecord("person", personProps);
+			let newUser = store.createRecord("user", {id: newPerson.id, userProps});
+
+			return newPerson.save().then(() => {
+				newUser.save();
+			});
       // let userInfo = this.getProperties('firstName', 'lastName', 'username', 'email', 'password');
-      let newPerson = this.store
-        .createRecord("person", personProps)
-        .then(person => {
-          this.store.createRecord("user", { id: person.id, userProps });
-        });
-      return newPerson.save();
+      // let newPerson = this.store
+      //   .createRecord("person", personProps)
+      //   .then(person => {
+      //     this.store.createRecord("user", { id: person.id, userProps });
+      //   });
       // return newUser.save();
       // return store.createRecord("person", personProps).then(person => {
       //   store.findRecord("user", person.id).then(user => {
