@@ -22,14 +22,26 @@ export default Controller.extend({
         dateOfBirth,
         age
       } = this.getProperties('firstName', 'middleName', 'lastName', 'dateOfBirth', 'age');*/
-      let personProps = this.getProperties('firstName', 'middleName', 'lastName', 'dateOfBirth', 'age');
+      let {
+        firstName,
+        middleName,
+        lastName,
+        dateOfBirth,
+        age
+      } = this.getProperties('firstName', 'middleName', 'lastName', 'dateOfBirth', 'age');
 
       let userProps = {
         username: this.get("username"),
         email: this.get("email"),
         password: this.get("password")
       };
-      let newPerson = store.createRecord("person", personProps);
+      let newPerson = store.createRecord("person", {
+        firstName,
+        middleName,
+        lastName,
+        dateOfBirth,
+        age
+      });
       let newUser = store.createRecord("user", { id: newPerson.id, userProps });
 			newPerson.save().then(() => {
 				return newUser.save();
