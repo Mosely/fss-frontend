@@ -1,8 +1,21 @@
 import Component from "@ember/component";
 
 export default Component.extend({
-  currentItem: 0,
+  /**
+   * Making a multi step form slider by taking the elements wrapped in in a div
+   * with a class of form-step--item.
+   * Each form-step--item will represent each 'slide' and will display them
+   * accordingly to the Next and Previous buttons.
+   **/
 
+  currentItem: 0, // Variable to keep the current index of the multi-step-form.
+
+  /**
+   * Shows the current item in the multi-step-form by removing hidden class and
+   * adding active class.
+   *
+   * @param {number} num The index to determine what form-step--item will be displayed
+   **/
   showItem(num) {
     let next,
       previous,
@@ -26,6 +39,13 @@ export default Component.extend({
     }
   },
 
+  /**
+   * Checks the current form item for any input with the class 'required',
+   * ckecks if the value is empty and if so adds 'invalid' class to the inputs.
+   *
+   * @return {boolean} Returns true or false based off the validation.
+   **/
+
   validateForm() {
     let item,
       i,
@@ -38,7 +58,7 @@ export default Component.extend({
     for (i = 0; i < reqElm.length; i++) {
       if (reqElm[i].value == "") {
         reqElm[i].classList.add("invalid");
-				valid = false;
+        valid = false;
       } else {
         reqElm[i].classList.remove("invalid");
       }
@@ -47,6 +67,14 @@ export default Component.extend({
   },
 
   actions: {
+    /**
+     * Determines if Next or Previous was clicked and calls the showItem
+     * function.
+     * Also checks if validateForm if true or false and will return false if so.
+     *
+     * @param {number} x The number that determines if Next or Previous was
+     * clicked.
+     **/
     nextPrev(x) {
       let form,
         item = document.querySelectorAll(".form-step--item");
