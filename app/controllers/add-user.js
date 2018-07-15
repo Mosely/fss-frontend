@@ -8,18 +8,29 @@ export default Controller.extend({
   actions: {
     addUser() {
       let store = this.store;
-			let personProps = this.getProperties('firstName', 'middleName', 'lastName', 'dateOfBirth', 'age');
-			let userProps = this.getProperties('username', 'email', 'password');
+      let personProps = this.getProperties(
+        "firstName",
+        "middleName",
+        "lastName",
+        "dateOfBirth",
+        "age"
+      );
+      let userProps = this.getProperties("username", "email", "password");
       // let userInfo = this.getProperties('firstName', 'lastName', 'username', 'email', 'password');
-      // let newUser = this.store.createRecord('user', userInfo);
-      // return newUser.save();
-      return store.createRecord("person", personProps).then(person => {
-        store.findRecord("user", person.id).then(user => {
-          let userData = store.createRecord("user", userProps);
-          person.set("user", userData);
+      let newPerson = this.store
+        .createRecord("person", personProps)
+        .then(person => {
+          this.store.createRecord("user", { id: person.id, userProps });
         });
-        return person.save();
-      });
+      return newPerson.save();
+      // return newUser.save();
+      // return store.createRecord("person", personProps).then(person => {
+      //   store.findRecord("user", person.id).then(user => {
+      //     let userData = store.createRecord("user", userProps);
+      //     person.set("user", userData);
+      //   });
+      //   return person.save();
+      // });
     }
   }
 });
