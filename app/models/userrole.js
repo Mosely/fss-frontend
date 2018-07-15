@@ -5,7 +5,7 @@ export default DS.Model.extend({
 
 
   //relationships, if any
-  user: DS.belongsTo('user'),
-  role: DS.belongsTo('role'),
+  user: DS.belongsTo('user', {inverse: null}),
+  role: DS.belongsTo('role', {inverse: null}),
   updatedBy: DS.belongsTo('user')
 });

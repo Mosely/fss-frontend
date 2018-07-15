@@ -6,5 +6,5 @@ export default DS.Model.extend({
 
   //relationships, if any
   updatedBy: DS.belongsTo('user'),
-  userRoles: DS.hasMany('userrole')
+  userRoles: DS.hasMany('userrole', {inverse: null})
 });
