@@ -10,6 +10,7 @@ export default Service.extend({
 	session: service('session'),
 
 	loadUser() {
+    console.log(this.get('session'));
 		if (this.get('session.isAuthenticated')) {
       let id = this.get('session.data.currentUser.id');
       console.log("The currentUSer.id: " + id);
