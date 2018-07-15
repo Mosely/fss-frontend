@@ -15,7 +15,9 @@ export default Controller.extend({
       session
         .authenticate(authenticator, credentials)
         .then(() => {
-          console.log(this.get('session.data.authenticated'));
+          console.log("the auth data:" + this.get('session.data.authenticated'));
+          console.log("Maybe the user_id: " + this.get('session.data.authenticated.user_id'));
+          console.log("Maybe the sub: " + this.get('session.data.authenticated.sub'));
           let id = this.get('session.data.authenticated.user_id');
           //this.store.queryRecord('user', {}).then((user) => {
           this.store.findRecord('user', id).then((user) => {
