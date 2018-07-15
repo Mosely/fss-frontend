@@ -2,7 +2,7 @@
 	<div class="col-1 table-item">{{user.id}}</div>
 	<div class="col-2 table-item">{{user.person.firstName}} {{user.person.lastName}}</div>
 	<div class="col-2 table-item">{{user.username}}</div>
-	<div class="col-2 table-item">{{user.email}}</div>
+	<div class="col-2 table-item"> <a href="mailto:{{user.email}}" target="_blank">{{user.email}}</a></div>
 	<div class="col-2 table-item">{{moment-format user.passwordCreatedAt 'YYYY-MM-DD HH:mm'}}</div>
 	<div class="col-1 table-item">{{user.person.age}}</div>
 	<div class="col-2 table-item">
