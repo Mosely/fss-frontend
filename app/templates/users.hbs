@@ -6,24 +6,27 @@
     <div class="container">
       <div class="row">
         <div class="col-12">
-          <div class="table-responsive">
-            <div class="list-table">
-              <div class="table-head">
-                <div class="col-1 table-title">ID</div>
-                <div class="col-2 table-title">Name</div>
-                <div class="col-2 table-title">Username</div>
-                <div class="col-2 table-title">Email</div>
-                <div class="col-2 table-title">Password Created At</div>
-                <div class="col-1 table-title">Age</div>
-                <div class="col-2 table-title">Actions</div>
+          {{#list-filter
+              filter=(action 'filterByName') as |filteredResults|}}
+              <div class="table-responsive">
+                <div class="list-table">
+                  <div class="table-head">
+                    <div class="col-1 table-title">ID</div>
+                    <div class="col-2 table-title">Name</div>
+                    <div class="col-2 table-title">Username</div>
+                    <div class="col-2 table-title">Email</div>
+                    <div class="col-2 table-title">Password Created At</div>
+                    <div class="col-1 table-title">Age</div>
+                    <div class="col-2 table-title">Actions</div>
+                  </div>
+                  <div class="table-body">
+                    {{#each filteredResults as |userSingle|}}
+                      {{user-listing user=userSingle}}
+                    {{/each}}
+                  </div>
+                </div>
               </div>
-              <div class="table-body">
-                {{#each model as |userSingle|}}
-                  {{user-listing user=userSingle}}
-                {{/each}}
-              </div>
-            </div>
-          </div>
+          {{/list-filter}}
         </div>
       </div>
     </div>

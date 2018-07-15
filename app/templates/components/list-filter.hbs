@@ -1,5 +1,10 @@
-{{input value=value
-				key-up=(action 'handleFilter')
-				class="form-control"
-				placeholder="Search by Name"}}
+<div class="col-12 col-sm-6">
+	<div class="search-form">
+		{{fa-icon "search" class="search-icon"}}
+		{{input value=value
+						key-up=(action 'handleFilter')
+						class="search-input form-control"
+						placeholder="Search by Username..."}}
+	</div>
+</div>
 {{yield results}}
