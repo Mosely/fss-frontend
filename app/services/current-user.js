@@ -13,8 +13,6 @@ export default Service.extend({
     console.log(this.get('session'));
 		if (this.get('session.isAuthenticated')) {
       let id = this.get('session.data.currentUser.id');
-      console.log("The currentUSer.id: " + id);
-      debugger;
       //return this.store.findRecord('user', {id: true}).then((user) => {
       return this.store.findRecord('user', id).then((user) => {
         this.set("user", user);
