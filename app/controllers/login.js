@@ -15,7 +15,10 @@ export default Controller.extend({
       session
         .authenticate(authenticator, credentials)
         .then(() => {
-          this.store.queryRecord('user', {}).then((user) => {
+          console.log(this.get('session'));
+          let id = this.get('session.data.authenticated.user_id');
+          //this.store.queryRecord('user', {}).then((user) => {
+          this.store.findRecord('user', id).then((user) => {
             session.set('currentUser', user);
           });
         })
