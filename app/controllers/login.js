@@ -15,14 +15,20 @@ export default Controller.extend({
       session
         .authenticate(authenticator, credentials)
         .then(() => {
-          console.log(this.get('session.data.authenticated'));
-          console.log("Maybe the user_id: " + this.get('session.data.authenticated.tokenData.sub'));
-          console.log("Maybe the sub: " + this.get('session.data.authenticated.sub'));
-          let id = this.get('session.data.authenticated.user_id');
+          //let id = this.get('session.data.authenticated.user_id');
+
+           // parseBase64 just converts the base64 encoded string to a javascript object
+        let t = parseBase64(session.get('secure.token'));
+        // 'sub' is the user's id, as per the JWT draft specification
+        this.store.findRecord('user', t['sub']).then((user) => {
+          // we can store the current user in the ember-simple-auth session
+          session.set('currentUser', user);
+        });
+
           //this.store.queryRecord('user', {}).then((user) => {
-          this.store.findRecord('user', id).then((user) => {
+          //this.store.findRecord('user', id).then((user) => {
             session.set('currentUser', user);
-          });
+          //});
         })
         .catch(reason => {
           this.set("errorMessage", reason.error || reason);
