@@ -1,6 +1,16 @@
 import Controller from "@ember/controller";
 import { inject as service } from '@ember/service';
 
+export default function parseBase64(token) {
+  let tokenData;
+  try {
+    tokenData = atob(token.split('.')[1]);
+    return JSON.parse(tokenData);
+  } catch (e) {
+    return token;
+  }
+}
+
 export default Controller.extend({
   // injecting session service
   session: service("session"),
@@ -18,7 +28,7 @@ export default Controller.extend({
           //let id = this.get('session.data.authenticated.user_id');
 
            // parseBase64 just converts the base64 encoded string to a javascript object
-        let t = parseBase64(session.get('secure.token'));
+        let t = parseBase64(session.get('session.data.authenticated.access_token'));
         // 'sub' is the user's id, as per the JWT draft specification
         this.store.findRecord('user', t['sub']).then((user) => {
           // we can store the current user in the ember-simple-auth session
@@ -27,7 +37,7 @@ export default Controller.extend({
 
           //this.store.queryRecord('user', {}).then((user) => {
           //this.store.findRecord('user', id).then((user) => {
-            session.set('currentUser', user);
+          //  session.set('currentUser', user);
           //});
         })
         .catch(reason => {
