@@ -8,13 +8,21 @@ export default Controller.extend({
   actions: {
     addUser() {
       let store = this.store;
-      let personProps = {
+      /*let personProps = {
         firstName: this.get("firstName"),
         middleName: this.get("middleName"),
         lastName: this.get("lastName"),
         dateOfBirth: this.get("dateOfBirth"),
         age: this.get("age")
-      };
+      };*/
+      let personProps = {
+        firstName,
+        middleName,
+        lastName,
+        dateOfBirth,
+        age
+      } = this.getProperties('firstName', 'middleName', 'lastName', 'dateOfBirth', 'age');
+      
       let userProps = {
         username: this.get("username"),
         email: this.get("email"),
