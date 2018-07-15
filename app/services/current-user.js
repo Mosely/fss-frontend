@@ -11,7 +11,9 @@ export default Service.extend({
 
 	loadUser() {
 		if (this.get('session.isAuthenticated')) {
-      return this.store.queryRecord('user', {id: true}).then((user) => {
+      let id = this.get('session.data.authenticated.user_id');
+      //return this.store.findRecord('user', {id: true}).then((user) => {
+      return this.store.findRecord('user', id).then((user) => {
         this.set("user", user);
       });
     } else {
