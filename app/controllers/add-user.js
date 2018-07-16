@@ -6,7 +6,7 @@ export default Controller.extend({
   session: service("session"),
 
   actions: {
-    addUser() {
+    addUser(model) {
       let store = this.store;
       /*let personProps = {
         firstName: this.get("firstName"),
@@ -23,7 +23,7 @@ export default Controller.extend({
         age
       } = this.getProperties('firstName', 'middleName', 'lastName', 'dateOfBirth', 'age');*/
       let personProps = this.getProperties('firstName', 'middleName', 'lastName', 'dateOfBirth', 'age');
-      console.log(this.model);
+      console.log(model);
       let userProps = {
         username: this.get("username"),
         email: this.get("email"),
