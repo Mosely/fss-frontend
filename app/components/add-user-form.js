@@ -10,15 +10,12 @@ export default Component.extend({
     //  this.sendAction('triggerSave');
     //}
     {
-      let store = this.store;
+      let store = this.controller.store;
 
       let personProps = this.getProperties('firstName', 'middleName', 'lastName', 'dateOfBirth', 'age');
 
-      let userProps = {
-        username: this.get("username"),
-        email: this.get("email"),
-        password: this.get("password")
-      };
+      let userProps = this.getProperties('username', 'email', 'password');
+
       let newPerson = store.createRecord("person", personProps);
       let newUser = store.createRecord("user", { id: newPerson.id, userProps });
 			newPerson.save().then(() => {
