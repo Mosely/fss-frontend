@@ -1,4 +1,4 @@
-<form class="form add-user--form" {{action "submit" on="submit"}}>
+<form class="form add-user--form" {{action "addUser" on="submit"}}>
 	<div class="card">
 		<div class="card--header">
 			<h4 class="header--title">Add User</h4>
@@ -12,7 +12,7 @@
 							<span class="star">*</span>
 						</label>
 						{{input type="text"
-										value=person.firstName
+										value=firstName
 										class="form-control"
 										required="required"}}
 					</div>
@@ -23,7 +23,7 @@
 						<span class="star">*</span>
 					</label>
 					{{input type="text"
-									value=person.middleName
+									value=middleName
 									class="form-control"
 									required="required"}}
 				</div>
@@ -34,7 +34,7 @@
 							<span class="star">*</span>
 						</label>
 						{{input type="text"
-										value=person.lastName
+										value=lastName
 										class="form-control"
 										required="required"}}
 					</div>
@@ -48,7 +48,7 @@
 							<span class="star">*</span>
 						</label>
 						{{input type="text"
-										value=user.username
+										value=username
 										class="form-control"
 										required="required"}}
 					</div>
@@ -61,7 +61,7 @@
 						</label>
 							<div class="input-group">
 								{{input type="date"
-												value=person.dateOfBirth
+												value=dateOfBirth
 												class="form-control datepicker date"}}
 								<div class="input-group-prepend">
 									<span class="input-group-text">
@@ -94,7 +94,7 @@
 							<span class="star">*</span>
 						</label>
 						{{input type="email"
-										value=user.email
+										value=email
 										class="form-control"
 										required="required"}}
 					</div>
@@ -104,7 +104,7 @@
 							<span class="star">*</span>
 						</label>
 						{{input type="password"
-										value=user.password
+										value=password
 										class="form-control"
 									required="required"}}
 					</div>
