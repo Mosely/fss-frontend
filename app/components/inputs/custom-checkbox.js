@@ -5,13 +5,20 @@ export default Component.extend({
 	classNames: ["form-check"],
 	label: null,
 	idValue: null,
-	toggle: null,
 	attributeBindings: ['data-toggle'],
 
 	actions: {
 		ifYesToggle(){
-			let elemID = document.getElementById(event.target.id);
-			console.log(elemID);
+			let checked = event.target.checked;
+			let parentElem = document.getElementById(event.target.parentElement.id);
+			let targetElem = document.getElementById(parentElem.dataset.toggle);
+			if (checked == true && targetElem.classList.contains("hidden")) {
+				targetElem.classList.remove("hidden");
+				targetElem.classList.add("active");
+			} else {
+				targetElem.classList.remove("active");
+				targetElem.classList.add("hidden");
+			}
 		}
 	}
 });

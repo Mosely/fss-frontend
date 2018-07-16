@@ -1328,23 +1328,19 @@
 				<div class="col">
 					{{inputs/custom-checkbox idValue="alcohol"
 							label="Alcohol"
-							checked=adult.druguse.type
+							checked=alcohol
 							name="adult.druguse.type"
-							change=(action 'ifYesToggle')
-							data-toggle="test"}}
-					{{!-- <div class="form-check">
-						{{input type="checkbox"
-										id="alcohol"
-										class="form-check-input"
-										name="adult.druguse.type"
-										checked=alcohol
-										change=(action 'ifYesToggle')}}
-						<label class="form-check-label checkbox" for="alcohol">
-							Alcohol
-						</label>
-					</div> --}}
+							data-toggle="drugUseAlcohol"}}
 					<div id="drugUseAlcohol" class="if-yes hidden">
 						Working!
+					</div>
+					{{inputs/custom-checkbox idValue="cigarettes"
+							label="Cigarettes"
+							checked=cigarettes
+							name="adult.druguse.type"
+							data-toggle="drugUseCigarettes"}}
+					<div id="drugUseCigarettes" class="if-yes hidden">
+						Hey Look at that!
 					</div>
 				</div>
 			</div>
