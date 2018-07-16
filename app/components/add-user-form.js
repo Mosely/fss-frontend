@@ -4,14 +4,13 @@ import { inject as service } from '@ember/service';
 export default Component.extend({
   session: service("session"),
   store: service("store"),
-  
+
   actions: {
     triggerSave() 
     //{
     //  this.sendAction('triggerSave');
     //}
     {
-      let store = this.store;
 
       let personProps = this.getProperties('firstName', 'middleName', 'lastName', 'dateOfBirth', 'age');
 
