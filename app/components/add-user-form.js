@@ -16,8 +16,8 @@ export default Component.extend({
 
       let userProps = this.getProperties('username', 'email', 'password');
 
-      let newPerson = store.createRecord("person", personProps);
-      let newUser = store.createRecord("user", { id: newPerson.id, userProps });
+      let newPerson = this.store.createRecord("person", personProps);
+      let newUser = this.store.createRecord("user", { id: newPerson.id, userProps });
 			newPerson.save().then(() => {
 				return newUser.save();
 			});
