@@ -1182,105 +1182,81 @@
 					<label class="form-label mt-3">
 						Current desire to harm him/herself?
 					</label>
-					<div class="form-check inline-block">
-						{{input type="radio"
-										class="form-check-input"
-										name="adult.counselee.currentHarmSelf"
-										id="currentHarmSelfYes"
-										value=yes}}
-						<label for="currentHarmSelfYes"
-									 class="form-check-label">
-							Yes
-						</label>
-					</div>
-					<div class="form-check inline-block">
-						{{input type="radio"
-										class="form-check-input"
-										name="adult.counselee.currentHarmSelf"
-										id="currentHarmSelfNo"
-										value=no}}
-						<label for="currentHarmSelfNo"
-									 class="form-check-label">
-							No
-						</label>
-					</div>
-					<div class="form-group">
-						<label class="block">
-							Please Provide Example
-						</label>
-						{{input type="text"
-										value=currentHarmSelfExample
-										class="form-control"}}
+					{{inputs/toggle-radio idValue="currentHarmSelfYes"
+							label="Yes"
+							name="adult.counselee.currentHarmSelf"
+							value="yes"
+							data-toggle="currentHarmSelfExample"}}
+					{{inputs/toggle-radio idValue="currentHarmSelfNo"
+							label="No"
+							name="adult.counselee.currentHarmSelf"
+							value="no"
+							data-toggle="currentHarmSelfExample"}}
+					<div id="currentHarmSelfExample" class="if-yes hidden">
+						<div class="col">
+							<div class="form-group">
+								<label class="block">
+									Please Provide Example
+								</label>
+								{{input type="text"
+												value=adult.counselee.currentHarmSelfExample
+												class="form-control"}}
+							</div>
+						</div>
 					</div>
 				</div>
 				<div class="col-12 col-sm-6">
 					<label class="form-label mt-3">
 						Have you attempted to harm yourself before?
 					</label>
-					<div class="form-check inline-block">
-						{{input type="radio"
-										class="form-check-input"
-										name="adult.counselee.pastHarmSelf"
-										id="pastHarmSelfYes"
-										value=yes}}
-						<label for="pastHarmSelfYes"
-									 class="form-check-label">
-							Yes
-						</label>
-					</div>
-					<div class="form-check inline-block">
-						{{input type="radio"
-										class="form-check-input"
-										name="adult.counselee.pastHarmSelf"
-										id="pastHarmSelfNo"
-										value=no}}
-						<label for="pastHarmSelfNo"
-									 class="form-check-label">
-							No
-						</label>
-					</div>
-					<div class="form-group">
-						<label class="block">
-							Please Provide Example
-						</label>
-						{{input type="text"
-										value=adult.counselee.pastHarmSelfExample
-										class="form-control"}}
+					{{inputs/toggle-radio idValue="pastHarmSelfYes"
+							label="Yes"
+							name="adult.counselee.pastHarmSelf"
+							value="yes"
+							data-toggle="pastHarmSelfExample"}}
+					{{inputs/toggle-radio idValue="pastHarmSelfNo"
+							label="No"
+							name="adult.counselee.pastHarmSelf"
+							value="no"
+							data-toggle="pastHarmSelfExample"}}
+					<div id="pastHarmSelfExample" class="if-yes hidden">
+						<div class="col">
+							<div class="form-group">
+								<label class="block">
+									Please Provide Example
+								</label>
+								{{input type="text"
+												value=adult.counselee.pastHarmSelfExample
+												class="form-control"}}
+							</div>
+						</div>
 					</div>
 				</div>
 				<div class="col-12 col-sm-6">
 					<label class="form-label mt-3">
 						Current desire to harm others?
 					</label>
-					<div class="form-check inline-block">
-						{{input type="radio"
-										class="form-check-input"
-										name="adult.counselee.currentHarmOthers"
-										id="currentHarmOthersYes"
-										value=yes}}
-						<label for="currentHarmOthersYes"
-									 class="form-check-label">
-							Yes
-						</label>
-					</div>
-					<div class="form-check inline-block">
-						{{input type="radio"
-										class="form-check-input"
-										name="adult.counselee.currentHarmOthers"
-										id="currentHarmOthersNo"
-										value=no}}
-						<label for="currentHarmOthersNo"
-									 class="form-check-label">
-							No
-						</label>
-					</div>
-					<div class="form-group">
-						<label class="block">
-							Please Provide Example
-						</label>
-						{{input type="text"
-										value=adult.counselee.currentHarmOthersExample
-										class="form-control"}}
+					{{inputs/toggle-radio idValue="currentHarmOthersYes"
+							label="Yes"
+							name="adult.counselee.currentHarmOthers"
+							value="yes"
+							data-toggle="currentHarmOthersExample"}}
+					{{inputs/toggle-radio idValue="currentHarmOthersNo"
+							label="No"
+							name="adult.counselee.currentHarmOthers"
+							value="no"
+							data-toggle="currentHarmOthersExample"}}
+					<div id="currentHarmOthersExample" class="if-yes hidden">
+						<div class="col">
+							<div class="form-group">
+								<label class="block">
+									Please Provide Example
+								</label>
+								{{input type="text"
+												value=adult.counselee.currentHarmOthersExample
+												class="form-control"}}
+							</div>
+						</div>
 					</div>
 				</div>
 				<div class="col-12 col-sm-6">
@@ -1304,7 +1280,7 @@
 									Please Provide Example
 								</label>
 								{{input type="text"
-												value=adult.counselee.pastHarmOthersExample
+												value=adult.counselee.attemptHarmOthersExample
 												class="form-control"}}
 							</div>
 						</div>
