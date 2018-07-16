@@ -22,7 +22,7 @@ export default Controller.extend({
         dateOfBirth,
         age
       } = this.getProperties('firstName', 'middleName', 'lastName', 'dateOfBirth', 'age');*/
-      let personProps = this.getProperties('firstName', 'middleName', 'lastName', 'dateOfBirth', 'age');
+      let personProps = this.getProperties('first-name', 'middleName', 'lastName', 'dateOfBirth', 'age');
       console.log(personProps);
       let userProps = {
         username: this.get("username"),
