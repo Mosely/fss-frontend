@@ -11,13 +11,13 @@ export default Component.extend({
     //  this.sendAction('triggerSave');
     //}
     {
-
+      let store = this.get("store");
       let personProps = this.getProperties('firstName', 'middleName', 'lastName', 'dateOfBirth', 'age');
 
       let userProps = this.getProperties('username', 'email', 'password');
 
-      let newPerson = this.store.createRecord("person", personProps);
-      let newUser = this.store.createRecord("user", { id: newPerson.id, userProps });
+      let newPerson = store.createRecord("person", personProps);
+      let newUser = store.createRecord("user", { id: newPerson.id, userProps });
 			newPerson.save().then(() => {
 				return newUser.save();
 			});
