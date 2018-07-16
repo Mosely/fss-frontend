@@ -1326,7 +1326,13 @@
 					</label>
 				</div>
 				<div class="col">
-					<div class="form-check">
+					{{inputs/custom-checkbox idValue="alcohol"
+							label="Alcohol"
+							checked=adult.druguse.type
+							name="adult.druguse.type"
+							change=(action 'ifYesToggle')
+							data-toggle="test"}}
+					{{!-- <div class="form-check">
 						{{input type="checkbox"
 										id="alcohol"
 										class="form-check-input"
@@ -1336,7 +1342,7 @@
 						<label class="form-check-label checkbox" for="alcohol">
 							Alcohol
 						</label>
-					</div>
+					</div> --}}
 					<div id="drugUseAlcohol" class="if-yes hidden">
 						Working!
 					</div>
