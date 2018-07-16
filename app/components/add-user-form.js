@@ -13,7 +13,7 @@ export default Component.extend({
       let store = this.store;
 
       let personProps = this.getProperties('firstName', 'middleName', 'lastName', 'dateOfBirth', 'age');
-      console.log(model);
+
       let userProps = {
         username: this.get("username"),
         email: this.get("email"),
