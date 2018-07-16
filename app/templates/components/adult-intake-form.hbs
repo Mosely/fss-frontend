@@ -1287,35 +1287,27 @@
 					<label class="form-label mt-3">
 						Have you attempted to harm others in the past?
 					</label>
-					<div class="form-check inline-block">
-						{{input type="radio"
-										class="form-check-input"
-										name="adult.counselee.pastHarmOthers"
-										id="pastHarmOthersYes"
-										value=yes}}
-						<label for="pastHarmOthersYes"
-									 class="form-check-label">
-							Yes
-						</label>
-					</div>
-					<div class="form-check inline-block">
-						{{input type="radio"
-										class="form-check-input"
-										name="adult.counselee.pastHarmOthers"
-										id="pastHarmOthersNo"
-										value=no}}
-						<label for="pastHarmOthersNo"
-									 class="form-check-label">
-							No
-						</label>
-					</div>
-					<div class="form-group">
-						<label class="block">
-							Please Provide Example
-						</label>
-						{{input type="text"
-										value=adult.counselee.pastHarmOthersExample
-										class="form-control"}}
+					{{inputs/toggle-radio idValue="pastHarmOthersYes"
+							label="Yes"
+							name="adult.counselee.pastHarmOthers"
+							value="yes"
+							data-toggle="attemptHarmOthersExample"}}
+					{{inputs/toggle-radio idValue="pastHarmOthersNo"
+							label="No"
+							name="adult.counselee.pastHarmOthers"
+							value="no"
+							data-toggle="attemptHarmOthersExample"}}
+					<div id="attemptHarmOthersExample" class="if-yes hidden">
+						<div class="col">
+							<div class="form-group">
+								<label class="block">
+									Please Provide Example
+								</label>
+								{{input type="text"
+												value=adult.counselee.pastHarmOthersExample
+												class="form-control"}}
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

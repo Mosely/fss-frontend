@@ -1,18 +1,19 @@
-import Component from "@ember/component";
+import Component from '@ember/component';
 
 export default Component.extend({
-  tagName: "div",
-  classNames: ["form-check"],
-  label: null,
-  idValue: null,
-  attributeBindings: ["data-toggle"],
+	tagName: "div",
+	classNames: ["form-check", "inline-block"],
+	label: null,
+	idValue: null,
+	attributeBindings: ["data-toggle"],
 
-  actions: {
-    ifYesToggle() {
-      let checked = event.target.checked;
+	actions: {
+		ifYesToggle() {
+      let value = event.target.value;
+			console.log(value);
       let parentElem = document.getElementById(event.target.parentElement.id);
       let targetElem = document.getElementById(parentElem.dataset.toggle);
-      if (checked == true && targetElem.classList.contains("hidden")) {
+      if (value == "yes" && targetElem.classList.contains("hidden")) {
         targetElem.classList.remove("hidden");
         targetElem.classList.add("active");
       } else {
@@ -20,5 +21,5 @@ export default Component.extend({
         targetElem.classList.add("hidden");
       }
     }
-  }
+	}
 });
