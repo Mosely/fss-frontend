@@ -6,14 +6,12 @@ export default Component.extend({
   store: service("store"),
 
   actions: {
-    triggerSave() 
-    //{
-    //  this.sendAction('triggerSave');
-    //}
-    {
+    updateValue(value) {
+      this.set('user.gender', value);
+    },
+    triggerSave() {
       let store = this.get("store");
-      let personProps = this.getProperties('firstName', 'middleName', 'lastName', 'dateOfBirth', 'age');
-
+      let personProps = this.getProperties('firstName', 'middleName', 'lastName', 'user.gender', 'dateOfBirth', 'age');
       let userProps = this.getProperties('username', 'email', 'password');
 
       let newPerson = store.createRecord("person", personProps);

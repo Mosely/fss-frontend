@@ -17,7 +17,7 @@
 										required="required"}}
 					</div>
 				</div>
-				<div class="col-3">
+				<div class="col-12 col-sm-3">
 					<label class="form-label">
 						Middle Name
 						<span class="star">*</span>
@@ -41,7 +41,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-6">
+				<div class="col-12 col-sm-6">
 					<div class="form-group">
 						<label class="form-label">
 							Username
@@ -53,7 +53,21 @@
 										required="required"}}
 					</div>
 				</div>
-				<div class="col-4">
+				<div class="col-12 col-sm-6">
+					<div class="form-group">
+						<label class="form-label">
+							Email Address
+							<span class="star">*</span>
+						</label>
+						{{input type="email"
+										value=email
+										class="form-control"
+										required="required"}}
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12 col-sm-5">
 					<div class="form-group">
 						<label class="form-label">
 							Date of Birth
@@ -72,7 +86,7 @@
 							</div>
 					</div>
 				</div>
-				<div class="col-2">
+				<div class="col-12 col-sm-2">
 					<div class="form-group">
 						<label class="form-label">
 							Age
@@ -85,19 +99,25 @@
 										class="form-control"}}
 					</div>
 				</div>
+				<div class="col-12 col-sm-5">
+					<div class="form-group">
+						<label class="form-label" for="genderSelect">
+							Gender
+							<span class="star">*</span>
+						</label>
+						<select id="genderSelect"
+										class="form-control"
+										name="gender" 
+										onchange={{action "updateValue" value="target.value"}}>
+							{{#each user.genders as |gender|}}
+						  	<option value="{{gender.id}}">{{gender.name}}</option>
+						  {{/each}}
+						</select>
+					</div>
+				</div>
 			</div>
 			<div class="row">
 				<div class="col-12">
-					<div class="form-group">
-						<label class="form-label">
-							Email Address
-							<span class="star">*</span>
-						</label>
-						{{input type="email"
-										value=email
-										class="form-control"
-										required="required"}}
-					</div>
 					<div class="form-group">
 						<label class="form-label">
 							Password
