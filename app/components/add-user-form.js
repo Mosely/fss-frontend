@@ -10,26 +10,28 @@ export default Component.extend({
      * Will set gender_id to the selected value when the dropdown is updated
      *
      * @param {string} value The value of the option that is selected
-    **/
+     **/
     updateValue(value) {
-      this.set("gender_id", value);
+      this.set("genderId", value);
     },
+
     /**
      * Creates a record to save a new user
      *
      * @return the saved records of the person then user model.
-    **/
+     **/
     triggerSave() {
       let personProps,
         userProps,
         newPerson,
         newUser,
         store = this.get("store");
+        
       personProps = this.getProperties(
         "firstName",
         "middleName",
         "lastName",
-        "gender_id",
+        "genderId",
         "dateOfBirth",
         "age"
       );
