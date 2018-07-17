@@ -6,23 +6,34 @@ export default Component.extend({
   store: service("store"),
 
   actions: {
+    /**
+     * Will set gender_id to the selected value when the dropdown is updated
+     *
+     * @param {string} value The value of the option that is selected
+    **/
     updateValue(value) {
-      this.set("user.gender", value);
+      this.set("gender_id", value);
     },
+    /**
+     * Creates a record to save a new user
+     *
+     * @return the saved records of the person then user model.
+    **/
     triggerSave() {
       let personProps,
         userProps,
         newPerson,
         newUser,
         store = this.get("store");
-
       personProps = this.getProperties(
         "firstName",
         "middleName",
         "lastName",
+        "gender_id",
         "dateOfBirth",
         "age"
       );
+      console.table(personProps);
       userProps = this.getProperties("username", "email", "password");
       // let newPerson = store.createRecord("person", {
       //   firstName: this.get("firstName"),
@@ -32,10 +43,7 @@ export default Component.extend({
       //   dateOfBirth: this.get("dateOfBirth"),
       //   age: this.get("age")
       //  });
-      newPerson = store.createRecord("person", {
-        gender_id: this.get('user.gender'),
-        personProps
-      });
+      newPerson = store.createRecord("person", personProps);
       newUser = store.createRecord("user", {
         id: newPerson.id,
         userProps
