@@ -12,7 +12,7 @@ export default Component.extend({
      * @param {string} value The value of the option that is selected
      **/
     updateValue(value) {
-      this.set("genderId", value);
+      this.set("gender_id", value);
     },
 
     /**
@@ -26,12 +26,12 @@ export default Component.extend({
         newPerson,
         newUser,
         store = this.get("store");
-        
+
       personProps = this.getProperties(
         "firstName",
         "middleName",
         "lastName",
-        "genderId",
+        "gender_id",
         "dateOfBirth",
         "age"
       );
