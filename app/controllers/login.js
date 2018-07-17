@@ -1,5 +1,6 @@
 import Controller from "@ember/controller";
 import { inject as service } from '@ember/service';
+const { RSVP } = Ember;
 
 function parseBase64(token) {
   let tokenData;
@@ -41,7 +42,13 @@ export default Controller.extend({
           //});
         })
         .catch(reason => {
-          this.set("errorMessage", reason.responseJSON.message || reason);
+          if (reason.responseJSON) {
+            RSVP.hash({
+              errors: reason.responseJSON.message
+            }).then((error) => {
+              this.set("errorMessage", error.errors || reason);
+            });
+          }
         });
     },
     handleInput() {
