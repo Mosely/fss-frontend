@@ -12,7 +12,7 @@ export default Component.extend({
      * @param {string} value The value of the option that is selected
      **/
     updateValue(value) {
-      this.set("gender_id", value);
+      this.set("gender", value);
     },
 
     /**
@@ -31,7 +31,7 @@ export default Component.extend({
         "firstName",
         "middleName",
         "lastName",
-        "gender_id",
+        "gender",
         "dateOfBirth",
         "age"
       );
