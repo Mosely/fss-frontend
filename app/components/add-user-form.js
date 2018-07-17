@@ -12,49 +12,37 @@ export default Component.extend({
     triggerSave() {
       let personProps,
         userProps,
+        newPerson,
+        newUser,
         store = this.get("store");
 
-      // personProps = this.getProperties(
-      //   "firstName",
-      //   "middleName",
-      //   "lastName",
-      //   "user.gender",
-      //   "dateOfBirth",
-      //   "age"
-      // );
+      personProps = this.getProperties(
+        "firstName",
+        "middleName",
+        "lastName",
+        "dateOfBirth",
+        "age"
+      );
       userProps = this.getProperties("username", "email", "password");
-
-      let newPerson = store.createRecord("person", {
-        firstName: this.get("firstName"),
-        middleName: this.get("middleName"),
-        lastName: this.get("lastName"),
-        gender_id: this.get("user.gender"),
-        dateOfBirth: this.get("dateOfBirth"),
-        age: this.get("age")
-       });
-      let newUser = store.createRecord("user", { id: newPerson.id, userProps });
+      // let newPerson = store.createRecord("person", {
+      //   firstName: this.get("firstName"),
+      //   middleName: this.get("middleName"),
+      //   lastName: this.get("lastName"),
+      //   gender_id: this.get("user.gender"),
+      //   dateOfBirth: this.get("dateOfBirth"),
+      //   age: this.get("age")
+      //  });
+      newPerson = store.createRecord("person", {
+        gender_id: this.get('user.gender'),
+        personProps
+      });
+      newUser = store.createRecord("user", {
+        id: newPerson.id,
+        userProps
+      });
       newPerson.save().then(() => {
         return newUser.save();
       });
-
-      // return newPerson.save().then(() => {
-      // 	newUser.save();
-      // });
-
-      // let userInfo = this.getProperties('firstName', 'lastName', 'username', 'email', 'password');
-      // let newPerson = this.store
-      //   .createRecord("person", personProps)
-      //   .then(person => {
-      //     this.store.createRecord("user", { id: person.id, userProps });
-      //   });
-      // return newUser.save();
-      // return store.createRecord("person", personProps).then(person => {
-      //   store.findRecord("user", person.id).then(user => {
-      //     let userData = store.createRecord("user", userProps);
-      //     person.set("user", userData);
-      //   });
-      //   return person.save();
-      // });
     }
   }
 });
