@@ -14,17 +14,24 @@ export default Component.extend({
         userProps,
         store = this.get("store");
 
-      personProps = this.getProperties(
-        "firstName",
-        "middleName",
-        "lastName",
-        "user.gender",
-        "dateOfBirth",
-        "age"
-      );
+      // personProps = this.getProperties(
+      //   "firstName",
+      //   "middleName",
+      //   "lastName",
+      //   "user.gender",
+      //   "dateOfBirth",
+      //   "age"
+      // );
       userProps = this.getProperties("username", "email", "password");
 
-      let newPerson = store.createRecord("person", personProps);
+      let newPerson = store.createRecord("person", {
+        firstName: this.get("firstName"),
+        middleName: this.get("middleName"),
+        lastName: this.get("lastName"),
+        gender_id: this.get("user.gender"),
+        dateOfBirth: this.get("dateOfBirth"),
+        age: this.get("age")
+       });
       let newUser = store.createRecord("user", { id: newPerson.id, userProps });
       newPerson.save().then(() => {
         return newUser.save();
