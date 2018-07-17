@@ -1,5 +1,5 @@
 import Component from "@ember/component";
-import { inject as service } from '@ember/service';
+import { inject as service } from "@ember/service";
 
 export default Component.extend({
   session: service("session"),
@@ -7,19 +7,28 @@ export default Component.extend({
 
   actions: {
     updateValue(value) {
-      this.set('user.gender', value);
+      this.set("user.gender", value);
     },
     triggerSave() {
-      let store = this.get("store");
-      let personProps = this.getProperties('firstName', 'middleName', 'lastName', 'user.gender', 'dateOfBirth', 'age');
-      let userProps = this.getProperties('username', 'email', 'password');
+      let personProps,
+        userProps,
+        store = this.get("store");
+
+      personProps = this.getProperties(
+        "firstName",
+        "middleName",
+        "lastName",
+        "user.gender",
+        "dateOfBirth",
+        "age"
+      );
+      userProps = this.getProperties("username", "email", "password");
 
       let newPerson = store.createRecord("person", personProps);
       let newUser = store.createRecord("user", { id: newPerson.id, userProps });
-			newPerson.save().then(() => {
-				return newUser.save();
-			});
-
+      newPerson.save().then(() => {
+        return newUser.save();
+      });
 
       // return newPerson.save().then(() => {
       // 	newUser.save();

@@ -107,7 +107,7 @@
 						</label>
 						<select id="genderSelect"
 										class="form-control"
-										name="gender" 
+										name="gender"
 										onchange={{action "updateValue" value="target.value"}}>
 							{{#each user.genders as |gender|}}
 						  	<option value="{{gender.id}}">{{gender.name}}</option>
