@@ -38,6 +38,7 @@ export default Component.extend({
 
       store.findRecord("gender", personProps.gender).then((gender)=>{
         personProps.gender = gender;
+        newPerson = store.createRecord("person", personProps);
       });
       console.table(personProps);
 
@@ -50,7 +51,7 @@ export default Component.extend({
       //   dateOfBirth: this.get("dateOfBirth"),
       //   age: this.get("age")
       //  });
-      newPerson = store.createRecord("person", personProps);
+      //newPerson = store.createRecord("person", personProps);
       newUser = store.createRecord("user", {
         id: newPerson.id,
         userProps
