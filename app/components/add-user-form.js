@@ -60,6 +60,7 @@ export default Component.extend({
         return values;
       });
       newPerson.set("gender", resolvedPromises[0]);
+      console.table(newPerson);
       
       newPerson.save().then(() => {
         return newUser.save();
