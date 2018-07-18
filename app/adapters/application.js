@@ -21,18 +21,19 @@ export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
     xhr.setRequestHeader('Authorization', `Bearer ${access_token}`);
     // debugger;
   }, 
-  urlForQueryRecord({ slug }, modelName) {
+  urlForQueryRecord(query, modelName) {
+    modelName = Inflector.inflector.pluralize(modelName);
     let baseUrl = this.buildURL();
-    return `${baseUrl}/${encodeURIComponent(slug)}`;
+    let queryKeys = Object.keys(query);
+    let searchSegments = "";
+    for(let i = 0; i < queryKeys.length; i++) {
+      searchSegments += "/" + queryKeys[i] + "/" + query[queryKeys[i]];
+    }
+    return `${baseUrl}/${modelName}${searchSegments}`;
   },
   urlForQuery(query, modelName) {
     modelName = Inflector.inflector.pluralize(modelName);
     let baseUrl = this.buildURL();
-    
-    //console.log(baseUrl);
-    //console.log(modelName);
-    //console.log(query);
-
     let queryKeys = Object.keys(query);
     let searchSegments = "";
     for(let i = 0; i < queryKeys.length; i++) {
