@@ -18,5 +18,9 @@ export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
 
     xhr.setRequestHeader('Authorization', `Bearer ${access_token}`);
     // debugger;
+  }, 
+  urlForQueryRecord({ slug }, modelName) {
+    let baseUrl = this.buildURL();
+    return `${baseUrl}/${encodeURIComponent(slug)}`;
   }
 });
