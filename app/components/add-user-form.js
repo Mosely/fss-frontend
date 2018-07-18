@@ -38,20 +38,21 @@ export default Component.extend({
       );
 
       genderModel = store.findRecord("gender", personProps.gender).then((gender) => {
-        console.log("GENDERID " + gender.id);
-        newPerson = store.createRecord("person", personProps);
+        return gender;
+      });
 
-        userProps = this.getProperties("username", "email", "password");
-        newUser = store.createRecord("user", {
-          id: newPerson.id,
-          userProps
-        });
+      newPerson = store.createRecord("person", personProps);
 
-        newPerson.set("gender", gender.id);
+      userProps = this.getProperties("username", "email", "password");
+      newUser = store.createRecord("user", {
+        id: newPerson.id,
+        userProps
+      });
 
-        newPerson.save().then(() => {
-          return newUser.save();
-        });
+      newPerson.set("gender", genderModel);
+
+      newPerson.save().then(() => {
+        return newUser.save();
       });
 
       // let resolvedPromises = Promise.all([genderModel, newPerson, newUser]).then((values)=> {
