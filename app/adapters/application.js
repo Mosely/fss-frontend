@@ -29,6 +29,7 @@ export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
     for(let i = 0; i < queryKeys.length; i++) {
       searchSegments += "/" + queryKeys[i] + "/" + query[queryKeys[i]];
     }
+    query = null;
     return `${baseUrl}/${modelName}${searchSegments}`;
   },
   urlForQuery(query, modelName) {
@@ -39,6 +40,7 @@ export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
     for(let i = 0; i < queryKeys.length; i++) {
       searchSegments += "/" + queryKeys[i] + "/" + query[queryKeys[i]];
     }
+    query = null;
     return `${baseUrl}/${modelName}${searchSegments}`;
   }
 });
