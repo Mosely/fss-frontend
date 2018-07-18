@@ -12,7 +12,7 @@ export default Component.extend({
      * @param {string} value The value of the option that is selected
      **/
     updateValue(value) {
-      this.set("gender", value);
+      this.set("gender", store.findRecord(value));
     },
 
     /**
@@ -45,9 +45,7 @@ export default Component.extend({
       //   dateOfBirth: this.get("dateOfBirth"),
       //   age: this.get("age")
       //  });
-      newPerson = store.createRecord("person", personProps).then(()=> {
-        newPerson.set('gender', personProps.get('gender'));
-      });
+      newPerson = store.createRecord("person", personProps);
       newUser = store.createRecord("user", {
         id: newPerson.id,
         userProps
