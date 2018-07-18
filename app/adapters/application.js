@@ -35,7 +35,7 @@ export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
 
     let queryKeys = Object.keys(query);
     let searchSegments = "";
-    for(let i = 0; i < count(queryKeys); i++) {
+    for(let i = 0; i < queryKeys.length; i++) {
       searchSegments += "/" + queryKeys[i] + "/" + query[queryKeys[i]];
     }
     return `${baseUrl}/${modelName}${searchSegments}`;
