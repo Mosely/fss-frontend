@@ -45,7 +45,9 @@ export default Component.extend({
       //   dateOfBirth: this.get("dateOfBirth"),
       //   age: this.get("age")
       //  });
-      newPerson = store.createRecord("person", personProps);
+      newPerson = store.createRecord("person", personProps).then(()=> {
+        newPerson.set('gender', personProps.get('gender'));
+      });
       newUser = store.createRecord("user", {
         id: newPerson.id,
         userProps
