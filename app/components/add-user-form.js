@@ -36,7 +36,7 @@ export default Component.extend({
         "age"
       );
 
-      personProps.set("gender", store.findRecord(personProps.get("gender")));
+      personProps.gender = store.findRecord("gender", personProps.gender);
       console.table(personProps);
 
       userProps = this.getProperties("username", "email", "password");
