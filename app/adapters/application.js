@@ -22,5 +22,9 @@ export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
   urlForQueryRecord({ slug }, modelName) {
     let baseUrl = this.buildURL();
     return `${baseUrl}/${encodeURIComponent(slug)}`;
+  },
+  urlForQuery({ slug }, modelName) {
+    let baseUrl = this.buildURL();
+    return `${baseUrl}/${encodeURIComponent(slug)}`;
   }
 });
