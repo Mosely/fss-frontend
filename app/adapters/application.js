@@ -24,7 +24,13 @@ export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
     return `${baseUrl}/${encodeURIComponent(slug)}`;
   },
   urlForQuery(query, modelName) {
+    modelName = Ember.Inflector.inflector.pluralize(modelName);
     let baseUrl = this.buildURL();
+    
+    console.log(baseUrl);
+    console.log(modelName);
+    console.log(query);
+
     return `${baseUrl}/${modelName}/${query}`;
   }
 });
