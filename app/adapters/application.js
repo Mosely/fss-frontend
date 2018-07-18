@@ -29,10 +29,15 @@ export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
     modelName = Inflector.inflector.pluralize(modelName);
     let baseUrl = this.buildURL();
     
-    console.log(baseUrl);
-    console.log(modelName);
-    console.log(query);
+    //console.log(baseUrl);
+    //console.log(modelName);
+    //console.log(query);
 
-    return `${baseUrl}/${modelName}/${query}`;
+    let queryKeys = Object.keys(query);
+    let searchSegments = "";
+    for(let i = 0; i < count(queryKeys); i++) {
+      searchSegments += "/" + queryKeys[i] + "/" + query[queryKeys[i]];
+    }
+    return `${baseUrl}/${modelName}${searchSegments}`;
   }
 });
