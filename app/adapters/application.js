@@ -2,6 +2,8 @@ import DS from 'ember-data';
 import DataAdapterMixin from 'ember-simple-auth/mixins/data-adapter-mixin';
 import { inject as service } from '@ember/service';
 import config from '../config/environment';
+import Inflector from 'ember-inflector';
+
 //import { pluralize } from 'ember-inflector';
 
 //export default DS.RESTAdapter.extend(DataAdapterMixin, {
@@ -24,7 +26,7 @@ export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
     return `${baseUrl}/${encodeURIComponent(slug)}`;
   },
   urlForQuery(query, modelName) {
-    modelName = Ember.Inflector.inflector.pluralize(modelName);
+    modelName = Inflector.inflector.pluralize(modelName);
     let baseUrl = this.buildURL();
     
     console.log(baseUrl);
