@@ -110,7 +110,7 @@
 				<div class="col-7 col-sm-4">
 					<div class="form-group">
 						{{input type="text"
-										value=cityData.name
+										value=cityName
 										placeholder="City"
 										class="form-control required"}}
 					</div>
@@ -118,7 +118,7 @@
 				<div class="col-7 col-sm-4">
 					<div class="form-group">
 						{{input type="text"
-										value=stateData.name
+										value=stateName
 										placeholder="State"
 										class="form-control required"}}
 					</div>
@@ -246,7 +246,7 @@
 					<div class="form-check">
 						{{input type="radio"
 										class="form-check-input"
-										name="adult.language.name"
+										name="name"
 										id="english"
 										value=english}}
 						<label for="english"
@@ -259,7 +259,7 @@
 					<div class="form-check">
 						{{input type="radio"
 										class="form-check-input"
-										name="adult.language.name"
+										name="name"
 										id="spanish"
 										value=spanish}}
 						<label for="spanish"
@@ -272,7 +272,7 @@
 					<div class="form-check">
 						{{input type="radio"
 										class="form-check-input"
-										name="adult.language.name"
+										name="name"
 										id="other_language"
 										value=other_language}}
 						<label for="other_language"
@@ -282,7 +282,7 @@
 						{{input type="text"
 										class="form-control"
 										id="other_language_input"
-										value=adult.clientlanguage.otherNote}}
+										value=otherNote}}
 					</div>
 				</div>
 			</div>
@@ -296,7 +296,7 @@
 						{{input type="text"
 										class="form-control"
 										id="placeOfEmployment"
-										value=adult.client.placeOfEmployment}}
+										value=placeOfEmployment}}
 					</div>
 				</div>
 			</div>
@@ -309,15 +309,15 @@
 						( {{input type="number"
 										min="0"
 										class="form-control number"
-										name="adult.phone.areaCode"
+										name="areaCode"
 										placeholder="XXX"
-										value=adult.phone.areaCode}} )
+										value=areaCode}} )
 						{{input type="number"
 										min="0"
 										class="form-control number phone"
-										name="adult.phone.phoneNumber"
+										name="phoneNumber"
 										placeholder="XXX-XXXX"
-										value=adult.phone.phoneNumber}}
+										value=phoneNumber}}
 					</div>
 					<label class="block">
 						May we call you here?
@@ -325,7 +325,7 @@
 					<div class="form-check inline-block">
 						{{input type="radio"
 										class="form-check-input"
-										name="adult.personphone.canCall"
+										name="canCall"
 										id="canCallWorkYes"
 										value=yes}}
 						<label for="canCallWorkYes"
@@ -336,7 +336,7 @@
 					<div class="form-check inline-block">
 						{{input type="radio"
 										class="form-check-input"
-										name="adult.personphone.canCall"
+										name="canCall"
 										id="canCallWorkNo"
 										value=no}}
 						<label for="canCallWorkNo"
@@ -353,15 +353,15 @@
 						( {{input type="number"
 										min="0"
 										class="form-control number"
-										name="adult.phone.areaCode"
+										name="areaCode"
 										placeholder="XXX"
-										value=adult.phone.areaCode}} )
+										value=areaCode}} )
 						{{input type="number"
 										min="0"
 										class="form-control number phone"
-										name="adult.phone.phoneNumber"
+										name="phoneNumber"
 										placeholder="XXX-XXXX"
-										value=adult.phone.phoneNumber}}
+										value=phoneNumber}}
 					</div>
 					<label class="block">
 						May we call you here?
@@ -369,7 +369,7 @@
 					<div class="form-check inline-block">
 						{{input type="radio"
 										class="form-check-input"
-										name="adult.personphone.canCall"
+										name="canCall"
 										id="canCallHomeYes"
 										value=yes}}
 						<label for="canCallHomeYes"
@@ -380,7 +380,7 @@
 					<div class="form-check inline-block">
 						{{input type="radio"
 										class="form-check-input"
-										name="adult.personphone.canCall"
+										name="canCall"
 										id="canCallHomeNo"
 										value=no}}
 						<label for="canCallHomeNo"
@@ -397,15 +397,15 @@
 						( {{input type="number"
 										min="0"
 										class="form-control number"
-										name="adult.phone.areaCode"
+										name="areaCode"
 										placeholder="XXX"
-										value=adult.phone.areaCode}} )
+										value=areaCode}} )
 						{{input type="number"
 										min="0"
 										class="form-control number phone"
-										name="adult.phone.phoneNumber"
+										name="phoneNumber"
 										placeholder="XXX-XXXX"
-										value=adult.phone.phoneNumber}}
+										value=phoneNumber}}
 					</div>
 					<label class="block">
 						May we call you here?
@@ -413,7 +413,7 @@
 					<div class="form-check inline-block">
 						{{input type="radio"
 										class="form-check-input"
-										name="adult.phone.canCall"
+										name="canCall"
 										id="canCallCellYes"
 										value=yes}}
 						<label for="canCallCellYes"
@@ -424,7 +424,7 @@
 					<div class="form-check inline-block">
 						{{input type="radio"
 										class="form-check-input"
-										name="adult.phone.canCall"
+										name="canCall"
 										id="canCallCellNo"
 										value=no}}
 						<label for="canCallCellNo"
@@ -443,7 +443,7 @@
 					<div class="form-check inline-block">
 						{{input type="radio"
 										class="form-check-input"
-										name="adult.client.isServiceMemberOrVeteran"
+										name="isServiceMemberOrVeteran"
 										id="isServiceMemberOrVeteranYes"
 										value=Yes}}
 						<label for="isServiceMemberOrVeteranYes"
@@ -454,7 +454,7 @@
 					<div class="form-check inline-block">
 						{{input type="radio"
 										class="form-check-input"
-										name="adult.client.isServiceMemberOrVeteran"
+										name="isServiceMemberOrVeteran"
 										id="isServiceMemberOrVeteranNo"
 										value=no}}
 						<label for="isServiceMemberOrVeteranNo"
@@ -471,7 +471,7 @@
 					<div class="form-check inline-block">
 						{{input type="radio"
 										class="form-check-input"
-										name="adult.client.hasFamilyWhoIsServiceMemberOrVeteran"
+										name="hasFamilyWhoIsServiceMemberOrVeteran"
 										id="hasFamilyWhoIsServiceMemberOrVeteranYes"
 										value=Yes}}
 						<label for="hasFamilyWhoIsServiceMemberOrVeteranYes"
@@ -482,7 +482,7 @@
 					<div class="form-check inline-block">
 						{{input type="radio"
 										class="form-check-input"
-										name="adult.client.hasFamilyWhoIsServiceMemberOrVeteran"
+										name="hasFamilyWhoIsServiceMemberOrVeteran"
 										id="hasFamilyWhoIsServiceMemberOrVeteranNo"
 										value=no}}
 						<label for="hasFamilyWhoIsServiceMemberOrVeteranNo"
@@ -499,7 +499,7 @@
 					<div class="form-check inline-block">
 						{{input type="radio"
 										class="form-check-input"
-										name="adult.client.isReferredByVeteranResourceCenter"
+										name="isReferredByVeteranResourceCenter"
 										id="isReferredByVeteranResourceCenterYes"
 										value=Yes}}
 						<label for="isReferredByVeteranResourceCenterYes"
@@ -510,7 +510,7 @@
 					<div class="form-check inline-block">
 						{{input type="radio"
 										class="form-check-input"
-										name="adult.client.isReferredByVeteranResourceCenter"
+										name="isReferredByVeteranResourceCenter"
 										id="isReferredByVeteranResourceCenterNo"
 										value=no}}
 						<label for="isReferredByVeteranResourceCenterNo"
@@ -531,7 +531,7 @@
 					<div class="form-check">
 						{{input type="checkbox"
 										class="form-check-input"
-										name="adult.counselingtopic.topic"
+										name="topic"
 										checked=abortion
 										id="abortion"}}
 						<label class="form-check-label checkbox" for="abortion">
@@ -541,7 +541,7 @@
 					<div class="form-check">
 						{{input type="checkbox"
 										class="form-check-input"
-										name="adult.counselingtopic.topic"
+										name="topic"
 										checked=alcholDrugs
 										id="alcholDrugs"}}
 						<label class="form-check-label checkbox" for="alcholDrugs">
@@ -551,7 +551,7 @@
 					<div class="form-check">
 						{{input type="checkbox"
 										class="form-check-input"
-										name="adult.counselingtopic.topic"
+										name="topic"
 										checked=anger
 										id="anger"}}
 						<label class="form-check-label checkbox" for="anger">
@@ -561,7 +561,7 @@
 					<div class="form-check">
 						{{input type="checkbox"
 										class="form-check-input"
-										name="adult.counselingtopic.topic"
+										name="topic"
 										checked=appetiteChange
 										id="appetiteChange"}}
 						<label class="form-check-label checkbox" for="appetiteChange">
@@ -571,7 +571,7 @@
 					<div class="form-check">
 						{{input type="checkbox"
 										class="form-check-input"
-										name="adult.counselingtopic.topic"
+										name="topic"
 										checked=assertiveness
 										id="assertiveness"}}
 						<label class="form-check-label checkbox" for="assertiveness">
@@ -581,7 +581,7 @@
 					<div class="form-check">
 						{{input type="checkbox"
 										class="form-check-input"
-										name="adult.counselingtopic.topic"
+										name="topic"
 										checked=bothersomeHabits
 										id="bothersomeHabits"}}
 						<label class="form-check-label checkbox" for="bothersomeHabits">
@@ -591,7 +591,7 @@
 					<div class="form-check">
 						{{input type="checkbox"
 										class="form-check-input"
-										name="adult.counselingtopic.topic"
+										name="topic"
 										checked=careerDecisions
 										id="careerDecisions"}}
 						<label class="form-check-label checkbox" for="careerDecisions">
@@ -601,7 +601,7 @@
 					<div class="form-check">
 						{{input type="checkbox"
 										class="form-check-input"
-										name="adult.counselingtopic.topic"
+										name="topic"
 										checked=confusion
 										id="confusion"}}
 						<label class="form-check-label checkbox" for="confusion">
@@ -613,7 +613,7 @@
 					<div class="form-check">
 						{{input type="checkbox"
 										class="form-check-input"
-										name="adult.counselingtopic.topic"
+										name="topic"
 										checked=decisionMaking
 										id="decisionMaking"}}
 						<label class="form-check-label checkbox" for="decisionMaking">
@@ -623,7 +623,7 @@
 					<div class="form-check">
 						{{input type="checkbox"
 										class="form-check-input"
-										name="adult.counselingtopic.topic"
+										name="topic"
 										checked=delusions
 										id="delusions"}}
 						<label class="form-check-label checkbox" for="delusions">
@@ -633,7 +633,7 @@
 					<div class="form-check">
 						{{input type="checkbox"
 										class="form-check-input"
-										name="adult.counselingtopic.topic"
+										name="topic"
 										checked=depression
 										id="depression"}}
 						<label class="form-check-label checkbox" for="depression">
@@ -643,7 +643,7 @@
 					<div class="form-check">
 						{{input type="checkbox"
 										class="form-check-input"
-										name="adult.counselingtopic.topic"
+										name="topic"
 										checked=divorce
 										id="divorce"}}
 						<label class="form-check-label checkbox" for="divorce">
@@ -653,7 +653,7 @@
 					<div class="form-check">
 						{{input type="checkbox"
 										class="form-check-input"
-										name="adult.counselingtopic.topic"
+										name="topic"
 										checked=familyConfilct
 										id="familyConfilct"}}
 						<label class="form-check-label checkbox" for="familyConfilct">
@@ -663,7 +663,7 @@
 					<div class="form-check">
 						{{input type="checkbox"
 										class="form-check-input"
-										name="adult.counselingtopic.topic"
+										name="topic"
 										checked=fearOfFuture
 										id="fearOfFuture"}}
 						<label class="form-check-label checkbox" for="fearOfFuture">
@@ -673,7 +673,7 @@
 					<div class="form-check">
 						{{input type="checkbox"
 										class="form-check-input"
-										name="adult.counselingtopic.topic"
+										name="topic"
 										checked=hallucinations
 										id="hallucinations"}}
 						<label class="form-check-label checkbox" for="hallucinations">
@@ -683,7 +683,7 @@
 					<div class="form-check">
 						{{input type="checkbox"
 										class="form-check-input"
-										name="adult.counselingtopic.topic"
+										name="topic"
 										checked=legalIssues
 										id="legalIssues"}}
 						<label class="form-check-label checkbox" for="legalIssues">
@@ -695,7 +695,7 @@
 					<div class="form-check">
 						{{input type="checkbox"
 										class="form-check-input"
-										name="adult.counselingtopic.topic"
+										name="topic"
 										checked=loneliness
 										id="loneliness"}}
 						<label class="form-check-label checkbox" for="loneliness">
@@ -705,7 +705,7 @@
 					<div class="form-check">
 						{{input type="checkbox"
 										class="form-check-input"
-										name="adult.counselingtopic.topic"
+										name="topic"
 										checked=lossGriefDeath
 										id="lossGriefDeath"}}
 						<label class="form-check-label checkbox" for="lossGriefDeath">
@@ -715,7 +715,7 @@
 					<div class="form-check">
 						{{input type="checkbox"
 										class="form-check-input"
-										name="adult.counselingtopic.topic"
+										name="topic"
 										checked=motivation
 										id="motivation"}}
 						<label class="form-check-label checkbox" for="motivation">
@@ -725,7 +725,7 @@
 					<div class="form-check">
 						{{input type="checkbox"
 										class="form-check-input"
-										name="adult.counselingtopic.topic"
+										name="topic"
 										checked=obsessions
 										id="obsessions"}}
 						<label class="form-check-label checkbox" for="obsessions">
@@ -735,7 +735,7 @@
 					<div class="form-check">
 						{{input type="checkbox"
 										class="form-check-input"
-										name="adult.counselingtopic.topic"
+										name="topic"
 										checked=physicalHealth
 										id="physicalHealth"}}
 						<label class="form-check-label checkbox" for="physicalHealth">
@@ -745,7 +745,7 @@
 					<div class="form-check">
 						{{input type="checkbox"
 										class="form-check-input"
-										name="adult.counselingtopic.topic"
+										name="topic"
 										checked=pregnancy
 										id="pregnancy"}}
 						<label class="form-check-label checkbox" for="pregnancy">
@@ -755,7 +755,7 @@
 					<div class="form-check">
 						{{input type="checkbox"
 										class="form-check-input"
-										name="adult.counselingtopic.topic"
+										name="topic"
 										checked=relationshipIssues
 										id="relationshipIssues"}}
 						<label class="form-check-label checkbox" for="relationshipIssues">
@@ -765,7 +765,7 @@
 					<div class="form-check">
 						{{input type="checkbox"
 										class="form-check-input"
-										name="adult.counselingtopic.topic"
+										name="topic"
 										checked=schoolAnxiety
 										id="schoolAnxiety"}}
 						<label class="form-check-label checkbox" for="schoolAnxiety">
@@ -777,7 +777,7 @@
 					<div class="form-check">
 						{{input type="checkbox"
 										class="form-check-input"
-										name="adult.counselingtopic.topic"
+										name="topic"
 										checked=selfconfidence
 										id="selfconfidence"}}
 						<label class="form-check-label checkbox" for="selfconfidence">
@@ -787,7 +787,7 @@
 					<div class="form-check">
 						{{input type="checkbox"
 										class="form-check-input"
-										name="adult.counselingtopic.topic"
+										name="topic"
 										checked=selfImage
 										id="selfImage"}}
 						<label class="form-check-label checkbox" for="selfImage">
@@ -797,7 +797,7 @@
 					<div class="form-check">
 						{{input type="checkbox"
 										class="form-check-input"
-										name="adult.counselingtopic.topic"
+										name="topic"
 										checked=sexualAssult
 										id="sexualAssult"}}
 						<label class="form-check-label checkbox" for="sexualAssult">
@@ -807,7 +807,7 @@
 					<div class="form-check">
 						{{input type="checkbox"
 										class="form-check-input"
-										name="adult.counselingtopic.topic"
+										name="topic"
 										checked=sexuality
 										id="sexuality"}}
 						<label class="form-check-label checkbox" for="sexuality">
@@ -817,7 +817,7 @@
 					<div class="form-check">
 						{{input type="checkbox"
 										class="form-check-input"
-										name="adult.counselingtopic.topic"
+										name="topic"
 										checked=sleep
 										id="sleep"}}
 						<label class="form-check-label checkbox" for="sleep">
@@ -827,7 +827,7 @@
 					<div class="form-check">
 						{{input type="checkbox"
 										class="form-check-input"
-										name="adult.counselingtopic.topic"
+										name="topic"
 										checked=stressAnxiety
 										id="stressAnxiety"}}
 						<label class="form-check-label checkbox" for="stressAnxiety">
@@ -837,7 +837,7 @@
 					<div class="form-check">
 						{{input type="checkbox"
 										class="form-check-input"
-										name="adult.counselingtopic.topic"
+										name="topic"
 										checked=sucidalThoughts
 										id="sucidalThoughts"}}
 						<label class="form-check-label checkbox" for="sucidalThoughts">
@@ -847,7 +847,7 @@
 					<div class="form-check">
 						{{input type="checkbox"
 										class="form-check-input"
-										name="adult.counselingtopic.topic"
+										name="topic"
 										checked=weightLossGain
 										id="weightLossGain"}}
 						<label class="form-check-label checkbox" for="weightLossGain">
@@ -874,7 +874,7 @@
 					<div class="form-check inline-block">
 						{{input type="radio"
 										class="form-check-input"
-										name="adult.counselee.hasBeenAbused"
+										name="hasBeenAbused"
 										id="hasBeenAbusedYes"
 										onEvent="changed"
 										action="ifYesToggle"
@@ -887,7 +887,7 @@
 					<div class="form-check inline-block">
 						{{input type="radio"
 										class="form-check-input"
-										name="adult.counselee.hasBeenAbused"
+										name="hasBeenAbused"
 										id="hasBeenAbusedNo"
 										value=no}}
 						<label for="hasBeenAbusedNo"
@@ -903,7 +903,7 @@
 								By whom?
 							</label>
 							{{input type="text"
-											value=adult.counselee.abusedByWhom
+											value=abusedByWhom
 											min="0"
 											class="form-control"}}
 						</div>
@@ -914,7 +914,7 @@
 								How many times?
 							</label>
 							{{input type="number"
-											value=adult.counselee.abusedCount
+											value=abusedCount
 											placeholder="XX"
 											min="0"
 											class="form-control w-50"}}
@@ -932,7 +932,7 @@
 					<div class="form-check inline-block">
 						{{input type="radio"
 										class="form-check-input"
-										name="adult.counselee.seriousProblemsInFamily"
+										name="seriousProblemsInFamily"
 										id="seriousProblemsInFamilyYes"
 										onEvent="changed"
 										action="ifYesToggle"
@@ -945,7 +945,7 @@
 					<div class="form-check inline-block">
 						{{input type="radio"
 										class="form-check-input"
-										name="adult.counselee.seriousProblemsInFamily"
+										name="seriousProblemsInFamily"
 										id="seriousProblemsInFamilyNo"
 										value=no}}
 						<label for="seriousProblemsInFamilyNo"
@@ -962,7 +962,7 @@
 							</label>
 							<textarea id="seriousFamilyProblemsDesc"
 								class="form-control"
-								name="adult.counselee.seriousFamilyProblemsDesc"
+								name="seriousFamilyProblemsDesc"
 								rows="3"></textarea>
 						</div>
 					</div>
@@ -981,7 +981,7 @@
 									Medication
 								</label>
 								{{input type="text"
-												value=adult.medication.name
+												value=name
 												class="form-control required"}}
 							</div>
 						</div>
@@ -991,7 +991,7 @@
 									For
 								</label>
 								{{input type="text"
-												value=adult.counseleemedication.reason
+												value=reason
 												class="form-control required"}}
 							</div>
 						</div>
@@ -1007,7 +1007,7 @@
 					<div class="form-check inline-block">
 						{{input type="radio"
 										class="form-check-input"
-										name="adult.counselee.alcoholProblem"
+										name="alcoholProblem"
 										id="alcoholProblemYes"
 										value=Yes}}
 						<label for="alcoholProblemYes"
@@ -1018,7 +1018,7 @@
 					<div class="form-check inline-block">
 						{{input type="radio"
 										class="form-check-input"
-										name="adult.counselee.alcoholProblem"
+										name="alcoholProblem"
 										id="alcoholProblemNo"
 										value=no}}
 						<label for="alcoholProblemNo"
@@ -1035,7 +1035,7 @@
 					<div class="form-check inline-block">
 						{{input type="radio"
 										class="form-check-input"
-										name="adult.counselee.hadBlackOut"
+										name="hadBlackOut"
 										id="hadBlackOutYes"
 										action="ifYesToggle"
 										value=Yes}}
@@ -1047,7 +1047,7 @@
 					<div class="form-check inline-block">
 						{{input type="radio"
 										class="form-check-input"
-										name="adult.counselee.hadBlackOut"
+										name="hadBlackOut"
 										id="hadBlackOutNo"
 										value=no}}
 						<label for="hadBlackOutNo"
@@ -1063,7 +1063,7 @@
 								If yes, where:
 							</label>
 							{{input type="text"
-											value=adult.counselee.blackOutLocation
+											value=blackOutLocation
 											class="form-control"}}
 						</div>
 					</div>
@@ -1074,7 +1074,7 @@
 							</label>
 								<div class="input-group">
 									{{input type="date"
-													value=adult.counselee.blackOutDate
+													value=blackOutDate
 													class="form-control datepicker date"}}
 									<div class="input-group-prepend">
 										<span class="input-group-text">
@@ -1097,7 +1097,7 @@
 					<div class="form-check">
 						{{input type="radio"
 										class="form-check-input"
-										name="adult.counselee.familyDrugAlcoholProblem"
+										name="familyDrugAlcoholProblem"
 										id="parent"
 										value=parent}}
 						<label for="parent"
@@ -1110,7 +1110,7 @@
 					<div class="form-check">
 						{{input type="radio"
 										class="form-check-input"
-										name="adult.counselee.familyDrugAlcoholProblem"
+										name="familyDrugAlcoholProblem"
 										id="sibling"
 										value=sibling}}
 						<label for="sibling"
@@ -1123,7 +1123,7 @@
 					<div class="form-check">
 						{{input type="radio"
 										class="form-check-input"
-										name="adult.counselee.familyDrugAlcoholProblem"
+										name="familyDrugAlcoholProblem"
 										id="grandparent"
 										value=grandparent}}
 						<label for="grandparent"
@@ -1136,7 +1136,7 @@
 					<div class="form-check">
 						{{input type="radio"
 										class="form-check-input"
-										name="adult.counselee.familyDrugAlcoholProblem"
+										name="familyDrugAlcoholProblem"
 										id="friend"
 										value=friend}}
 						<label for="friend"
@@ -1149,7 +1149,7 @@
 					<div class="form-check">
 						{{input type="radio"
 										class="form-check-input"
-										name="adult.counselee.familyDrugAlcoholProblem"
+										name="familyDrugAlcoholProblem"
 										id="child"
 										value=child}}
 						<label for="child"
@@ -1162,7 +1162,7 @@
 					<div class="form-check">
 						{{input type="radio"
 										class="form-check-input"
-										name="adult.counselee.familyDrugAlcoholProblem"
+										name="familyDrugAlcoholProblem"
 										id="familyDrugAlcoholProblemOther"}}
 						<label for="familyDrugAlcoholProblemOther"
 									 class="form-check-label mb-1">
@@ -1171,7 +1171,7 @@
 						{{input type="text"
 										class="form-control"
 										id="familyDrugProblemOtherDetail"
-										value=adult.counselee.familyDrugProblemOtherDetail}}
+										value=familyDrugProblemOtherDetail}}
 					</div>
 				</div>
 			</div>
@@ -1184,12 +1184,12 @@
 					</label>
 					{{inputs/toggle-radio idValue="currentHarmSelfYes"
 							label="Yes"
-							name="adult.counselee.currentHarmSelf"
+							name="currentHarmSelf"
 							value="yes"
 							data-toggle="currentHarmSelfExample"}}
 					{{inputs/toggle-radio idValue="currentHarmSelfNo"
 							label="No"
-							name="adult.counselee.currentHarmSelf"
+							name="currentHarmSelf"
 							value="no"
 							data-toggle="currentHarmSelfExample"}}
 					<div id="currentHarmSelfExample" class="if-yes hidden">
@@ -1199,7 +1199,7 @@
 									Please Provide Example
 								</label>
 								{{input type="text"
-												value=adult.counselee.currentHarmSelfExample
+												value=currentHarmSelfExample
 												class="form-control"}}
 							</div>
 						</div>
@@ -1211,12 +1211,12 @@
 					</label>
 					{{inputs/toggle-radio idValue="pastHarmSelfYes"
 							label="Yes"
-							name="adult.counselee.pastHarmSelf"
+							name="pastHarmSelf"
 							value="yes"
 							data-toggle="pastHarmSelfExample"}}
 					{{inputs/toggle-radio idValue="pastHarmSelfNo"
 							label="No"
-							name="adult.counselee.pastHarmSelf"
+							name="pastHarmSelf"
 							value="no"
 							data-toggle="pastHarmSelfExample"}}
 					<div id="pastHarmSelfExample" class="if-yes hidden">
@@ -1226,7 +1226,7 @@
 									Please Provide Example
 								</label>
 								{{input type="text"
-												value=adult.counselee.pastHarmSelfExample
+												value=pastHarmSelfExample
 												class="form-control"}}
 							</div>
 						</div>
@@ -1238,12 +1238,12 @@
 					</label>
 					{{inputs/toggle-radio idValue="currentHarmOthersYes"
 							label="Yes"
-							name="adult.counselee.currentHarmOthers"
+							name="currentHarmOthers"
 							value="yes"
 							data-toggle="currentHarmOthersExample"}}
 					{{inputs/toggle-radio idValue="currentHarmOthersNo"
 							label="No"
-							name="adult.counselee.currentHarmOthers"
+							name="currentHarmOthers"
 							value="no"
 							data-toggle="currentHarmOthersExample"}}
 					<div id="currentHarmOthersExample" class="if-yes hidden">
@@ -1253,7 +1253,7 @@
 									Please Provide Example
 								</label>
 								{{input type="text"
-												value=adult.counselee.currentHarmOthersExample
+												value=currentHarmOthersExample
 												class="form-control"}}
 							</div>
 						</div>
@@ -1265,12 +1265,12 @@
 					</label>
 					{{inputs/toggle-radio idValue="pastHarmOthersYes"
 							label="Yes"
-							name="adult.counselee.pastHarmOthers"
+							name="pastHarmOthers"
 							value="yes"
 							data-toggle="attemptHarmOthersExample"}}
 					{{inputs/toggle-radio idValue="pastHarmOthersNo"
 							label="No"
-							name="adult.counselee.pastHarmOthers"
+							name="pastHarmOthers"
 							value="no"
 							data-toggle="attemptHarmOthersExample"}}
 					<div id="attemptHarmOthersExample" class="if-yes hidden">
@@ -1280,7 +1280,7 @@
 									Please Provide Example
 								</label>
 								{{input type="text"
-												value=adult.counselee.attemptHarmOthersExample
+												value=attemptHarmOthersExample
 												class="form-control"}}
 							</div>
 						</div>
@@ -1297,7 +1297,7 @@
 					{{inputs/toggle-checkbox idValue="alcohol"
 							label="Alcohol"
 							checked=alcohol
-							name="adult.druguse.type"
+							name="type"
 							data-toggle="drugUseAlcohol"}}
 					<div id="drugUseAlcohol" class="if-yes hidden">
 						Working!
@@ -1305,7 +1305,7 @@
 					{{inputs/toggle-checkbox idValue="cigarettes"
 							label="Cigarettes"
 							checked=cigarettes
-							name="adult.druguse.type"
+							name="type"
 							data-toggle="drugUseCigarettes"}}
 					<div id="drugUseCigarettes" class="if-yes hidden">
 						Hey Look at that!

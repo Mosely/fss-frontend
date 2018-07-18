@@ -17,7 +17,7 @@
   position: relative;
   background: #f5f5f5;
   width: 100%;
-  @include media-breakpoint-up(sm) {
+  @media screen and (min-width: 769px) {
     width: calc(100% - 260px);
   }
 }
