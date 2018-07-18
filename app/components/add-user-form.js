@@ -56,9 +56,11 @@ export default Component.extend({
         userProps
       });
 
-      Promise.all([genderModel, newPerson, newUser]).then((values)=> {
-        newPerson.set("gender", values[0]);
+      let resolvedPromises = Promise.all([genderModel, newPerson, newUser]).then((values)=> {
+        return values;
       });
+      newPerson.set("gender", resolvedPromises[0]);
+      
       newPerson.save().then(() => {
         return newUser.save();
       });
