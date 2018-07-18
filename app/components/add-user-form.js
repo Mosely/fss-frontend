@@ -36,26 +36,29 @@ export default Component.extend({
         "age"
       );
 
-      personProps.gender = store.findRecord("gender", personProps.gender);
-      console.table(personProps);
+      personProps.gender = store.findRecord("gender", personProps.gender).then(()=> {
+        console.table(personProps);
 
-      userProps = this.getProperties("username", "email", "password");
-      // let newPerson = store.createRecord("person", {
-      //   firstName: this.get("firstName"),
-      //   middleName: this.get("middleName"),
-      //   lastName: this.get("lastName"),
-      //   gender_id: this.get("user.gender"),
-      //   dateOfBirth: this.get("dateOfBirth"),
-      //   age: this.get("age")
-      //  });
-      newPerson = store.createRecord("person", personProps);
-      newUser = store.createRecord("user", {
-        id: newPerson.id,
-        userProps
+        userProps = this.getProperties("username", "email", "password");
+        // let newPerson = store.createRecord("person", {
+        //   firstName: this.get("firstName"),
+        //   middleName: this.get("middleName"),
+        //   lastName: this.get("lastName"),
+        //   gender_id: this.get("user.gender"),
+        //   dateOfBirth: this.get("dateOfBirth"),
+        //   age: this.get("age")
+        //  });
+        newPerson = store.createRecord("person", personProps);
+        newUser = store.createRecord("user", {
+          id: newPerson.id,
+          userProps
+        });
+        newPerson.save().then(() => {
+          return newUser.save();
+        });
       });
-      newPerson.save().then(() => {
-        return newUser.save();
-      });
+
     }
+    
   }
 });
