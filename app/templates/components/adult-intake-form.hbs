@@ -140,98 +140,21 @@
 						<span class="star">*</span>
 					</label>
 				</div>
-				<div class="col-12 col-sm-3">
-					<div class="form-check">
-						{{input type="radio"
-										class="form-check-input"
-										name="choice-ethnicity"
-										id="choice-ethnicity-americanIndian-alaskaNative"
-										value=choiceAmericanIndianAlaskaNative}}
-						<label for="choice-ethnicity-americanIndian-alaskaNative"
-									 class="form-check-label">
-							American Indian or Alaska Native
-						</label>
+					{{#each adult.ethnicities as |ethnicity|}}
+					<div class="col-12 col-sm-4">
+						<div class="form-check mb-3">
+							{{input type="radio"
+											class="form-check-input"
+											name="ethnicity"
+											id=ethnicity.id
+											value=ethnicity.id}}
+							<label for="{{ethnicity.id}}"
+										 class="form-check-label">
+								{{ethnicity.name}}
+							</label>
+						</div>
 					</div>
-					<div class="form-check">
-						{{input type="radio"
-										class="form-check-input"
-										name="choice-ethnicity"
-										id="choice-ethnicity-asain"
-										value=choiceAsain}}
-						<label for="choice-ethnicity-asain" class="form-check-label">
-							Asain
-						</label>
-					</div>
-					<div class="form-check">
-						{{input type="radio"
-										class="form-check-input"
-										name="choice-ethnicity"
-										id="choice-ethnicity-african-american"
-										value=choiceAfricanAmerican}}
-						<label for="choice-ethnicity-african-american"
-									 class="form-check-label">
-							Black or African American
-						</label>
-					</div>
-				</div>
-				<div class="col-12 col-sm-3">
-					<div class="form-check">
-						{{input type="radio"
-										class="form-check-input"
-										name="choice-ethnicity"
-										id="choice-ethnicity-hispanic-latino-spanish"
-										value=choiceHispanicLatinoSpanish}}
-						<label for="choice-ethnicity-hispanic-latino-spanish"
-									 class="form-check-label">
-							Hispanic, Latino, or Spanish origin
-						</label>
-					</div>
-					<div class="form-check">
-						{{input type="radio"
-										class="form-check-input"
-										name="choice-ethnicity"
-										id="choice-ethnicity-middleEastern-northAfrican"
-										value=choiceMiddleEasternNorthAfrican}}
-						<label for="choice-ethnicity-middleEastern-northAfrican"
-									 class="form-check-label">
-							Middle Eastern or North African
-						</label>
-					</div>
-					<div class="form-check">
-						{{input type="radio"
-										class="form-check-input"
-										name="choice-ethnicity"
-										id="choice-ethnicity-nativeHawaiian-pacificIslander"
-										value=choiceNativeHawaiianPacificIslander}}
-						<label for="choice-ethnicity-nativeHawaiian-pacificIslander"
-									 class="form-check-label">
-							Native Hawaiian or Pacific Islander
-						</label>
-					</div>
-				</div>
-				<div class="col-12 col-sm-3">
-					<div class="form-check">
-						{{input type="radio"
-										class="form-check-input"
-										name="choice-ethnicity"
-										id="choice-ethnicity-white"
-										value=choiceWhite}}
-						<label for="choice-ethnicity-white" class="form-check-label">
-							White
-						</label>
-					</div>
-					<div class="form-check">
-						{{input type="radio"
-										class="form-check-input"
-										name="choice-ethnicity"
-										id="choice-ethnicity-other"
-										value=choiceOther}}
-						<label for="choice-ethnicity-other"
-									 class="form-check-label">
-							Other race, ethnicity, or origin
-						</label>
-					</div>
-				</div>
+					{{/each}}
 			</div>
 		</div>
 		<div id="adult-intake-2" class="form-step--item hidden">
@@ -1177,7 +1100,7 @@
 			</div>
 		</div>
 		<div id="adult-intake-4" class="form-step--item hidden">
-			<div class="row">
+			<div class="row mb-4">
 				<div class="col-12 col-sm-6">
 					<label class="form-label mt-3">
 						Current desire to harm him/herself?
@@ -1287,7 +1210,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="row">
+			<div class="row mt-3 mb-4">
 				<div class="col-12">
 					<label class="form-label mb-3">
 						History of Drug Use
@@ -1300,7 +1223,16 @@
 							name="type"
 							data-toggle="drugUseAlcohol"}}
 					<div id="drugUseAlcohol" class="if-yes hidden">
-						Working!
+						<div class="form-group">
+							<label class="block" for="alcoholAgeWhenFirstUsed">
+								Age when you first tried this type of drug?
+							</label>
+							{{input type="number"
+											placeholder="XX"
+											id="alcoholAgeWhenFirstUsed"
+											class="form-control"
+											value=alcoholAgeWhenFirstUsed}}
+						</div>
 					</div>
 					{{inputs/toggle-checkbox idValue="cigarettes"
 							label="Cigarettes"
@@ -1308,7 +1240,278 @@
 							name="type"
 							data-toggle="drugUseCigarettes"}}
 					<div id="drugUseCigarettes" class="if-yes hidden">
-						Hey Look at that!
+						<div class="form-group">
+							<label class="block" for="alcoholAgeWhenFirstUsed">
+								Age when you first tried this type of drug?
+							</label>
+							{{input type="number"
+											placeholder="XX"
+											id="cigarettesAgeWhenFirstUsed"
+											class="form-control"
+											value=cigarettesAgeWhenFirstUsed}}
+						</div>
+					</div>
+					{{inputs/toggle-checkbox idValue="cocaine"
+							label="Cocaine"
+							checked=cocaine
+							name="type"
+							data-toggle="drugUseCocaine"}}
+					<div id="drugUseCocaine" class="if-yes hidden">
+						<div class="form-group">
+							<label class="block" for="cocaineAgeWhenFirstUsed">
+								Age when you first tried this type of drug?
+							</label>
+							{{input type="number"
+											placeholder="XX"
+											id="cocaineAgeWhenFirstUsed"
+											class="form-control"
+											value=cocaineAgeWhenFirstUsed}}
+						</div>
+					</div>
+					{{inputs/toggle-checkbox idValue="downers"
+							label="⁪Downers"
+							checked=downers
+							name="type"
+							data-toggle="drugUse⁪Downers"}}
+					<div id="drugUse⁪Downers" class="if-yes hidden">
+						<div class="form-group">
+							<label class="block" for="downersAgeWhenFirstUsed">
+								Age when you first tried this type of drug?
+							</label>
+							{{input type="number"
+											placeholder="XX"
+											id="downersAgeWhenFirstUsed"
+											class="form-control"
+											value=downersAgeWhenFirstUsed}}
+						</div>
+					</div>
+				</div>
+				<div class="col">
+					{{inputs/toggle-checkbox idValue="ecstasy"
+							label="Ecstasy"
+							checked=ecstasy
+							name="type"
+							data-toggle="drugUseEcstasy"}}
+					<div id="drugUseEcstasy" class="if-yes hidden">
+						<div class="form-group">
+							<label class="block" for="ecstasyAgeWhenFirstUsed">
+								Age when you first tried this type of drug?
+							</label>
+							{{input type="number"
+											placeholder="XX"
+											id="ecstasyAgeWhenFirstUsed"
+											class="form-control"
+											value=ecstasyAgeWhenFirstUsed}}
+						</div>
+					</div>
+					{{inputs/toggle-checkbox idValue="heroin"
+							label="Heroin"
+							checked=heroin
+							name="type"
+							data-toggle="drugUseHeroin"}}
+					<div id="drugUseHeroin" class="if-yes hidden">
+						<div class="form-group">
+							<label class="block" for="heroinAgeWhenFirstUsed">
+								Age when you first tried this type of drug?
+							</label>
+							{{input type="number"
+											placeholder="XX"
+											id="heroinAgeWhenFirstUsed"
+											class="form-control"
+											value=heroinAgeWhenFirstUsed}}
+						</div>
+					</div>
+					{{inputs/toggle-checkbox idValue="inhalants"
+							label="Inhalants"
+							checked=inhalants
+							name="type"
+							data-toggle="drugUseInhalants"}}
+					<div id="drugUseInhalants" class="if-yes hidden">
+						<div class="form-group">
+							<label class="block" for="inhalantsAgeWhenFirstUsed">
+								Age when you first tried this type of drug?
+							</label>
+							{{input type="number"
+											placeholder="XX"
+											id="inhalantsAgeWhenFirstUsed"
+											class="form-control"
+											value=inhalantsAgeWhenFirstUsed}}
+						</div>
+					</div>
+					{{inputs/toggle-checkbox idValue="lsd"
+							label="⁪LSD (acid)"
+							checked=lsd
+							name="type"
+							data-toggle="drugUseLSD"}}
+					<div id="drugUseLSD" class="if-yes hidden">
+						<div class="form-group">
+							<label class="block" for="lsdAgeWhenFirstUsed">
+								Age when you first tried this type of drug?
+							</label>
+							{{input type="number"
+											placeholder="XX"
+											id="lsdAgeWhenFirstUsed"
+											class="form-control"
+											value=lsdAgeWhenFirstUsed}}
+						</div>
+					</div>
+				</div>
+				<div class="col">
+					{{inputs/toggle-checkbox idValue="marijuana"
+							label="Marijuana"
+							checked=marijuana
+							name="type"
+							data-toggle="drugUseMarijuana"}}
+					<div id="drugUseMarijuana" class="if-yes hidden">
+						<div class="form-group">
+							<label class="block" for="marijuanaAgeWhenFirstUsed">
+								Age when you first tried this type of drug?
+							</label>
+							{{input type="number"
+											placeholder="XX"
+											id="marijuanaAgeWhenFirstUsed"
+											class="form-control"
+											value=marijuanaAgeWhenFirstUsed}}
+						</div>
+					</div>
+					{{inputs/toggle-checkbox idValue="methamphetamines"
+							label="⁪Methamphetamines"
+							checked=methamphetamines
+							name="type"
+							data-toggle="drugUseMethamphetamines"}}
+					<div id="drugUseMethamphetamines" class="if-yes hidden">
+						<div class="form-group">
+							<label class="block" for="methamphetaminesAgeWhenFirstUsed">
+								Age when you first tried this type of drug?
+							</label>
+							{{input type="number"
+											placeholder="XX"
+											id="methamphetaminesAgeWhenFirstUsed"
+											class="form-control"
+											value=methamphetaminesAgeWhenFirstUsed}}
+						</div>
+					</div>
+					{{inputs/toggle-checkbox idValue="mushrooms"
+							label="Mushrooms"
+							checked=mushrooms
+							name="type"
+							data-toggle="drugUseMushrooms"}}
+					<div id="drugUseMushrooms" class="if-yes hidden">
+						<div class="form-group">
+							<label class="block" for="mushroomsAgeWhenFirstUsed">
+								Age when you first tried this type of drug?
+							</label>
+							{{input type="number"
+											placeholder="XX"
+											id="mushroomsAgeWhenFirstUsed"
+											class="form-control"
+											value=mushroomsAgeWhenFirstUsed}}
+						</div>
+					</div>
+					{{inputs/toggle-checkbox idValue="pcp"
+							label="PCP"
+							checked=pcp
+							name="type"
+							data-toggle="drugUsePCP"}}
+					<div id="drugUsePCP" class="if-yes hidden">
+						<div class="form-group">
+							<label class="block" for="pcpAgeWhenFirstUsed">
+								Age when you first tried this type of drug?
+							</label>
+							{{input type="number"
+											placeholder="XX"
+											id="pcpAgeWhenFirstUsed"
+											class="form-control"
+											value=pcpAgeWhenFirstUsed}}
+						</div>
+					</div>
+				</div>
+				<div class="col">
+					{{inputs/toggle-checkbox idValue="synthetic"
+							label="⁪Synthetic marijuana"
+							checked=synthetic
+							name="type"
+							data-toggle="drugUse⁪Synthetic"}}
+					<div id="drugUse⁪Synthetic" class="if-yes hidden">
+						<div class="form-group">
+							<label class="block" for="syntheticAgeWhenFirstUsed">
+								Age when you first tried this type of drug?
+							</label>
+							{{input type="number"
+											placeholder="XX"
+											id="syntheticAgeWhenFirstUsed"
+											class="form-control"
+											value=syntheticAgeWhenFirstUsed}}
+						</div>
+					</div>
+					{{inputs/toggle-checkbox idValue="tea"
+							label="Tea/Coffee "
+							checked=tea
+							name="type"
+							data-toggle="drugUseTea"}}
+					<div id="drugUseTea" class="if-yes hidden">
+						<div class="form-group">
+							<label class="block" for="teaAgeWhenFirstUsed">
+								Age when you first tried this type of drug?
+							</label>
+							{{input type="number"
+											placeholder="XX"
+											id="teaAgeWhenFirstUsed"
+											class="form-control"
+											value=teaAgeWhenFirstUsed}}
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row mt-3 mb-3">
+				<div class="col-12 col-sm-6">
+					<label class="form-label mt-3">
+						Have you had any previous counseling?
+					</label>
+					{{inputs/toggle-radio idValue="hadPreviousCounselingYes"
+							label="Yes"
+							name="hadPreviousCounseling"
+							value="yes"
+							data-toggle="hadPreviousCounselingExample"}}
+					{{inputs/toggle-radio idValue="hadPreviousCounselingNo"
+							label="No"
+							name="hadPreviousCounseling"
+							value="no"
+							data-toggle="hadPreviousCounselingExample"}}
+					<div id="hadPreviousCounselingExample" class="if-yes hidden">
+						<div class="col">
+							<div class="form-group">
+								<label class="block">
+									If yes, where, when?
+								</label>
+								<div class="input-group">
+									{{input type="text"
+													placeholder="Where?"
+													value=previousCounselingWhere
+													class="form-control mr-2"}}
+									{{input type="date"
+													placeholder="When?"
+													value=previousCounselingWhen
+													class="form-control datepicker date"}}
+									<div class="input-group-prepend">
+										<span class="input-group-text">
+											<i aria-label="Pick a Date" aria-hidden="true" class="fa fa-calendar"></i>
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-12 col-sm-6">
+					<label class="form-label mt-3">
+						Who referred you to Family Support Services?
+						<span class="star">*</span>
+					</label>
+					<div class="form-group">
+						{{input type="text"
+										value=referral
+										class="form-control"}}
 					</div>
 				</div>
 			</div>
