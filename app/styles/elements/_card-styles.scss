@@ -18,6 +18,10 @@
 }
 .card--content {
   padding: 1em 3em;
+  
+  @media screen and (max-width: 528px){
+    padding: 1em 1.36em;
+  }
 }
 .card--footer {
   padding: 1em 0 2em;

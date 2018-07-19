@@ -46,6 +46,10 @@
   width: 100%;
   margin: 0 auto;
   padding: 2em 1.45em;
+
+  @media screen and (max-width: 528px){
+    padding: 2em 0.45em;
+  }
 }
 
 .page-module {
