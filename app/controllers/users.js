@@ -16,6 +16,7 @@ export default Controller.extend({
 						return recordsArray;
 					}
 				});
+				return records;
 				//return { data: [ store.query('user', { username: param }).data, {} ] };
 			} else {
 				return this.store.findAll('user');
