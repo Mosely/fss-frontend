@@ -5,19 +5,7 @@ export default Controller.extend({
 		filterByName(param) {
 			var store = this.get('store');
 			if (param !== '') {
-				
-				let records = store.query('user', { username: param }).then((recordsArray) => {
-					if(recordsArray.data.length == 1) {
-						recordsArray.data[0] = recordsArray.data;
-						recordsArray.data[1] = null;
-						return recordsArray;
-					} else {
-						return recordsArray;
-					}
-				});
-				console.table(records);
-				return records;
-				//return { data: [ store.query('user', { username: param }).data, {} ] };
+				return store.query('user', { username: param });
 			} else {
 				return this.store.findAll('user');
 			}
