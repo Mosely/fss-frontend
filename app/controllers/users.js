@@ -15,7 +15,7 @@ export default Controller.extend({
 						return recordsArray;
 					}
 				});
-				console.log("records.data.length = " + records.data.length);
+				console.log("records.length = " + records.length);
 				return records;
 				//return { data: [ store.query('user', { username: param }).data, {} ] };
 			} else {
