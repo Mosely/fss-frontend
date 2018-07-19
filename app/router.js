@@ -102,6 +102,7 @@ Router.map(function () {
   this.route('user-views', { path: '/userviews' });
   this.route('veterans', { path: '/veterans' });
 
+  this.route('veteran-resource-center');
 });
 
 export default Router;
