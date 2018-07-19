@@ -7,7 +7,6 @@ export default Controller.extend({
 			if (param !== '') {
 				
 				let records = store.query('user', { username: param }).then((recordsArray) => {
-					console.log("recordsArray.data.length = " + recordsArray.data.length);
 					if(recordsArray.data.length == 1) {
 						recordsArray.data[0] = recordsArray.data;
 						recordsArray.data[1] = null;
@@ -16,6 +15,7 @@ export default Controller.extend({
 						return recordsArray;
 					}
 				});
+				console.log("records.data.length = " + records.data.length);
 				return records;
 				//return { data: [ store.query('user', { username: param }).data, {} ] };
 			} else {
