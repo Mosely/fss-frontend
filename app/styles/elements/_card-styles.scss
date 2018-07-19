@@ -18,7 +18,8 @@
 }
 .card--content {
   padding: 1em 3em;
-  
+  overflow: hidden;
+
   @media screen and (max-width: 528px){
     padding: 1em 1.36em;
   }

@@ -1,1 +1,203 @@
+{{#multi-step-form}}
+<div class="form-step--item active">
+	<div class="row mb-3">
+		<div class="col-12">
+			<label class="form-label mt-3">
+				Referred By:
+				<span class="star">*</span>
+			</label>
+		</div>
+		<div class="col-12">
+			<div class="form-group">
+				{{input type="text"
+								class="form-control"
+								id="referredBy"
+								value=referredBy}}
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-12">
+			<label class="form-label">
+				Full Name
+				<span class="star">*</span>
+			</label>
+		</div>
+		<div class="col-12 col-sm-4">
+			<div class="form-group">
+				{{input type="text"
+								value=firstName
+								class="form-control"
+								placeholder="First Name"
+								required="required"}}
+			</div>
+		</div>
+		<div class="col-12 col-sm-4">
+			<div class="form-group">
+				{{input type="text"
+								value=middleName
+								class="form-control"
+								placeholder="Middle Name"
+								required="required"}}
+			</div>
+		</div>
+		<div class="col-12 col-sm-4">
+			<div class="form-group">
+				{{input type="text"
+								value=lastName
+								class="form-control"
+								placeholder="Last Name"
+								required="required"}}
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-12 col-sm-6">
+			<label class="form-label mt-3">
+				Branch of Service:
+				<span class="star">*</span>
+			</label>
+			<div class="form-group">
+				{{input type="text"
+								class="form-control"
+								id="branchOfServiceName"
+								value=branchOfServiceName}}
+			</div>
+		</div>
+		<div class="col-12 col-sm-6">
+			<label class="form-label mt-3">
+				Type of Discharge:
+				<span class="star">*</span>
+			</label>
+			<div class="form-group">
+				{{input type="text"
+								class="form-control"
+								id="militaryDischargeType"
+								value=militaryDischargeType}}
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-12 col-sm-5">
+			<div class="form-group">
+				<label class="form-label" for="genderSelect">
+					Gender
+					<span class="star">*</span>
+				</label>
+				<select id="genderSelect"
+								value="genderID"
+								class="form-control"
+								onchange={{action "updateValue" value="target.value"}}>
+					{{#each veteran.genders as |gender|}}
+						<option name="gender" value="{{gender.id}}">{{gender.name}}</option>
+					{{/each}}
+				</select>
+			</div>
+		</div>
+		<div class="col-12 col-sm-2">
+			<div class="form-group">
+				<label class="form-label">
+					Age
+					<span class="star">*</span>
+				</label>
+				{{input type="number"
+								value=age
+								placeholder="XX"
+								min="0"
+								class="form-control"}}
+			</div>
+		</div>
+		<div class="col-12 col-sm-5">
+			<div class="form-group">
+				<label class="form-label" for="ethnicitySelect">
+					Ethnicity
+					<span class="star">*</span>
+				</label>
+				<select id="ethnicitySelect"
+								value="ethnicity"
+								class="form-control">
+					{{#each veteran.ethnicities as |ethnicity|}}
+						<option name="ethnicity" value="{{ethnicity.id}}">
+							{{ethnicity.name}}
+						</option>
+					{{/each}}
+				</select>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="form-step--item hidden">
+	<div class="row mt-3 mb-3">
+		<div class="col-12 col-sm-5">
+			<label class="form-label">
+				Home Income:
+				<span class="star">*</span>
+			</label>
+			<div class="form-group">
+				{{input type="number"
+								placeholder="XXXXXX"
+								class="form-control"
+								id="householdIncome"
+								value=householdIncome}}
+			</div>
+		</div>
+		<div class="col-12 col-sm-3">
+			<label class="form-label">
+				DD214?
+				<span class="star">*</span>
+			</label>
+			<div class="form-check inline-block">
+				{{input type="radio"
+								class="form-check-input"
+								name="hasDd214"
+								id="hasDd214Yes"
+								value=Yes}}
+				<label for="hasDd214Yes"
+							 class="form-check-label">
+					Yes
+				</label>
+			</div>
+			<div class="form-check inline-block">
+				{{input type="radio"
+								class="form-check-input"
+								name="hasDd214"
+								id="hasDd214No"
+								value=no}}
+				<label for="hasDd214No"
+							 class="form-check-label">
+					No
+				</label>
+			</div>
+		</div>
+		<div class="col-12 col-sm-4">
+			<label class="form-label">
+				Registered With VA:
+				<span class="star">*</span>
+			</label>
+			<div class="form-check inline-block">
+				{{input type="radio"
+								class="form-check-input"
+								name="isRegisteredWithVa"
+								id="isRegisteredWithVaYes"
+								value=Yes}}
+				<label for="isRegisteredWithVaYes"
+							 class="form-check-label">
+					Yes
+				</label>
+			</div>
+			<div class="form-check inline-block">
+				{{input type="radio"
+								class="form-check-input"
+								name="isRegisteredWithVa"
+								id="isRegisteredWithVaNo"
+								value=no}}
+				<label for="isRegisteredWithVaNo"
+							 class="form-check-label">
+					No
+				</label>
+			</div>
+		</div>
+	</div>
+</div>
+{{/multi-step-form}}
 {{yield}}
