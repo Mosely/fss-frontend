@@ -5,6 +5,7 @@ export default Controller.extend({
 		filterByName(param) {
 			var store = this.get('store');
 			if (param !== '') {
+				console.log("Getting ready to run the user query.");
 				return { data: [ store.query('user', { username: param }).data, {} ] };
 			} else {
 				return this.store.findAll('user');
