@@ -1177,7 +1177,7 @@
 			</div>
 		</div>
 		<div id="adult-intake-4" class="form-step--item hidden">
-			<div class="row">
+			<div class="row mb-4">
 				<div class="col-12 col-sm-6">
 					<label class="form-label mt-3">
 						Current desire to harm him/herself?
@@ -1287,7 +1287,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="row">
+			<div class="row mt-3 mb-4">
 				<div class="col-12">
 					<label class="form-label mb-3">
 						History of Drug Use
@@ -1537,6 +1537,58 @@
 											class="form-control"
 											value=teaAgeWhenFirstUsed}}
 						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row mt-3 mb-3">
+				<div class="col-12 col-sm-6">
+					<label class="form-label mt-3">
+						Have you had any previous counseling?
+					</label>
+					{{inputs/toggle-radio idValue="hadPreviousCounselingYes"
+							label="Yes"
+							name="hadPreviousCounseling"
+							value="yes"
+							data-toggle="hadPreviousCounselingExample"}}
+					{{inputs/toggle-radio idValue="hadPreviousCounselingNo"
+							label="No"
+							name="hadPreviousCounseling"
+							value="no"
+							data-toggle="hadPreviousCounselingExample"}}
+					<div id="hadPreviousCounselingExample" class="if-yes hidden">
+						<div class="col">
+							<div class="form-group">
+								<label class="block">
+									If yes, where, when?
+								</label>
+								<div class="input-group">
+									{{input type="text"
+													placeholder="Where?"
+													value=previousCounselingWhere
+													class="form-control mr-2"}}
+									{{input type="date"
+													placeholder="When?"
+													value=previousCounselingWhen
+													class="form-control datepicker date"}}
+									<div class="input-group-prepend">
+										<span class="input-group-text">
+											<i aria-label="Pick a Date" aria-hidden="true" class="fa fa-calendar"></i>
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-12 col-sm-6">
+					<label class="form-label mt-3">
+						Who referred you to Family Support Services?
+						<span class="star">*</span>
+					</label>
+					<div class="form-group">
+						{{input type="text"
+										value=referral
+										class="form-control"}}
 					</div>
 				</div>
 			</div>
