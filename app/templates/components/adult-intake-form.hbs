@@ -1300,7 +1300,16 @@
 							name="type"
 							data-toggle="drugUseAlcohol"}}
 					<div id="drugUseAlcohol" class="if-yes hidden">
-						Working!
+						<div class="form-group">
+							<label class="block" for="alcoholAgeWhenFirstUsed">
+								Age when you first tried this type of drug?
+							</label>
+							{{input type="number"
+											placeholder="XX"
+											id="alcoholAgeWhenFirstUsed"
+											class="form-control"
+											value=alcoholAgeWhenFirstUsed}}
+						</div>
 					</div>
 					{{inputs/toggle-checkbox idValue="cigarettes"
 							label="Cigarettes"
@@ -1308,7 +1317,226 @@
 							name="type"
 							data-toggle="drugUseCigarettes"}}
 					<div id="drugUseCigarettes" class="if-yes hidden">
-						Hey Look at that!
+						<div class="form-group">
+							<label class="block" for="alcoholAgeWhenFirstUsed">
+								Age when you first tried this type of drug?
+							</label>
+							{{input type="number"
+											placeholder="XX"
+											id="cigarettesAgeWhenFirstUsed"
+											class="form-control"
+											value=cigarettesAgeWhenFirstUsed}}
+						</div>
+					</div>
+					{{inputs/toggle-checkbox idValue="cocaine"
+							label="Cocaine"
+							checked=cocaine
+							name="type"
+							data-toggle="drugUseCocaine"}}
+					<div id="drugUseCocaine" class="if-yes hidden">
+						<div class="form-group">
+							<label class="block" for="cocaineAgeWhenFirstUsed">
+								Age when you first tried this type of drug?
+							</label>
+							{{input type="number"
+											placeholder="XX"
+											id="cocaineAgeWhenFirstUsed"
+											class="form-control"
+											value=cocaineAgeWhenFirstUsed}}
+						</div>
+					</div>
+					{{inputs/toggle-checkbox idValue="downers"
+							label="⁪Downers"
+							checked=downers
+							name="type"
+							data-toggle="drugUse⁪Downers"}}
+					<div id="drugUse⁪Downers" class="if-yes hidden">
+						<div class="form-group">
+							<label class="block" for="downersAgeWhenFirstUsed">
+								Age when you first tried this type of drug?
+							</label>
+							{{input type="number"
+											placeholder="XX"
+											id="downersAgeWhenFirstUsed"
+											class="form-control"
+											value=downersAgeWhenFirstUsed}}
+						</div>
+					</div>
+				</div>
+				<div class="col">
+					{{inputs/toggle-checkbox idValue="ecstasy"
+							label="Ecstasy"
+							checked=ecstasy
+							name="type"
+							data-toggle="drugUseEcstasy"}}
+					<div id="drugUseEcstasy" class="if-yes hidden">
+						<div class="form-group">
+							<label class="block" for="ecstasyAgeWhenFirstUsed">
+								Age when you first tried this type of drug?
+							</label>
+							{{input type="number"
+											placeholder="XX"
+											id="ecstasyAgeWhenFirstUsed"
+											class="form-control"
+											value=ecstasyAgeWhenFirstUsed}}
+						</div>
+					</div>
+					{{inputs/toggle-checkbox idValue="heroin"
+							label="Heroin"
+							checked=heroin
+							name="type"
+							data-toggle="drugUseHeroin"}}
+					<div id="drugUseHeroin" class="if-yes hidden">
+						<div class="form-group">
+							<label class="block" for="heroinAgeWhenFirstUsed">
+								Age when you first tried this type of drug?
+							</label>
+							{{input type="number"
+											placeholder="XX"
+											id="heroinAgeWhenFirstUsed"
+											class="form-control"
+											value=heroinAgeWhenFirstUsed}}
+						</div>
+					</div>
+					{{inputs/toggle-checkbox idValue="inhalants"
+							label="Inhalants"
+							checked=inhalants
+							name="type"
+							data-toggle="drugUseInhalants"}}
+					<div id="drugUseInhalants" class="if-yes hidden">
+						<div class="form-group">
+							<label class="block" for="inhalantsAgeWhenFirstUsed">
+								Age when you first tried this type of drug?
+							</label>
+							{{input type="number"
+											placeholder="XX"
+											id="inhalantsAgeWhenFirstUsed"
+											class="form-control"
+											value=inhalantsAgeWhenFirstUsed}}
+						</div>
+					</div>
+					{{inputs/toggle-checkbox idValue="lsd"
+							label="⁪LSD (acid)"
+							checked=lsd
+							name="type"
+							data-toggle="drugUseLSD"}}
+					<div id="drugUseLSD" class="if-yes hidden">
+						<div class="form-group">
+							<label class="block" for="lsdAgeWhenFirstUsed">
+								Age when you first tried this type of drug?
+							</label>
+							{{input type="number"
+											placeholder="XX"
+											id="lsdAgeWhenFirstUsed"
+											class="form-control"
+											value=lsdAgeWhenFirstUsed}}
+						</div>
+					</div>
+				</div>
+				<div class="col">
+					{{inputs/toggle-checkbox idValue="marijuana"
+							label="Marijuana"
+							checked=marijuana
+							name="type"
+							data-toggle="drugUseMarijuana"}}
+					<div id="drugUseMarijuana" class="if-yes hidden">
+						<div class="form-group">
+							<label class="block" for="marijuanaAgeWhenFirstUsed">
+								Age when you first tried this type of drug?
+							</label>
+							{{input type="number"
+											placeholder="XX"
+											id="marijuanaAgeWhenFirstUsed"
+											class="form-control"
+											value=marijuanaAgeWhenFirstUsed}}
+						</div>
+					</div>
+					{{inputs/toggle-checkbox idValue="methamphetamines"
+							label="⁪Methamphetamines"
+							checked=methamphetamines
+							name="type"
+							data-toggle="drugUseMethamphetamines"}}
+					<div id="drugUseMethamphetamines" class="if-yes hidden">
+						<div class="form-group">
+							<label class="block" for="methamphetaminesAgeWhenFirstUsed">
+								Age when you first tried this type of drug?
+							</label>
+							{{input type="number"
+											placeholder="XX"
+											id="methamphetaminesAgeWhenFirstUsed"
+											class="form-control"
+											value=methamphetaminesAgeWhenFirstUsed}}
+						</div>
+					</div>
+					{{inputs/toggle-checkbox idValue="mushrooms"
+							label="Mushrooms"
+							checked=mushrooms
+							name="type"
+							data-toggle="drugUseMushrooms"}}
+					<div id="drugUseMushrooms" class="if-yes hidden">
+						<div class="form-group">
+							<label class="block" for="mushroomsAgeWhenFirstUsed">
+								Age when you first tried this type of drug?
+							</label>
+							{{input type="number"
+											placeholder="XX"
+											id="mushroomsAgeWhenFirstUsed"
+											class="form-control"
+											value=mushroomsAgeWhenFirstUsed}}
+						</div>
+					</div>
+					{{inputs/toggle-checkbox idValue="pcp"
+							label="PCP"
+							checked=pcp
+							name="type"
+							data-toggle="drugUsePCP"}}
+					<div id="drugUsePCP" class="if-yes hidden">
+						<div class="form-group">
+							<label class="block" for="pcpAgeWhenFirstUsed">
+								Age when you first tried this type of drug?
+							</label>
+							{{input type="number"
+											placeholder="XX"
+											id="pcpAgeWhenFirstUsed"
+											class="form-control"
+											value=pcpAgeWhenFirstUsed}}
+						</div>
+					</div>
+				</div>
+				<div class="col">
+					{{inputs/toggle-checkbox idValue="synthetic"
+							label="⁪Synthetic marijuana"
+							checked=synthetic
+							name="type"
+							data-toggle="drugUse⁪Synthetic"}}
+					<div id="drugUse⁪Synthetic" class="if-yes hidden">
+						<div class="form-group">
+							<label class="block" for="syntheticAgeWhenFirstUsed">
+								Age when you first tried this type of drug?
+							</label>
+							{{input type="number"
+											placeholder="XX"
+											id="syntheticAgeWhenFirstUsed"
+											class="form-control"
+											value=syntheticAgeWhenFirstUsed}}
+						</div>
+					</div>
+					{{inputs/toggle-checkbox idValue="tea"
+							label="Tea/Coffee "
+							checked=tea
+							name="type"
+							data-toggle="drugUseTea"}}
+					<div id="drugUseTea" class="if-yes hidden">
+						<div class="form-group">
+							<label class="block" for="teaAgeWhenFirstUsed">
+								Age when you first tried this type of drug?
+							</label>
+							{{input type="number"
+											placeholder="XX"
+											id="teaAgeWhenFirstUsed"
+											class="form-control"
+											value=teaAgeWhenFirstUsed}}
+						</div>
 					</div>
 				</div>
 			</div>
