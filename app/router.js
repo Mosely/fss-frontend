@@ -103,6 +103,7 @@ Router.map(function () {
   this.route('veterans', { path: '/veterans' });
 
   this.route('veteran-resource-center');
+  this.route('shelter-intake');
 });
 
 export default Router;
