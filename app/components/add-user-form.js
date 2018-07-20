@@ -48,9 +48,9 @@ export default Component.extend({
       //});
       //personProps.gender = genderModel;
       personProps.genderId = personProps.gender;
-      
-      newPerson = store.createRecord("person", personProps);
 
+      newPerson = store.createRecord("person", personProps);
+      console.table(newPerson);
       userProps = this.getProperties("username", "email", "password");
       newUser = store.createRecord("user", {
         id: newPerson.id,
