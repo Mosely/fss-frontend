@@ -5,10 +5,11 @@ import RSVP from 'rsvp';
 
 export default Route.extend(AuthenticatedRouteMixin, {
 	session: service("session"),
-	
+
 	model: function(){
     return RSVP.hash({
 			ethnicities: this.store.findAll('ethnicity'),
+			topics: this.store.findAll('counselingtopic'),
     });
   }
 });
