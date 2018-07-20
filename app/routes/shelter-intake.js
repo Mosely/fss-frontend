@@ -11,6 +11,8 @@ export default Route.extend(AuthenticatedRouteMixin, {
 			ethnicities: this.store.findAll('ethnicity'),
 			languages: this.store.findAll('language'),
 			genders: this.store.findAll('gender'),
+			counties: this.store.findAll('countydata'),
+			states: this.store.findAll('statedata'),
 		});
 	}
 });

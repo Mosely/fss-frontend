@@ -181,12 +181,13 @@
 					</div>
 				</div>
 				<div class="col-7 col-sm-4">
-					<div class="form-group">
-						{{input type="text"
-										value=stateName
-										placeholder="State"
-										class="form-control"}}
-					</div>
+					<select id="states"
+									value="state"
+									class="form-control">
+						{{#each shelter.states as |state|}}
+							<option name="state" value="{{state.id}}">{{state.name}}</option>
+						{{/each}}
+					</select>
 				</div>
 				<div class="col-5 col-sm-4">
 					<div class="form-group">
@@ -197,31 +198,41 @@
 										class="form-control"}}
 					</div>
 				</div>
+				{{#if "texasSelected"}}
+					<div class="col-12 col-sm-6">
+						<select id="counties"
+										value="county"
+										class="form-control">
+							{{#each shelter.counties as |county|}}
+								<option name="county" value="{{county.id}}">{{county.name}}</option>
+							{{/each}}
+						</select>
+					</div>
+				{{/if}}
 			</div>
-			{{!-- <div class="row justify-content-between mb-2">
+			<div class="row justify-content-between mb-2">
 				<div class="col-12">
 					<label class="form-label mb-4">
 						Which category best describes:
 						<span class="star">*</span>
 					</label>
 				</div>
-					{{#each adult.ethnicities as |ethnicity|}}
+					{{#each shelter.ethnicities as |ethnicity|}}
 					<div class="col-12 col-sm-4">
 						<div class="form-check mb-3">
 							{{input type="radio"
 											class="form-check-input ethnicity"
 											name="ethnicity"
-											change=(action "updateValue" value="target.value")
-											id=ethnicity.id
-											value=ethnicity.id}}
-							<label for="{{ethnicity.id}}"
+											id=(concat "ethnicities" ethnicity.id)
+											value=(concat "ethnicities" ethnicity.id)}}
+							<label for="ethnicities{{ethnicity.id}}"
 										 class="form-check-label">
 								{{ethnicity.name}}
 							</label>
 						</div>
 					</div>
 					{{/each}}
-			</div> --}}
+			</div>
 		</div>
 	</form>
 {{/multi-step-form}}
