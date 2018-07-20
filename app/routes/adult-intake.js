@@ -10,6 +10,7 @@ export default Route.extend(AuthenticatedRouteMixin, {
     return RSVP.hash({
 			ethnicities: this.store.findAll('ethnicity'),
 			topics: this.store.findAll('counselingtopic'),
+			languages: this.store.findAll('language'),
     });
   }
 });
