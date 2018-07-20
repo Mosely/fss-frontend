@@ -144,8 +144,9 @@
 					<div class="col-12 col-sm-4">
 						<div class="form-check mb-3">
 							{{input type="radio"
-											class="form-check-input"
+											class="form-check-input ethnicity"
 											name="ethnicity"
+											change=(action "updateValue" value="target.value")
 											id=ethnicity.id
 											value=ethnicity.id}}
 							<label for="{{ethnicity.id}}"
@@ -452,14 +453,13 @@
 				</div>
 				{{#each adult.topics as |topic|}}
 				<div class="col-12 col-sm-3">
-					<div class="form-check mb-3">
+					<div class="form-check">
 						{{input type="checkbox"
-										class="form-check-input"
+										class="form-check-input counselingTopic"
 										name="topic"
-										checked=(concat "topics" topic.id)
+										change=(action "updateValue" value="target.checked")
 										id=(concat "topics" topic.id)}}
-						<label for="topics{{topic.id}}"
-									 class="form-check-label checkbox">
+						<label class="form-check-label checkbox" for="topics{{topic.id}}">
 							{{topic.topic}}
 						</label>
 					</div>
