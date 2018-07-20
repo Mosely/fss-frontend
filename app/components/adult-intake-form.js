@@ -14,7 +14,7 @@ export default Component.extend({
 		updateValue(value) {
 			let target = event.target.classList;
 			if (target.contains("counselingTopic")) {
-				let counselingtopic = this.set("topic", value);
+				let counselingtopic = this.set("counselingtopic", value);
 			} else if (target.contains("ethnicity")) {
 				let ethnicity = this.set("ethnicity", value);
 			}
