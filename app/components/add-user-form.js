@@ -41,8 +41,7 @@ export default Component.extend({
         return gender;
       });
       personProps.gender = genderModel;
-      newPerson.set("gender", genderModel);
-      
+
       newPerson = store.createRecord("person", personProps);
 
       userProps = this.getProperties("username", "email", "password");
