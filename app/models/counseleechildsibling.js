@@ -9,7 +9,7 @@ export default DS.Model.extend({
   ageAtDeath: DS.attr('number'),
 
   //relationships, if any
-  counseleeChild: DS.belongsTo('counseleechild'),
-  gender: DS.belongsTo('gender'),
-  updatedBy: DS.belongsTo('user')
+  counseleeChild: DS.belongsTo('counseleechild', { async: false }),
+  gender: DS.belongsTo('gender', { async: false }),
+  updatedBy: DS.belongsTo('user', { async: false })
 });

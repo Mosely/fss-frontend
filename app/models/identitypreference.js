@@ -6,6 +6,6 @@ export default DS.Model.extend({
   description: DS.attr('string'),
 
   //relationships, if any
-  updatedBy: DS.belongsTo('user'),
-  shelterClientIdentityPreferences: DS.hasMany('shelterclientidentitypreference')
+  updatedBy: DS.belongsTo('user', { async: false }),
+  shelterClientIdentityPreferences: DS.hasMany('shelterclientidentitypreference', { async: false })
 });

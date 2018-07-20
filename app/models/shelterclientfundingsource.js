@@ -5,7 +5,7 @@ export default DS.Model.extend({
 
 
   //relationships, if any
-  shelterClient: DS.belongsTo('shelterclient'),
-  fundingSource: DS.belongsTo('fundingsource'),
-  updatedBy: DS.belongsTo('user')
+  shelterClient: DS.belongsTo('shelterclient', { async: false }),
+  fundingSource: DS.belongsTo('fundingsource', { async: false }),
+  updatedBy: DS.belongsTo('user', { async: false })
 });

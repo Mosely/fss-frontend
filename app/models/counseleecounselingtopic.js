@@ -5,7 +5,7 @@ export default DS.Model.extend({
   otherNote: DS.attr('string'),
 
   //relationships, if any
-  counselee: DS.belongsTo('counselee'),
-  counselingTopic: DS.belongsTo('counselingtopic'),
-  updatedBy: DS.belongsTo('user')
+  counselee: DS.belongsTo('counselee', { async: false }),
+  counselingTopic: DS.belongsTo('counselingtopic', { async: false }),
+  updatedBy: DS.belongsTo('user', { async: false })
 });

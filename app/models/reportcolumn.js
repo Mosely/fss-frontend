@@ -9,7 +9,7 @@ export default DS.Model.extend({
   width: DS.attr('number'),
 
   //relationships, if any
-  report: DS.belongsTo('report'),
-  updatedBy: DS.belongsTo('user'),
-  reportCriterias: DS.hasMany('reportcriteria')
+  report: DS.belongsTo('report', { async: false }),
+  updatedBy: DS.belongsTo('user', { async: false }),
+  reportCriterias: DS.hasMany('reportcriteria', { async: false })
 });

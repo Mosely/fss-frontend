@@ -9,6 +9,6 @@ export default DS.Model.extend({
   dateFirstLivedWithChild: DS.attr('date'),
 
   //relationships, if any
-  counseleeChild: DS.belongsTo('counseleechild'),
-  updatedBy: DS.belongsTo('user')
+  counseleeChild: DS.belongsTo('counseleechild', { async: false }),
+  updatedBy: DS.belongsTo('user', { async: false })
 });

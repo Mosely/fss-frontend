@@ -5,7 +5,7 @@ export default DS.Model.extend({
   ageWhenFirstUsed: DS.attr('number'),
 
   //relationships, if any
-  counselee: DS.belongsTo('counselee'),
-  drugUse: DS.belongsTo('druguse'),
-  updatedBy: DS.belongsTo('user')
+  counselee: DS.belongsTo('counselee', { async: false }),
+  drugUse: DS.belongsTo('druguse', { async: false }),
+  updatedBy: DS.belongsTo('user', { async: false })
 });

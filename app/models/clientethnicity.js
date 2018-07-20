@@ -5,7 +5,7 @@ export default DS.Model.extend({
 
 
   //relationships, if any
-  client: DS.belongsTo('client'),
-  ethnicity: DS.belongsTo('ethnicity'),
-  updatedBy: DS.belongsTo('user')
+  client: DS.belongsTo('client', { async: false }),
+  ethnicity: DS.belongsTo('ethnicity', { async: false }),
+  updatedBy: DS.belongsTo('user', { async: false })
 });

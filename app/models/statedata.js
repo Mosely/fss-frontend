@@ -6,7 +6,7 @@ export default DS.Model.extend({
   stateCode: DS.attr('string'),
 
   //relationships, if any
-  updatedBy: DS.belongsTo('user'),
-  addresses: DS.hasMany('address'),
-  schools: DS.hasMany('school')
+  updatedBy: DS.belongsTo('user', { async: false }),
+  addresses: DS.hasMany('address', { async: false }),
+  schools: DS.hasMany('school', { async: false })
 });

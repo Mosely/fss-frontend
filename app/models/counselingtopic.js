@@ -6,6 +6,6 @@ export default DS.Model.extend({
   description: DS.attr('string'),
 
   //relationships, if any
-  updatedBy: DS.belongsTo('user'),
-  counseleeCounselingTopics: DS.hasMany('counseleecounselingtopic')
+  updatedBy: DS.belongsTo('user', { async: false }),
+  counseleeCounselingTopics: DS.hasMany('counseleecounselingtopic', { async: false })
 });

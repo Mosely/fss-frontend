@@ -37,11 +37,18 @@ export default Component.extend({
         "age"
       );
 
-      genderModel = store.findRecord("gender", personProps.gender).then((gender) => {
-        return gender;
-      });
-      personProps.gender = genderModel;
+      //Ember.$.getJSON('http://localhost:9393/artists', function(artists) {
+      //artists.forEach(function(data) {
+      //  artistObjects.pushObject(App.Artist.createRecord(data));
+      //});
+    //});
 
+      //genderModel = store.findRecord("gender", personProps.gender).then((gender) => {
+      //  return gender;
+      //});
+      //personProps.gender = genderModel;
+      personProps.genderId = personProps.gender;
+      
       newPerson = store.createRecord("person", personProps);
 
       userProps = this.getProperties("username", "email", "password");

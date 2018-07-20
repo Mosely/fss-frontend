@@ -5,7 +5,7 @@ export default DS.Model.extend({
   reason: DS.attr('string'),
 
   //relationships, if any
-  counselee: DS.belongsTo('counselee'),
-  medication: DS.belongsTo('medication'),
-  updatedBy: DS.belongsTo('user')
+  counselee: DS.belongsTo('counselee', { async: false }),
+  medication: DS.belongsTo('medication', { async: false }),
+  updatedBy: DS.belongsTo('user', { async: false })
 });

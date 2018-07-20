@@ -7,10 +7,10 @@ export default DS.Model.extend({
   whoElseRaisedChild: DS.attr('string'),
 
   //relationships, if any
-  school: DS.belongsTo('school'),
-  updatedBy: DS.belongsTo('user'),
-  counseleeChildBioParents: DS.hasMany('counseleechildbioparent'),
-  counseleeChildGuardians: DS.hasMany('counseleechildguardian'),
-  counseleeChildSiblings: DS.hasMany('counseleechildsibling'),
-  counselee: DS.belongsTo('counselee')
+  school: DS.belongsTo('school', { async: false }),
+  updatedBy: DS.belongsTo('user', { async: false }),
+  counseleeChildBioParents: DS.hasMany('counseleechildbioparent', { async: false }),
+  counseleeChildGuardians: DS.hasMany('counseleechildguardian', { async: false }),
+  counseleeChildSiblings: DS.hasMany('counseleechildsibling', { async: false }),
+  counselee: DS.belongsTo('counselee', { async: false })
 });
