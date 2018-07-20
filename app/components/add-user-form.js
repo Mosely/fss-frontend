@@ -50,7 +50,7 @@ export default Component.extend({
         userProps
       });
 
-      newPerson.set("gender", genderModel);
+      //newPerson.set("gender", genderModel);
 
       newPerson.save().then(() => {
         return newUser.save();
