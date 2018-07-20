@@ -202,6 +202,14 @@
 
 .nav-btn{
   display: none;
+  background: transparent;
+  border: none;
+
+  &:focus,
+  &:active {
+    outline: none;
+  }
+  
   @media screen and (max-width: 1024px){
     position: relative;
     display: block;
