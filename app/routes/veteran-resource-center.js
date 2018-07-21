@@ -5,11 +5,12 @@ import RSVP from 'rsvp';
 
 export default Route.extend(AuthenticatedRouteMixin, {
 	session: service("session"),
-	
+
 	model: function(){
     return RSVP.hash({
-      genders: this.store.findAll('gender'),
+			branchofservices: this.store.findAll('branchofservice'),
 			ethnicities: this.store.findAll('ethnicity'),
+      genders: this.store.findAll('gender'),
     });
   }
 });

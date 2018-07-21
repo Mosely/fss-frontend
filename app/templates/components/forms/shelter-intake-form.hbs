@@ -53,7 +53,7 @@
 							</div>
 					</div>
 				</div>
-				<div class="col-12 col-sm-2">
+				{{!-- <div class="col-12 col-sm-2">
 					<div class="form-group">
 						<label class="form-label">
 							Age
@@ -65,7 +65,7 @@
 										min="0"
 										class="form-control"}}
 					</div>
-				</div>
+				</div> --}}
 				<div class="col-12 col-sm">
 					<div class="form-group">
 						<label class="form-label">
@@ -88,7 +88,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-12 col-sm-2">
+				<div class="col-12 col-sm-3">
 					<label class="block">
 						Safe to Call?
 					</label>
@@ -126,6 +126,7 @@
 						<select id="genderSelect"
 										value="genderID"
 										class="form-control">
+							<option name="state" value="" hidden>Select Gender...</option>
 							{{#each shelter.genders as |gender|}}
 								<option name="gender" value="{{gender.id}}">{{gender.name}}</option>
 							{{/each}}
@@ -141,6 +142,7 @@
 						<select id="languages"
 										value="language"
 										class="form-control">
+						  <option name="state" value="" hidden>Select Language...</option>
 							{{#each shelter.languages as |language|}}
 								<option name="language" value="{{language.id}}">{{language.name}}</option>
 							{{/each}}
@@ -174,22 +176,29 @@
 				</div>
 				<div class="col-7 col-sm-4">
 					<div class="form-group">
-						{{input type="text"
-										value=cityName
-										placeholder="City"
-										class="form-control"}}
+						<div class="form-group">
+							<select id="citySelect"
+											value="citySelect"
+											class="form-control">
+								<option name="state" value="" hidden>Select City...</option>
+								{{#each shelter.cities as |city|}}
+									<option name="city" value="{{city.id}}">{{city.name}}</option>
+								{{/each}}
+							</select>
+						</div>
 					</div>
 				</div>
-				<div class="col-7 col-sm-4">
+				<div class="col-7 col-sm-3">
 					<select id="states"
 									value="state"
 									class="form-control">
+						<option name="state" value="" hidden>Select State...</option>
 						{{#each shelter.states as |state|}}
 							<option name="state" value="{{state.id}}">{{state.name}}</option>
 						{{/each}}
 					</select>
 				</div>
-				<div class="col-5 col-sm-4">
+				<div class="col-5 col-sm-2">
 					<div class="form-group">
 						{{input type="number"
 										value=zipcode
@@ -199,10 +208,11 @@
 					</div>
 				</div>
 				{{#if "texasSelected"}}
-					<div class="col-12 col-sm-6">
+					<div class="col-12 col-sm-3">
 						<select id="counties"
 										value="county"
 										class="form-control">
+							<option name="state" value="" hidden>Select County...</option>
 							{{#each shelter.counties as |county|}}
 								<option name="county" value="{{county.id}}">{{county.name}}</option>
 							{{/each}}

@@ -8,6 +8,7 @@ export default Route.extend(AuthenticatedRouteMixin, {
 
 	model: function(){
 		return RSVP.hash({
+			cities: this.store.findAll('citydata'),
 			ethnicities: this.store.findAll('ethnicity'),
 			languages: this.store.findAll('language'),
 			genders: this.store.findAll('gender'),
