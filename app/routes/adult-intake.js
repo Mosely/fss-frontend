@@ -8,9 +8,12 @@ export default Route.extend(AuthenticatedRouteMixin, {
 
 	model: function(){
     return RSVP.hash({
+			cities: this.store.findAll('citydata'),
 			ethnicities: this.store.findAll('ethnicity'),
-			topics: this.store.findAll('counselingtopic'),
 			languages: this.store.findAll('language'),
+			medications: this.store.findAll('medication'),
+			states: this.store.findAll('statedata'),
+			topics: this.store.findAll('counselingtopic'),
     });
   }
 });

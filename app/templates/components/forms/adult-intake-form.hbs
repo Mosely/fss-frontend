@@ -56,7 +56,7 @@
 							</div>
 					</div>
 				</div>
-				<div class="col-12 col-sm-2">
+				{{!-- <div class="col-12 col-sm-2">
 					<div class="form-group">
 						<label class="form-label">
 							Current Age
@@ -68,7 +68,7 @@
 										min="0"
 										class="form-control required"}}
 					</div>
-				</div>
+				</div> --}}
 				<div class="col-12 col-sm">
 					<div class="form-group">
 						<label class="form-label">
@@ -109,18 +109,26 @@
 				</div>
 				<div class="col-7 col-sm-4">
 					<div class="form-group">
-						{{input type="text"
-										value=cityName
-										placeholder="City"
-										class="form-control required"}}
+						<select id="citySelect"
+										value="citySelect"
+										class="form-control">
+							<option name="state" value="" hidden>Select City...</option>
+							{{#each adult.cities as |city|}}
+								<option name="city" value="{{city.id}}">{{city.name}}</option>
+							{{/each}}
+						</select>
 					</div>
 				</div>
 				<div class="col-7 col-sm-4">
 					<div class="form-group">
-						{{input type="text"
-										value=stateName
-										placeholder="State"
-										class="form-control required"}}
+						<select id="stateSelect"
+										value="stateData"
+										class="form-control">
+							<option name="state" value="" hidden>Select State...</option>
+							{{#each adult.states as |state|}}
+								<option name="state" value="{{state.id}}">{{state.name}}</option>
+							{{/each}}
+						</select>
 					</div>
 				</div>
 				<div class="col-5 col-sm-4">
@@ -160,73 +168,23 @@
 		</div>
 		<div id="adult-intake-2" class="form-step--item hidden">
 			<div class="row justify-content-between mb-2 align-items-center">
-				<div class="col-12">
+				<div class="col-12 col-sm-6">
 					<label class="form-label mt-3">
 						Primary Language:
 						<span class="star">*</span>
 					</label>
-				</div>
-				{{!-- {{#each adult.languages as |language|}}
-				<div class="col-12 col-sm-3">
-					<div class="form-check">
-						{{input type="radio"
-										class="form-check-input"
-										name="languages"
-										id=language.id
-										value=language.id}}
-						<label for="{{language.id}}"
-									 class="form-check-label box">
-							{{language.name}}
-						</label>
+					<div class="form-group">
+						<select id="languageSelect"
+										value="language"
+										class="form-control">
+							<option name="state" value="" hidden>Select Language...</option>
+							{{#each adult.languages as |language|}}
+								<option name="language" value="{{language.id}}">{{language.name}}</option>
+							{{/each}}
+						</select>
 					</div>
 				</div>
-				{{/each}} --}}
-				<div class="col-12 col-sm-3">
-					<div class="form-check">
-						{{input type="radio"
-										class="form-check-input"
-										name="name"
-										id="english"
-										value=english}}
-						<label for="english"
-									 class="form-check-label box">
-							English
-						</label>
-					</div>
-				</div>
-				<div class="col-12 col-sm-3">
-					<div class="form-check">
-						{{input type="radio"
-										class="form-check-input"
-										name="name"
-										id="spanish"
-										value=spanish}}
-						<label for="spanish"
-									 class="form-check-label box">
-							Spanish
-						</label>
-					</div>
-				</div>
-				<div class="col-12 col-sm-3">
-					<div class="form-check">
-						{{input type="radio"
-										class="form-check-input"
-										name="name"
-										id="other_language"
-										value=other_language}}
-						<label for="other_language"
-									 class="form-check-label">
-							Other
-						</label>
-						{{input type="text"
-										class="form-control"
-										id="other_language_input"
-										value=otherNote}}
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col">
+				<div class="col-12 col-sm-6">
 					<label class="form-label mt-3">
 						Place of Employment:
 						<span class="star">*</span>
@@ -495,53 +453,41 @@
 						Have you ever been hit, slapped, thrown or molested?
 						<span class="star">*</span>
 					</label>
-					<div class="form-check inline-block">
-						{{input type="radio"
-										class="form-check-input"
-										name="hasBeenAbused"
-										id="hasBeenAbusedYes"
-										onEvent="changed"
-										action="ifYesToggle"
-										value=Yes}}
-						<label for="hasBeenAbusedYes"
-									 class="form-check-label">
-							Yes
-						</label>
-					</div>
-					<div class="form-check inline-block">
-						{{input type="radio"
-										class="form-check-input"
-										name="hasBeenAbused"
-										id="hasBeenAbusedNo"
-										value=no}}
-						<label for="hasBeenAbusedNo"
-									 class="form-check-label">
-							No
-						</label>
-					</div>
-				</div>
-				<div class="if-yes hidden">
-					<div class="col-6">
-						<div class="form-group">
-							<label class="form-label sub-label">
-								By whom?
-							</label>
-							{{input type="text"
-											value=abusedByWhom
-											min="0"
-											class="form-control"}}
+					{{inputs/toggle-radio
+							idValue="hasBeenAbusedYes"
+							label="Yes"
+							name="hasBeenAbused"
+							value="yes"
+							data-toggle="hasBeenAbusedExample"}}
+					{{inputs/toggle-radio
+							idValue="hasBeenAbusedNo"
+							label="No"
+							name="hasBeenAbused"
+							value="no"
+							data-toggle="hasBeenAbusedExample"}}
+
+					<div id="hasBeenAbusedExample" class="if-yes hidden">
+						<div class="col-6">
+							<div class="form-group">
+								<label class="form-label sub-label">
+									By whom?
+								</label>
+								{{input type="text"
+												value=abusedByWhom
+												class="form-control"}}
+							</div>
 						</div>
-					</div>
-					<div class="col-3">
-						<div class="form-group">
-							<label class="form-label sub-label">
-								How many times?
-							</label>
-							{{input type="number"
-											value=abusedCount
-											placeholder="XX"
-											min="0"
-											class="form-control w-50"}}
+						<div class="col-3">
+							<div class="form-group">
+								<label class="form-label sub-label">
+									How many times?
+								</label>
+								{{input type="number"
+												value=abusedCount
+												placeholder="XX"
+												min="0"
+												class="form-control"}}
+							</div>
 						</div>
 					</div>
 				</div>
@@ -553,72 +499,50 @@
 						or deaths in the immediate family, including yourself
 						<span class="star">*</span>
 					</label>
-					<div class="form-check inline-block">
-						{{input type="radio"
-										class="form-check-input"
-										name="seriousProblemsInFamily"
-										id="seriousProblemsInFamilyYes"
-										onEvent="changed"
-										action="ifYesToggle"
-										value=Yes}}
-						<label for="seriousProblemsInFamilyYes"
-									 class="form-check-label">
-							Yes
-						</label>
-					</div>
-					<div class="form-check inline-block">
-						{{input type="radio"
-										class="form-check-input"
-										name="seriousProblemsInFamily"
-										id="seriousProblemsInFamilyNo"
-										value=no}}
-						<label for="seriousProblemsInFamilyNo"
-									 class="form-check-label">
-							No
-						</label>
-					</div>
-				</div>
-				<div class="if-yes hidden">
-					<div class="col-12">
-						<div class="form-group">
-							<label for="seriousFamilyProblemsDesc" class="form-label sub-label">
-								If yes, please describe:
-							</label>
-							<textarea id="seriousFamilyProblemsDesc"
-								class="form-control"
-								name="seriousFamilyProblemsDesc"
-								rows="3"></textarea>
+					{{inputs/toggle-radio
+							idValue="seriousProblemsInFamilyYes"
+							label="Yes"
+							name="seriousProblemsInFamily"
+							value="yes"
+							data-toggle="seriousProblemsInFamilyExample"}}
+					{{inputs/toggle-radio
+							idValue="seriousProblemsInFamilyNo"
+							label="No"
+							name="seriousProblemsInFamily"
+							value="no"
+							data-toggle="seriousProblemsInFamilyExample"}}
+
+					<div id="seriousProblemsInFamilyExample" class="if-yes hidden">
+						<div class="col-12">
+							<div class="form-group">
+								<label for="seriousFamilyProblemsDesc" class="form-label sub-label">
+									If yes, please describe:
+								</label>
+								<textarea id="seriousFamilyProblemsDesc"
+									class="form-control"
+									name="seriousFamilyProblemsDesc"
+									rows="3"></textarea>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="row mt-3">
-				<div class="col-12">
-					<label class="form-label mb-3 w-75">
+				<div class="col-12 col-sm-9">
+					<label class="form-label mt-3">
 						What medications are you presently taking (include home remedies and
 						over-the-counter drugs such as aspirin, etc.)
+						<span class="star">*</span>
 					</label>
-					<div class="form-table">
-						<div class="col-6">
-							<div class="form-group">
-								<label class="form-label">
-									Medication
-								</label>
-								{{input type="text"
-												value=name
-												class="form-control required"}}
-							</div>
-						</div>
-						<div class="col-6">
-							<div class="form-group">
-								<label class="form-label">
-									For
-								</label>
-								{{input type="text"
-												value=reason
-												class="form-control required"}}
-							</div>
-						</div>
+					<div class="form-group">
+						<select id="medicationSelect"
+										value="medication"
+										class="form-control">
+							<option name="medication" value="" hidden>Select Medication...</option>
+							{{#each adult.medications as |medication|}}
+								<option name="medication" value="{{medication.id}}">{{medication.name}}</option>
+							{{/each}}
+						</select>
 					</div>
 				</div>
 			</div>
@@ -652,60 +576,48 @@
 					</div>
 				</div>
 				<div class="col">
-					<label class="form-label mb-3">
+					<label class="form-label mt-3">
 						Have you ever had a drug/alcohol related black out?
-						<span class="star">*</span>
 					</label>
-					<div class="form-check inline-block">
-						{{input type="radio"
-										class="form-check-input"
-										name="hadBlackOut"
-										id="hadBlackOutYes"
-										action="ifYesToggle"
-										value=Yes}}
-						<label for="hadBlackOutYes"
-									 class="form-check-label">
-							Yes
-						</label>
-					</div>
-					<div class="form-check inline-block">
-						{{input type="radio"
-										class="form-check-input"
-										name="hadBlackOut"
-										id="hadBlackOutNo"
-										value=no}}
-						<label for="hadBlackOutNo"
-									 class="form-check-label">
-							No
-						</label>
-					</div>
-				</div>
-				<div class="if-yes hidden">
-					<div class="col">
-						<div class="form-group">
-							<label class="form-label">
-								If yes, where:
-							</label>
-							{{input type="text"
-											value=blackOutLocation
-											class="form-control"}}
+					{{inputs/toggle-radio
+							idValue="hadBlackOutYes"
+							label="Yes"
+							name="hadBlackOut"
+							value="yes"
+							data-toggle="hadBlackOutExample"}}
+					{{inputs/toggle-radio
+							idValue="hadBlackOutNo"
+							label="No"
+							name="hadBlackOut"
+							value="no"
+							data-toggle="hadBlackOutExample"}}
+					<div id="hadBlackOutExample" class="if-yes hidden">
+						<div class="col">
+							<div class="form-group">
+								<label class="form-label sub-label">
+									If yes, where:
+								</label>
+								{{input type="text"
+												value=blackOutLocation
+												class="form-control"}}
+							</div>
 						</div>
-					</div>
-					<div class="col">
-						<div class="form-group">
-							<label class="form-label">
-								Date of Birth
-							</label>
-								<div class="input-group">
-									{{input type="date"
-													value=blackOutDate
-													class="form-control datepicker date"}}
-									<div class="input-group-prepend">
-										<span class="input-group-text">
-											{{fa-icon "calendar" ariaLabel="Pick a Date"}}
-										</span>
+						<div class="col">
+							<div class="form-group">
+								<label class="form-label sub-label">
+									Black out Date:
+								</label>
+									<div class="input-group">
+										{{input type="date"
+														value=blackOutDate
+														class="form-control datepicker date"}}
+										<div class="input-group-prepend">
+											<span class="input-group-text">
+												{{fa-icon "calendar" ariaLabel="Pick a Date"}}
+											</span>
+										</div>
 									</div>
-								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -717,6 +629,8 @@
 						<span class="star">*</span>
 					</label>
 				</div>
+				{{#each adult.}}
+				{{/each}}
 				<div class="col-12 col-sm-3">
 					<div class="form-check">
 						{{input type="radio"
@@ -806,12 +720,14 @@
 					<label class="form-label mt-3">
 						Current desire to harm him/herself?
 					</label>
-					{{inputs/toggle-radio idValue="currentHarmSelfYes"
+					{{inputs/toggle-radio
+							idValue="currentHarmSelfYes"
 							label="Yes"
 							name="currentHarmSelf"
 							value="yes"
 							data-toggle="currentHarmSelfExample"}}
-					{{inputs/toggle-radio idValue="currentHarmSelfNo"
+					{{inputs/toggle-radio
+							idValue="currentHarmSelfNo"
 							label="No"
 							name="currentHarmSelf"
 							value="no"
@@ -819,7 +735,7 @@
 					<div id="currentHarmSelfExample" class="if-yes hidden">
 						<div class="col">
 							<div class="form-group">
-								<label class="block">
+								<label class="sub-label">
 									Please Provide Example
 								</label>
 								{{input type="text"
@@ -846,7 +762,7 @@
 					<div id="pastHarmSelfExample" class="if-yes hidden">
 						<div class="col">
 							<div class="form-group">
-								<label class="block">
+								<label class="sub-label">
 									Please Provide Example
 								</label>
 								{{input type="text"
@@ -873,7 +789,7 @@
 					<div id="currentHarmOthersExample" class="if-yes hidden">
 						<div class="col">
 							<div class="form-group">
-								<label class="block">
+								<label class="sub-label">
 									Please Provide Example
 								</label>
 								{{input type="text"
@@ -900,7 +816,7 @@
 					<div id="attemptHarmOthersExample" class="if-yes hidden">
 						<div class="col">
 							<div class="form-group">
-								<label class="block">
+								<label class="sub-label">
 									Please Provide Example
 								</label>
 								{{input type="text"
@@ -917,6 +833,26 @@
 						History of Drug Use
 					</label>
 				</div>
+				{{!-- {{#each adult.drugs as |drug|}}
+				<div class="col-12 col-sm-3">
+					{{inputs/toggle-checkbox idValue=(concat "drugeUse" drug.id)
+							label=drug.type
+							checked=(concat "drugs" drug.id)
+							name="type"
+							data-toggle=(concat "drugs" drug.id)}}
+					<div id="" class="if-yes hidden">
+						<div class="form-group">
+							<label class="block" for="alcoholAgeWhenFirstUsed">
+								Age when you first tried this type of drug?
+							</label>
+							{{input type="number"
+											placeholder="XX"
+											class="form-control"
+											value=ageWhenFirstUsed}}
+						</div>
+					</div>
+				</div>
+				{{/each}} --}}
 				<div class="col">
 					{{inputs/toggle-checkbox idValue="alcohol"
 							label="Alcohol"
@@ -1182,7 +1118,7 @@
 					<div id="hadPreviousCounselingExample" class="if-yes hidden">
 						<div class="col">
 							<div class="form-group">
-								<label class="block">
+								<label class="sub-label">
 									If yes, where, when?
 								</label>
 								<div class="input-group">
