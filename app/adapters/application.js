@@ -42,5 +42,13 @@ export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
     }
     query = null;
     return `${baseUrl}/${modelName}${searchSegments}`;
+  },
+  // Should send updates via PUT, instead of PATCH
+  methodForRequest({ requestType }) {
+    if (requestType === "updateRecord") {
+      return "PUT";
+    }
+
+    return this._super(...arguments);
   }
 });
