@@ -12,7 +12,11 @@ export default Component.extend({
      * @param {string} value The value of the option that is selected
      **/
     updateValue(value) {
-      this.set("gender", value);
+      //this.set("gender", value);
+      let store = this.get("store");
+      store.find("gender", value).then((model) => {
+        this.set("gender", model);
+      });
     },
 
     /**
@@ -25,14 +29,13 @@ export default Component.extend({
         userProps,
         newPerson,
         newUser,
-        genderModel,
         store = this.get("store");
 
       personProps = this.getProperties(
         "firstName",
         "middleName",
         "lastName",
-        "gender",
+        //"gender",
         "dateOfBirth",
         "age"
       );
@@ -47,9 +50,10 @@ export default Component.extend({
       //  return gender;
       //});
       //personProps.gender = genderModel;
-      personProps.genderId = personProps.gender;
+      //personProps.genderId = personProps.gender;
 
       newPerson = store.createRecord("person", personProps);
+      newPerson.set("gender", this.get("gender"));
       console.table(newPerson);
       userProps = this.getProperties("username", "email", "password");
       newUser = store.createRecord("user", {
