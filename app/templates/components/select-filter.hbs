@@ -1,0 +1,11 @@
+<div class="form-group select-filter" onclick={{action (action "handleFilter")}}>
+	{{input value=value
+					key-up=(action 'handleFilter')
+					class="search-input form-control"
+					placeholder=placeholder}}
+	<div class="options">
+		<ul class="filter-list">
+			{{yield results}}
+		</ul>
+	</div>
+</div>

@@ -32,3 +32,40 @@
 @import "elements/buttons-styles";
 @import "elements/modal-styles";
 @import "elements/tables-styles";
+
+.select-filter{
+	position: relative;
+
+	.options {
+		position: absolute;
+		width: 100%;
+		top: 100%;
+		background: #fff;
+		z-index: 1;
+		max-height: 20vh;
+		overflow-y: scroll;
+		display: none;
+		border: 1px solid #dedede;
+		margin-bottom: 1em;
+		box-shadow: 0 2px 3px 0 rgba(34,36,38,.15);
+		border-color: #2a8aff;
+	}
+}
+.search-input:focus + .options {
+	display: block !important;
+}
+.filter-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.filter-list--item{
+	border-bottom: 1px solid #dedede;
+  padding: 0.5em 1em;
+  cursor: pointer;
+
+	&:hover{
+		background: #2a8aff;
+    color: #fff;
+	}
+}

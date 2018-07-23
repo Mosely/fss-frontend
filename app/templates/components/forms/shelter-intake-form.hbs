@@ -175,18 +175,22 @@
 					</div>
 				</div>
 				<div class="col-7 col-sm-4">
-					<div class="form-group">
-						<div class="form-group">
-							<select id="citySelect"
-											value="citySelect"
-											class="form-control">
-								<option name="state" value="" hidden>Select City...</option>
-								{{#each shelter.cities as |city|}}
-									<option name="city" value="{{city.id}}">{{city.name}}</option>
-								{{/each}}
-							</select>
-						</div>
-					</div>
+					{{#select-filter placeholder="Search Cities..."
+							filter=(action 'filterByName') as |filteredResults|}}
+						{{#each filteredResults as |city|}}
+							<li class="filter-list--item">{{city.name}}</li>
+						{{/each}}
+					{{/select-filter}}
+					{{!-- <div class="form-group">
+						<select id="citySelect"
+										value="citySelect"
+										class="form-control">
+							<option name="state" value="" hidden>Select City...</option>
+							{{#each shelter.cities as |city|}}
+								<option name="city" value="{{city.id}}">{{city.name}}</option>
+							{{/each}}
+						</select>
+					</div> --}}
 				</div>
 				<div class="col-7 col-sm-3">
 					<select id="states"
