@@ -244,6 +244,251 @@
 					{{/each}}
 			</div>
 		</div>
+		<div class="form-step--item hidden">
+			<div class="row mt-3">
+				<div class="col-12">
+					<label class="form-label">
+						Do you identify with any of the following?
+					</label>
+				</div>
+				{{#each shelter.identies as |idendty|}}
+					<div class="col-12 col-sm-3">
+						<div class="form-check">
+							{{input type="checkbox"
+											class="form-check-input"
+											name="identityPreference"
+											checked=(concat "identity" idendty.id)
+											id=(concat "identity" idendty.id)}}
+							<label class="form-check-label checkbox" for="identity{{idendty.id}}">
+								{{idendty.name}}
+							</label>
+						</div>
+					</div>
+				{{/each}}
+			</div>
+			<div class="row mt-3">
+				<div class="col-12">
+					<label class="form-label">
+						Did someone help you fill out this form?
+						<span class="star">*</span>
+					</label>
+					{{inputs/toggle-radio
+							idValue="usedFormAssistanceYes"
+							label="Yes"
+							name="usedFormAssistance"
+							value="yes"
+							data-toggle="usedFormAssistanceExample"}}
+					{{inputs/toggle-radio
+							idValue="usedFormAssistanceNo"
+							label="No"
+							name="usedFormAssistance"
+							value="no"
+							data-toggle="usedFormAssistanceExample"}}
+
+					<div id="usedFormAssistanceExample" class="if-yes hidden">
+						<div class="col-12 col-sm-6">
+							<div class="form-group">
+								<label for="assistantName" class="form-label sub-label">
+									If yes, name:
+								</label>
+								{{input type="text"
+												class="form-control"
+												value=assistantName}}
+							</div>
+						</div>
+						<div class="col-12 col-sm-6">
+							<div class="form-group">
+								<label for="assistantRelationship" class="form-label sub-label">
+									Relationship to Client:
+								</label>
+								{{input type="text"
+												class="form-control"
+												value=assistantRelationship}}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row mt-4">
+				<div class="col-12">
+					<label class="form-label">
+						Funding Source
+					</label>
+				</div>
+				{{#each shelter.fundingSources as |funding|}}
+					<div class="col-12 col-sm-3">
+						<div class="form-check">
+							{{input type="checkbox"
+											class="form-check-input"
+											name="fundingSource"
+											id=(concat "funding" funding.id)
+											checked=(concat "funding" funding.id)}}
+							<label for="funding{{funding.id}}"
+										 class="form-check-label box">
+								{{funding.name}}
+							</label>
+						</div>
+					</div>
+				{{/each}}
+			</div>
+			<div class="row mt-4 justify-content-around">
+				<div class="col-12 col-sm-3 ">
+					<label class="form-label">
+						Is Rural?
+					</label>
+					<div class="form-check inline-block">
+						{{input type="radio"
+										class="form-check-input"
+										name="isRural"
+										id="isRuralYes"
+										value=Yes}}
+						<label for="isRuralYes"
+									 class="form-check-label">
+							Yes
+						</label>
+					</div>
+					<div class="form-check inline-block">
+						{{input type="radio"
+										class="form-check-input"
+										name="isRural"
+										id="isRuralNo"
+										value=no}}
+						<label for="isRuralNo"
+									 class="form-check-label">
+							No
+						</label>
+					</div>
+				</div>
+				<div class="col-12 col-sm-3">
+					<label class="form-label">
+						Is Urban?
+					</label>
+					<div class="form-check inline-block">
+						{{input type="radio"
+										class="form-check-input"
+										name="isUrban"
+										id="isUrbanYes"
+										value=Yes}}
+						<label for="isUrbanYes"
+									 class="form-check-label">
+							Yes
+						</label>
+					</div>
+					<div class="form-check inline-block">
+						{{input type="radio"
+										class="form-check-input"
+										name="isUrban"
+										id="isUrbanNo"
+										value=no}}
+						<label for="isUrbanNo"
+									 class="form-check-label">
+							No
+						</label>
+					</div>
+				</div>
+				<div class="col-12 col-sm-3">
+					<label class="form-label">
+						Has TANF Form?
+					</label>
+					<div class="form-check inline-block">
+						{{input type="radio"
+										class="form-check-input"
+										name="hasTanfForm"
+										id="hasTanfFormYes"
+										value=Yes}}
+						<label for="hasTanfFormYes"
+									 class="form-check-label">
+							Yes
+						</label>
+					</div>
+					<div class="form-check inline-block">
+						{{input type="radio"
+										class="form-check-input"
+										name="hasTanfForm"
+										id="hasTanfFormNo"
+										value=no}}
+						<label for="hasTanfFormNo"
+									 class="form-check-label">
+							No
+						</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="form-step--item hidden">
+			<div class="row">
+				<div class="col-12 col-sm-6">
+					<div class="form-group">
+						<label class="form-label" for="languages">
+							Advocate Name
+							<span class="star">*</span>
+						</label>
+						<select id="advocateUser"
+										value="advocateUser"
+										class="form-control">
+							<option name="advocateUser" value="" hidden>
+								Select Advocate...
+							</option>
+							{{#each shelter.people as |person|}}
+								<option name="advocateUser" value="{{person.id}}">
+									{{person.lastName}}, {{person.firstName}}
+								</option>
+							{{/each}}
+						</select>
+					</div>
+				</div>
+				<div class="col-12 col-sm-3">
+					<div class="form-group">
+						<label class="form-label">
+							Enter Date
+							<span class="star">*</span>
+						</label>
+							<div class="input-group">
+								{{input type="date"
+												value=enterDate
+												class="form-control datepicker date"}}
+								<div class="input-group-prepend">
+									<span class="input-group-text">
+										{{fa-icon "calendar"
+															ariaLabel="Pick a Date"}}
+									</span>
+								</div>
+							</div>
+					</div>
+				</div>
+				<div class="col-12 col-sm-3">
+					<div class="form-group">
+						<label class="form-label">
+							Exit Date
+							<span class="star">*</span>
+						</label>
+							<div class="input-group">
+								{{input type="date"
+												value=exitDate
+												class="form-control datepicker date"}}
+								<div class="input-group-prepend">
+									<span class="input-group-text">
+										{{fa-icon "calendar"
+															ariaLabel="Pick a Date"}}
+									</span>
+								</div>
+							</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12">
+					<label for="shelterNotes" class="form-label">
+						Notes (use sparingly):
+					</label>
+					{{textarea placeholder="Enter notes..."
+										 id="shelterNotes"
+										 class="form-control"
+										 value=notes
+										 rows="6"}}
+				</div>
+			</div>
+		</div>
 	</form>
 {{/multi-step-form}}
 {{yield}}

@@ -3,7 +3,9 @@
 **/
 .dashboard-item {
   position: relative;
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
           box-shadow: 0 1px 1px rgba(0,0,0,.05);
   border: 1px solid rgba(191, 191, 191, 0.6);

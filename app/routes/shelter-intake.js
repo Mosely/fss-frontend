@@ -7,13 +7,17 @@ export default Route.extend(AuthenticatedRouteMixin, {
 	session: service("session"),
 
 	model: function(){
+		let store = this.store;
 		return RSVP.hash({
-			cities: this.store.findAll('citydata'),
-			ethnicities: this.store.findAll('ethnicity'),
-			languages: this.store.findAll('language'),
-			genders: this.store.findAll('gender'),
-			counties: this.store.findAll('countydata'),
-			states: this.store.findAll('statedata'),
+			cities: store.findAll('citydata'),
+			counties: store.findAll('countydata'),
+			ethnicities: store.findAll('ethnicity'),
+			fundingSources: store.findAll('fundingsource'),
+			genders: store.findAll('gender'),
+			identies: store.findAll('identitypreference'),
+			languages: store.findAll('language'),
+			states: store.findAll('statedata'),
+			people: store.findAll('person'),
 		});
 	}
 });

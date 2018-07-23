@@ -431,6 +431,7 @@
 										class="form-check-input counselingTopic"
 										name="topic"
 										change=(action "updateValue" value="target.checked")
+										checked=(concat "topics" topic.id)
 										id=(concat "topics" topic.id)}}
 						<label class="form-check-label checkbox" for="topics{{topic.id}}">
 							{{topic.topic}}
@@ -629,8 +630,6 @@
 						<span class="star">*</span>
 					</label>
 				</div>
-				{{#each adult.}}
-				{{/each}}
 				<div class="col-12 col-sm-3">
 					<div class="form-check">
 						{{input type="radio"
