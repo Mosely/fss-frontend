@@ -8,7 +8,6 @@ export default Component.extend({
 	actions: {
 		filterByName(param) {
 			var store = this.get('store');
-			var store = this.get('store');
 			if (param !== '') {
 				return store.query('citydata', { name: param }).then((results) => {
 					return { query: param, results: results };
