@@ -43,10 +43,10 @@ export default Component.extend({
       userProps = this.getProperties("username", "email", "password");
 
       newPerson.save().then(() => {
-        console.log("Person ID ", newPerson.id);
-        console.log("Testing TESTING TESTING " + newPerson.get("id"));
+        let pid = parseInt(newPerson.get("id"));
+        console.log("Person ID ", pid);
         newUser = store.createRecord("user", userProps);
-        newUser.set("id", newPerson.id);
+        newUser.set("id", pid);
         return newUser.save();
       });
     }
