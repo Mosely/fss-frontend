@@ -40,12 +40,13 @@ export default Component.extend({
       );
       newPerson = store.createRecord("person", personProps);
       newPerson.set("gender", this.get("gender"));
-      console.log("Person ID ", newPerson.id);
       userProps = this.getProperties("username", "email", "password");
-      newUser = store.createRecord("user", userProps);
-      newUser.set("id", newPerson.id);
 
       newPerson.save().then(() => {
+        console.log("Person ID ", newPerson.id);
+        console.log("Testing TESTING TESTING " + newPerson.get("id"));
+        newUser = store.createRecord("user", userProps);
+        newUser.set("id", newPerson.id);
         return newUser.save();
       });
     }
