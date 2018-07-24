@@ -177,8 +177,10 @@
 				<div class="col-7 col-sm-4">
 					{{#select-filter placeholder="Search Cities..."
 							filter=(action 'filterByName') as |filteredResults|}}
+						<option name="city" value="" hidden>Select City...</option>
 						{{#each filteredResults as |city|}}
-							<li class="filter-list--item">{{city.name}}</li>
+							<option name="city" value="{{city.id}}">{{city.name}}</option>
+							{{!-- <li class="filter-list--item">{{city.name}}</li> --}}
 						{{/each}}
 					{{/select-filter}}
 				</div>
