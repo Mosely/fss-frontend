@@ -6,14 +6,15 @@ import RSVP from 'rsvp';
 export default Route.extend(AuthenticatedRouteMixin, {
 	session: service("session"),
 
-	model: function(){
+	model(){
+		let store = this.store;
     return RSVP.hash({
-			cities: this.store.findAll('citydata'),
-			ethnicities: this.store.findAll('ethnicity'),
-			languages: this.store.findAll('language'),
-			medications: this.store.findAll('medication'),
-			states: this.store.findAll('statedata'),
-			topics: this.store.findAll('counselingtopic'),
+			cities: store.findAll('citydata'),
+			ethnicities: store.findAll('ethnicity'),
+			languages: store.findAll('language'),
+			medications: store.findAll('medication'),
+			states: store.findAll('statedata'),
+			topics: store.findAll('counselingtopic'),
     });
   }
 });
