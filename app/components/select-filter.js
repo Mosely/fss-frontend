@@ -32,7 +32,7 @@ export default Component.extend({
       });
     },
 		handleInput() {
-			console.log(even.target.classList);
+			// this.set("value", event.target.innerHTML);
 		}
   }
 });

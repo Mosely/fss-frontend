@@ -12,7 +12,7 @@ export default Component.extend({
      * @param {string} value The value of the option that is selected
      **/
     updateValue(value) {
-      //NOTE: we'll probably follow this pattern for finding related models whenever we need to 
+      //NOTE: we'll probably follow this pattern for finding related models whenever we need to
       // perform record inserts.
       let store = this.get("store");
       store.find("gender", value).then((model) => {
@@ -36,17 +36,14 @@ export default Component.extend({
         "firstName",
         "middleName",
         "lastName",
-        "dateOfBirth",
-        "age"
+        "dateOfBirth"
       );
-
       newPerson = store.createRecord("person", personProps);
       newPerson.set("gender", this.get("gender"));
+      console.log("Person ID ", newPerson.id);
       userProps = this.getProperties("username", "email", "password");
-      newUser = store.createRecord("user", {
-        id: newPerson.id,
-        userProps
-      });
+      newUser = store.createRecord("user", userProps);
+      newUser.set("id", newPerson.id);
 
       newPerson.save().then(() => {
         return newUser.save();
