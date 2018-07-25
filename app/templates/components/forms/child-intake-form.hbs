@@ -1,1 +1,783 @@
+{{#multi-step-form}}
+<form class="form" method="post" {{action "submit" on="submit"}}>
+	<div class="form-step--item active">
+		<div class="row mb-2">
+			<div class="col-12">
+				<label class="form-label">
+					Child Full Name
+					<span class="star">*</span>
+				</label>
+			</div>
+			<div class="col-12 col-sm">
+				<div class="form-group">
+					{{input type="text"
+									value=firstName
+									class="form-control"
+									placeholder="Child's First Name"}}
+				</div>
+			</div>
+			<div class="col-12 col-sm">
+				<div class="form-group">
+					{{input type="text"
+									value=middleName
+									class="form-control"
+									placeholder="Child's Middle Name"}}
+				</div>
+			</div>
+			<div class="col-12 col-sm">
+				<div class="form-group">
+					{{input type="text"
+									value=lastName
+									class="form-control"
+									placeholder="Child's Last Name"}}
+				</div>
+			</div>
+		</div>
+		<div class="row mb-3">
+			<div class="col-12 col-sm-6">
+				<div class="form-group">
+					<label class="form-label">
+						Child's Date of Birth
+						<span class="star">*</span>
+					</label>
+						<div class="input-group">
+							{{input type="date"
+											value=dateOfBirth
+											class="form-control datepicker date"}}
+							<div class="input-group-prepend">
+								<span class="input-group-text">
+									{{fa-icon "calendar"
+														ariaLabel="Pick a Date"}}
+								</span>
+							</div>
+						</div>
+				</div>
+			</div>
+			<div class="col-12 col-sm-6">
+				<div class="form-group">
+					<label class="form-label">
+						Child's Social Security #
+						<span class="star">*</span>
+					</label>
+					{{input type="number"
+									value=socialSecurityNumber
+									placeholder="XXX-XX-XXXX"
+									min="0"
+									class="form-control"}}
+				</div>
+			</div>
+		</div>
+		<div class="row mb-3">
+			<div class="col-12">
+				<label class="form-label">
+					Address
+					<span class="star">*</span>
+				</label>
+			</div>
+			<div class="col-12 col-sm-10">
+				<div class="form-group">
+					{{input type="text"
+									value=streetName
+									placeholder="Street"
+									class="form-control"}}
+				</div>
+			</div>
+			<div class="col-5 col-sm-2">
+				<div class="form-group">
+					{{input type="number"
+									value=streetNumber
+									placeholder="(Apt. #)"
+									min="0"
+									class="form-control"}}
+				</div>
+			</div>
+			<div class="col-7 col-sm-4">
+				<div class="form-group">
+					<select id="citySelect"
+									value="citySelect"
+									class="form-control">
+						<option name="city" value="" hidden>Select City...</option>
+						{{#each child.cities as |city|}}
+							<option name="city" value="{{city.id}}">{{city.name}}</option>
+						{{/each}}
+					</select>
+				</div>
+			</div>
+			<div class="col-7 col-sm-3">
+				<div class="form-group">
+					<select id="stateSelect"
+									value="stateData"
+									class="form-control">
+						<option name="state" value="" hidden>Select State...</option>
+						{{#each child.states as |state|}}
+							<option name="state" value="{{state.id}}">{{state.name}}</option>
+						{{/each}}
+					</select>
+				</div>
+			</div>
+			<div class="col-5 col-sm-2">
+				<div class="form-group">
+					{{input type="number"
+									value=zipcode
+									placeholder="Zip code"
+									min="0"
+									class="form-control"}}
+				</div>
+			</div>
+			<div class="col-12 col-sm-3">
+				<div class="form-group">
+					<select id="countySelect"
+									value="countyData"
+									class="form-control">
+						<option name="county" value="" hidden>Select County...</option>
+						{{#each child.counties as |county|}}
+							<option name="county" value="{{county.id}}">{{county.name}}</option>
+						{{/each}}
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="row mb-4">
+			<div class="col-12 col-sm-3">
+				<div class="form-group">
+					<label class="form-label">
+						Child’s Gender:
+						<span class="star">*</span>
+					</label>
+					<select id="genderSelect"
+									value="gender"
+									class="form-control">
+						<option name="gender" value="" hidden>Select State...</option>
+						{{#each child.genders as |gender|}}
+							<option name="gender" value="{{gender.id}}">{{gender.name}}</option>
+						{{/each}}
+					</select>
+				</div>
+			</div>
+			<div class="col-12 col-sm-5">
+				<div class="form-group">
+					<label class="form-label">
+						Child’s Ethnicity:
+						<span class="star">*</span>
+					</label>
+					<select id="ethnicitySelect"
+									value="ethnicity"
+									class="form-control">
+						<option name="ethnicity" value="" hidden>Select Ethnicity...</option>
+						{{#each child.ethnicities as |ethnicity|}}
+							<option name="ethnicity" value="{{ethnicity.id}}">{{ethnicity.name}}</option>
+						{{/each}}
+					</select>
+				</div>
+			</div>
+			<div class="col-12 col-sm-4">
+				<div class="form-group">
+					<label class="form-label">
+						Child’s Primary Language:
+						<span class="star">*</span>
+					</label>
+					<select id="languageSelect"
+									value="language"
+									class="form-control">
+						<option name="language" value="" hidden>Select Primary Language...</option>
+						{{#each child.languages as |language|}}
+							<option name="language" value="{{language.id}}">{{language.name}}</option>
+						{{/each}}
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="row mt-3">
+			<div class="col-12">
+				<label class="form-label mb-3">
+					Check any topic(s) you would like addressed in counseling:
+					<span class="star">*</span>
+				</label>
+			</div>
+			{{#each child.topics as |topic|}}
+			<div class="col-12 col-sm-3">
+				<div class="form-check">
+					{{input type="checkbox"
+									class="form-check-input counselingTopic"
+									name="topic"
+									checked=(concat "topics" topic.id)
+									id=(concat "topics" topic.id)}}
+					<label class="form-check-label checkbox" for="topics{{topic.id}}">
+						{{topic.topic}}
+					</label>
+				</div>
+			</div>
+			{{/each}}
+		</div>
+	</div>
+	<div class="form-step--item hidden">
+		<div class="row mb-3">
+			<div class="col-12 mb-2">
+				<span class="form-title">School History</span>
+			</div>
+			<div class="col-12 col-sm-5">
+				<div class="form-group">
+					<label class="form-label">
+						Child's School
+						<span class="star">*</span>
+					</label>
+					<select id="schoolSelect"
+									value="school"
+									class="form-control">
+						<option name="school" value="" hidden>Select School...</option>
+						{{#each child.schools as |school|}}
+							<option name="school" value="{{school.id}}">{{school.name}}</option>
+						{{/each}}
+					</select>
+				</div>
+			</div>
+			<div class="col-12 col-sm-7">
+				<div class="form-group">
+					<label class="form-label">
+						School problems that your child is experiencing:
+						<span class="star">*</span>
+					</label>
+					{{input type="text"
+									value=schoolProblems
+									class="form-control"}}
+				</div>
+			</div>
+		</div>
+		<div class="row mb-3">
+			<div class="col-12">
+				<label class="form-label">
+					School's Address
+					<span class="star">*</span>
+				</label>
+			</div>
+			<div class="col-12 col-sm-10">
+				<div class="form-group">
+					{{input type="text"
+									value=street
+									placeholder="Street"
+									class="form-control"}}
+				</div>
+			</div>
+			<div class="col-5 col-sm-2">
+				<div class="form-group">
+					{{input type="number"
+									value=zipcode
+									placeholder="Zip Code"
+									min="0"
+									class="form-control"}}
+				</div>
+			</div>
+			<div class="col-7 col-sm-8">
+				<div class="form-group">
+					<select id="citySelect"
+									value="citySelect"
+									class="form-control">
+						<option name="city" value="" hidden>Select City...</option>
+						{{#each child.cities as |city|}}
+							<option name="city" value="{{city.id}}">{{city.name}}</option>
+						{{/each}}
+					</select>
+				</div>
+			</div>
+			<div class="col-7 col-sm-4">
+				<div class="form-group">
+					<select id="stateSelect"
+									value="stateData"
+									class="form-control">
+						<option name="state" value="" hidden>Select State...</option>
+						{{#each child.states as |state|}}
+							<option name="state" value="{{state.id}}">{{state.name}}</option>
+						{{/each}}
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="row mb-2">
+			<div class="col-12 mb-2">
+				<span class="form-title"> Child's Personal History</span>
+			</div>
+			<div class="col-12">
+				<label class="form-label mb-3">
+					Has your child ever been hit, slapped, thrown or molested?
+					<span class="star">*</span>
+				</label>
+				{{inputs/toggle-radio
+						idValue="hasBeenAbusedYes"
+						label="Yes"
+						name="hasBeenAbused"
+						value="yes"
+						data-toggle="hasBeenAbusedExample"}}
+				{{inputs/toggle-radio
+						idValue="hasBeenAbusedNo"
+						label="No"
+						name="hasBeenAbused"
+						value="no"
+						data-toggle="hasBeenAbusedExample"}}
+
+				<div id="hasBeenAbusedExample" class="if-yes hidden">
+					<div class="col-6">
+						<div class="form-group">
+							<label class="form-label sub-label">
+								By whom?
+							</label>
+							{{input type="text"
+											value=abusedByWhom
+											class="form-control"}}
+						</div>
+					</div>
+					<div class="col-3">
+						<div class="form-group">
+							<label class="form-label sub-label">
+								How many times?
+							</label>
+							{{input type="number"
+											value=abusedCount
+											placeholder="XX"
+											min="0"
+											class="form-control"}}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row mb-3">
+			<div class="col-12">
+				<label class="form-label mb-3">
+					Have there been any serious illnesses, injuries, emotional problems,
+					or deaths in the child’s immediate family?
+					<span class="star">*</span>
+				</label>
+				{{inputs/toggle-radio
+						idValue="seriousProblemsInFamilyYes"
+						label="Yes"
+						name="seriousProblemsInFamily"
+						value="yes"
+						data-toggle="seriousProblemsInFamilyExample"}}
+				{{inputs/toggle-radio
+						idValue="seriousProblemsInFamilyNo"
+						label="No"
+						name="seriousProblemsInFamily"
+						value="no"
+						data-toggle="seriousProblemsInFamilyExample"}}
+
+				<div id="seriousProblemsInFamilyExample" class="if-yes hidden">
+					<div class="col-12">
+						<div class="form-group">
+							<label for="seriousFamilyProblemsDesc" class="form-label sub-label">
+								If yes, please describe:
+							</label>
+							<textarea id="seriousFamilyProblemsDesc"
+								class="form-control"
+								value="seriousFamilyProblemsDesc"
+								name="seriousFamilyProblemsDesc"
+								rows="3"></textarea>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<label class="form-label">
+					Please describe if your child has any long-standing illnesses or
+					medical conditions
+					<span class="star">*</span>
+				</label>
+				<textarea id="longStandingIllnesses"
+					class="form-control"
+					value="longStandingIllnesses"
+					name="longStandingIllnesses"
+					rows="3"></textarea>
+			</div>
+		</div>
+	</div>
+	<div class="form-step--item hidden">
+		<div class="row mb-3">
+			<div class="col-12 col-sm-9">
+				<label class="form-label mt-3">
+					What medications is your child presently taking
+					<span class="star">*</span>
+				</label>
+				<div class="form-group">
+					<select id="medicationSelect"
+									value="medication"
+									class="form-control">
+						<option name="medication" value="" hidden>Select Medication...</option>
+						{{#each child.medications as |medication|}}
+							<option name="medication" value="{{medication.id}}">{{medication.name}}</option>
+						{{/each}}
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="row mb-3">
+			<div class="col">
+				<label class="form-label mb-3">
+					Do you think your child has a problem with alcohol?
+					<span class="star">*</span>
+				</label>
+				<div class="form-check inline-block">
+					{{input type="radio"
+									class="form-check-input"
+									name="alcoholProblem"
+									id="alcoholProblemYes"
+									value=Yes}}
+					<label for="alcoholProblemYes"
+								 class="form-check-label">
+						Yes
+					</label>
+				</div>
+				<div class="form-check inline-block">
+					{{input type="radio"
+									class="form-check-input"
+									name="alcoholProblem"
+									id="alcoholProblemNo"
+									value=no}}
+					<label for="alcoholProblemNo"
+								 class="form-check-label">
+						No
+					</label>
+				</div>
+			</div>
+			<div class="col">
+				<label class="form-label">
+					Has your child ever had a drug/alcohol related black out?
+				</label>
+				{{inputs/toggle-radio
+						idValue="hadBlackOutYes"
+						label="Yes"
+						name="hadBlackOut"
+						value="yes"
+						data-toggle="hadBlackOutExample"}}
+				{{inputs/toggle-radio
+						idValue="hadBlackOutNo"
+						label="No"
+						name="hadBlackOut"
+						value="no"
+						data-toggle="hadBlackOutExample"}}
+				<div id="hadBlackOutExample" class="if-yes hidden">
+					<div class="col">
+						<div class="form-group">
+							<label class="form-label sub-label">
+								If yes, where:
+							</label>
+							{{input type="text"
+											value=blackOutLocation
+											class="form-control"}}
+						</div>
+					</div>
+					<div class="col">
+						<div class="form-group">
+							<label class="form-label sub-label">
+								Black out Date:
+							</label>
+								<div class="input-group">
+									{{input type="date"
+													value=blackOutDate
+													class="form-control datepicker date"}}
+									<div class="input-group-prepend">
+										<span class="input-group-text">
+											{{fa-icon "calendar" ariaLabel="Pick a Date"}}
+										</span>
+									</div>
+								</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row align-items-center mb-4">
+			<div class="col-12">
+				<label class="form-label mt-3">
+					Any family members with a drug or alcohol problem?
+					<span class="star">*</span>
+				</label>
+			</div>
+			<div class="col-12 col-sm-3">
+				<div class="form-check">
+					{{input type="radio"
+									class="form-check-input"
+									name="familyDrugAlcoholProblem"
+									id="parent"
+									value=parent}}
+					<label for="parent"
+								 class="form-check-label box">
+						Parent/Step-parent
+					</label>
+				</div>
+			</div>
+			<div class="col-12 col-sm-3">
+				<div class="form-check">
+					{{input type="radio"
+									class="form-check-input"
+									name="familyDrugAlcoholProblem"
+									id="sibling"
+									value=sibling}}
+					<label for="sibling"
+								 class="form-check-label box">
+						Sibling
+					</label>
+				</div>
+			</div>
+			<div class="col-12 col-sm-3">
+				<div class="form-check">
+					{{input type="radio"
+									class="form-check-input"
+									name="familyDrugAlcoholProblem"
+									id="grandparent"
+									value=grandparent}}
+					<label for="grandparent"
+								 class="form-check-label box">
+						Grandparent
+					</label>
+				</div>
+			</div>
+			<div class="col-12 col-sm-3">
+				<div class="form-check">
+					{{input type="radio"
+									class="form-check-input"
+									name="familyDrugAlcoholProblem"
+									id="friend"
+									value=friend}}
+					<label for="friend"
+								 class="form-check-label box">
+						Friend
+					</label>
+				</div>
+			</div>
+			<div class="col-12 col-sm-3">
+				<div class="form-check">
+					{{input type="radio"
+									class="form-check-input"
+									name="familyDrugAlcoholProblem"
+									id="child"
+									value=child}}
+					<label for="child"
+								 class="form-check-label box">
+						Child
+					</label>
+				</div>
+			</div>
+			<div class="col-12 col-sm-7">
+				<div class="form-check">
+					{{input type="radio"
+									class="form-check-input"
+									name="familyDrugAlcoholProblem"
+									id="familyDrugAlcoholProblemOther"}}
+					<label for="familyDrugAlcoholProblemOther"
+								 class="form-check-label mb-1">
+						Other
+					</label>
+					{{input type="text"
+									class="form-control"
+									id="familyDrugProblemOtherDetail"
+									value=familyDrugProblemOtherDetail}}
+				</div>
+			</div>
+		</div>
+		<div class="row mb-3">
+			<div class="col-12 col-sm-6">
+				<label class="form-label mt-3">
+					Current desire to harm him/herself?
+					<span class="star">*</span>
+				</label>
+				{{inputs/toggle-radio
+						idValue="currentHarmSelfYes"
+						label="Yes"
+						name="currentHarmSelf"
+						value="yes"
+						data-toggle="currentHarmSelfExample"}}
+				{{inputs/toggle-radio
+						idValue="currentHarmSelfNo"
+						label="No"
+						name="currentHarmSelf"
+						value="no"
+						data-toggle="currentHarmSelfExample"}}
+				<div id="currentHarmSelfExample" class="if-yes hidden">
+					<div class="col">
+						<div class="form-group">
+							<label class="sub-label">
+								Please Provide Example
+							</label>
+							{{input type="text"
+											value=currentHarmSelfExample
+											class="form-control"}}
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-sm-6">
+				<label class="form-label mt-3">
+					Have you attempted to harm yourself before?
+					<span class="star">*</span>
+				</label>
+				{{inputs/toggle-radio idValue="pastHarmSelfYes"
+						label="Yes"
+						name="pastHarmSelf"
+						value="yes"
+						data-toggle="pastHarmSelfExample"}}
+				{{inputs/toggle-radio idValue="pastHarmSelfNo"
+						label="No"
+						name="pastHarmSelf"
+						value="no"
+						data-toggle="pastHarmSelfExample"}}
+				<div id="pastHarmSelfExample" class="if-yes hidden">
+					<div class="col">
+						<div class="form-group">
+							<label class="sub-label">
+								Please Provide Example
+							</label>
+							{{input type="text"
+											value=pastHarmSelfExample
+											class="form-control"}}
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-sm-6">
+				<label class="form-label mt-3">
+					Current desire to harm others?
+					<span class="star">*</span>
+				</label>
+				{{inputs/toggle-radio idValue="currentHarmOthersYes"
+						label="Yes"
+						name="currentHarmOthers"
+						value="yes"
+						data-toggle="currentHarmOthersExample"}}
+				{{inputs/toggle-radio idValue="currentHarmOthersNo"
+						label="No"
+						name="currentHarmOthers"
+						value="no"
+						data-toggle="currentHarmOthersExample"}}
+				<div id="currentHarmOthersExample" class="if-yes hidden">
+					<div class="col">
+						<div class="form-group">
+							<label class="sub-label">
+								Please Provide Example
+							</label>
+							{{input type="text"
+											value=currentHarmOthersExample
+											class="form-control"}}
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-sm-6">
+				<label class="form-label mt-3">
+					Have you attempted to harm others in the past?
+					<span class="star">*</span>
+				</label>
+				{{inputs/toggle-radio idValue="pastHarmOthersYes"
+						label="Yes"
+						name="pastHarmOthers"
+						value="yes"
+						data-toggle="attemptHarmOthersExample"}}
+				{{inputs/toggle-radio idValue="pastHarmOthersNo"
+						label="No"
+						name="pastHarmOthers"
+						value="no"
+						data-toggle="attemptHarmOthersExample"}}
+				<div id="attemptHarmOthersExample" class="if-yes hidden">
+					<div class="col">
+						<div class="form-group">
+							<label class="sub-label">
+								Please Provide Example
+							</label>
+							{{input type="text"
+											value=attemptHarmOthersExample
+											class="form-control"}}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="form-step--item hidden">
+		<div class="row mb-3">
+			<div class="col-12 col-sm-6">
+				<label class="form-label">
+					Have you had any previous counseling?
+				</label>
+				{{inputs/toggle-radio idValue="hadPreviousCounselingYes"
+						label="Yes"
+						name="hadPreviousCounseling"
+						value="yes"
+						data-toggle="hadPreviousCounselingExample"}}
+				{{inputs/toggle-radio idValue="hadPreviousCounselingNo"
+						label="No"
+						name="hadPreviousCounseling"
+						value="no"
+						data-toggle="hadPreviousCounselingExample"}}
+				<div id="hadPreviousCounselingExample" class="if-yes hidden">
+					<div class="col">
+						<div class="form-group">
+							<label class="sub-label">
+								If yes, where, when?
+							</label>
+							<div class="input-group">
+								{{input type="text"
+												placeholder="Where?"
+												value=previousCounselingWhere
+												class="form-control mr-2"}}
+								{{input type="date"
+												placeholder="When?"
+												value=previousCounselingWhen
+												class="form-control datepicker date"}}
+								<div class="input-group-prepend">
+									<span class="input-group-text">
+										<i aria-label="Pick a Date" aria-hidden="true" class="fa fa-calendar"></i>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-sm-6">
+				<label class="form-label">
+					Is your child currently in counseling?
+				</label>
+				{{inputs/toggle-radio idValue="currentlyInCounselingYes"
+						label="Yes"
+						name="currentlyInCounseling"
+						value="yes"
+						data-toggle="currentlyInCounselingExample"}}
+				{{inputs/toggle-radio idValue="currentlyInCounselingNo"
+						label="No"
+						name="currentlyInCounseling"
+						value="no"
+						data-toggle="currentlyInCounselingExample"}}
+				<div id="currentlyInCounselingExample" class="if-yes hidden">
+					<div class="col">
+						<div class="form-group">
+							<label class="sub-label">
+								Who is their counselor?
+							</label>
+							<div class="input-group">
+								{{input type="text"
+												placeholder="Name"
+												value=currentCounselor
+												class="form-control"}}
+								<div class="input-group-prepend">
+									<span class="input-group-text">
+										<i aria-label="Pick a Date" aria-hidden="true" class="fa fa-calendar"></i>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 mb-2">
+				<span class="form-title">CHILD’S FAMILY BACKGROUND</span>
+			</div>
+			<div class="col-12 ">
+
+			</div>
+		</div>
+	</div>
+</form>
+{{/multi-step-form}}
 {{yield}}

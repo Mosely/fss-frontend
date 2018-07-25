@@ -10,6 +10,7 @@ export default Route.extend(AuthenticatedRouteMixin, {
 		let store = this.store;
     return RSVP.hash({
 			cities: store.findAll('citydata'),
+			// drugUse: store.findAll('druguse'),
 			ethnicities: store.findAll('ethnicity'),
 			languages: store.findAll('language'),
 			medications: store.findAll('medication'),
