@@ -105,6 +105,7 @@ Router.map(function () {
   this.route('veteran-resource-center');
   this.route('shelter-intake');
   this.route('child-intake');
+  this.route('edit', { path: '/edit/:id' });
 });
 
 export default Router;

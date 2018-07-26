@@ -11,12 +11,11 @@
 			class="btn-action profile"}}
 			{{fa-icon "user"}}
 		{{/link-to}}
-		<button class="btn-action edit"
-			type="button"
-			name="button"
-			title="Edit User Details">
+		{{#link-to "edit" user
+			title="Edit User"
+			class="btn-action edit"}}
 			{{fa-icon "edit"}}
-		</button>
+		{{/link-to}}
 		<button class="btn-action delete"
 			type="button"
 			name="button"

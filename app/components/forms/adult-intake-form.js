@@ -12,11 +12,17 @@ export default Component.extend({
 		 * @param {string} value The value of the option that is selected
 		 **/
 		updateValue(value) {
-			let target = event.target.classList;
+			let target = event.target.classList, store = this.store;
+			let counselingtopic, ethnicity;
+
 			if (target.contains("counselingTopic")) {
-				let counselingtopic = this.set("counselingtopic", value);
+				store.find("counselingtopic", value).then((model) => {
+					this.set("counselingtopic", model);
+				});
 			} else if (target.contains("ethnicity")) {
-				let ethnicity = this.set("ethnicity", value);
+				store.find("ethnicity", value).then((model) => {
+					this.set("ethnicity", model);
+				});
 			}
 		},
 	}
