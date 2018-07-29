@@ -3,6 +3,17 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 
 export default Route.extend(AuthenticatedRouteMixin, {
   model: function(params) {
-      return $.getJSON('http://nginx3.pantheon.local/reportoutput/' + params.id);
+    let { access_token } = this.get('session.data.authenticated');
+    return $.ajax({
+        url:'http://nginx3.pantheon.local/reportoutput/' + params.id, 
+        method: 'GET',
+        dataType: 'json',
+        beforeSend: function(xhr){
+            xhr.setRequestHeader('Authorization', `Bearer ${access_token}`);
+        },
+        success: function(data){
+          // just do nothing.
+        }
+     });
   }
 });
