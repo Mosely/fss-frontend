@@ -1,0 +1,50 @@
+/**
+ * General/Default styling to elements
+**/
+
+/**
+ * Default DOM styles
+**/
+html, body, body > .ember-view {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-size: .9rem;
+  background-color: #f3f3f3;
+}
+
+/**
+ * Image Styles
+**/
+.img-responsive{
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/**
+ * Loading styles
+**/
+.loading__container {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.loading__icon-container {
+  margin: calc(50% - 14px) auto 0 auto;
+  text-align: center;
+}
+
+.loading__icon {color: white;}
+
+/**
+ * Displays
+**/
+.block {display: block;}
+.hidden{display: $hidden;}

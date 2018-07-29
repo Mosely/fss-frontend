@@ -10,9 +10,9 @@ export default DS.Model.extend({
   apartmentNumber: DS.attr('number'),
 
   //relationships, if any
-  cityData: DS.belongsTo('city-data'),
-  stateData: DS.belongsTo('state-data'),
-  countyData: DS.belongsTo('county-data'),
-  updatedBy: DS.belongsTo('user'),
-  personAddresses: DS.hasMany('person-address')
+  cityData: DS.belongsTo('citydata', { async: false }),
+  stateData: DS.belongsTo('statedata', { async: false }),
+  countyData: DS.belongsTo('countydata', { async: false }),
+  updatedBy: DS.belongsTo('user', { async: false }),
+  personAddresses: DS.hasMany('personaddress', { async: false })
 });

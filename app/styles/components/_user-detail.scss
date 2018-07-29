@@ -1,0 +1,45 @@
+.detail{
+	position: relative;
+	padding: 0.75em;
+	margin: 1em 0;
+	height: 75%;
+
+	&::after{
+		content: '';
+    position: absolute;
+    height: 1px;
+    bottom: 0;
+    background: #a9a9a98f;
+    width: 93%;
+    left: 0.5em;
+		transition: background-color 0.3s ease;
+	}
+	&:hover::after{
+		background: #2d2d2d;
+	}
+	&:hover .detail-value{
+		color: #2d2d2d;
+	}
+}
+.detail-title{
+	color: #2d2d2d;
+	font-size: 1.5em;
+	position: relative;
+	padding-bottom: 0.3em;
+	margin: 0 0 1em;
+
+	&::after{
+		content: '';
+		width: 2em;
+		position: absolute;
+		left: 0;
+		height: 1px;
+		bottom: 0;
+		background: #316cb4;
+	}
+}
+.detail-value{
+	color: #767676;
+  font-size: 1.5em;
+  transition: color 0.3s ease;
+}

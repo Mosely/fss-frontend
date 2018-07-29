@@ -2,59 +2,70 @@
 @import "variables";
 @import "mixins";
 
+/**
+ * Component Styles
+**/
 @import "components/site-navigation";
+@import "components/login-form";
+@import "components/sidebar-navigation";
+@import "components/user-profile-view";
+@import "components/multi-step-form";
+@import "components/user-detail";
 
-.page-placeholder {
-  height: 600px;
-  background-color: white;
-  text-align: center;
-  font-size: 36px;
-  color: #aaa;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/**
+ * Layout Styles
+**/
+@import "layouts/layout-styles";
+
+/**
+ * Templates Styles
+**/
+@import "templates/dashboard-template";
+@import "templates/all-users-template";
+
+/**
+ * Element Styles
+**/
+@import "elements/general-styles";
+@import "elements/card-styles";
+@import "elements/form-styles";
+@import "elements/buttons-styles";
+@import "elements/modal-styles";
+@import "elements/tables-styles";
+
+.select-filter{
+	position: relative;
+
+	.options {
+		position: absolute;
+		width: 100%;
+		top: 100%;
+		background: #fff;
+		z-index: 1;
+		max-height: 20vh;
+		overflow-y: scroll;
+		display: none;
+		border: 1px solid #dedede;
+		margin-bottom: 1em;
+		box-shadow: 0 2px 3px 0 rgba(34,36,38,.15);
+		border-color: #2a8aff;
+	}
 }
-
-html, body, .page-container, body > .ember-view {
-  width: 100%;
-  height: 100%;
+.search-input:focus + .options {
+	display: block !important;
 }
-
-body {
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  font-size: .9rem;
-  background-color: #f3f3f3;
+.filter-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
+.filter-list--item{
+	border-bottom: 1px solid #dedede;
+  padding: 0.5em 1em;
+  cursor: pointer;
 
-.page-container {
-  min-width: 1024px;
-  max-width: 1280px;
-  margin: 0 auto;
-}
-
-.page-module {
-  background-color: white;
-  padding: 20px;
-  -webkit-box-shadow: 7px 7px 24px -13px rgba(26,26,26,0.9);
-  -moz-box-shadow: 7px 7px 24px -13px rgba(26,26,26,0.9);
-  box-shadow: 7px 7px 24px -13px rgba(26,26,26,0.9);
-
-  & > table {
-    margin-bottom: 0;
-  }
-}
-
-.loading__container {
-  width: 100%;
-  height: 100%;
-  display: flex;
-}
-
-.loading__icon-container {
-  margin: calc(50% - 14px) auto 0 auto;
-  text-align: center;
-}
-
-.loading__icon {
-  color: white;
+	&:hover{
+		background: #2a8aff;
+    color: #fff;
+	}
 }

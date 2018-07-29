@@ -21,10 +21,34 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+    oauth2: {
+      sessionServiceName: 'session',
     }
   };
 
+  ENV['ember-simple-auth'] = {
+    authorizer: 'authorizer:custom',
+    routeAfterAuthentication: '/',
+    refreshTokenPropertyName: 'refresh_token',
+    authorizationPrefix: 'Bearer ',
+    authorizationHeaderName: 'Authorization',
+  };
+  // config/environment.js
+  ENV['ember-simple-auth-token'] = {
+    serverTokenEndpoint: '/login',
+    identificationField: 'username',
+    passwordField: 'password',
+    tokenPropertyName: 'access_token',
+    refreshTokenPropertyName: 'refresh_token',
+    authorizationPrefix: 'Bearer ',
+    authorizationHeaderName: 'Authorization',
+    headers: {},
+  };
+
   if (environment === 'development') {
+    //ENV.host = 'http://localhost:4202';
+    ENV.host = 'http://nginx3.pantheon.local';
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;

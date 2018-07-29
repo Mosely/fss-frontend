@@ -1,0 +1,14 @@
+<div class="form-step--container">
+	{{yield}}
+	<button id="next" class="btn btn-card mt-3 ml-2 pull-right form-step--btn"
+				data-target=""
+				onclick={{action (action "nextPrev" 1)}}>
+		Next
+	</button>
+	<button id="prev" class="btn btn-card mt-3 pull-right form-step--btn"
+					data-target=""
+					style="display: none;"
+					onclick={{action (action "nextPrev" -1)}}>
+		Previous
+	</button>
+</div>

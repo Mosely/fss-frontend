@@ -1,0 +1,22 @@
+/**
+ * Main Buttons Styles
+**/
+.btn-card,
+.btn-blue{
+  cursor: pointer;
+  padding: 0.375em 2em;
+  background: $light-blue;
+  color: #fff;
+  border-radius: 2px;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+
+  &:hover{
+    background: #0070f7;
+  }
+  &:focus{
+    -webkit-box-shadow: unset;
+            box-shadow: unset;
+  }
+}

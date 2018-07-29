@@ -9,8 +9,8 @@ export default DS.Model.extend({
   isDisabled: DS.attr('boolean'),
 
   //relationships, if any
-  updatedBy: DS.belongsTo('user'),
-  shelterClientAdditionalStaffs: DS.hasMany('shelter-client-additional-staff'),
-  userRoles: DS.hasMany('user-role'),
-  person: DS.belongsTo('person')
+  updatedBy: DS.belongsTo('user', { async: false }),
+  shelterClientAdditionalStaff: DS.hasMany('shelterclientadditionalstaff', {inverse: null}),
+  userRoles: DS.hasMany('userrole', {inverse: null}),
+  person: DS.belongsTo('person', { async: false })
 });

@@ -12,8 +12,8 @@ export default DS.Model.extend({
   householdIncome: DS.attr('number'),
 
   //relationships, if any
-  branchOfService: DS.belongsTo('branch-of-service'),
-  militaryDischargeType: DS.belongsTo('military-discharge-type'),
-  updatedBy: DS.belongsTo('user'),
-  client: DS.belongsTo('client')
+  branchOfService: DS.belongsTo('branchofservice', { async: false }),
+  militaryDischargeType: DS.belongsTo('militarydischargetype', { async: false }),
+  updatedBy: DS.belongsTo('user', { async: false }),
+  client: DS.belongsTo('client', { async: false })
 });

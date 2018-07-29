@@ -9,8 +9,8 @@ export default DS.Model.extend({
   age: DS.attr('number'),
 
   //relationships, if any
-  gender: DS.belongsTo('gender'),
-  updatedBy: DS.belongsTo('user'),
-  personAddresses: DS.hasMany('person-address'),
-  personPhones: DS.hasMany('person-phone')
+  gender: DS.belongsTo('gender', { async: false }),
+  updatedBy: DS.belongsTo('user', { async: false }),
+  personAddresses: DS.hasMany('personaddress', { async: false }),
+  personPhones: DS.hasMany('personphone', { async: false })
 });

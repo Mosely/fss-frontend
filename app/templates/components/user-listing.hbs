@@ -1,0 +1,28 @@
+<div class="list-row">
+	<div class="col-1 table-item">{{user.id}}</div>
+	<div class="col table-item">{{user.person.firstName}} {{user.person.lastName}}</div>
+	<div class="col table-item">{{user.username}}</div>
+	<div class="col-3 table-item"> <a href="mailto:{{user.email}}" target="_blank">{{user.email}}</a></div>
+	<div class="col table-item">{{moment-format user.passwordCreatedAt 'YYYY-MM-DD HH:mm'}}</div>
+	<div class="col-1 table-item">{{user.person.age}}</div>
+	<div class="col-2 table-item">
+		{{#link-to "user" user
+			title="View User"
+			class="btn-action profile"}}
+			{{fa-icon "user"}}
+		{{/link-to}}
+		{{#link-to "edit" user
+			title="Edit User"
+			class="btn-action edit"}}
+			{{fa-icon "edit"}}
+		{{/link-to}}
+		<button class="btn-action delete"
+			type="button"
+			name="button"
+			data-toggle="modal"
+			data-target="#deleteModal"
+			title="Delete User">
+			{{fa-icon "times"}}
+		</button>
+	</div>
+</div>

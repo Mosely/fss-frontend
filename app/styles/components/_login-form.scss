@@ -1,0 +1,131 @@
+.login-form{
+  max-width: 36em;
+  margin: 35px auto;
+  background: #fff;
+  padding: 2.2em 3em;
+  box-shadow: $line-shadow;
+  border-radius: 4px;
+
+  h1{
+    font-size: 2.5em;
+    margin-bottom: 0.8em;
+    color: #5f6b7a;
+    display: inline-block;
+  }
+
+  .login-form__btn{
+    background: $logo-green;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    color: #f1f1f1;
+
+    &:active,
+    &:focus,
+    &:hover{
+      background: $second-green;
+      border: none;
+    }
+
+  }
+
+  .form-group{
+    position: relative;
+    padding: 0 2em;
+
+    span{
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translate(0, -50%);
+
+      &.fa{
+        font-size: 1.4em;
+        color: $dark-blue;
+      }
+      &.fa-lock{
+        font-size: 1.8em;
+      }
+    }
+
+    input{
+      position: relative;
+      z-index: 1;
+      background-color: transparent;
+      border: 0;
+      border-bottom: 1px solid $dark-blue;
+      color: $dark-blue;
+      font-size: 25px;
+      border-radius: 0;
+      width: 100%;
+      margin: 0 auto;
+      transition: all 0.3s ease;
+      margin-bottom: 2.2em;
+
+      &:active,
+      &:focus{
+        border: none;
+        border-bottom: 1px solid $logo-blue;
+        box-shadow: none;
+      }
+
+      &:focus ~ label{
+        transform: translate(0, -2.6em);
+        font-size: 12px;
+        color: #7c8187;
+      }
+      &:focus ~ .underline{
+        width: 87%;
+        opacity: 1;
+      }
+
+    }
+
+    label{
+      position: absolute;
+      top: 50%;
+      transition: all 0.4s ease;
+      transform: translate(0, -50%);
+      font-size: 22px;
+      color: $grey-blue;
+      pointer-events: none;
+      -moz-font-smoothing: antialiased;
+      -webkit-font-smoothing: antialiased;
+    }
+    label.focused{
+      transform: translate(0, -2.6em);
+      font-size: 12px;
+      color: #7c8187;
+    }
+
+    .underline{
+      opacity: 0;
+      bottom: 0;
+      position: absolute;
+      border-bottom: 1.6px solid #275999;
+      width: 0%;
+      left: 50%;
+      transform: translate(-50%);
+      transition: all 0.3s ease;
+      z-index: 0;
+    }
+    .underline.focused{
+      opacity: 1;
+      width: 87%;
+    }
+  }
+
+  .create-user--btn {
+     color: #f1f1f1;
+     transition: color 0.3s ease;
+     margin: 1em 0;
+     background: $second-blue;
+     transition: background-color 0.3s ease;
+
+     &:hover, &.active {
+      background: $logo-blue;
+      text-decoration: none;
+     }
+   }
+
+}
