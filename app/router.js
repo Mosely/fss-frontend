@@ -45,6 +45,7 @@ Router.map(function () {
   this.route('person-phone', { path: '/personphones/:id' });
   this.route('phone', { path: '/phones/:id' });
   this.route('report', { path: '/reports/:id' });
+  this.route('reportoutput', { path: '/reportoutput/:id' });
   this.route('report-column', { path: '/reportcolumns/:id' });
   this.route('report-criteria', { path: '/reportcriterias/:id' });
   this.route('role', { path: '/roles/:id' });
