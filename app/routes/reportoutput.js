@@ -19,9 +19,10 @@ export default Route.extend(AuthenticatedRouteMixin, {
             var filename = filenameHeader.split("=")[1];
             alert(filename);
             var a = document.createElement('a');
-            //var url = window.URL.createObjectURL(data);
+            var url = window.URL.createObjectURL(data);
             a.href = url;
             a.download = filename;
+            document.body.appendChild(a);
             a.click();
             window.URL.revokeObjectURL(url);
         }
