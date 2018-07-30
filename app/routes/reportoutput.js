@@ -7,7 +7,7 @@ export default Route.extend(AuthenticatedRouteMixin, {
     return $.ajax({
         url:'http://nginx3.pantheon.local/reportoutput/' + params.id, 
         method: 'GET',
-        dataType: 'json',
+        dataType: 'binary',
         beforeSend: function(xhr){
             xhr.setRequestHeader('Authorization', `Bearer ${access_token}`);
         },
