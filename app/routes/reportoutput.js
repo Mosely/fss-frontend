@@ -15,7 +15,8 @@ export default Route.extend(AuthenticatedRouteMixin, {
         },
         success: function(data, textStatus, request) {
             var filenameHeader = request.getResponseHeader('Content-Disposition');
-            var filename = filenameHeader.split(" ")[1];
+            var filename = filenameHeader.split("=")[1];
+            alert(filename);
             var a = document.createElement('a');
             var url = window.URL.createObjectURL(data);
             a.href = url;
