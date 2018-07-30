@@ -20,7 +20,7 @@ export default Route.extend(AuthenticatedRouteMixin, {
             var filename = "test.csv";
             //alert(filename);
             var a = document.createElement('a');
-            var url = window.URL.createObjectURL(data);
+            var url = window.URL.createObjectURL(new Blob(data));
             a.href = url;
             a.download = filename;
             a.click();
