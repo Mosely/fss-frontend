@@ -14,10 +14,11 @@ export default Route.extend(AuthenticatedRouteMixin, {
             xhr.setRequestHeader('Authorization', `Bearer ${access_token}`);
         },
         success: function(data, textStatus, request) {
-            var filenameHeader = request.getResponseHeader('Content-Disposition');
-            alert(filenameHeader);
-            var filename = filenameHeader.split("=")[1];
-            alert(filename);
+            //var filenameHeader = request.getResponseHeader('Content-Disposition');
+            //alert(filenameHeader);
+            //var filename = filenameHeader.split("=")[1];
+            var filename = "test.csv";
+            //alert(filename);
             var a = document.createElement('a');
             var url = window.URL.createObjectURL(data);
             a.href = url;
