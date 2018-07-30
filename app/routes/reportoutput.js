@@ -7,12 +7,21 @@ export default Route.extend(AuthenticatedRouteMixin, {
     return $.ajax({
         url:'http://nginx3.pantheon.local/reportoutput/' + params.id, 
         method: 'GET',
-        dataType: 'binary',
+        xhrFields: {
+            responseType: 'blob'
+        },
         beforeSend: function(xhr){
             xhr.setRequestHeader('Authorization', `Bearer ${access_token}`);
         },
-        success: function(data){
-          // just do nothing.
+        success: function(data, textStatus, request) {
+            var filenameHeader = request.getResponseHeader('Content-Disposition');
+            var filename = filenameHeader.split(" ")[1];
+            var a = document.createElement('a');
+            var url = window.URL.createObjectURL(data);
+            a.href = url;
+            a.download = filename;
+            a.click();
+            window.URL.revokeObjectURL(url);
         }
      });
   }
