@@ -10,9 +10,9 @@ export default Route.extend(AuthenticatedRouteMixin, {
        // url:'http://nginx3.pantheon.local/reportoutput/' + params.id, 
        url: host + '/reportoutput/' + params.id, 
         method: 'GET',
-        xhrFields: {
-            responseType: 'blob'
-        },
+        //xhrFields: {
+        //    responseType: 'blob'
+        //},
         beforeSend: function(xhr){
             xhr.setRequestHeader('Authorization', `Bearer ${access_token}`);
         },
@@ -27,10 +27,7 @@ export default Route.extend(AuthenticatedRouteMixin, {
             var url = null;
             var binaryBlob = null;
             var filenameHeader = request.getResponseHeader('Content-Disposition');
-            //alert(filenameHeader);
             var filename = (filenameHeader !== null) ? filenameHeader.split("=")[1] : 'test.csv';
-            //var filename = "test.csv";
-            //alert(filename);
             var filenameParts = (filename !== null) ? filename.split(".") : null;
             var fileType = (filenameParts !== null) ? filenameParts[filenameParts.length - 1] : "csv";
             if(fileType == "csv") {
@@ -40,8 +37,8 @@ export default Route.extend(AuthenticatedRouteMixin, {
             } else {
                 resourceType = null;
             }
+            
             a = document.createElement('a');
-
             binaryData.push(data);
             binaryBlob = (resourceType !== null) ? new Blob(binaryData, resourceType) : new Blob(binaryData);
             url = window.URL.createObjectURL(binaryBlob);
