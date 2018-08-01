@@ -24,6 +24,7 @@ export default Route.extend(AuthenticatedRouteMixin, {
             var binaryBlob = null;
 
             filenameHeader = request.getResponseHeader('Content-Disposition');
+            console.log("filenameHeader = " + filenameHeader);
             filename = (filenameHeader !== null) ? filenameHeader.split("=")[1] : 'test.csv';
             filenameParts = (filename !== null) ? filename.split(".") : null;
             fileType = (filenameParts !== null) ? filenameParts[filenameParts.length - 1] : "csv";
