@@ -7,12 +7,8 @@ export default Route.extend(AuthenticatedRouteMixin, {
     let { access_token } = this.get('session.data.authenticated');
     let host = `${config.host}`;
     return $.ajax({
-       // url:'http://nginx3.pantheon.local/reportoutput/' + params.id, 
        url: host + '/reportoutput/' + params.id, 
         method: 'GET',
-        //xhrFields: {
-        //    responseType: 'blob'
-        //},
         beforeSend: function(xhr){
             xhr.setRequestHeader('Authorization', `Bearer ${access_token}`);
         },
@@ -26,10 +22,12 @@ export default Route.extend(AuthenticatedRouteMixin, {
             var binaryData = [];
             var url = null;
             var binaryBlob = null;
-            var filenameHeader = request.getResponseHeader('Content-Disposition');
-            var filename = (filenameHeader !== null) ? filenameHeader.split("=")[1] : 'test.csv';
-            var filenameParts = (filename !== null) ? filename.split(".") : null;
-            var fileType = (filenameParts !== null) ? filenameParts[filenameParts.length - 1] : "csv";
+
+            filenameHeader = request.getResponseHeader('Content-Disposition');
+            filename = (filenameHeader !== null) ? filenameHeader.split("=")[1] : 'test.csv';
+            filenameParts = (filename !== null) ? filename.split(".") : null;
+            fileType = (filenameParts !== null) ? filenameParts[filenameParts.length - 1] : "csv";
+
             if(fileType == "csv") {
                 resourceType = {"type": "text/csv;charset=utf8;"};
             } else if(fileType == "xls" || fileType == "xlsx") {
@@ -37,7 +35,7 @@ export default Route.extend(AuthenticatedRouteMixin, {
             } else {
                 resourceType = null;
             }
-            
+
             a = document.createElement('a');
             binaryData.push(data);
             binaryBlob = (resourceType !== null) ? new Blob(binaryData, resourceType) : new Blob(binaryData);
