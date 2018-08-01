@@ -17,21 +17,34 @@ export default Route.extend(AuthenticatedRouteMixin, {
             xhr.setRequestHeader('Authorization', `Bearer ${access_token}`);
         },
         success: function(data, textStatus, request) {
+            var filenameHeader = null;
+            var filename = null;
+            var filenameParts = null;
+            var fileType = null;
+            var resourceType = null;
+            var a = null;
+            var binaryData = [];
+            var url = null;
+            var binaryBlob = null;
             var filenameHeader = request.getResponseHeader('Content-Disposition');
             //alert(filenameHeader);
-            var filename = filenameHeader.split("=")[1] || 'test.csv';
+            var filename = (filenameHeader !== null) ? filenameHeader.split("=")[1] : 'test.csv';
             //var filename = "test.csv";
             //alert(filename);
-            var filenameParts = filename.split(".");
-            var fileType = filenameParts[filenameParts.length - 1] || "csv";
-            var resourceType = null;
+            var filenameParts = (filename !== null) ? filename.split(".") : null;
+            var fileType = (filenameParts !== null) ? filenameParts[filenameParts.length - 1] : "csv";
             if(fileType == "csv") {
                 resourceType = {"type": "text/csv;charset=utf8;"};
+            } else if(fileType == "xls" || fileType == "xlsx") {
+                resourceType = {"type": "application/vnd.ms-excel"};
+            } else {
+                resourceType = null;
             }
-            var a = document.createElement('a');
-            var binaryData = [];
+            a = document.createElement('a');
+
             binaryData.push(data);
-            var url = window.URL.createObjectURL(new Blob(binaryData, resourceType));
+            binaryBlob = (resourceType !== null) ? new Blob(binaryData, resourceType) : new Blob(binaryData);
+            url = window.URL.createObjectURL(binaryBlob);
             a.href = url;
             a.download = filename;
             a.click();
