@@ -19,4 +19,10 @@
     -webkit-box-shadow: unset;
             box-shadow: unset;
   }
+  &:disabled{
+
+    &:hover{
+      background: #2a8aff;
+    }
+  }
 }
