@@ -37,14 +37,19 @@ export default Route.extend(AuthenticatedRouteMixin, {
                 resourceType = null;
             }
 
-            a = document.createElement('a');
-            binaryData.push(data);
-            binaryBlob = (resourceType !== null) ? new Blob(binaryData, resourceType) : new Blob(binaryData);
-            url = window.URL.createObjectURL(binaryBlob);
-            a.href = url;
-            a.download = filename;
-            a.click();
-            window.URL.revokeObjectURL(url);
+                a = document.createElement('a');
+                binaryData.push(data);
+                binaryBlob = (resourceType !== null) ? new Blob(binaryData, resourceType) : new Blob(binaryData);
+                if (navigator.appVersion.toString().indexOf('.NET') > 0) {
+                    //IE 10+
+                    window.navigator.msSaveOrOpenBlob(binaryBlob, filename);
+                } else {
+                url = window.URL.createObjectURL(binaryBlob);
+                a.href = url;
+                a.download = filename;
+                a.click();
+                window.URL.revokeObjectURL(url);
+            }
         }
      });
   }
