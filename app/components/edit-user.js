@@ -8,9 +8,11 @@ export default Component.extend({
 				updatedUser,
 				uid,
         store = this.store;
-
-			uid = this.get("user.id");
-			updatedUser = this.get("user");
+			// updatedUser = this.get("user");
+			updatedUser = this.get("user").setProperties({
+				username: this.get("user.username"),
+				email: this.get("user.email"),
+			});
 			console.log(updatedUser);
 			updatedUser.save();
 			// updatedUser = this.get('user', uid).then((user) => {
