@@ -1,13 +1,32 @@
 import Component from '@ember/component';
-import { inject as service } from "@ember/service";
 
 export default Component.extend({
-    store: service("store"),
-    actions: {
-        update() {
-            //let store = this.get('store');
-            let user = this.get('user');
-            user.save();
-        }
-    }
+
+	actions: {
+		update(){
+			let updatedPerson,
+				updatedUser,
+				uid,
+        store = this.store;
+			updatedUser = this.get("user");
+			// updatedUser = this.get("user").setProperties({
+			// 	username: this.get("user.username"),
+			// 	email: this.get("user.email"),
+			// });
+			updatedUser.set("username", this.get("user.username"));
+			updatedUser.set("email", this.get("user.email"));
+			console.log(updatedUser);
+			updatedUser.save();
+			// updatedUser = this.get('user', uid).then((user) => {
+			// 	user.set('username', this.get("user.username"));
+			// });
+		},
+		cancle(){
+
+		},
+		destroy() {
+
+		}
+	}
+
 });

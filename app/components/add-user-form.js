@@ -44,7 +44,6 @@ export default Component.extend({
 
       newPerson.save().then(() => {
         let pid = parseInt(newPerson.get("id"));
-        console.log("Person ID ", pid);
         newUser = store.createRecord("user", userProps);
         newUser.set("id", pid);
         return newUser.save();
