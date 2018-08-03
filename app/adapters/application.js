@@ -50,5 +50,16 @@ export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
     }
 
     return this._super(...arguments);
-  }
+  },
+  // Opting ot override the method below
+  updateRecord(store, type, snapshot) {
+    let data = {};
+    let serializer = store.serializerFor(type.modelName);
+
+    serializer.serializeIntoHash(data, type, snapshot, { includeId: true });
+
+    let url = this.buildURL(type.modelName, snapshot.id, snapshot, 'updateRecord');
+
+    return this.ajax(url, 'PUT', { data: data });
+  },
 });
