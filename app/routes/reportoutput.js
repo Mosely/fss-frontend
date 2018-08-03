@@ -47,8 +47,10 @@ export default Route.extend(AuthenticatedRouteMixin, {
                 url = window.URL.createObjectURL(binaryBlob);
                 a.href = url;
                 a.download = filename;
+                document.body.appendChild(a);
                 a.click();
                 setTimeout(function() {
+                    document.body.removeChild(a);
                     window.URL.revokeObjectURL(url);
                 }, 100);
             }
