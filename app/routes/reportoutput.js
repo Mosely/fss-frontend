@@ -48,7 +48,9 @@ export default Route.extend(AuthenticatedRouteMixin, {
                 a.href = url;
                 a.download = filename;
                 a.click();
-                window.URL.revokeObjectURL(url);
+                setTimeout(function() {
+                    window.URL.revokeObjectURL(url);
+                }, 100);
             }
         }
      });
