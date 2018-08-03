@@ -6,6 +6,7 @@ export default Component.extend({
 		update(){
 			let updatedPerson,
 				updatedUser,
+				uid,
         store = this.get("store");
 			// updatedPerson = this.get("person").setProperties({
 			// 	firstName: this.get("user.person.firstName"),
@@ -13,10 +14,14 @@ export default Component.extend({
 			// 	lastName: this.get("user.person.lastName"),
 			// 	dateOfBirth: this.get("user.person.dateOfBirth"),
 			// });
-			updatedUser = this.get("user").setProperties({
-				username: this.get("user.person.username"),
-				email: this.get("user.person.email"),
-				gender: this.get("user.person.gender"),
+			// updatedUser = this.get("user").setProperties({
+			// 	username: this.get("user.username"),
+			// 	email: this.get("user.email"),
+			// });
+			uid = this.get("user.id");
+			console.log(uid);
+			updatedUser = store.findRecord('user', uid).then((user) => {
+				user.set('username', this.get("user.username"));
 			});
 			updatedUser.save();
 		},
