@@ -7,24 +7,18 @@ export default Component.extend({
 			let updatedPerson,
 				updatedUser,
         store = this.get("store");
-
-			updatedPerson = this.get('person', this.get("user.person.id"));
-			updatedUser = this.get('user', this.get("user.id"));
-			console.log(this.get("person", 23));
 			// updatedPerson = this.get("person").setProperties({
 			// 	firstName: this.get("user.person.firstName"),
 			// 	middleName: this.get("user.person.middleName"),
 			// 	lastName: this.get("user.person.lastName"),
 			// 	dateOfBirth: this.get("user.person.dateOfBirth"),
 			// });
-			// updatedUser = this.get("user").setProperties({
-			// 	username: this.get("user.person.username"),
-			// 	email: this.get("user.person.email"),
-			// 	gender: this.get("user.person.gender"),
-			// });
-			// updatedPerson.save().then(() => {
-			// 	updatedUser.save();
-			// });
+			updatedUser = this.get("user").setProperties({
+				username: this.get("user.person.username"),
+				email: this.get("user.person.email"),
+				gender: this.get("user.person.gender"),
+			});
+			updatedUser.save();
 		},
 		cancle(){
 
