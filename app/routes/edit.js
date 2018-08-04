@@ -7,6 +7,7 @@ export default Route.extend(AuthenticatedRouteMixin, {
         return store.findRecord('user', params.id).then(function (user) {
             store.findRecord('person', user.id).then(function(person) {
                 user.set('person', person);
+                return person;
               });
             return user;
         });
