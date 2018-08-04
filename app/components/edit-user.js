@@ -1,11 +1,12 @@
 import Component from '@ember/component';
+import { inject as service } from '@ember/service';
 
 export default Component.extend({
+	router: service(),
+
 	actions: {
 		update(){
-			let updatedPerson,
-				props,
-				updatedUser;
+			let updatedPerson, updatedUser;
 
 			updatedPerson = this.get("user.person");
 			updatedUser = this.get("user");
@@ -23,11 +24,17 @@ export default Component.extend({
 			});
 			// saving person rtecord then saving user record.
 			updatedPerson.save().then(() => {
-				updatedUser.save();
+				updatedUser.save().then(() => {
+					this.get('router').transitionTo("users");
+				})
 			});
 		},
 		cancle(){
-
+			let updatedPerson, updatedUser;
+			updatedPerson = this.get("user.person");
+			updatedUser = this.get("user");
+			updatedPerson.rollbackAttributes();
+			updatedUser.rollbackAttributes();
 		},
 		destroy() {
 

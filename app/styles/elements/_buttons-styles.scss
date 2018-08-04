@@ -2,7 +2,8 @@
  * Main Buttons Styles
 **/
 .btn-card,
-.btn-blue{
+.btn-blue,
+.btn-blue--lt{
   cursor: pointer;
   padding: 0.375em 2em;
   background: $light-blue;
@@ -24,5 +25,31 @@
     &:hover{
       background: #2a8aff;
     }
+  }
+}
+.btn-blue--lt{
+  background: rgba(42, 138, 255, 0.54);
+
+  &:hover{
+    background: rgba(42, 138, 255, 0.74);
+  }
+}
+.btn-delete{
+  cursor: pointer;
+  border-radius: 2px;
+  opacity: 0.7;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  background: #fb404b;
+  border: 1px solid #fb404b;
+  color: #fff;
+  -webkit-box-shadow: unset;
+  box-shadow: unset;
+
+  &:hover{
+    opacity: 1;
+    -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   }
 }
