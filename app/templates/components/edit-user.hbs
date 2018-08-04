@@ -1,102 +1,106 @@
 <div class="container">
-	<div class="row mb-3">
-		<div class="col-12 col-sm">
-			<div class="form-group">
-				<label class="form-label">First Name</label>
-				{{input type="text"
-								value=user.person.firstName
-								class="form-control"}}
+	<div class="form-step--item active">
+		<form class="form" {{action "update" on="submit"}}>
+			<div class="row mb-3">
+				<div class="col-12 col-sm">
+					<div class="form-group">
+						<label class="form-label">First Name</label>
+						{{input type="text"
+										value=user.person.firstName
+										class="form-control"}}
+					</div>
+				</div>
+				<div class="col-12 col-sm">
+					<div class="form-group">
+						<label class="form-label">Middle Name</label>
+						{{input type="text"
+										value=user.person.middleName
+										class="form-control"}}
+					</div>
+				</div>
+				<div class="col-12 col-sm">
+					<div class="form-group">
+						<label class="form-label">Last Name</label>
+						{{input type="text"
+										value=user.person.lastName
+										class="form-control"}}
+					</div>
+				</div>
+				{{!-- <div class="col-12 col-sm-6">
+					<div class="form-group">
+						<label class="form-label">Username</label>
+						{{input value=user.username
+										class="form-control"}}
+					</div>
+				</div> --}}
 			</div>
-		</div>
-		<div class="col-12 col-sm">
-			<div class="form-group">
-				<label class="form-label">Middle Name</label>
-				{{input type="text"
-								value=user.person.middleName
-								class="form-control"}}
-			</div>
-		</div>
-		<div class="col-12 col-sm">
-			<div class="form-group">
-				<label class="form-label">Last Name</label>
-				{{input type="text"
-								value=user.person.lastName
-								class="form-control"}}
-			</div>
-		</div>
-		{{!-- <div class="col-12 col-sm-6">
-			<div class="form-group">
-				<label class="form-label">Username</label>
-				{{input value=user.username
-								class="form-control"}}
-			</div>
-		</div> --}}
-	</div>
-	<div class="row mb-3">
-		<div class="col-12 col-sm-6">
-			<div class="form-group">
-				<label class="form-label">Email</label>
-				{{input type="text"
-								value=user.email
-								class="form-control"}}
-			</div>
-		</div>
-		<div class="col-12 col-sm-6">
-			<div class="form-group">
-				<label class="form-label">Username</label>
-				{{input type="text"
-								value=user.username
-								class="form-control"}}
-			</div>
-		</div>
-	</div>
-	<div class="row mb-3">
-		<div class="col-12 col-sm">
-			<label class="form-label block">Date of Birth</label>
-			<div class="input-group">
-				{{input type="date"
-								value=user.person.dateOfBirth
-								class="form-control datepicker date"}}
-				<div class="input-group-prepend">
-					<span class="input-group-text">
-						{{fa-icon "calendar"
-											ariaLabel="Select a Date"}}
-					</span>
+			<div class="row mb-3">
+				<div class="col-12 col-sm-6">
+					<div class="form-group">
+						<label class="form-label">Email</label>
+						{{input type="text"
+										value=user.email
+										class="form-control"}}
+					</div>
+				</div>
+				<div class="col-12 col-sm-6">
+					<div class="form-group">
+						<label class="form-label">Username</label>
+						{{input type="text"
+										value=user.username
+										class="form-control"}}
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="col-12 col-sm">
-			<div class="form-group">
-				<label class="form-label">Gender</label>
-				{{input type="text"
-								value=user.person.gender
-								class="form-control"}}
-			</div>
-			{{!-- <div class="form-group">
-				<label class="form-label">
-					Gender
-				</label>
-				<div class="form-group">
-					{{input type="text"
-									value=user.person.gender
-									class="form-control"}}
+			<div class="row mb-3">
+				<div class="col-12 col-sm">
+					<label class="form-label block">Date of Birth</label>
+					<div class="input-group">
+						{{input type="date"
+										value=user.person.dateOfBirth
+										class="form-control datepicker date"}}
+						<div class="input-group-prepend">
+							<span class="input-group-text">
+								{{fa-icon "calendar"
+													ariaLabel="Select a Date"}}
+							</span>
+						</div>
+					</div>
 				</div>
-				<select id="genderSelect"
-								value="genderID"
-								class="form-control">
-					<option name="state" value="" hidden>{{user.person.gender.name}}</option>
-					{{#each user.genders as |gender|}}
-						<option name="gender" value="{{gender.id}}">{{gender.name}}</option>
-					{{/each}}
-				</select>
-			</div> --}}
-		</div>
-	</div>
-	<div class="row mt-3">
-		<div class="col-12">
-			<button type="button" class="btn btn-blue" {{action "update"}}>
-				Update
-			</button>
-		</div>
+				<div class="col-12 col-sm">
+					<div class="form-group">
+						<label class="form-label">Gender</label>
+						{{input type="text"
+										value=user.person.genderID
+										class="form-control"}}
+					</div>
+					{{!-- <div class="form-group">
+						<label class="form-label">
+							Gender
+						</label>
+						<div class="form-group">
+							{{input type="text"
+											value=user.person.gender
+											class="form-control"}}
+						</div>
+						<select id="genderSelect"
+										value="genderID"
+										class="form-control">
+							<option name="state" value="" hidden>{{user.person.gender.name}}</option>
+							{{#each user.genders as |gender|}}
+								<option name="gender" value="{{gender.id}}">{{gender.name}}</option>
+							{{/each}}
+						</select>
+					</div> --}}
+				</div>
+			</div>
+			<div class="row mt-3">
+				<div class="col-12">
+					<button id="updateBtn" type="submit" class="btn btn-blue">
+						Update
+					</button>
+				</div>
+			</div>
+		</form>
 	</div>
 </div>
