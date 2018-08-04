@@ -12,6 +12,8 @@
     background: #a9a9a98f;
     width: 93%;
     left: 0.5em;
+		-webkit-transition: background-color 0.3s ease;
+		-o-transition: background-color 0.3s ease;
 		transition: background-color 0.3s ease;
 	}
 	&:hover::after{
@@ -41,5 +43,7 @@
 .detail-value{
 	color: #767676;
   font-size: 1.5em;
+  -webkit-transition: color 0.3s ease;
+  -o-transition: color 0.3s ease;
   transition: color 0.3s ease;
 }

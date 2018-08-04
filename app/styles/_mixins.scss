@@ -1,7 +1,5 @@
 @mixin wildcard-transition() {
   -o-transition:.5s;
-  -ms-transition:.5s;
-  -moz-transition:.5s;
   -webkit-transition:.5s;
   /* ...and now for the proper property */
   transition:.5s;
@@ -15,8 +13,21 @@
   &:focus {
     background-color: rgba(255, 255, 255, 0.2);
     border-color: rgba(255, 255 ,255, 0.4);
-    box-shadow: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
     outline: 0 none;
+  }
+
+  &::-webkit-input-placeholder {
+    color: $white;
+  }
+
+  &:-ms-input-placeholder {
+    color: $white;
+  }
+
+  &::-ms-input-placeholder {
+    color: $white;
   }
 
   &::placeholder {

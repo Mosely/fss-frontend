@@ -3,7 +3,8 @@
   margin: 35px auto;
   background: #fff;
   padding: 2.2em 3em;
-  box-shadow: $line-shadow;
+  -webkit-box-shadow: $line-shadow;
+          box-shadow: $line-shadow;
   border-radius: 4px;
 
   h1{
@@ -17,6 +18,8 @@
     background: $logo-green;
     border: none;
     cursor: pointer;
+    -webkit-transition: background-color 0.3s ease;
+    -o-transition: background-color 0.3s ease;
     transition: background-color 0.3s ease;
     color: #f1f1f1;
 
@@ -37,7 +40,9 @@
       position: absolute;
       left: 0;
       top: 50%;
-      transform: translate(0, -50%);
+      -webkit-transform: translate(0, -50%);
+          -ms-transform: translate(0, -50%);
+              transform: translate(0, -50%);
 
       &.fa{
         font-size: 1.4em;
@@ -59,6 +64,8 @@
       border-radius: 0;
       width: 100%;
       margin: 0 auto;
+      -webkit-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
       transition: all 0.3s ease;
       margin-bottom: 2.2em;
 
@@ -66,11 +73,14 @@
       &:focus{
         border: none;
         border-bottom: 1px solid $logo-blue;
-        box-shadow: none;
+        -webkit-box-shadow: none;
+                box-shadow: none;
       }
 
       &:focus ~ label{
-        transform: translate(0, -2.6em);
+        -webkit-transform: translate(0, -2.6em);
+            -ms-transform: translate(0, -2.6em);
+                transform: translate(0, -2.6em);
         font-size: 12px;
         color: #7c8187;
       }
@@ -84,8 +94,12 @@
     label{
       position: absolute;
       top: 50%;
+      -webkit-transition: all 0.4s ease;
+      -o-transition: all 0.4s ease;
       transition: all 0.4s ease;
-      transform: translate(0, -50%);
+      -webkit-transform: translate(0, -50%);
+          -ms-transform: translate(0, -50%);
+              transform: translate(0, -50%);
       font-size: 22px;
       color: $grey-blue;
       pointer-events: none;
@@ -93,7 +107,9 @@
       -webkit-font-smoothing: antialiased;
     }
     label.focused{
-      transform: translate(0, -2.6em);
+      -webkit-transform: translate(0, -2.6em);
+          -ms-transform: translate(0, -2.6em);
+              transform: translate(0, -2.6em);
       font-size: 12px;
       color: #7c8187;
     }
@@ -105,7 +121,11 @@
       border-bottom: 1.6px solid #275999;
       width: 0%;
       left: 50%;
-      transform: translate(-50%);
+      -webkit-transform: translate(-50%);
+          -ms-transform: translate(-50%);
+              transform: translate(-50%);
+      -webkit-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
       transition: all 0.3s ease;
       z-index: 0;
     }
@@ -117,9 +137,13 @@
 
   .create-user--btn {
      color: #f1f1f1;
+     -webkit-transition: color 0.3s ease;
+     -o-transition: color 0.3s ease;
      transition: color 0.3s ease;
      margin: 1em 0;
      background: $second-blue;
+     -webkit-transition: background-color 0.3s ease;
+     -o-transition: background-color 0.3s ease;
      transition: background-color 0.3s ease;
 
      &:hover, &.active {

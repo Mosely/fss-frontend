@@ -8,23 +8,44 @@
 }
 .form-step--item.active{
   will-change: transform opacity;
-  animation: fadeIn 0.67s ease;
+  -webkit-animation: fadeIn 0.67s ease;
+          animation: fadeIn 0.67s ease;
   display: block;
   opacity: 1;
-  transform: translateX(0);
+  -webkit-transform: translateX(0);
+      -ms-transform: translateX(0);
+          transform: translateX(0);
 }
-@keyframes fadeIn {
+@-webkit-keyframes fadeIn {
   0%{
     display: block;
     opacity: 0;
-    transform: translateX(-6%);
+    -webkit-transform: translateX(-6%);
+            transform: translateX(-6%);
   }
   60%{
     opacity: 0.65;
   }
   100%{
     opacity: 1;
-    transform: translateX(0);
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+@keyframes fadeIn {
+  0%{
+    display: block;
+    opacity: 0;
+    -webkit-transform: translateX(-6%);
+            transform: translateX(-6%);
+  }
+  60%{
+    opacity: 0.65;
+  }
+  100%{
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
   }
 }
 .form-step--btn{
