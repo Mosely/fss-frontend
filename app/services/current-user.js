@@ -8,6 +8,7 @@ const {
 
 export default Service.extend({
 	session: service('session'),
+  currentUser: service("current-user"),
 
 	loadUser() {
 		if (this.get('session.isAuthenticated')) {

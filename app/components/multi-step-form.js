@@ -10,6 +10,23 @@ export default Component.extend({
 
   currentItem: 0, // Variable to keep the current index of the multi-step-form.
 
+  didInsertElement() {
+    let i,
+      next,
+      submit,
+      item = document.querySelectorAll(".form-step--item");
+    (next = document.getElementById("next")),
+      (submit = document.getElementById('submit'));
+    console.log("sdfsf");
+    if (item.length > 0 ) {
+      next.style.display = "none";
+      submit.style.display = "inline-block";
+    } else {
+      next.style.display = "inline-block";
+      submit.style.display = "none";
+    }
+  },
+
   /**
    * Shows the current item in the multi-step-form by removing hidden class and
    * adding active class.
@@ -18,11 +35,12 @@ export default Component.extend({
    **/
   showItem(num) {
     let next,
+      submit,
       previous,
       item = document.querySelectorAll(".form-step--item");
-
     (next = document.getElementById("next")),
-      (previous = document.getElementById("prev"));
+      (previous = document.getElementById("prev")),
+      (submit = document.getElementById('submit'));
     //take the param and add block display to the specified item
     item[num].classList.remove("hidden");
     item[num].classList.add("active");
@@ -33,9 +51,12 @@ export default Component.extend({
       previous.style.display = "inline-block";
     }
     if (num == item.length - 1) {
-      next.innerHTML = "Submit";
+      next.style.display = "none";
+      submit.style.display = "inline-block";
     } else {
       next.innerHTML = "Next";
+      next.style.display = "inline-block";
+      submit.style.display = "none";
     }
   },
 

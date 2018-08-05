@@ -3,6 +3,7 @@ import { inject as service } from "@ember/service";
 
 export default Component.extend({
   session: service("session"),
+  router: service(),
   store: service("store"),
 
   actions: {
@@ -46,7 +47,9 @@ export default Component.extend({
         let pid = parseInt(newPerson.get("id"));
         newUser = store.createRecord("user", userProps);
         newUser.set("id", pid);
-        return newUser.save();
+        return newUser.save().then(() => {
+          this.get("router").transitionTo("users");
+        });
       });
     }
   }
