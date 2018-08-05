@@ -7,6 +7,7 @@ export default DS.Model.extend({
   middleName: DS.attr('string'),
   dateOfBirth: DS.attr('date'),
   age: DS.attr('number'),
+  genderId: DS.attr('number'),
 
   //relationships, if any
   gender: DS.belongsTo('gender', { async: false }),
