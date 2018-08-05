@@ -17,7 +17,6 @@ export default Component.extend({
       item = document.querySelectorAll(".form-step--item");
     (next = document.getElementById("next")),
       (submit = document.getElementById('submit'));
-    console.log("sdfsf");
     if (item.length > 0 ) {
       next.style.display = "none";
       submit.style.display = "inline-block";
