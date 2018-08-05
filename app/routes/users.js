@@ -7,7 +7,7 @@ export default Route.extend(AuthenticatedRouteMixin, {
     return store.findAll('user').then(function(users){
       users.forEach(user => {
         store.findRecord('person', user.id).then(function(person) {
-          console.table(person.getProperties());
+          Ember.keys(person.toJSON()).forEach(function(prop) { console.log(prop + " " + person.get(prop)); } )
           store.findRecord('gender', person.genderId).then(function(gender) {
             person.set('gender', gender);
           });
