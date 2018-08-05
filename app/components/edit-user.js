@@ -47,8 +47,11 @@ export default Component.extend({
       updatedUser = this.get("user", this.get("user.id"), {
         backgroundReload: false
       });
-      updatedPerson.destroyRecord().then(() => {
-				updatedUser.destroyRecord();
+      updatedUser.destroyRecord().then(() => {
+        //updatedPerson.destroyRecord();
+        //TODO: Consider thsi use-case - a user leaves FSS, so user account is deleted, but this person
+        // could be a client of FSS in the future.  Do we delete the peron record as well or keep it?
+        // I think we should preserve person records,  but this is open to discussion.
 			});
       // let person, user, store = this.store;
       // person = store("user.person", this.get("user.id"), { backgroundReload: false }).then((person) => {
