@@ -52,14 +52,8 @@ export default Component.extend({
         //TODO: Consider thsi use-case - a user leaves FSS, so user account is deleted, but this person
         // could be a client of FSS in the future.  Do we delete the peron record as well or keep it?
         // I think we should preserve person records,  but this is open to discussion.
+				this.get("router").transitionTo("users");
 			});
-      // let person, user, store = this.store;
-      // person = store("user.person", this.get("user.id"), { backgroundReload: false }).then((person) => {
-      // 	person.destroyRecord();
-      // });
-      // user = this.get("user", this.get("user.id"), { backgroundReload: false }).then((user) => {
-      // 	user.destroyRecord();
-      // });
     }
   }
 });
