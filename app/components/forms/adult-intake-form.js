@@ -14,16 +14,16 @@ export default Component.extend({
 		updateValue(value) {
 			let target = event.target.classList, store = this.store;
 			let counselingtopic, ethnicity;
-
-			if (target.contains("counselingTopic")) {
-				store.find("counselingtopic", value).then((model) => {
-					this.set("counselingtopic", model);
-				});
-			} else if (target.contains("ethnicity")) {
-				store.find("ethnicity", value).then((model) => {
-					this.set("ethnicity", model);
-				});
-			}
+			console.log(event.target);
+			// if (target.contains("counselingTopic")) {
+			// 	store.find("counselingtopic", value).then((model) => {
+			// 		this.set("counselingtopic", model);
+			// 	});
+			// } else if (target.contains("ethnicity")) {
+			// 	store.find("ethnicity", value).then((model) => {
+			// 		this.set("ethnicity", model);
+			// 	});
+			// }
 		},
 	}
 });

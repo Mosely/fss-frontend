@@ -56,19 +56,6 @@
 							</div>
 					</div>
 				</div>
-				{{!-- <div class="col-12 col-sm-2">
-					<div class="form-group">
-						<label class="form-label">
-							Current Age
-							<span class="star">*</span>
-						</label>
-						{{input type="number"
-										value=age
-										placeholder="XX"
-										min="0"
-										class="form-control required"}}
-					</div>
-				</div> --}}
 				<div class="col-12 col-sm">
 					<div class="form-group">
 						<label class="form-label">
@@ -427,15 +414,20 @@
 				{{#each adult.topics as |topic|}}
 				<div class="col-12 col-sm-3">
 					<div class="form-check">
-						{{input type="checkbox"
+						{{inputs/multiselect-checkbox
+								idValue=(concat "topics" topic.id)
+								name="topic"
+								checked=topic.id
+								label=topic.topic}}
+						{{!-- {{input type="checkbox"
 										class="form-check-input counselingTopic"
 										name="topic"
+										checked=false
 										change=(action "updateValue" value="target.checked")
-										checked=(concat "topics" topic.id)
-										id=(concat "topics" topic.id)}}
-						<label class="form-check-label checkbox" for="topics{{topic.id}}">
+										id=(concat "topics" topic.id)}} --}}
+						{{!-- <label class="form-check-label checkbox" for="topics{{topic.id}}">
 							{{topic.topic}}
-						</label>
+						</label> --}}
 					</div>
 				</div>
 				{{/each}}
