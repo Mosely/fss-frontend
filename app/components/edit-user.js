@@ -36,7 +36,7 @@ export default Component.extend({
       updatedPerson.rollbackAttributes();
       updatedUser.rollbackAttributes();
     },
-    destroy() {
+    deleteUser() {
 			console.log(this.get("user.person.gender"));
       let updatedPerson,
         updatedUser,

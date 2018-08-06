@@ -132,7 +132,10 @@
 				<button type="button" class="btn btn-close" data-dismiss="modal">
 					Cancel
 				</button>
-				<button type="button" class="btn btn-comfirm" {{ action "destroy" }}>
+				<button type="button"
+								data-dismiss="modal"
+								class="btn btn-comfirm"
+								{{ action "deleteUser" }}>
 					Yes, delete!
 				</button>
 			</div>

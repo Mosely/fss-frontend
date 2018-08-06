@@ -1,6 +1,8 @@
 import Controller from '@ember/controller';
 
 export default Controller.extend({
+	userToDelete: null,
+
 	actions: {
 		filterByName(param) {
 			var store = this.get('store');
@@ -13,6 +15,6 @@ export default Controller.extend({
 					return { query: param, results: results };
 				});
 			}
-		}
+		},
 	}
 });
