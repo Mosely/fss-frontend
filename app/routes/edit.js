@@ -15,6 +15,9 @@ export default Route.extend(AuthenticatedRouteMixin, {
       });
       return user;
     });
+    RSVP.hash({
+      genders: store.findAll('gender'),
+    });
   },
 
 });
