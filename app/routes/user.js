@@ -3,16 +3,16 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 
 export default Route.extend(AuthenticatedRouteMixin, {
     // NOTE: May ahve to deserialize the returned date for it to display
-    model(params) {
-        let store = this.store;
-        return store.findRecord('user', params.id).then(function (user) {
-            store.findRecord('person', user.id).then(function(person) {
-                user.set('person', person);
-              });
-            return user;
-        });
-        //this.store.query('user', { filter: { id: params.id } }).then(function (user) {
-        //    return user.get('firstObject');
-        //});
-    },
+    // model(params) {
+    //     let store = this.store;
+    //     return store.findRecord('user', params.id).then(function (user) {
+    //         store.findRecord('person', user.id).then(function(person) {
+    //             user.set('person', person);
+    //           });
+    //         return user;
+    //     });
+    //     //this.store.query('user', { filter: { id: params.id } }).then(function (user) {
+    //     //    return user.get('firstObject');
+    //     //});
+    // },
 });
