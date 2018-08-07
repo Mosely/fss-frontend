@@ -1,6 +1,10 @@
 import Component from '@ember/component';
+import { inject as service } from "@ember/service";
 
 export default Component.extend({
+	session: service("session"),
+	store: service("store"),
+
 	tagName: "div",
   classNames: ["form-check"],
 	idValue: null,
@@ -8,11 +12,13 @@ export default Component.extend({
 	values: [],
 
 	actions: {
-		updateValue(value) {
-			this.get("values").push(this.get("checked"));
-			console.log(value);
-			console.log(this.get("checked"));
-			console.log(this.get("values"));
-		}
+		// updateValue(value) {
+		// 	let store = this.get("store");
+		// 	store.findRecord("counselingtopic", this.get("checked")).then(model => {
+    //     this.set("counselingtopic", model);
+		// 		console.log(model.id);
+		// 		console.log(this.get("counselingtopic"));
+    //   });
+		// }
 	}
 });

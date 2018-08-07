@@ -11,19 +11,22 @@ export default Component.extend({
 		 *
 		 * @param {string} value The value of the option that is selected
 		 **/
-		updateValue(value) {
-			let target = event.target.classList, store = this.store;
-			let counselingtopic, ethnicity;
-			console.log(event.target);
-			// if (target.contains("counselingTopic")) {
-			// 	store.find("counselingtopic", value).then((model) => {
-			// 		this.set("counselingtopic", model);
-			// 	});
-			// } else if (target.contains("ethnicity")) {
-			// 	store.find("ethnicity", value).then((model) => {
-			// 		this.set("ethnicity", model);
-			// 	});
-			// }
-		},
+		 updateValue(value) {
+ 			let props, store = this.get("store");
+			console.log(value);
+			props = model.filterBy('id');
+			console.log(props);
+ 			// store.find("counselingtopic", value).then(model => {
+      //    this.set("counselingtopic", model);
+ 			// 	console.log(model.id);
+ 			// 	console.log(this.get("counselingtopic"));
+      //  });
+ 		},
+
+		triggerSave() {
+			let props;
+			props = this.get("counselingtopic");
+			console.log(props);
+		}
 	}
 });

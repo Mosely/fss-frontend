@@ -16,6 +16,7 @@ export default Component.extend({
       //NOTE: we'll probably follow this pattern for finding related models whenever we need to
       // perform record inserts.
       let store = this.get("store");
+      console.log(value);
       store.find("gender", value).then(model => {
         this.set("gender", model);
       });
