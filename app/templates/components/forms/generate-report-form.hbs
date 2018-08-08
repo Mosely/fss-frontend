@@ -1,0 +1,15 @@
+{{#multi-step-form}}
+<form class="form" {{action "generateReport" on="submit"}}>
+	<div class="form-step--item active">
+
+	</div>
+	<button id="submit"
+					class="btn btn-card mt-3 ml-2 pull-right form-step--btn"
+					type="submit">
+		Generate Report
+	</button>
+</form>
+{{#if errorMessage}}
+	{{errorMessage}}
+{{/if}}
+{{/multi-step-form}}
