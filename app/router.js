@@ -11,6 +11,7 @@ Router.map(function () {
   this.route('dashboard', { path: '/' });
   this.route('users', function() {
     this.route('user', { path: '/:id' });
+    this.route('edit', { path: '/edit/:id' });
   });
   this.route('people');
   this.route('person', { path: '/people/:id' });
@@ -107,7 +108,6 @@ Router.map(function () {
   this.route('veteran-resource-center');
   this.route('shelter-intake');
   this.route('child-intake');
-  this.route('edit', { path: '/edit/:id' });
 });
 
 export default Router;

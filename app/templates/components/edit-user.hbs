@@ -68,7 +68,7 @@
 						<select id="genderSelect"
 										class="form-control">
 							<option name="gender" value="{{user.person.gender.id}}" hidden>{{user.person.gender.name}}</option>
-							{{#each user.person.genders as |gender|}}
+							{{#each user.genders as |gender|}}
 								<option name="gender" value="{{gender.id}}">{{gender.name}}</option>
 							{{/each}}
 						</select>
