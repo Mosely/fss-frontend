@@ -108,6 +108,7 @@ Router.map(function () {
   this.route('veteran-resource-center');
   this.route('shelter-intake');
   this.route('child-intake');
+  this.route('generate-report');
 });
 
 export default Router;
