@@ -1,7 +1,175 @@
 {{#multi-step-form}}
 <form class="form" {{action "generateReport" on="submit"}}>
 	<div class="form-step--item active">
-
+		<div class="row">
+			<div class="col-12 mb-2">
+				<span class="form-title">Report Information</span>
+			</div>
+			<div class="col-12 col-sm">
+				<div class="form-group">
+					<label class="form-label">
+						Give it a Name:
+						<span class="star">*</span>
+					</label>
+					{{input type="text"
+									value=name
+									class="form-control required"}}
+				</div>
+			</div>
+			<div class="col-12 col-sm">
+				<div class="form-group">
+					<label class="form-label">
+						Select a File Type:
+						<span class="star">*</span>
+					</label>
+					<select onchange={{action "updateValue" value="target.value"}}
+									class="form-control">
+						<option name="" value="" hidden>Select File Type</option>
+						<option name="" value="CSV">CSV</option>
+						<option name="" value="EXCEL">EXCEL</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 mb-2">
+				<span class="form-title">Report Column Information</span>
+			</div>
+		</div>
+		<div class="r-column-info">
+			<div class="row">
+				<div class="col-12 col-sm">
+					<div class="form-group">
+						<label class="form-label">
+							Column Header Name:
+							<span class="star">*</span>
+						</label>
+						{{input type="text"
+										value=header
+										class="form-control required"}}
+					</div>
+				</div>
+				<div class="col-12 col-sm">
+					<div class="form-group">
+						<label class="form-label">
+							Name of Table:
+							<span class="star">*</span>
+						</label>
+						{{input type="text"
+										value=tableName
+										class="form-control required"}}
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12 col-sm">
+					<div class="form-group">
+						<label class="form-label">
+							Table's Column Name:
+							<span class="star">*</span>
+						</label>
+						{{input type="text"
+										value=columnName
+										class="form-control required"}}
+					</div>
+				</div>
+				<div class="col-12 col-sm-3">
+					<div class="form-group">
+						<label class="form-label">
+							Column Order #:
+							<span class="star">*</span>
+						</label>
+						{{input type="number"
+										value=columnOrder
+										placeholder="XX"
+										min="0"
+										class="form-control required"}}
+					</div>
+				</div>
+				<div class="col-12 col-sm-2">
+					<div class="form-group">
+						<label class="form-label">
+							Column Width:
+						</label>
+						{{input type="number"
+										value=width
+										placeholder="XX"
+										min="0"
+										class="form-control"}}
+					</div>
+				</div>
+				<div class="col-12">
+					<hr>
+				</div>
+			</div>
+		</div>
+		<div class="r-column-info">
+			<div class="row">
+				<div class="col-12 col-sm">
+					<div class="form-group">
+						<label class="form-label">
+							Column Header Name:
+							<span class="star">*</span>
+						</label>
+						{{input type="text"
+										value=header
+										class="form-control required"}}
+					</div>
+				</div>
+				<div class="col-12 col-sm">
+					<div class="form-group">
+						<label class="form-label">
+							Name of Table:
+							<span class="star">*</span>
+						</label>
+						{{input type="text"
+										value=tableName
+										class="form-control required"}}
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12 col-sm">
+					<div class="form-group">
+						<label class="form-label">
+							Table's Column Name:
+							<span class="star">*</span>
+						</label>
+						{{input type="text"
+										value=columnName
+										class="form-control required"}}
+					</div>
+				</div>
+				<div class="col-12 col-sm-3">
+					<div class="form-group">
+						<label class="form-label">
+							Column Order #:
+							<span class="star">*</span>
+						</label>
+						{{input type="number"
+										value=columnOrder
+										placeholder="XX"
+										min="0"
+										class="form-control required"}}
+					</div>
+				</div>
+				<div class="col-12 col-sm-2">
+					<div class="form-group">
+						<label class="form-label">
+							Column Width:
+						</label>
+						{{input type="number"
+										value=width
+										placeholder="XX"
+										min="0"
+										class="form-control"}}
+					</div>
+				</div>
+				<div class="col-12">
+					<hr>
+				</div>
+			</div>
+		</div>
 	</div>
 	<button id="submit"
 					class="btn btn-card mt-3 ml-2 pull-right form-step--btn"
