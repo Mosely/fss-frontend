@@ -48,16 +48,22 @@ export default Component.extend({
         })
       ];
 
-      report.set("reportcolumn", columns);
-      report.save().then(() => {
-        let rid = parseInt(report.get("id"));
-        columns.set("reportId", rid);
-        criteria = store.createRecord("reportcriteria", reportCriteriaProps);
-        criteria.set("reportColumnId", parseInt(columns.get("id")));
-        return criteria.save().then(() => {
-          this.get("router").transitionTo("dashboard");
+      // map method to save each column and set results to columns
+      RSVP.all(columns.map(column => column.save()).then((columns) => {
+        report.set("reportcolumn", columns);
+        //saving report before saving other records
+        report.save().then(() => {
+          let rid = parseInt(report.get("id"));
+          // setting report_id to the saved report id
+          columns.set("reportId", rid);
+          criteria = store.createRecord("reportcriteria", reportCriteriaProps);
+          // setting report_column_id to the saved column id
+          criteria.set("reportColumnId", parseInt(columns.get("id")));
+          return criteria.save().then(() => {
+            this.get("router").transitionTo("dashboard");
+          });
         });
-      })
+      }));
       // RSVP.all(columns.map(column => column.save()).then((columns) => {
       //   report.set("reportcolumn", columns);
       //   report.save();
