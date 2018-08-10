@@ -13,7 +13,6 @@ export default Component.extend({
 
     generateReport() {
       let reportProps,
-        reportColumnProps,
         reportCriteriaProps,
         report,
         columns,
@@ -52,9 +51,9 @@ export default Component.extend({
       report.set("reportcolumn", columns);
       report.save().then(() => {
         let rid = parseInt(report.get("id"));
-        columns.set("id", rid);
+        columns.set("reportId", rid);
         criteria = store.createRecord("reportcriteria", reportCriteriaProps);
-        criteria.set("id", parseInt(columns.get("id")));
+        criteria.set("reportColumnId", parseInt(columns.get("id")));
         return criteria.save().then(() => {
           this.get("router").transitionTo("dashboard");
         });
