@@ -18,10 +18,11 @@ export default Component.extend({
         columns,
         criteria,
         store = this.get("store");
-
+      // getting the properites of reportProps and reportCriteriaProps
       reportProps = this.getProperties("name", "rtype");
       reportCriteriaProps = this.getProperties("relation", "criteriaValue");
 
+      // create report record
       report = store.createRecord("report", reportProps);
       // store all the created records of reportcolumn
       columns = [
