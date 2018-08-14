@@ -308,22 +308,23 @@
 		{{/each}} --}}
 		<div class="row">
 			<div class="col-12 mb-2">
-				<span class="form-title">Report Criteria</span>
+				<span class="form-title">Report Criteria Information</span>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-12 col-sm-6">
+		<div class="row align-items-end">
+			<div class="col-12 col-sm">
 				<div class="form-group">
 					<label class="form-label">
 						Relation:
 						<span class="star">*</span>
+						<span class="mute-label"> ('&#60;', '&#62;', '&#60;&#61;', '&#62;&#61;', 'LIKE', '&#61;', '&#33;&#61;') </span>
 					</label>
 					{{input type="text"
 									value=relation
 									class="form-control required"}}
 				</div>
 			</div>
-			<div class="col-12 col-sm-6">
+			<div class="col-12 col-sm">
 				<div class="form-group">
 					<label class="form-label">
 						Criteria Value:
