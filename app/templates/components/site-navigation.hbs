@@ -6,10 +6,10 @@
     <h3 class="site-navigation__title">Family Support Services</h3>
     <div class="site-navigation__actions">
       {{#search-filter
-          filter=(action 'filterByName' as |filteredResults|)}}
-        <div class="filtered-search__results">
+          filter=(action 'filterByName') as |filteredResults|}}
+        <div class="filtered-search__results hidden">
           {{#each filteredResults as |singleResult|}}
-            <a href="#">{{singleResult.id}} {{singleResult.fullName}}</a>
+            <a href="#">{{singleResult.id}}</a>
           {{/each}}
         </div>
       {{/search-filter}}

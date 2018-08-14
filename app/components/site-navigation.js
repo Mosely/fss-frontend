@@ -3,6 +3,7 @@ import { inject as service } from '@ember/service';
 
 export default Component.extend({
   session: service('session'),
+  store: service("store"),
 
   /**
    * Will toggle the elems class list to the classes it recieves
@@ -28,6 +29,18 @@ export default Component.extend({
     invalidateSession() {
       this.get('session').invalidate();
     },
+    filterByName(param) {
+			var store = this.get('store');
+			if (param !== '') {
+				return store.query('person', { firstName: param }).then((results) => {
+					return { query: param, results: results };
+				});
+			} else {
+				return store.findAll('person').then((results) => {
+					return { query: param, results: results };
+				});
+			}
+		},
     /**
      * Utilizes the toggleClasses() function to display or hide the sidebar
      *
