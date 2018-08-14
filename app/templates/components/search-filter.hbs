@@ -1,1 +1,8 @@
-{{yield}}
+<div class="site-navigation__search">
+	{{fa-icon "search" class="site-navigation__search-icon"}}
+	{{input value=value
+					key-up=(action 'handleFilter')
+					class="site-navigation__search-input form-control"
+					placeholder="Search for patients or users..."}}
+</div>
+{{yield results}}

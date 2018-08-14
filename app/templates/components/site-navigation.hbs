@@ -5,13 +5,21 @@
   <div class="navigation-container">
     <h3 class="site-navigation__title">Family Support Services</h3>
     <div class="site-navigation__actions">
-      <div class="site-navigation__search">
+      {{#search-filter
+          filter=(action 'filterByName' as |filteredResults|)}}
+        <div class="filtered-search__results">
+          {{#each filteredResults as |singleResult|}}
+            <a href="#">{{singleResult.id}} {{singleResult.fullName}}</a>
+          {{/each}}
+        </div>
+      {{/search-filter}}
+      {{!-- <div class="site-navigation__search">
         {{fa-icon "search" class="site-navigation__search-icon"}}
         <input
           type="text"
           class="site-navigation__search-input form-control"
           placeholder="Search for patients or users..." />
-      </div>
+      </div> --}}
       <ul class="list-inline site-navigation__links">
         <li class="site-navigation__link-item list-inline-item">
           {{#link-to "dashboard" title="Dashboard" class="site-navigation__link"}}
