@@ -13,7 +13,7 @@ export default Component.extend({
     //send initial listings calling filter action with an empty value
     // this.get("filter")("").then(results => this.set("results", results));
     this.get('filter')('').then((allResults) => {
-      this.set('results', allResults.results);
+      this.set('results', "");
     });
   },
 

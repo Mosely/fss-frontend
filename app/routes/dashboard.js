@@ -5,8 +5,8 @@ import { inject as service } from '@ember/service';
 export default Route.extend(ApplicationRouteMixin, {
 	currentUser: service(),
 
-	beforeModel() {
-		return this.transitionTo('login');
-	},
+	// afterModel() {
+	// 	return this.transitionTo('login');
+	// },
 
 });
