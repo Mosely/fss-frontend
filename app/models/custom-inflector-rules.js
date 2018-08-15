@@ -12,6 +12,7 @@ inflector.uncountable('shelterclientadditionalstaff');
 inflector.uncountable('citydata');
 inflector.uncountable('countydata');
 inflector.uncountable('statedata');
+inflector.uncountable('reportcriteria');
 
 // Modules must have an export, so we just export an empty object here
 export default {};
