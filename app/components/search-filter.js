@@ -25,11 +25,21 @@ export default Component.extend({
     handleFilter() {
       let filterInputValue = this.get("value");
       let filterAction = this.get("filter");
-      filterAction(filterInputValue).then((filterResults) => {
-        if (filterResults.query == this.get('value')) {
-          this.set("results", filterResults.results);
-        }
-      });
+			if (filterInputValue == "") {
+				document.querySelector('.filtered-search__results').classList.add("hidden");
+				filterAction("").then((filterResults) => {
+	        if (filterResults.query == this.get('value')) {
+	          this.set("results", "");
+	        }
+	      });
+			} else {
+				document.querySelector('.filtered-search__results').classList.remove("hidden");
+				filterAction(filterInputValue).then((filterResults) => {
+	        if (filterResults.query == this.get('value')) {
+	          this.set("results", filterResults.results);
+	        }
+	      });
+			}
     }
   }
 });
