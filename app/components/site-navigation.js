@@ -32,7 +32,7 @@ export default Component.extend({
     filterByName(param) {
 			var store = this.get('store');
 			if (param !== '') {
-				return store.query('person', { firstName: param }).then((results) => {
+				return store.query('person', { first_name: param }).then((results) => {
 					return { query: param, results: results };
 				});
 			} else {
