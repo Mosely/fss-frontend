@@ -7,7 +7,7 @@
     <div class="site-navigation__actions">
       {{#search-filter
           filter=(action 'filterByName') as |filteredResults|}}
-        <div class="filtered-search__results">
+        <div class="filtered-search__results hidden">
           <ul class="search__results--list">
             {{#each filteredResults as |singleResult|}}
               <li class="search__results--item">
