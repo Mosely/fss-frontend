@@ -12,7 +12,7 @@
             <ul class="search__results--list">
               {{#each filteredResults as |singleResult|}}
                 <li class="search__results--item">
-                  {{#link-to "users.user" singleResult
+                  {{#link-to "users.user" singleResult.id
                       title="View Person"
                       class="search__results--link"}}
                     {{fa-icon "user"}}

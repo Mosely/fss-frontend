@@ -6,12 +6,12 @@
 	<div class="col table-item">{{moment-format user.passwordCreatedAt 'YYYY-MM-DD HH:mm'}}</div>
 	<div class="col-1 table-item">{{user.person.age}}</div>
 	<div class="col-2 table-item">
-		{{#link-to "users.user" user
+		{{#link-to "users.user" user.id
 			title="View User"
 			class="btn-action profile"}}
 			{{fa-icon "user"}}
 		{{/link-to}}
-		{{#link-to "users.edit" user
+		{{#link-to "users.edit" user.id
 			title="Edit User"
 			class="btn-action edit"}}
 			{{fa-icon "edit"}}
