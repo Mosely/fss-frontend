@@ -4,9 +4,9 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 export default Route.extend(AuthenticatedRouteMixin, {
   model() {
     let store = this.store;
-    return this.store.findAll('person').then(function(people) {
+    return this.store.findAll('person', { reload: true }).then(function(people) {
       people.forEach(person => {
-        store.findRecord('user', person.id).then(function(user) {
+        store.findRecord('user', person.id, { reload: true }).then(function(user) {
           person.set('user', user);
         });
       });

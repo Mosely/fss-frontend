@@ -4,11 +4,11 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 export default Route.extend(AuthenticatedRouteMixin, {
    model() {
     let store = this.store;
-    return store.findAll('user').then(function(users){
+    return store.findAll('user', { reload: true }).then(function(users){
       users.forEach(user => {
-        store.findRecord('person', user.id).then(function(person) {
+        store.findRecord('person', user.id, { reload: true }).then(function(person) {
           Object.keys(person.toJSON()).forEach(function(prop) { console.log(prop + " " + person.get(prop)); } )
-          store.findRecord('gender', person.get('genderId')).then(function(gender) {
+          store.findRecord('gender', person.get('genderId'), { reload: true }).then(function(gender) {
             person.set('gender', gender);
           });
           user.set('person', person);
