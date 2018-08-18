@@ -2,6 +2,9 @@
 	<form id="form" class="form" autocomplete="false" {{action "triggerSave" on="submit"}}>
 		<div id="adult-intake-1" class="form-step--item active">
 			<div class="row">
+				<div class="col-12 mb-2">
+					<span class="form-title">Personal Information</span>
+				</div>
 				<div class="col-12">
 					<label class="form-label mt-3">
 						Client Name
@@ -119,7 +122,7 @@
 						</select>
 					</div>
 				</div>
-				<div class="col-5 col-sm-4">
+				<div class="col-5 col-sm-3">
 					<div class="form-group">
 						{{input type="number"
 										value=zipcode
@@ -153,9 +156,17 @@
 					</div>
 					{{/each}}
 			</div>
+			<div class="row">
+				<div class="col-12">
+					<span class="card--divider"></span>
+				</div>
+			</div>
 		</div>
 		<div id="adult-intake-2" class="form-step--item hidden">
 			<div class="row justify-content-between mb-2 align-items-center">
+				<div class="col-12">
+					<span class="form-title">Personal Details</span>
+				</div>
 				<div class="col-12 col-sm-6">
 					<label class="form-label mt-3">
 						Primary Language:
@@ -407,7 +418,15 @@
 			</div>
 			<div class="row">
 				<div class="col-12">
-					<label class="form-label mt-5 mb-3">
+					<span class="card--divider"></span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12">
+					<span class="form-title">Counseling Information</span>
+				</div>
+				<div class="col-12">
+					<label class="form-label mt-4 mb-3">
 						Check any topic(s) you would like addressed in counseling:
 						<span class="star">*</span>
 					</label>
@@ -434,13 +453,15 @@
 				</div>
 				{{/each}}
 			</div>
+			<div class="row">
+				<div class="col-12">
+					<span class="card--divider"></span>
+				</div>
+			</div>
 		</div>
 		<div id="adult-intake-3" class="form-step--item hidden">
 			<div class="row">
-				<div class="col-12 mb-4 mt-4 text-center">
-					<span class="form-title light-underline">Client Background</span>
-				</div>
-				<div class="col-12 mb-2">
+				<div class="col-12">
 					<span class="form-title">Personal History</span>
 				</div>
 				<div class="col-12">
@@ -472,7 +493,7 @@
 												class="form-control"}}
 							</div>
 						</div>
-						<div class="col-3">
+						<div class="col-2">
 							<div class="form-group">
 								<label class="form-label sub-label">
 									How many times?
@@ -707,9 +728,17 @@
 					</div>
 				</div>
 			</div>
+			<div class="row">
+				<div class="col-12">
+					<span class="card--divider"></span>
+				</div>
+			</div>
 		</div>
 		<div id="adult-intake-4" class="form-step--item hidden">
 			<div class="row mb-4">
+				<div class="col-12">
+					<span class="form-title">Personal History</span>
+				</div>
 				<div class="col-12 col-sm-6">
 					<label class="form-label mt-3">
 						Current desire to harm him/herself?
@@ -1144,6 +1173,11 @@
 										value=referral
 										class="form-control"}}
 					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12">
+					<span class="card--divider"></span>
 				</div>
 			</div>
 		</div>

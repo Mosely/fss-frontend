@@ -1,8 +1,11 @@
 {{#multi-step-form}}
 <form class="form"  method="post" {{action "submit" on="submit"}} autocomplete="off">
 	<div class="form-step--item active">
-		<div class="row mb-3">
+		<div class="row">
 			<div class="col-12">
+				<span class="form-title">Referral Information</span>
+			</div>
+			<div class="col-12 col-md-5">
 				<label class="form-label mt-3">
 					Referred By:
 					<span class="star">*</span>
@@ -18,6 +21,14 @@
 			</div>
 		</div>
 		<div class="row">
+			<div class="col-12">
+				<span class="card--divider"></span>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<span class="form-title">Personal Information</span>
+			</div>
 			<div class="col-12">
 				<label class="form-label">
 					Full Name
@@ -134,9 +145,17 @@
 				</div>
 			</div>
 		</div>
+		<div class="row">
+			<div class="col-12">
+				<span class="card--divider"></span>
+			</div>
+		</div>
 	</div>
 	<div class="form-step--item hidden">
 		<div class="row align-items-center mt-3 mb-3">
+			<div class="col-12">
+				<span class="form-title">Personal Information</span>
+			</div>
 			<div class="col-12 col-sm-5">
 				<label class="form-label">
 					Home Income:
@@ -293,6 +312,11 @@
 						No
 					</label>
 				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<span class="card--divider"></span>
 			</div>
 		</div>
 	</div>
