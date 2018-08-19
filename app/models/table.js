@@ -5,5 +5,5 @@ export default DS.Model.extend({
 	tablesInFss: DS.attr('string'),
 
   //relationships, if any
-
+	tableColumns: DS.hasMany('tablecolumn', { async: false })
 });

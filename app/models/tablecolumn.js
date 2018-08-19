@@ -5,5 +5,5 @@ export default DS.Model.extend({
 	tableColumn: DS.attr('string'),
 
   //relationships, if any
-
+	table: DS.belongsTo('table', { async: false }),
 });
