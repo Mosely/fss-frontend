@@ -59,7 +59,7 @@ Router.map(function () {
   this.route('shelter-client-identity-preference', { path: '/shelterclientidentitypreferences/:id' });
   this.route('state-data', { path: '/statedata/:id' });
   this.route('table', { path: '/tables/:id' });
-  this.route('table-column', { path: '/tablecolumns/:id' });
+  this.route('table-column', { path: '/tablecolumns/tablename/:tablename' });
   this.route('user-role', { path: '/userroles/:id' });
   this.route('user-view', { path: '/userviews/:id' });
   this.route('veteran', { path: '/veterans/:id' });
@@ -104,7 +104,7 @@ Router.map(function () {
   this.route('shelter-client-identity-preferences', { path: '/shelterclientidentitypreferences' });
   this.route('state-datas', { path: '/statedata' });
   this.route('tables', { path: '/tables' });
-  this.route('table-columns', { path: '/tablecolumns' });
+  this.route('table-columns', { path: '/tablecolumns/tablename' });
   this.route('user-roles', { path: '/userroles' });
   this.route('user-views', { path: '/userviews' });
   this.route('veterans', { path: '/veterans' });
