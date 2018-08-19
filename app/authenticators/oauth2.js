@@ -1,6 +1,7 @@
 import Ember from "ember";
 import OAuth2PasswordGrantAuthenticator from 'ember-simple-auth/authenticators/oauth2-password-grant';
 import config from "../config/environment";
+import { inject as service } from '@ember/service';
 
 const {
   RSVP: { Promise },
@@ -8,8 +9,20 @@ const {
   run
 } = Ember;
 
+function parseBase64(token) {
+  let tokenData;
+  try {
+    tokenData = atob(token.split('.')[1]);
+    return JSON.parse(tokenData);
+  } catch (e) {
+
+    return token;
+  }
+}
+
 export default OAuth2PasswordGrantAuthenticator.extend({
   tokenEndpoint: `${config.host}`,
+  currentUser: service("current-user"),
 
   //tokenEndpoint: `http://nginx3.pantheon.local/login`,
 
@@ -56,6 +69,9 @@ export default OAuth2PasswordGrantAuthenticator.extend({
             refresh_token: refresh_token
           });
         });
+        let t = parseBase64(access_token);
+        console.log(t['scopes']);
+        console.table(t);
       },
       error => {
         // Wrapping aync operation in Ember.run
