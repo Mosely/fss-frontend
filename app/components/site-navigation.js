@@ -36,9 +36,7 @@ export default Component.extend({
 					return { query: param, results: results };
 				});
 			} else {
-				return store.findAll('person', { reload: true }).then((results) => {
-					return { query: param, results: results };
-				});
+				return false;
 			}
 		},
     /**
