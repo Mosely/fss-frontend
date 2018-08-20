@@ -1,6 +1,7 @@
 @import "ember-cli-bootstrap-4/bootstrap";
 @import "variables";
 @import "mixins";
+@import "ember-power-select";
 
 /**
  * Component Styles
@@ -11,7 +12,6 @@
 @import "components/user-profile-view";
 @import "components/multi-step-form";
 @import "components/user-detail";
-@import "ember-power-select";
 
 /**
  * Layout Styles
