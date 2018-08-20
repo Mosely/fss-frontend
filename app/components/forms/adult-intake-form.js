@@ -14,8 +14,6 @@ export default Component.extend({
 		 updateValue(value) {
  			let props, store = this.get("store");
 			console.log(value);
-			props = model.filterBy('id');
-			console.log(props);
  			// store.find("counselingtopic", value).then(model => {
       //    this.set("counselingtopic", model);
  			// 	console.log(model.id);
@@ -24,9 +22,9 @@ export default Component.extend({
  		},
 
 		triggerSave() {
-			let props;
-			props = this.get("counselingtopic");
-			console.log(props);
+			console.log(this.getProperties("firstName"));
+			console.log(this.getProperties('selectedCities'));
+			console.log(this.getProperties('selectedStates'));
 		}
 	}
 });

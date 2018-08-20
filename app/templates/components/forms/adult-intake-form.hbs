@@ -100,26 +100,42 @@
 				</div>
 				<div class="col-7 col-sm-4">
 					<div class="form-group">
-						<select id="citySelect"
+						<!-- <select id="citySelect"
 										value="citySelect"
 										class="form-control">
 							<option name="state" value="" hidden>Select City...</option>
 							{{#each adult.cities as |city|}}
 								<option name="city" value="{{city.id}}">{{city.name}}</option>
 							{{/each}}
-						</select>
+						</select> -->
+						{{#power-select
+							placeholder="Select City..."
+							searchField="name"
+							selected=selectedCities
+							options=adult.cities
+							onchange=(action (mut selectedCities)) as |city|}}
+							{{city.name}}
+						{{/power-select}}
 					</div>
 				</div>
 				<div class="col-7 col-sm-4">
 					<div class="form-group">
-						<select id="stateSelect"
+						<!-- <select id="stateSelect"
 										value="stateData"
 										class="form-control">
 							<option name="state" value="" hidden>Select State...</option>
 							{{#each adult.states as |state|}}
 								<option name="state" value="{{state.id}}">{{state.name}}</option>
 							{{/each}}
-						</select>
+						</select> -->
+						{{#power-select
+							placeholder="Select State..."
+							searchField="name"
+							selected=selectedStates
+							options=adult.states
+							onchange=(action (mut selectedStates)) as |state|}}
+							{{state.name}}
+						{{/power-select}}
 					</div>
 				</div>
 				<div class="col-5 col-sm-3">
@@ -552,14 +568,22 @@
 						<span class="star">*</span>
 					</label>
 					<div class="form-group">
-						<select id="medicationSelect"
+						<!-- <select id="medicationSelect"
 										value="medication"
 										class="form-control">
 							<option name="medication" value="" hidden>Select Medication...</option>
 							{{#each adult.medications as |medication|}}
 								<option name="medication" value="{{medication.id}}">{{medication.name}}</option>
 							{{/each}}
-						</select>
+						</select> -->
+						{{#power-select-multiple
+							placeholder="Select Medications..."
+							searchField="name"
+							selected=selectedMedications
+							options=adult.medications
+							onchange=(action (mut selectedMedications)) as |medication|}}
+							{{medication.name}}
+						{{/power-select-multiple}}
 					</div>
 				</div>
 			</div>
