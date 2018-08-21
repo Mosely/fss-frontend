@@ -18,7 +18,7 @@ export default Component.extend({
 			// store.find("counselingtopic", value).then((model) => {
 			// 	this.set("counselingtopic", model);
 			// });
-			console.table(value);
+			console.log(value);
 
  		},
 		triggerSave() {
