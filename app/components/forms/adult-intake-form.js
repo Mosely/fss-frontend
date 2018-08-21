@@ -13,17 +13,19 @@ export default Component.extend({
 				this.set("ethnicity", model);
 			});
 		},
-		updateTopics(value) {
+		updateTopics(newSelection, value, operation) {
 			let store = this.get("store");
 			// store.find("counselingtopic", value).then((model) => {
 			// 	this.set("counselingtopic", model);
 			// });
-			console.log(value);
+			this.set("selection", newSelection);
+			console.log(this.get("selectedTopics"));
 
  		},
 		triggerSave() {
 			console.log(this.get("ethnicity"));
 			console.log(this.getProperties('selectedStates'));
+			console.log(this.getProperties('selectedTopics'));
 		}
 	}
 });
