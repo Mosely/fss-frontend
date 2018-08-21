@@ -897,20 +897,37 @@
 			</div>
 			{{#multiselect-checkboxes
 					tagName='div'
-					classNames='row mt-3 mb-4 align-items-center'
+					classNames='row mt-3 mb-4'
 					options=adult.drugUse
 					selection=selectedDrugs
 					updateSelectionValue=false
 					onchange=(action 'updateDrugUse') as |drug isSelected|}}
-				<div class="col-12 col-sm-3">
+				<div class="col-12 col-sm-4">
 					<div class="form-check">
-						{{input type="checkbox"
+						{{inputs/toggle-checkbox idValue=(concat "drugs" drug.id)
+								label=drug.dtype
+								checked=isSelected
+								name="drugUse"
+								data-toggle=(concat "drugUseToggle" drug.id)}}
+						<div id="drugUseToggle{{drug.id}}" class="if-yes hidden">
+							<div class="form-group">
+								<label class="block" for="{{drug.id}}ageWhenFirstUsed">
+									Age when you first tried this type of drug?
+								</label>
+								{{input type="number"
+												placeholder="XX"
+												id=(concat drug.id "ageWhenFirstUsed")
+												class="form-control"
+												value=(concat "ageWhenFirstUsed" drug.id)}}
+							</div>
+						</div>
+						{{!-- {{input type="checkbox"
 										id=(concat "drugs" drug.id)
 										class="form-check-input counselingTopic"
 										checked=isSelected}}
 						<label class="form-check-label checkbox" for="drugs{{drug.id}}">
 							{{drug.dtype}}
-						</label>
+						</label> --}}
 					</div>
 				</div>
 			{{/multiselect-checkboxes}}
