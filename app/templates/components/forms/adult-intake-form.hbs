@@ -74,40 +74,56 @@
 					</div>
 				</div>
 			</div>
-			<div class="row mb-3">
+			<div class="row">
 				<div class="col-12">
 					<label class="form-label">
 						Address
 						<span class="star">*</span>
 					</label>
 				</div>
-				<div class="col-12 col-sm-10">
+				<div class="col-12 col-sm-2">
+					<div class="form-group">
+						{{input type="number"
+										value=streetNumber
+										placeholder="Street Number"
+										class="form-control required"}}
+					</div>
+				</div>
+				<div class="col-12 col-sm-8">
 					<div class="form-group">
 						{{input type="text"
 										value=streetName
-										placeholder="Street"
+										placeholder="Street Name"
 										class="form-control required"}}
 					</div>
 				</div>
 				<div class="col-5 col-sm-2">
 					<div class="form-group">
 						{{input type="number"
-										value=streetNumber
+										value=apartmentNumber
 										placeholder="(Apt. #)"
 										min="0"
 										class="form-control"}}
 					</div>
 				</div>
+			</div>
+			<div class="row">
+				<div class="col-5">
+					<div class="form-group">
+						{{#power-select
+							placeholder="Select County..."
+							searchField="name"
+							selected=selectedCounties
+							options=adult.counties
+							onchange=(action (mut selectedCounties)) as |county|}}
+							{{county.name}}
+						{{/power-select}}
+					</div>
+				</div>
+			</div>
+			<div class="row mb-3">
 				<div class="col-7 col-sm-4">
 					<div class="form-group">
-						<!-- <select id="citySelect"
-										value="citySelect"
-										class="form-control">
-							<option name="state" value="" hidden>Select City...</option>
-							{{#each adult.cities as |city|}}
-								<option name="city" value="{{city.id}}">{{city.name}}</option>
-							{{/each}}
-						</select> -->
 						{{#power-select
 							placeholder="Select City..."
 							searchField="name"
