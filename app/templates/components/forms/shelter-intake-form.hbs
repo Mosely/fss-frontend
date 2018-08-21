@@ -139,62 +139,106 @@
 							Preferred Language
 							<span class="star">*</span>
 						</label>
-						<select id="languages"
+						{{#power-select
+							placeholder="Select Language..."
+							searchField="name"
+							selected=selectedLanguages
+							options=shelter.languages
+							onchange=(action (mut selectedLanguages)) as |language|}}
+							{{language.name}}
+						{{/power-select}}
+						{{!-- <select id="languages"
 										value="language"
 										class="form-control">
 						  <option name="state" value="" hidden>Select Language...</option>
 							{{#each shelter.languages as |language|}}
 								<option name="language" value="{{language.id}}">{{language.name}}</option>
 							{{/each}}
-						</select>
+						</select> --}}
 					</div>
 				</div>
 			</div>
-			<div class="row mb-3">
+			<div class="row">
 				<div class="col-12">
 					<label class="form-label">
 						Address
 						<span class="star">*</span>
 					</label>
 				</div>
-				<div class="col-12 col-sm-10">
+				<div class="col-12 col-sm-2">
+					<div class="form-group">
+						{{input type="number"
+										value=streetNumber
+										placeholder="Street Number"
+										class="form-control"}}
+					</div>
+				</div>
+				<div class="col-12 col-sm-8">
 					<div class="form-group">
 						{{input type="text"
 										value=streetName
-										placeholder="Street"
+										placeholder="Street Name"
 										class="form-control"}}
 					</div>
 				</div>
 				<div class="col-5 col-sm-2">
 					<div class="form-group">
 						{{input type="number"
-										value=streetNumber
+										value=apartmentNumber
 										placeholder="(Apt. #)"
 										min="0"
 										class="form-control"}}
 					</div>
 				</div>
+			</div>
+			<div class="row">
+				<div class="col-5">
+					<div class="form-group">
+						{{#power-select
+							placeholder="Select County..."
+							searchField="name"
+							selected=selectedCounties
+							options=shelter.counties
+							onchange=(action (mut selectedCounties)) as |county|}}
+							{{county.name}}
+						{{/power-select}}
+					</div>
+				</div>
+			</div>
+			<div class="row mb-3">
 				<div class="col-7 col-sm-4">
-					{{#select-filter placeholder="Search Cities..."
-							filter=(action 'filterByName') as |filteredResults|}}
-						<option name="city" value="" hidden>Select City...</option>
-						{{#each filteredResults as |city|}}
-							<option name="city" value="{{city.id}}">{{city.name}}</option>
-							{{!-- <li class="filter-list--item">{{city.name}}</li> --}}
-						{{/each}}
-					{{/select-filter}}
+					<div class="form-group">
+						{{#power-select
+							placeholder="Select City..."
+							searchField="name"
+							selected=selectedCities
+							options=shelter.cities
+							onchange=(action (mut selectedCities)) as |city|}}
+							{{city.name}}
+						{{/power-select}}
+					</div>
 				</div>
-				<div class="col-7 col-sm-3">
-					<select id="states"
-									value="state"
-									class="form-control">
-						<option name="state" value="" hidden>Select State...</option>
-						{{#each shelter.states as |state|}}
-							<option name="state" value="{{state.id}}">{{state.name}}</option>
-						{{/each}}
-					</select>
+				<div class="col-7 col-sm-4">
+					<div class="form-group">
+						<!-- <select id="stateSelect"
+										value="stateData"
+										class="form-control">
+							<option name="state" value="" hidden>Select State...</option>
+							{{#each shelter.states as |state|}}
+								<option name="state" value="{{state.id}}">{{state.name}}</option>
+							{{/each}}
+						</select> -->
+						{{#power-select
+							placeholder="Select State..."
+							searchField="name"
+							selected=selectedStates
+							options=shelter.states
+							onchange=(action (mut selectedStates)) as |state|}}
+							{{state.name}}
+						{{/power-select}}
+					</div>
 				</div>
-				<div class="col-5 col-sm-2">
+				<div class="col-5 col-sm-3">
 					<div class="form-group">
 						{{input type="number"
 										value=zipcode
@@ -203,18 +247,6 @@
 										class="form-control"}}
 					</div>
 				</div>
-				{{#if "texasSelected"}}
-					<div class="col-12 col-sm-3">
-						<select id="counties"
-										value="county"
-										class="form-control">
-							<option name="state" value="" hidden>Select County...</option>
-							{{#each shelter.counties as |county|}}
-								<option name="county" value="{{county.id}}">{{county.name}}</option>
-							{{/each}}
-						</select>
-					</div>
-				{{/if}}
 			</div>
 			<div class="row justify-content-between mb-2">
 				<div class="col-12">
@@ -229,9 +261,10 @@
 							{{input type="radio"
 											class="form-check-input ethnicity"
 											name="ethnicity"
-											id=(concat "ethnicities" ethnicity.id)
-											value=(concat "ethnicities" ethnicity.id)}}
-							<label for="ethnicities{{ethnicity.id}}"
+											change=(action "updateEthnicity" value="target.value")
+											id=ethnicity.id
+											value=ethnicity.id}}
+							<label for="{{ethnicity.id}}"
 										 class="form-check-label">
 								{{ethnicity.name}}
 							</label>
@@ -247,21 +280,26 @@
 						Do you identify with any of the following?
 					</label>
 				</div>
-				{{#each shelter.identies as |idendty|}}
-					<div class="col-12 col-sm-3">
-						<div class="form-check">
-							{{input type="checkbox"
-											class="form-check-input"
-											name="identityPreference"
-											checked=(concat "identity" idendty.id)
-											id=(concat "identity" idendty.id)}}
-							<label class="form-check-label checkbox" for="identity{{idendty.id}}">
-								{{idendty.name}}
-							</label>
-						</div>
-					</div>
-				{{/each}}
 			</div>
+			{{#multiselect-checkboxes
+					tagName='div'
+					classNames='row'
+					options=shelter.identies
+					selection=selectedIdenties
+					updateSelectionValue=false
+					onchange=(action 'updateIdenties') as |identity isSelected|}}
+				<div class="col-12 col-sm-3">
+					<div class="form-check">
+						{{input type="checkbox"
+										id=(concat "identies" identity.id)
+										class="form-check-input"
+										checked=isSelected}}
+						<label class="form-check-label checkbox" for="identies{{identity.id}}">
+							{{identity.name}}
+						</label>
+					</div>
+				</div>
+			{{/multiselect-checkboxes}}
 			<div class="row mt-3">
 				<div class="col-12">
 					<label class="form-label">
@@ -311,7 +349,7 @@
 						Funding Source
 					</label>
 				</div>
-				{{#each shelter.fundingSources as |funding|}}
+				{{!-- {{#each shelter.fundingSources as |funding|}}
 					<div class="col-12 col-sm-3">
 						<div class="form-check">
 							{{input type="checkbox"
@@ -325,9 +363,28 @@
 							</label>
 						</div>
 					</div>
-				{{/each}}
+				{{/each}} --}}
 			</div>
-			<div class="row mt-4 justify-content-around">
+			{{#multiselect-checkboxes
+					tagName='div'
+					classNames='row'
+					options=shelter.fundingSources
+					selection=selectedFundingSources
+					updateSelectionValue=false
+					onchange=(action 'updateFundingSources') as |funding isSelected|}}
+				<div class="col-12 col-sm-3">
+					<div class="form-check">
+						{{input type="checkbox"
+										id=(concat "funding" funding.id)
+										class="form-check-input"
+										checked=isSelected}}
+						<label class="form-check-label box" for="funding{{funding.id}}">
+							{{funding.name}}
+						</label>
+					</div>
+				</div>
+			{{/multiselect-checkboxes}}
+			<div class="row mt-4 justify-content-between">
 				<div class="col-12 col-sm-3 ">
 					<label class="form-label">
 						Is Rural?
@@ -415,7 +472,7 @@
 			<div class="row">
 				<div class="col-12 col-sm-6">
 					<div class="form-group">
-						<label class="form-label" for="languages">
+						<label class="form-label">
 							Advocate Name
 							<span class="star">*</span>
 						</label>

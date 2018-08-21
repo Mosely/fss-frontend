@@ -2,9 +2,12 @@ import Route from '@ember/routing/route';
 import AuthenticatedRouteMixin from "ember-simple-auth/mixins/authenticated-route-mixin";
 import { inject as service } from "@ember/service";
 import RSVP from 'rsvp';
+import { A } from '@ember/array';
 
 export default Route.extend(AuthenticatedRouteMixin, {
 	session: service("session"),
+	selectedTopics: A(),
+	selectedDrugs: A(),
 
 	model(){
 		let store = this.store;

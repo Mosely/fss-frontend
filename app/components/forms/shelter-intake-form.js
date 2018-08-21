@@ -6,20 +6,30 @@ export default Component.extend({
   store: service("store"),
 
 	actions: {
-		filterByName(param) {
-			var store = this.get('store');
-			if (param !== '') {
-				return store.query('citydata', { name: param }).then((results) => {
-					return { query: param, results: results };
-				});
-			} else {
-				return store.findAll('citydata').then((results) => {
-					return { query: param, results: results };
-				});
-			}
+		updateEthnicity(value) {
+			let store = this.get("store");
+			store.find("ethnicity", value).then((model) => {
+				this.set("ethnicity", model);
+			});
 		},
-		selectValue(){
-			console.log("Hello");
+		updateIdenties(newSelection, value) {
+			let identies, store = this.get("store");
+			this.set("selectedIdenties", newSelection);
+			identies = this.get("selectedIdenties");
+			this.set("identitypreference", identies);
+		},
+		updateFundingSources(newSelection, value) {
+			let fundingSources, store = this.get("store");
+			this.set("selectedFundingSources", newSelection);
+			fundingSources = this.get("selectedFundingSources");
+			this.set("fundingsource", fundingSources);
+		},
+		triggerSave() {
+			console.log(this.get("selectedIdenties"));
+			console.log(this.get("fundingSources"));
+			// this.get("selectedTopics").forEach((topic) => {
+			// 	console.log(topic.id);
+			// });
 		}
 	}
 });
