@@ -7,13 +7,14 @@ import { A } from '@ember/array';
 export default Route.extend(AuthenticatedRouteMixin, {
 	session: service("session"),
 	selectedTopics: A(),
+	selectedDrugs: A(),
 
 	model(){
 		let store = this.store;
     return RSVP.hash({
 			cities: store.findAll('citydata'),
 			counties: store.findAll('countydata'),
-			// drugUse: store.findAll('druguse'),
+			drugUse: store.findAll('druguse'),
 			ethnicities: store.findAll('ethnicity'),
 			languages: store.findAll('language'),
 			medications: store.findAll('medication'),
