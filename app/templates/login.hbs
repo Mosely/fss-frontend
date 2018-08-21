@@ -10,8 +10,7 @@
               {{input id='identification'
                       value=identification
                       class='form-control login-input'
-                      onEvent="keyPress"
-                      action="handleInput"
+                      key-press="handleInput"
                       type='text'}}
               <label class="username-label" for="identification">Enter Login</label>
               <span class="underline username-label"></span>
@@ -20,8 +19,7 @@
               <span class="fa fa-lock"></span>
               {{input id='password'
                       value=password
-                      onEvent="keyPress"
-                      action="handleInput"
+                      key-press="handleInput"
                       class='form-control login-input'
                       type='password'}}
               <label class="password-label" for="password">Password</label>
