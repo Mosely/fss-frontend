@@ -3,6 +3,7 @@ import DS from 'ember-data';
 export default DS.Model.extend({
   //attributes, if any
   otherNote: DS.attr('string'),
+  counselingTopicId: DS.attr('number'),
 
   //relationships, if any
   counselee: DS.belongsTo('counselee', { async: false }),

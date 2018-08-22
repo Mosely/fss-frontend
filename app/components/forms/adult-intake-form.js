@@ -25,12 +25,36 @@ export default Component.extend({
 			drugs = this.get("selectedDrugs");
 			this.set("druguse", drugs);
 		},
+		/**
+     * Creates a record to save a new patient
+     *
+     * @return the saved records of the person then user model.
+     **/
 		triggerSave() {
-			console.log(this.get("selectedTopics"));
-			console.log(this.get("selectedDrugs"));
-			// this.get("selectedTopics").forEach((topic) => {
-			// 	console.log(topic.id);
-			// });
+			let personProps, clientProps, counseleeProps, newPerson, store = this.get("store");
+			// Getting person properties
+			personProps = this.getProperties(
+				"firstName",
+				"middleName",
+				"lastName",
+				"dateOfBirth"
+			);
+			// Setting newPerson to newly created record
+			newPerson = store.createRecord("person", personProps);
+			// Getting address props
+			let addressProps = this.getProperties(
+				"streetNumber",
+				"streetName",
+				"apartmentNumber",
+				"zipcode"
+			);
+			// Setting newAddress to newly created record
+			let newAddress = store.createRecord("address", addressProps);
+			// Setting newAddress cityData, stateData, countyData properties
+			newAddress.set("cityData", this.get("selectedCities"));
+			newAddress.set("stateData", this.get("selectedStates"));
+			newAddress.set("countyData", this.get("selectedCounties"));
+
 		}
 	}
 });
