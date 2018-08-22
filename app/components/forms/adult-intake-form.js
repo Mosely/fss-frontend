@@ -31,7 +31,7 @@ export default Component.extend({
      * @return the saved records of the person then user model.
      **/
 		triggerSave() {
-			let personProps, clientProps, counseleeProps, newPerson, store = this.get("store");
+			let personProps, newPerson, store = this.get("store");
 			// Getting person properties
 			personProps = this.getProperties(
 				"firstName",
@@ -55,6 +55,16 @@ export default Component.extend({
 			newAddress.set("stateData", this.get("selectedStates"));
 			newAddress.set("countyData", this.get("selectedCounties"));
 
+			// Getting client proerties
+			let clientProps = this.getProperties(
+				"socialSecurityNumber",
+				"placeOfEmployment",
+				"isServiceMemberOrVeteran",
+				"hasFamilyWhoIsServiceMemberOrVeteran",
+				"isReferredByVeteranResourceCenter",
+				"referral"
+			);
+			let newClient = store.createRecord("client", clientProps);
 		}
 	}
 });
