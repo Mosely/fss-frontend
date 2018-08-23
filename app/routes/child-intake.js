@@ -11,7 +11,7 @@ export default Route.extend(AuthenticatedRouteMixin, {
 		return RSVP.hash({
 			cities: store.findAll('citydata'),
 			counties: store.findAll('countydata'),
-			// drugUse: store.findAll('druguse'),
+			drugUse: store.findAll('druguse'),
 			ethnicities: store.findAll('ethnicity'),
 			genders: store.findAll('gender'),
 			languages: store.findAll('language'),

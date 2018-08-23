@@ -3,6 +3,9 @@
 	<div class="form-step--item active">
 		<div class="row mb-2">
 			<div class="col-12">
+				<span class="form-title">Child's Personal Information</span>
+			</div>
+			<div class="col-12">
 				<label class="form-label">
 					Child Full Name
 					<span class="star">*</span>
@@ -67,73 +70,85 @@
 				</div>
 			</div>
 		</div>
-		<div class="row mb-3">
+		<div class="row">
 			<div class="col-12">
 				<label class="form-label">
-					Address
+					Child's Address
 					<span class="star">*</span>
 				</label>
 			</div>
-			<div class="col-12 col-sm-10">
+			<div class="col-12 col-sm-2">
+				<div class="form-group">
+					{{input type="number"
+									value=streetNumber
+									placeholder="Street Number"
+									class="form-control"}}
+				</div>
+			</div>
+			<div class="col-12 col-sm-8">
 				<div class="form-group">
 					{{input type="text"
 									value=streetName
-									placeholder="Street"
+									placeholder="Street Name"
 									class="form-control"}}
 				</div>
 			</div>
 			<div class="col-5 col-sm-2">
 				<div class="form-group">
 					{{input type="number"
-									value=streetNumber
+									value=apartmentNumber
 									placeholder="(Apt. #)"
 									min="0"
 									class="form-control"}}
 				</div>
 			</div>
+		</div>
+		<div class="row">
+			<div class="col-5">
+				<div class="form-group">
+					{{#power-select
+						placeholder="Select County..."
+						searchField="name"
+						selected=selectedCounties
+						options=child.counties
+						onchange=(action (mut selectedCounties)) as |county|}}
+						{{county.name}}
+					{{/power-select}}
+				</div>
+			</div>
+		</div>
+		<div class="row mb-3">
 			<div class="col-7 col-sm-4">
 				<div class="form-group">
-					<select id="citySelect"
-									value="citySelect"
-									class="form-control">
-						<option name="city" value="" hidden>Select City...</option>
-						{{#each child.cities as |city|}}
-							<option name="city" value="{{city.id}}">{{city.name}}</option>
-						{{/each}}
-					</select>
+					{{#power-select
+						placeholder="Select City..."
+						searchField="name"
+						selected=selectedCities
+						options=child.cities
+						onchange=(action (mut selectedCities)) as |city|}}
+						{{city.name}}
+					{{/power-select}}
 				</div>
 			</div>
-			<div class="col-7 col-sm-3">
+			<div class="col-7 col-sm-4">
 				<div class="form-group">
-					<select id="stateSelect"
-									value="stateData"
-									class="form-control">
-						<option name="state" value="" hidden>Select State...</option>
-						{{#each child.states as |state|}}
-							<option name="state" value="{{state.id}}">{{state.name}}</option>
-						{{/each}}
-					</select>
+					{{#power-select
+						placeholder="Select State..."
+						searchField="name"
+						selected=selectedStates
+						options=child.states
+						onchange=(action (mut selectedStates)) as |state|}}
+						{{state.name}}
+					{{/power-select}}
 				</div>
 			</div>
-			<div class="col-5 col-sm-2">
+			<div class="col-5 col-sm-3">
 				<div class="form-group">
 					{{input type="number"
 									value=zipcode
 									placeholder="Zip code"
 									min="0"
 									class="form-control"}}
-				</div>
-			</div>
-			<div class="col-12 col-sm-3">
-				<div class="form-group">
-					<select id="countySelect"
-									value="countyData"
-									class="form-control">
-						<option name="county" value="" hidden>Select County...</option>
-						{{#each child.counties as |county|}}
-							<option name="county" value="{{county.id}}">{{county.name}}</option>
-						{{/each}}
-					</select>
 				</div>
 			</div>
 		</div>
@@ -147,25 +162,9 @@
 					<select id="genderSelect"
 									value="gender"
 									class="form-control">
-						<option name="gender" value="" hidden>Select State...</option>
+						<option name="gender" value="" hidden>Select Gender...</option>
 						{{#each child.genders as |gender|}}
 							<option name="gender" value="{{gender.id}}">{{gender.name}}</option>
-						{{/each}}
-					</select>
-				</div>
-			</div>
-			<div class="col-12 col-sm-5">
-				<div class="form-group">
-					<label class="form-label">
-						Child’s Ethnicity:
-						<span class="star">*</span>
-					</label>
-					<select id="ethnicitySelect"
-									value="ethnicity"
-									class="form-control">
-						<option name="ethnicity" value="" hidden>Select Ethnicity...</option>
-						{{#each child.ethnicities as |ethnicity|}}
-							<option name="ethnicity" value="{{ethnicity.id}}">{{ethnicity.name}}</option>
 						{{/each}}
 					</select>
 				</div>
@@ -176,44 +175,88 @@
 						Child’s Primary Language:
 						<span class="star">*</span>
 					</label>
-					<select id="languageSelect"
-									value="language"
-									class="form-control">
-						<option name="language" value="" hidden>Select Primary Language...</option>
-						{{#each child.languages as |language|}}
-							<option name="language" value="{{language.id}}">{{language.name}}</option>
-						{{/each}}
-					</select>
+					{{#power-select
+						placeholder="Select Language..."
+						searchField="name"
+						selected=selectedLanguages
+						options=child.languages
+						onchange=(action (mut selectedLanguages)) as |language|}}
+						{{language.name}}
+					{{/power-select}}
 				</div>
 			</div>
 		</div>
+		<div class="row justify-content-between mb-2">
+			<div class="col-12">
+				<label class="form-label mb-4">
+					Child's Ethnicity:
+					<span class="star">*</span>
+				</label>
+			</div>
+				{{#each child.ethnicities as |ethnicity|}}
+				<div class="col-12 col-sm-4">
+					<div class="form-check mb-3">
+						{{input type="radio"
+										class="form-check-input ethnicity"
+										name="ethnicity"
+										change=(action "updateEthnicity" value="target.value")
+										id=ethnicity.id
+										value=ethnicity.id}}
+						<label for="{{ethnicity.id}}"
+									 class="form-check-label">
+							{{ethnicity.name}}
+						</label>
+					</div>
+				</div>
+				{{/each}}
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<span class="card--divider"></span>
+			</div>
+		</div>
+	</div>
+	<div class="form-step--item hidden">
 		<div class="row mt-3">
+			<div class="col-12">
+				<span class="form-title">Child's Counseling Information</span>
+			</div>
 			<div class="col-12">
 				<label class="form-label mb-3">
 					Check any topic(s) you would like addressed in counseling:
 					<span class="star">*</span>
 				</label>
 			</div>
-			{{#each child.topics as |topic|}}
+		</div>
+		{{#multiselect-checkboxes
+				tagName='div'
+				classNames='row mb-3'
+				options=child.topics
+				selection=selectedTopics
+				updateSelectionValue=false
+				onchange=(action 'updateTopics') as |topic isSelected|}}
 			<div class="col-12 col-sm-3">
 				<div class="form-check">
 					{{input type="checkbox"
+									id=(concat "topics" topic.id)
 									class="form-check-input counselingTopic"
-									name="topic"
-									checked=(concat "topics" topic.id)
-									id=(concat "topics" topic.id)}}
+									checked=isSelected}}
 					<label class="form-check-label checkbox" for="topics{{topic.id}}">
 						{{topic.topic}}
 					</label>
 				</div>
 			</div>
-			{{/each}}
+		{{/multiselect-checkboxes}}
+		<div class="row">
+			<div class="col-12">
+				<span class="card--divider"></span>
+			</div>
 		</div>
 	</div>
 	<div class="form-step--item hidden">
 		<div class="row mb-3">
-			<div class="col-12 mb-2">
-				<span class="form-title">School History</span>
+			<div class="col-12">
+				<span class="form-title">Child's School Information</span>
 			</div>
 			<div class="col-12 col-sm-5">
 				<div class="form-group">
@@ -221,14 +264,22 @@
 						Child's School
 						<span class="star">*</span>
 					</label>
-					<select id="schoolSelect"
+					{{!-- <select id="schoolSelect"
 									value="school"
 									class="form-control">
 						<option name="school" value="" hidden>Select School...</option>
 						{{#each child.schools as |school|}}
 							<option name="school" value="{{school.id}}">{{school.name}}</option>
 						{{/each}}
-					</select>
+					</select> --}}
+					{{#power-select
+						placeholder="Select School..."
+						searchField="name"
+						selected=selectedSchools
+						options=child.cities
+						onchange=(action (mut selectedSchools)) as |school|}}
+						{{school.name}}
+					{{/power-select}}
 				</div>
 			</div>
 			<div class="col-12 col-sm-7">
@@ -243,18 +294,26 @@
 				</div>
 			</div>
 		</div>
-		<div class="row mb-3">
+		<div class="row">
 			<div class="col-12">
 				<label class="form-label">
-					School's Address
+					Child's School's Address
 					<span class="star">*</span>
 				</label>
 			</div>
-			<div class="col-12 col-sm-10">
+			<div class="col-12 col-sm-2">
+				<div class="form-group">
+					{{input type="number"
+									value=streetNumber
+									placeholder="Street Number"
+									class="form-control"}}
+				</div>
+			</div>
+			<div class="col-12 col-sm-8">
 				<div class="form-group">
 					{{input type="text"
-									value=street
-									placeholder="Street"
+									value=streetName
+									placeholder="Street Name"
 									class="form-control"}}
 				</div>
 			</div>
@@ -262,39 +321,53 @@
 				<div class="form-group">
 					{{input type="number"
 									value=zipcode
-									placeholder="Zip Code"
+									placeholder="Zip code"
 									min="0"
 									class="form-control"}}
 				</div>
 			</div>
-			<div class="col-7 col-sm-8">
+		</div>
+		<div class="row mb-3">
+			<div class="col-5">
 				<div class="form-group">
-					<select id="citySelect"
-									value="citySelect"
-									class="form-control">
-						<option name="city" value="" hidden>Select City...</option>
-						{{#each child.cities as |city|}}
-							<option name="city" value="{{city.id}}">{{city.name}}</option>
-						{{/each}}
-					</select>
+					{{#power-select
+						placeholder="Select County..."
+						searchField="name"
+						selected=selectedCounties
+						options=child.counties
+						onchange=(action (mut selectedCounties)) as |county|}}
+						{{county.name}}
+					{{/power-select}}
 				</div>
 			</div>
 			<div class="col-7 col-sm-4">
 				<div class="form-group">
-					<select id="stateSelect"
-									value="stateData"
-									class="form-control">
-						<option name="state" value="" hidden>Select State...</option>
-						{{#each child.states as |state|}}
-							<option name="state" value="{{state.id}}">{{state.name}}</option>
-						{{/each}}
-					</select>
+					{{#power-select
+						placeholder="Select City..."
+						searchField="name"
+						selected=selectedCities
+						options=child.cities
+						onchange=(action (mut selectedCities)) as |city|}}
+						{{city.name}}
+					{{/power-select}}
+				</div>
+			</div>
+			<div class="col-7 col-sm-3">
+				<div class="form-group">
+					{{#power-select
+						placeholder="Select State..."
+						searchField="name"
+						selected=selectedStates
+						options=child.states
+						onchange=(action (mut selectedStates)) as |state|}}
+						{{state.name}}
+					{{/power-select}}
 				</div>
 			</div>
 		</div>
 		<div class="row mb-2">
-			<div class="col-12 mb-2">
-				<span class="form-title"> Child's Personal History</span>
+			<div class="col-12">
+				<span class="form-title">Child's Personal History</span>
 			</div>
 			<div class="col-12">
 				<label class="form-label mb-3">
@@ -390,23 +463,31 @@
 					rows="3"></textarea>
 			</div>
 		</div>
+		<div class="row">
+			<div class="col-12">
+				<span class="card--divider"></span>
+			</div>
+		</div>
 	</div>
 	<div class="form-step--item hidden">
 		<div class="row mb-3">
+			<div class="col-12">
+				<span class="form-title">Child's Personal History</span>
+			</div>
 			<div class="col-12 col-sm-9">
 				<label class="form-label mt-3">
-					What medications is your child presently taking
+					Medication(s) child is presently taking
 					<span class="star">*</span>
 				</label>
 				<div class="form-group">
-					<select id="medicationSelect"
-									value="medication"
-									class="form-control">
-						<option name="medication" value="" hidden>Select Medication...</option>
-						{{#each child.medications as |medication|}}
-							<option name="medication" value="{{medication.id}}">{{medication.name}}</option>
-						{{/each}}
-					</select>
+					{{#power-select-multiple
+						placeholder="Select Medication(s)..."
+						searchField="name"
+						selected=selectedMedications
+						options=child.medications
+						onchange=(action (mut selectedMedications)) as |medication|}}
+						{{medication.name}}
+					{{/power-select-multiple}}
 				</div>
 			</div>
 		</div>
@@ -486,7 +567,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="row align-items-center mb-4">
+		<div class="row justify-content-between mb-2 align-items-center">
 			<div class="col-12">
 				<label class="form-label mt-3">
 					Any family members with a drug or alcohol problem?
@@ -558,7 +639,7 @@
 					</label>
 				</div>
 			</div>
-			<div class="col-12 col-sm-7">
+			<div class="col-12">
 				<div class="form-check">
 					{{input type="radio"
 									class="form-check-input"
@@ -691,8 +772,6 @@
 				</div>
 			</div>
 		</div>
-	</div>
-	<div class="form-step--item hidden">
 		<div class="row mb-3">
 			<div class="col-12 col-sm-6">
 				<label class="form-label">
@@ -770,11 +849,210 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-12 mb-2">
-				<span class="form-title">CHILD’S FAMILY BACKGROUND</span>
+			<div class="col-12">
+				<span class="card--divider"></span>
 			</div>
-			<div class="col-12 ">
+		</div>
+	</div>
+	<div class="form-step--item hidden">
+		<div class="row">
+			<div class="col-12">
+				<span class="form-title">Child's Family Background</span>
+			</div>
+			<div class="col-12">
+				<label class="form-label">
+					Biological Mother
+				</label>
+			</div>
+			<div class="col-12 col-sm-4">
+				<div class="form-group">
+					{{input type="hidden"
+									name="type"
+									value=mother
+									placeholder="Type"}}
+					{{input type="text"
+									value=name
+									class="form-control"
+									placeholder="Full Name"}}
+				</div>
+			</div>
+			<div class="col-12 col-sm-2">
+				<div class="form-group">
+					{{input type="number"
+									value=motherAge
+									class="form-control"
+									placeholder="Age"}}
+				</div>
+			</div>
+			<div class="col-12 col-sm-6">
+				<div class="form-group">
+					{{input type="text"
+									value=motherOccupation
+									class="form-control"
+									placeholder="Occupation"}}
+				</div>
+			</div>
+			<div class="col-12">
+				<div class="form-group">
+					<textarea id="longStandingIllnesses"
+						placeholder="Health Problems"
+						class="form-control"
+						value="motherHealthProblems"
+						name="motherHealthProblems"
+						rows="3"></textarea>
+				</div>
+			</div>
+			<div class="col-12">
+				<label class="form-label mb-3">
+					Is Mother Deceased?
+					<span class="star">*</span>
+				</label>
+				{{inputs/toggle-radio
+						idValue="isDeceasedYes"
+						label="Yes"
+						name="isDeceased"
+						value="yes"
+						data-toggle="isDeceasedToggled"}}
+				{{inputs/toggle-radio
+						idValue="isDeceasedNo"
+						label="No"
+						name="isDeceased"
+						value="no"
+						data-toggle="isDeceasedToggled"}}
 
+				<div id="isDeceasedToggled" class="if-yes hidden">
+					<div class="col-12 col-sm-2">
+						<label class="form-label sub-label">Age at Time of Death</label>
+						<div class="form-group">
+							{{input type="number"
+											value=motherAgeAtDeath
+											class="form-control"}}
+						</div>
+					</div>
+					<div class="col-12 col-sm-2">
+						<label class="form-label sub-label">How old was the Child?</label>
+						<div class="form-group">
+							{{input type="number"
+											value=motherChildAgeWhenBioDied
+											class="form-control"}}
+						</div>
+					</div>
+					<div class="col-12">
+						<label class="form-label sub-label">Cause of Death</label>
+						<div class="form-group">
+							{{input type="text"
+											value=motherCauseOfDeath
+											class="form-control"}}
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-12 mt-3">
+				<label class="form-label">
+					Biological Father
+				</label>
+			</div>
+			<div class="col-12 col-sm-4">
+				<div class="form-group">
+					{{input type="hidden"
+									name="type"
+									value=father
+									placeholder="Type"}}
+					{{input type="text"
+									value=name
+									class="form-control"
+									placeholder="Full Name"}}
+				</div>
+			</div>
+			<div class="col-12 col-sm-2">
+				<div class="form-group">
+					{{input type="number"
+									value=fatherAge
+									class="form-control"
+									placeholder="Age"}}
+				</div>
+			</div>
+			<div class="col-12 col-sm-6">
+				<div class="form-group">
+					{{input type="text"
+									value=fatherOccupation
+									class="form-control"
+									placeholder="Occupation"}}
+				</div>
+			</div>
+			<div class="col-12">
+				<div class="form-group">
+					<textarea id="longStandingIllnesses"
+						placeholder="Health Problems"
+						class="form-control"
+						value="fatherHealthProblems"
+						name="fatherHealthProblems"
+						rows="3"></textarea>
+				</div>
+			</div>
+			<div class="col-12">
+				<label class="form-label mb-3">
+					Is Father Deceased?
+					<span class="star">*</span>
+				</label>
+				{{inputs/toggle-radio
+						idValue="fatherIsDeceasedYes"
+						label="Yes"
+						name="isDeceased"
+						value="yes"
+						data-toggle="fatherIsDeceasedToggled"}}
+				{{inputs/toggle-radio
+						idValue="fatherIsDeceasedNo"
+						label="No"
+						name="isDeceased"
+						value="no"
+						data-toggle="fatherIsDeceasedToggled"}}
+
+				<div id="fatherIsDeceasedToggled" class="if-yes hidden">
+					<div class="col-12 col-sm-2">
+						<label class="form-label sub-label">Age at Time of Death</label>
+						<div class="form-group">
+							{{input type="number"
+											value=fatherAgeAtDeath
+											class="form-control"}}
+						</div>
+					</div>
+					<div class="col-12 col-sm-2">
+						<label class="form-label sub-label">How old was the Child?</label>
+						<div class="form-group">
+							{{input type="number"
+											value=fatherChildAgeWhenBioDied
+											class="form-control"}}
+						</div>
+					</div>
+					<div class="col-12">
+						<label class="form-label sub-label">Cause of Death</label>
+						<div class="form-group">
+							{{input type="text"
+											value=fatherCauseOfDeath
+											class="form-control"}}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<span class="card--divider"></span>
+			</div>
+		</div>
+	</div>
+	<div class="form-step--item hidden">
+		<div class="col-12">
+			<span class="form-title">Child's Family Background</span>
+		</div>
+		<div class="row">
+
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<span class="card--divider"></span>
 			</div>
 		</div>
 	</div>

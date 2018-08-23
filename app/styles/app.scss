@@ -55,7 +55,14 @@
     outline: none !important;
 	}
 }
-
+.ember-power-select-multiple-trigger{
+	height: unset !important;
+	.ember-power-select-multiple-option{
+		background: #4b82c4;
+    color: #f1f1f1;
+    border-color: rgba(49, 108, 180, 0.56);
+	}
+}
 .select-filter{
 	position: relative;
 

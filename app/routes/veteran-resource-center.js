@@ -11,7 +11,7 @@ export default Route.extend(AuthenticatedRouteMixin, {
     return RSVP.hash({
 			branchofservices: store.findAll('branchofservice'),
 			ethnicities: store.findAll('ethnicity'),
-			discharges: store.findAll('militarydischargetype'),
+			// discharges: store.findAll('militarydischargetype'),
       genders: store.findAll('gender')
     });
   }
