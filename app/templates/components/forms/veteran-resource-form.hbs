@@ -10,8 +10,6 @@
 					Referred By:
 					<span class="star">*</span>
 				</label>
-			</div>
-			<div class="col-12">
 				<div class="form-group">
 					{{input type="text"
 									class="form-control"
@@ -70,14 +68,6 @@
 						Branch of Service:
 						<span class="star">*</span>
 					</label>
-					{{!-- <select id="branchOfServiceSelect"
-									value="branchOfService"
-									class="form-control">
-						<option name="branch" value="" hidden>Select Branch of Service...</option>
-						{{#each veteran.branchofservices as |branch|}}
-							<option name="branchOfService" value="{{branch.id}}">{{branch.name}}</option>
-						{{/each}}
-					</select> --}}
 					{{#power-select
 						placeholder="Select Branch of Service..."
 						searchField="name"
@@ -94,14 +84,6 @@
 						Type of Discharge:
 						<span class="star">*</span>
 					</label>
-					{{!-- <select id="dischargeSelect"
-									value="militaryDischargeType"
-									class="form-control">
-						<option name="discharge" value="" hidden>Select Discharge Type...</option>
-						{{#each veteran.discharges as |discharge|}}
-							<option name="militaryDischargeType" value="{{discharge.id}}">{{discharge.name}}</option>
-						{{/each}}
-					</select> --}}
 					{{#power-select
 						placeholder="Select Discharge Type..."
 						searchField="name"
@@ -114,7 +96,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-12 col-sm-5">
+			<div class="col-12 col-sm-3">
 				<div class="form-group">
 					<label class="form-label" for="genderSelect">
 						Gender
@@ -130,17 +112,24 @@
 					</select>
 				</div>
 			</div>
-			<div class="col-12 col-sm-2">
+			<div class="col-12 col-sm-4">
 				<div class="form-group">
 					<label class="form-label">
-						Age
+						Date of Birth
 						<span class="star">*</span>
 					</label>
-					{{input type="number"
-									value=age
-									placeholder="XX"
-									min="0"
-									class="form-control"}}
+						<div class="input-group">
+							{{input type="date"
+											value=dateOfBirth
+											class="form-control datepicker date"
+											autocomplete="false"}}
+							<div class="input-group-prepend">
+								<span class="input-group-text">
+									{{fa-icon "calendar"
+														ariaLabel="Pick a Date"}}
+								</span>
+							</div>
+						</div>
 				</div>
 			</div>
 			<div class="col-12 col-sm-5">
@@ -149,15 +138,6 @@
 						Ethnicity
 						<span class="star">*</span>
 					</label>
-					{{!-- <select id="ethnicitySelect"
-									value="ethnicity"
-									class="form-control">
-						{{#each veteran.ethnicities as |ethnicity|}}
-							<option name="ethnicity" value="{{ethnicity.id}}">
-								{{ethnicity.name}}
-							</option>
-						{{/each}}
-					</select> --}}
 					{{#power-select
 						placeholder="Select..."
 						searchField="name"
@@ -180,12 +160,12 @@
 			<div class="col-12">
 				<span class="form-title">Personal Information</span>
 			</div>
-			<div class="col-12 col-sm-5">
+			<div class="col-12">
 				<label class="form-label">
 					Home Income:
 					<span class="star">*</span>
 				</label>
-				<div class="form-group">
+				<div class="form-group w-25">
 					{{input type="number"
 									placeholder="XXXXXX"
 									class="form-control"
@@ -193,7 +173,7 @@
 									value=householdIncome}}
 				</div>
 			</div>
-			<div class="col-12 col-sm-3">
+			<div class="col-12 col-sm-2">
 				<label class="form-label">
 					DD214?
 					<span class="star">*</span>
@@ -221,7 +201,7 @@
 					</label>
 				</div>
 			</div>
-			<div class="col-12 col-sm-4">
+			<div class="col-12 col-sm-3">
 				<label class="form-label">
 					Registered With VA:
 					<span class="star">*</span>
@@ -247,6 +227,19 @@
 								 class="form-check-label">
 						No
 					</label>
+				</div>
+			</div>
+			<div class="col-12 col-sm-3">
+				<label class="form-label">
+					VA ID:
+					<span class="star">*</span>
+				</label>
+				<div class="form-group">
+					{{input type="number"
+									placeholder="XXXXXX"
+									class="form-control"
+									id="vaId"
+									value=vaId}}
 				</div>
 			</div>
 		</div>
