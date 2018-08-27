@@ -15,7 +15,7 @@ export default Component.extend({
       let reportProps,
         reportCriteriaProps,
         report,
-        columns,
+      //  columns,
         criteria,
         store = this.get("store");
       // getting the properites of reportProps and reportCriteriaProps
@@ -25,7 +25,7 @@ export default Component.extend({
       // create report record
       report = store.createRecord("report", reportProps);
       // store all the created records of reportcolumn
-      columns = [
+      let columns = [
         store.createRecord("reportcolumn", {
           header: this.get("header1"),
           tableName: this.get("tableName1"),
@@ -50,7 +50,7 @@ export default Component.extend({
       ];
 
       // map method to save each column and set results to columns
-      RSVP.all(columns.products.map(column => column.save()).then((columns) => {
+      RSVP.all(columns.map(column => column.save()).then((columns) => {
         report.set("reportcolumn", columns);
         //saving report before saving other records
         report.save().then(() => {
