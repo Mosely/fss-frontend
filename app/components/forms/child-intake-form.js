@@ -12,7 +12,7 @@ export default Component.extend({
 				this.set("ethnicity", model);
 			});
 		},
-		updateTopics(newSelection, value) {
+		updateTopics(newSelection) {
 			let topics, store = this.get("store");
 			this.set("selectedTopics", newSelection);
 			topics = this.get("selectedTopics");

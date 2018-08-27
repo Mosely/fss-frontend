@@ -11,7 +11,6 @@ export default Component.extend({
 
 		cancelDeletingUser() {
 			this.set('userToDelete', null);
-			console.log(this.get('userToDelete'));
 		},
 		deleteUser(user) {
 			return user.destroyRecord().then(() => {

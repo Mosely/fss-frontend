@@ -26,6 +26,7 @@ export default Controller.extend({
 
       //calling authenticate method to authenticate user
       session.authenticate(authenticator, credentials).then((users) => {
+        console.log(users);
         // parseBase64 just converts the base64 encoded string to a javascript object
         let t = parseBase64(this.get('session.data.authenticated.access_token'));
         console.log("Test "+t['sub']);

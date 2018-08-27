@@ -365,6 +365,11 @@
 				</div>
 			</div>
 		</div>
+		<div class="row">
+			<div class="col-12">
+				<span class="card--divider"></span>
+			</div>
+		</div>
 		<div class="row mb-2">
 			<div class="col-12">
 				<span class="form-title">Child's Personal History</span>
@@ -1039,6 +1044,19 @@
 		</div>
 		<div class="row">
 			<div class="col-12">
+				<label class="form-label" aria-label="Who Else Raised Child">
+					Who else has helped raise the child?
+				</label>
+				<div class="form-group">
+					{{input type="text"
+									value=whoElseRaisedChild
+									class="form-control"
+									placeholder="Grandparents, Adoptive Parents, Foster Family, etc."}}
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12">
 				<span class="card--divider"></span>
 			</div>
 		</div>
@@ -1048,7 +1066,16 @@
 			<span class="form-title">Child's Family Background</span>
 		</div>
 		<div class="row">
-
+			<div class="col-12">
+				<label class="form-label sub-label">Guardian 1</label>
+			</div>
+			<div class="col-12 col-sm-4">
+				<div class="form-group">
+					{{input type="text"
+									value=guardianNameOne
+									class="form-control"}}
+				</div>
+			</div>
 		</div>
 		<div class="row">
 			<div class="col-12">

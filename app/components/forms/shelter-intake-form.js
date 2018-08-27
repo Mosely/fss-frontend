@@ -25,8 +25,8 @@ export default Component.extend({
 			this.set("fundingsource", fundingSources);
 		},
 		triggerSave() {
-			console.log(this.get("selectedIdenties"));
-			console.log(this.get("fundingSources"));
+			// console.log(this.get("selectedIdenties"));
+			// console.log(this.get("fundingSources"));
 			// this.get("selectedTopics").forEach((topic) => {
 			// 	console.log(topic.id);
 			// });
