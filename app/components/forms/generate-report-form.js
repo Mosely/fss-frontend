@@ -25,7 +25,7 @@ export default Component.extend({
       // create report record
       report = store.createRecord("report", reportProps);
       // store all the created records of reportcolumn
-       columns = [
+      columns = [
         store.createRecord("reportcolumn", {
           header: this.get("header1"),
           tableName: this.get("tableName1"),
