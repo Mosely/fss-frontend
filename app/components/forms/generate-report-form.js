@@ -15,6 +15,7 @@ export default Component.extend({
       let reportProps,
         reportCriteriaProps,
         report,
+        column,
         columns,
         criteria,
         store = this.get("store");
