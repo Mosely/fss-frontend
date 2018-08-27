@@ -15,7 +15,7 @@ export default Component.extend({
       let reportProps,
         reportCriteriaProps,
         report,
-      //  columns,
+        columns,
         criteria,
         store = this.get("store");
       // getting the properites of reportProps and reportCriteriaProps
@@ -25,7 +25,7 @@ export default Component.extend({
       // create report record
       report = store.createRecord("report", reportProps);
       // store all the created records of reportcolumn
-      let columns = [
+       columns = [
         store.createRecord("reportcolumn", {
           header: this.get("header1"),
           tableName: this.get("tableName1"),
