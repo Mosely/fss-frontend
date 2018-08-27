@@ -50,7 +50,7 @@ export default Component.extend({
       ];
 
       // map method to save each column and set results to columns
-      RSVP.all(columns.map(column => column.save()).then((columns) => {
+      RSVP.all(columns.products.map(column => column.save()).then((columns) => {
         report.set("reportcolumn", columns);
         //saving report before saving other records
         report.save().then(() => {
