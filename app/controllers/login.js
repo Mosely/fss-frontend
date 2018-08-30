@@ -33,12 +33,12 @@ export default Controller.extend({
         console.log(t);
         console.table(t);
         //session.data.scope = t['scopes'];
-        console.table(this.get('session.data.authenticated.scope'));
+        //console.table(this.get('session.data.authenticated.scope'));
         // 'sub' is the user's id, as per the JWT draft specification
         this.store.findRecord('user', t['sub']).then((user) => {
           // we can store the current user in the ember-simple-auth session
           this.set('currentUser', user);
-          console.table(this.get('session.data.authenticated.scope'));
+          //console.table(this.get('session.data.authenticated.scope'));
         });
         //this.store.queryRecord('user', {}).then((user) => {
         //this.store.findRecord('user', id).then((user) => {
