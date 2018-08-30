@@ -113,6 +113,7 @@ Router.map(function () {
   this.route('shelter-intake');
   this.route('child-intake');
   this.route('generate-report');
+  this.route('patients');
 });
 
 export default Router;
