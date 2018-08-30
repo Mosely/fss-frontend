@@ -23,7 +23,7 @@ function parseBase64(token) {
 export default OAuth2PasswordGrantAuthenticator.extend({
   tokenEndpoint: `${config.host}`,
   currentUser: service("current-user"),
-
+  session: service('session'),
   //tokenEndpoint: `http://nginx3.pantheon.local/login`,
 
   restore(data) {
@@ -70,8 +70,9 @@ export default OAuth2PasswordGrantAuthenticator.extend({
           });
         });
         let t = parseBase64(access_token);
+        session.data.scope = t['scopes'];
         console.log(t['scopes']);
-        console.table(t);
+        //console.table(session.data.scope);
       },
       error => {
         // Wrapping aync operation in Ember.run

@@ -17,7 +17,7 @@ export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
   session: service('session'),
   authorize(xhr) {
     let { access_token } = this.get('session.data.authenticated');
-
+    console.table(this.get('session.data.scope'));
     xhr.setRequestHeader('Authorization', `Bearer ${access_token}`);
     // debugger;
   }, 
