@@ -19,7 +19,7 @@ export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
     let { access_token } = this.get('session.data.authenticated');
     console.table(this.get('session.data.scope'));
     xhr.setRequestHeader('Authorization', `Bearer ${access_token}`);
-    xhr.setRequestHeader('TestingScope', this.get('session.data.scope'));
+    //xhr.setRequestHeader('TestingScope', this.get('session.data.scope'));
     // debugger;
   }, 
   urlForQueryRecord(query, modelName) {
