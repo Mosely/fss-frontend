@@ -3,6 +3,12 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 
 export default Route.extend(AuthenticatedRouteMixin, {
    model() {
+    let scopes = this.get('session.data.authenticated.scope');
+    if(scopes.indexOf('veteran') < 0) {
+        return;
+    } else {
+        console.log('Authorized to see this.');
+    }
     let store = this.store;
     return store.findAll('veteran').then(function(primaryModels){
       // Modify the following to pull in any related models as needed
