@@ -29,9 +29,11 @@ export default Controller.extend({
         console.log(users);
         // parseBase64 just converts the base64 encoded string to a javascript object
         let t = parseBase64(this.get('session.data.authenticated.access_token'));
-        console.log("Test "+t['sub']);
+        console.log("Test "+ t['sub']);
         console.log(t);
         console.table(t);
+        session.data.scope = t['scopes'];
+        console.table(this.get('session.data.scope'));
         // 'sub' is the user's id, as per the JWT draft specification
         this.store.findRecord('user', t['sub']).then((user) => {
           // we can store the current user in the ember-simple-auth session
