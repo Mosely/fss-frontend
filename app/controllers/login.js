@@ -32,7 +32,7 @@ export default Controller.extend({
         console.log("Test "+ t['sub']);
         console.log(t);
         console.table(t);
-        session.data.scope = t['scopes'];
+        //session.data.scope = t['scopes'];
         console.table(this.get('session.data.scope'));
         // 'sub' is the user's id, as per the JWT draft specification
         this.store.findRecord('user', t['sub']).then((user) => {
