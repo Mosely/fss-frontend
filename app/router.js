@@ -22,7 +22,10 @@ Router.map(function () {
   this.route('branch-of-service', { path: '/branchesofservice/:id' });
   this.route('city-data', { path: '/citydata/:id' });
   this.route('city-data-extended', { path: '/citydataextended/:id' });
-  this.route('client', { path: '/clients/:id' });
+  this.route('clients', function() {
+    this.route('client', { path: '/:id' });
+    this.route('edit', { path: '/edit/:id' });
+  });
   this.route('client-ethnicity', { path: '/clientethnicities/:id' });
   this.route('client-language', { path: '/clientlanguages/:id' });
   this.route('counselee', { path: '/counselees/:id' });
@@ -68,7 +71,6 @@ Router.map(function () {
   this.route('branches-of-service', { path: '/branchesofservice' });
   this.route('city-datas', { path: '/citydata' });
   this.route('city-data-extendeds', { path: '/citydataextended' });
-  this.route('clients', { path: '/clients' });
   this.route('client-ethnicities', { path: '/clientethnicities' });
   this.route('client-languages', { path: '/clientlanguages' });
   this.route('counselees', { path: '/counselees' });
