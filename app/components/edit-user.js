@@ -37,8 +37,7 @@ export default Component.extend({
       updatedUser.rollbackAttributes();
     },
     deleteUser() {
-      let updatedPerson,
-        updatedUser;
+      let updatedUser;
       updatedPerson = this.get("user.person", this.get("user.person.id"), {
         backgroundReload: false
       });

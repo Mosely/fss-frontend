@@ -13,7 +13,7 @@ export default Component.extend({
 			});
 		},
 		updateTopics(newSelection) {
-			let topics, store = this.get("store");
+			let topics;
 			this.set("selectedTopics", newSelection);
 			topics = this.get("selectedTopics");
 			this.set("counselingtopic", topics);

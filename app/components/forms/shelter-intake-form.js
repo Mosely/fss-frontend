@@ -12,14 +12,14 @@ export default Component.extend({
 				this.set("ethnicity", model);
 			});
 		},
-		updateIdenties(newSelection, value) {
-			let identies, store = this.get("store");
+		updateIdenties(newSelection) {
+			let identies;
 			this.set("selectedIdenties", newSelection);
 			identies = this.get("selectedIdenties");
 			this.set("identitypreference", identies);
 		},
-		updateFundingSources(newSelection, value) {
-			let fundingSources, store = this.get("store");
+		updateFundingSources(newSelection) {
+			let fundingSources;
 			this.set("selectedFundingSources", newSelection);
 			fundingSources = this.get("selectedFundingSources");
 			this.set("fundingsource", fundingSources);

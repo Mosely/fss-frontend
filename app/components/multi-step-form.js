@@ -11,8 +11,7 @@ export default Component.extend({
   currentItem: 0, // Variable to keep the current index of the multi-step-form.
 
   didInsertElement() {
-    let i,
-      next,
+    let next,
       submit,
       item = document.querySelectorAll(".form-step--item");
     (next = document.getElementById("next")),

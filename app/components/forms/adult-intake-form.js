@@ -13,14 +13,14 @@ export default Component.extend({
 				this.set("ethnicity", model);
 			});
 		},
-		updateTopics(newSelection, value) {
-			let topics, store = this.get("store");
+		updateTopics(newSelection) {
+			let topics;
 			this.set("selectedTopics", newSelection);
 			topics = this.get("selectedTopics");
 			this.set("counselingtopic", topics);
 		},
-		updateDrugUse(newSelection, value) {
-			let drugs, store = this.get("store");
+		updateDrugUse(newSelection) {
+			let drugs;
 			this.set("selectedDrugs", newSelection);
 			drugs = this.get("selectedDrugs");
 			this.set("druguse", drugs);
