@@ -16,9 +16,9 @@
 					<div class="detail">
 						<h4 class="detail-title"> Full Name: </h4>
 						<span class="detail-value">
-							{{currentUser.user.person.firstName}}
-							{{currentUser.user.middleName}}
-							{{currentUser.user.person.lastName}}
+							{{user.person.firstName}}
+							{{user.person.middleName}}
+							{{user.person.lastName}}
 						</span>
 					</div>
 				</div>
@@ -33,14 +33,14 @@
 				<div class="col-5">
 					<div class="detail">
 						<h4 class="detail-title"> User Email: </h4>
-						<span class="detail-value"> {{currentUser.user.email}} </span>
+						<span class="detail-value"> {{user.email}} </span>
 					</div>
 				</div>
 				<div class="col-4">
 					<div class="detail">
 						<h4 class="detail-title"> Password Created At: </h4>
 						<span class="detail-value">
-							{{moment-format currentUser.user.passwordCreatedAt 'YYYY-MM-DD HH:mm'}}
+							{{moment-format user.passwordCreatedAt 'YYYY-MM-DD HH:mm'}}
 						</span>
 					</div>
 				</div>

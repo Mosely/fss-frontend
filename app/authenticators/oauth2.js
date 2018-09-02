@@ -67,7 +67,8 @@ export default OAuth2PasswordGrantAuthenticator.extend({
           resolve({
             access_token: access_token,
             refresh_token: refresh_token,
-            scope: parseBase64(access_token)['scopes']
+            scope: parseBase64(access_token)['scopes'],
+            current_user: parseBase64(access_token)['sub']
           });
         });
         //let t = parseBase64(access_token);
