@@ -1,7 +1,7 @@
 <main class="page-container">
 	<div class="page-card">
 		<div class="page-card--header">
-			<h4 class="header--title">All Patients</h4>
+			<h4 class="header--title">All Clients</h4>
 		</div>
 		<div class="container">
 			<div class="row">
@@ -16,7 +16,7 @@
 							</div>
 							<div class="table-body">
 								{{#each model as |singleClient|}}
-									{{patient-listing client=singleClient}}
+									{{client-listing client=singleClient}}
 								{{/each}}
 							</div>
 						</div>

@@ -1,0 +1,49 @@
+<div class="container">
+	<div class="row">
+		<div class="col-2">
+			<div class="detail">
+				<h4 class="detail-title"> User ID: </h4>
+				<span class="detail-value"> {{client.id}} </span>
+			</div>
+		</div>
+		<div class="col-7">
+			<div class="detail">
+				<h4 class="detail-title"> Full Name: </h4>
+				<span class="detail-value">
+					{{client.person.firstName}}
+					{{client.person.middleName}}
+					{{client.person.lastName}}
+				</span>
+			</div>
+		</div>
+		<div class="col-3">
+			<div class="detail">
+				<h4 class="detail-title"> User Age: </h4>
+				<span class="detail-value"> {{client.person.age}} </span>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-5">
+			<div class="detail">
+				<h4 class="detail-title"> User Email: </h4>
+				<span class="detail-value"> {{client.email}} </span>
+			</div>
+		</div>
+		<div class="col-4">
+			<div class="detail">
+				<h4 class="detail-title"> Password Created At: </h4>
+				<span class="detail-value">
+					{{moment-format client.passwordCreatedAt 'YYYY-MM-DD HH:mm'}}
+				</span>
+			</div>
+		</div>
+		<div class="col-3">
+			<div class="detail">
+				<h4 class="detail-title"> Date of Birth: </h4>
+				<span class="detail-value"> {{moment-format client.person.dateOfBirth 'YYYY-MM-DD'}}</span>
+			</div>
+		</div>
+	</div>
+</div>
+{{yield}}
