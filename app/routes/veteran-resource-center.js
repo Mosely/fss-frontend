@@ -9,19 +9,19 @@ export default Route.extend(AuthenticatedRouteMixin, {
 	model(){
 		let store = this.store;
 		let scopes = this.get('session.data.authenticated.scope');
-    if( scopes.indexOf('veteran') < 0 ) {
+		if( scopes.indexOf('veteran') < 0 ) {
 			// transition to dashboard and display unauthorizedmessage
-      this.transitionTo('dashboard');
+		  this.transitionTo('dashboard');
 			alert('Not Authorized');
 			return false;
-    } else {
-      console.log('Authorized to see this.');
-    }
-    return RSVP.hash({
+		} else {
+		  console.log('Authorized to see this.');
+		}
+		return RSVP.hash({
 			branchofservices: store.findAll('branchofservice'),
 			ethnicities: store.findAll('ethnicity'),
 			// discharges: store.findAll('militarydischargetype'),
-      genders: store.findAll('gender')
-    });
-  }
+		  genders: store.findAll('gender')
+		});
+	}
 });
