@@ -3,8 +3,13 @@ import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mi
 import { inject as service } from '@ember/service';
 
 export default Route.extend(ApplicationRouteMixin, {
-	currentUser: service(),
 
+	model() {
+		let scopes = this.get('session.data.authenticated.scope');
+		if (scopes) {
+			console.table(scopes);
+		}
+	}
 	// afterModel() {
 	// 	return this.transitionTo('login');
 	// },
