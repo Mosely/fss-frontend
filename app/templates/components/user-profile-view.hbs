@@ -3,8 +3,12 @@
 		<h4 class="header--title">User Profile</h4>
 	</div>
 	<div class="card--content">
-		<span class="profile--title">My Profile Details</span>
 		<div class="container">
+			<div class="row">
+				<div class="col-12 mb-2">
+					<span class="form-title">My Profile Details</span>
+				</div>
+			</div>
 			<div class="row">
 				<div class="col-2">
 					<div class="detail">
@@ -54,6 +58,11 @@
 		</div>
 	</div>
 	<div class="card--footer center-block">
-		<button type="button" class="btn btn-blue"> Edit Details</button>
+		{{#link-to "users.edit" user.id
+			title="Edit User"
+			class="btn btn-blue"}}
+			{{fa-icon "edit"}}
+			Edit Details
+		{{/link-to}}
 	</div>
 </div>
