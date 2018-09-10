@@ -1,5 +1,46 @@
 <div class="container">
 	<div class="row">
+		<div class="col-12">
+			<span class="form-title">Client Personal Information</span>
+		</div>
+	</div>
+	<div class="row mb-3">
+		<div class="col-12 col-sm-2">
+			<div class="single-detail">
+				<h5 class="single-detail--label">ID:</h5>
+				<span class="single-detail--value">{{client.id}}</span>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-12 col-sm-3">
+			<div class="single-detail">
+				<h5 class="single-detail--label">First Name:</h5>
+				<span class="single-detail--value">{{client.person.firstName}}</span>
+			</div>
+		</div>
+		<div class="col-12 col-sm-3">
+			<div class="single-detail">
+				<h5 class="single-detail--label">Middle Name:</h5>
+				<span class="single-detail--value">{{client.person.middleName}}</span>
+			</div>
+		</div>
+		<div class="col-12 col-sm-3">
+			<div class="single-detail">
+				<h5 class="single-detail--label">Last Name:</h5>
+				<span class="single-detail--value">{{client.person.lastName}}</span>
+			</div>
+		</div>
+		<div class="col-12 col-sm-3">
+			<div class="single-detail">
+				<h5 class="single-detail--label">Gender:</h5>
+				<span class="single-detail--value">{{client.person.gender.name}}</span>
+			</div>
+		</div>
+	</div>
+</div>
+{{!-- <div class="container">
+	<div class="row">
 		<div class="col-2">
 			<div class="detail">
 				<h4 class="detail-title"> User ID: </h4>
@@ -50,4 +91,4 @@
 		</div>
 	</div>
 </div>
-{{yield}}
+{{yield}} --}}

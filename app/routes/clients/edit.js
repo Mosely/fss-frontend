@@ -1,17 +1,21 @@
-import Route from '@ember/routing/route';
-import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
+import Route from "@ember/routing/route";
+import AuthenticatedRouteMixin from "ember-simple-auth/mixins/authenticated-route-mixin";
 
 export default Route.extend(AuthenticatedRouteMixin, {
-   model() {
+  model(params) {
     let store = this.store;
-    return store.findAll('client').then(function(primaryModels){
-      // Modify the following to pull in any related models as needed
-      primaryModels.forEach(primaryModel => {
-        store.findRecord('person', primaryModel.id).then(function(secondaryModel) {
-          primaryModel.set('person', secondaryModel);
+    return store
+      .findRecord("client", params.id, { reload: true })
+      .then(client => {
+        store.findRecord("person", client.id, { reload: true }).then(person => {
+          client.set("person", person);
+          store
+            .findRecord("gender", person.get("genderId"), { reload: true })
+            .then(gender => {
+              person.set("gender", gender);
+            });
         });
+        return client;
       });
-      return primaryModels;
-    });
-   }
+  }
 });
