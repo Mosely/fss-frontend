@@ -1,19 +1,32 @@
 /**
  * All Users Styles
 **/
-
+.single-detail {
+  .single-detail--label {
+    position: relative;
+    display: block;
+    color: #424242;
+    font-size: 1.2em;
+    text-transform: uppercase;
+  }
+  .single-detail--value {
+    font-size: 1em;
+    font-weight: 500;
+    color: #626262;
+  }
+}
 /**
  * Action Styles
 **/
-.btn-action{
+.btn-action {
   padding: 0 0.35em;
 }
-.profile{
+.profile {
   color: $logo-blue;
 }
-.edit{
+.edit {
   color: $logo-green;
 }
-.delete{
+.delete {
   color: $error-red;
 }
