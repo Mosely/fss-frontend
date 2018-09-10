@@ -26,8 +26,12 @@
 	<div class="row">
 		<div class="col-5">
 			<div class="detail">
-				<h4 class="detail-title"> User Email: </h4>
-				<span class="detail-value"> {{client.email}} </span>
+				<h4 class="detail-title"> Has Family Who is Service Member or Veteran </h4>
+				{{#if client.hasFamilyWhoIsServiceMemberOrVeteran}}
+					<span class="detail-value"> Yes </span>
+				{{else}}
+					<span class="detail-value"> No </span>
+				{{/if}}
 			</div>
 		</div>
 		<div class="col-4">
