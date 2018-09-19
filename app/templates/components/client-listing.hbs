@@ -2,6 +2,7 @@
 	<div class="col-1 table-item">{{client.id}}</div>
 	<div class="col-3 table-item">{{client.person.firstName}} {{client.person.lastName}}</div>
 	<div class="col-1 table-item">{{client.person.age}}</div>
+	<div class="col-2 table-item">{{client.person.gender.name}}</div>
 	<div class="col-2 table-item">
 		{{#link-to "clients.client" client.id
 			title="View Client"

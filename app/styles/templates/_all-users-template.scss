@@ -5,14 +5,15 @@
   .single-detail--label {
     position: relative;
     display: block;
-    color: #424242;
-    font-size: 1.2em;
-    text-transform: uppercase;
+    color: #1c1c1c;
+    font-size: 16px;
+    text-transform: capitalize;
+    font-weight: 600;
   }
   .single-detail--value {
     font-size: 1em;
     font-weight: 500;
-    color: #626262;
+    color: #181818;
   }
 }
 /**
