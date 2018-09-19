@@ -12,7 +12,7 @@
 			</div>
 		</div>
 	</div> --}}
-	<div class="row">
+	{{!-- <div class="row mb-2">
 		<div class="col-12 col-sm-3">
 			<div class="single-detail">
 				<h5 class="single-detail--label">First Name:</h5>
@@ -37,6 +37,54 @@
 				<span class="single-detail--value">{{client.person.gender.name}}</span>
 			</div>
 		</div>
+	</div> --}}
+	<div class="row mb-3">
+		<div class="col-12 col-sm-3">
+			<div class="single-detail">
+				<h5 class="single-detail--label">First Name:</h5>
+				<span class="single-detail--value">{{client.person.firstName}}</span>
+			</div>
+		</div>
+		<div class="col-12 col-sm-3">
+			<div class="single-detail">
+				<h5 class="single-detail--label">Middle Name:</h5>
+				<span class="single-detail--value">{{client.person.middleName}}</span>
+			</div>
+		</div>
+		<div class="col-12 col-sm-3">
+			<div class="single-detail">
+				<h5 class="single-detail--label">Last Name:</h5>
+				<span class="single-detail--value">{{client.person.lastName}}</span>
+			</div>
+		</div>
+		<div class="col-12 col-sm-2">
+			<div class="single-detail">
+				<h5 class="single-detail--label">Gender:</h5>
+				<span class="single-detail--value">{{client.person.gender.name}}</span>
+			</div>
+		</div>
+		<div class="col-12">
+      <div class="light-divider"></div>
+    </div>
+	</div>
+	<div class="row">
+		<div class="col-12 col-sm-2">
+			<div class="single-detail">
+				<h5 class="single-detail--label">Date of Birth:</h5>
+				<span class="single-detail--value">
+					{{moment-format client.person.dateOfBirth 'YYYY-MM-DD'}}
+				</span>
+			</div>
+		</div>
+		<div class="col-12 col-sm-1">
+			<div class="single-detail">
+				<h5 class="single-detail--label">Age:</h5>
+				<span class="single-detail--value">{{client.person.age}}</span>
+			</div>
+		</div>
+		<div class="col-12">
+      <div class="light-divider"></div>
+    </div>
 	</div>
 </div>
 {{!-- <div class="container">
