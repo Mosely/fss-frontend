@@ -3,7 +3,7 @@
 **/
 .btn-card,
 .btn-blue,
-.btn-blue--lt{
+.btn-blue--lt {
   cursor: pointer;
   padding: 0.375em 2em;
   background: $light-blue;
@@ -13,28 +13,28 @@
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
 
-  &:hover{
+  &:hover {
     background: #0070f7;
+    color: #fff;
   }
-  &:focus{
+  &:focus {
     -webkit-box-shadow: unset;
-            box-shadow: unset;
+    box-shadow: unset;
   }
-  &:disabled{
-
-    &:hover{
+  &:disabled {
+    &:hover {
       background: #2a8aff;
     }
   }
 }
-.btn-blue--lt{
+.btn-blue--lt {
   background: rgba(42, 138, 255, 0.54);
 
-  &:hover{
+  &:hover {
     background: rgba(42, 138, 255, 0.74);
   }
 }
-.btn-delete{
+.btn-delete {
   cursor: pointer;
   border-radius: 2px;
   opacity: 0.7;
@@ -47,9 +47,10 @@
   -webkit-box-shadow: unset;
   box-shadow: unset;
 
-  &:hover{
+  &:hover {
     opacity: 1;
-    -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16),
+      0 3px 6px rgba(0, 0, 0, 0.23);
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   }
 }

@@ -15,6 +15,11 @@ export default Route.extend(AuthenticatedRouteMixin, {
       .then(function(user) {
         user.set("currentUser", user);
         store.findRecord("person", user.id).then(function(person) {
+          store
+            .findRecord("gender", person.get("genderId"))
+            .then(function(gender) {
+              person.set("gender", gender);
+            });
           user.set("person", person);
         });
         return user;

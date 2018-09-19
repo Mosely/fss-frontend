@@ -4,41 +4,13 @@
 			<span class="form-title dark">Client Personal Information</span>
 		</div>
 	</div>
-	{{!-- <div class="row mb-3">
-		<div class="col-12 col-sm-2">
+	<div class="row mb-3">
+		<div class="col-12 col-sm-1">
 			<div class="single-detail">
 				<h5 class="single-detail--label">ID:</h5>
 				<span class="single-detail--value">{{client.id}}</span>
 			</div>
 		</div>
-	</div> --}}
-	{{!-- <div class="row mb-2">
-		<div class="col-12 col-sm-3">
-			<div class="single-detail">
-				<h5 class="single-detail--label">First Name:</h5>
-				<span class="single-detail--value">{{client.person.firstName}}</span>
-			</div>
-		</div>
-		<div class="col-12 col-sm-3">
-			<div class="single-detail">
-				<h5 class="single-detail--label">Middle Name:</h5>
-				<span class="single-detail--value">{{client.person.middleName}}</span>
-			</div>
-		</div>
-		<div class="col-12 col-sm-3">
-			<div class="single-detail">
-				<h5 class="single-detail--label">Last Name:</h5>
-				<span class="single-detail--value">{{client.person.lastName}}</span>
-			</div>
-		</div>
-		<div class="col-12 col-sm-3">
-			<div class="single-detail">
-				<h5 class="single-detail--label">Gender:</h5>
-				<span class="single-detail--value">{{client.person.gender.name}}</span>
-			</div>
-		</div>
-	</div> --}}
-	<div class="row mb-3">
 		<div class="col-12 col-sm-3">
 			<div class="single-detail">
 				<h5 class="single-detail--label">First Name:</h5>
@@ -80,6 +52,66 @@
 			<div class="single-detail">
 				<h5 class="single-detail--label">Age:</h5>
 				<span class="single-detail--value">{{client.person.age}}</span>
+			</div>
+		</div>
+		<div class="col-12 col-sm-3">
+			<div class="single-detail">
+				<h5 class="single-detail--label">Social Security Number</h5>
+				<span class="single-detail--value">
+					{{client.socialSecurityNumber}}
+				</span>
+			</div>
+		</div>
+		<div class="col-12">
+      <div class="light-divider"></div>
+    </div>
+	</div>
+	<div class="row mt-5 mb-3">
+		<div class="col-12">
+			<span class="form-title dark">Client Related Veteran Information</span>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-12 col-sm-3">
+			<div class="single-detail">
+				<h5 class="single-detail--label">
+					Is Service Member or Veteran?
+				</h5>
+				<span class="single-detail--value">
+					{{#if client.isServiceMemberOrVeteran}}
+						Yes
+					{{else}}
+						No
+					{{/if}}
+				</span>
+			</div>
+		</div>
+		<div class="col-12 col-sm-3">
+			<div class="single-detail">
+				<h5 class="single-detail--label">
+					Has Family who is service member or veteran
+				</h5>
+				<span class="single-detail--value">
+					{{#if client.hasFamilyWhoIsServiceMemberOrVeteran}}
+						Yes
+					{{else}}
+						No
+					{{/if}}
+				</span>
+			</div>
+		</div>
+		<div class="col-12 col-sm-3">
+			<div class="single-detail">
+				<h5 class="single-detail--label">
+					Referred by veteran resource center?
+				</h5>
+				<span class="single-detail--value">
+					{{#if client.isReferredByVeteranResourceCenter}}
+						Yes
+					{{else}}
+						No
+					{{/if}}
+				</span>
 			</div>
 		</div>
 		<div class="col-12">

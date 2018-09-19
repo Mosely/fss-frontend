@@ -4,56 +4,88 @@
 	</div>
 	<div class="card--content">
 		<div class="container">
-			<div class="row">
-				<div class="col-12 mb-2">
-					<span class="form-title">My Profile Details</span>
+			<div class="row mb-4">
+				<div class="col-12">
+					<span class="form-title dark">Personal Information</span>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-2">
-					<div class="detail">
-						<h4 class="detail-title"> User ID: </h4>
-						<span class="detail-value"> {{user.id}} </span>
+			<div class="row mb-3">
+				<div class="col-12 col-sm-1">
+					<div class="single-detail">
+						<h5 class="single-detail--label">ID:</h5>
+						<span class="single-detail--value">{{user.id}}</span>
 					</div>
 				</div>
-				<div class="col-7">
-					<div class="detail">
-						<h4 class="detail-title"> Full Name: </h4>
-						<span class="detail-value">
-							{{user.person.firstName}}
-							{{user.person.middleName}}
-							{{user.person.lastName}}
+				<div class="col-12 col-sm-3">
+					<div class="single-detail">
+						<h5 class="single-detail--label">First Name:</h5>
+						<span class="single-detail--value">{{user.person.firstName}}</span>
+					</div>
+				</div>
+				<div class="col-12 col-sm-3">
+					<div class="single-detail">
+						<h5 class="single-detail--label">Middle Name:</h5>
+						{{#if user.person.middleName}}
+							<span class="single-detail--value">{{user.person.middleName}}</span>
+						{{else}}
+							No middle name provided
+						{{/if}}
+					</div>
+				</div>
+				<div class="col-12 col-sm-3">
+					<div class="single-detail">
+						<h5 class="single-detail--label">Last Name:</h5>
+						<span class="single-detail--value">{{user.person.lastName}}</span>
+					</div>
+				</div>
+				<div class="col-12 col-sm-2">
+					<div class="single-detail">
+						<h5 class="single-detail--label">Gender:</h5>
+						<span class="single-detail--value">{{user.person.gender.name}}</span>
+					</div>
+				</div>
+				<div class="col-12">
+		      <div class="light-divider"></div>
+		    </div>
+			</div>
+			<div class="row">
+				<div class="col-12 col-sm-4">
+					<div class="single-detail">
+						<h5 class="single-detail--label">Email:</h5>
+						<span class="single-detail--value">
+							{{#if user.email}}
+								<a class="detail-link" href="mailto:{{user.email}}">{{user.email}}</a>
+							{{else}}
+								No email provided
+							{{/if}}
 						</span>
 					</div>
 				</div>
-				<div class="col-3">
-					<div class="detail">
-						<h4 class="detail-title"> User Age: </h4>
-						<span class="detail-value"> {{user.person.age}} </span>
+				<div class="col-12 col-sm-2">
+					<div class="single-detail">
+						<h5 class="single-detail--label">Date of Birth:</h5>
+						<span class="single-detail--value">
+							{{moment-format user.person.dateOfBirth 'YYYY-MM-DD'}}
+						</span>
 					</div>
 				</div>
-			</div>
-			<div class="row">
-				<div class="col-5">
-					<div class="detail">
-						<h4 class="detail-title"> User Email: </h4>
-						<span class="detail-value"> {{user.email}} </span>
+				<div class="col-12 col-sm-1">
+					<div class="single-detail">
+						<h5 class="single-detail--label">Age:</h5>
+						<span class="single-detail--value">{{user.person.age}}</span>
 					</div>
 				</div>
-				<div class="col-4">
-					<div class="detail">
-						<h4 class="detail-title"> Password Created At: </h4>
-						<span class="detail-value">
+				<div class="col-12 col-sm-3">
+					<div class="single-detail">
+						<h5 class="single-detail--label">Password Created At:</h5>
+						<span class="single-detail--value">
 							{{moment-format user.passwordCreatedAt 'YYYY-MM-DD HH:mm'}}
 						</span>
 					</div>
 				</div>
-				<div class="col-3">
-					<div class="detail">
-						<h4 class="detail-title"> Date of Birth: </h4>
-						<span class="detail-value"> {{moment-format user.person.dateOfBirth 'YYYY-MM-DD'}}</span>
-					</div>
-				</div>
+				<div class="col-12">
+		      <div class="light-divider"></div>
+		    </div>
 			</div>
 		</div>
 	</div>
