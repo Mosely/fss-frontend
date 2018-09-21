@@ -4,8 +4,8 @@
 			<span class="form-title dark">Client Personal Information</span>
 		</div>
 	</div>
-	<div class="row mb-3">
-		<div class="col-12 col-sm-1">
+	<div class="row">
+		<div class="col-12 col-md-1">
 			<div class="single-detail">
 				<h5 class="single-detail--label">ID:</h5>
 				<span class="single-detail--value">{{client.id}}</span>
@@ -29,18 +29,20 @@
 				<span class="single-detail--value">{{client.person.lastName}}</span>
 			</div>
 		</div>
-		<div class="col-12 col-sm-2">
+		<div class="col-12 col-sm-3 col-md-2">
 			<div class="single-detail">
 				<h5 class="single-detail--label">Gender:</h5>
 				<span class="single-detail--value">{{client.person.gender.name}}</span>
 			</div>
 		</div>
+	</div>
+	<div class="row mb-3">
 		<div class="col-12">
       <div class="light-divider"></div>
     </div>
 	</div>
 	<div class="row">
-		<div class="col-12 col-sm-2">
+		<div class="col-12 col-sm-4 col-md-2">
 			<div class="single-detail">
 				<h5 class="single-detail--label">Date of Birth:</h5>
 				<span class="single-detail--value">
@@ -48,13 +50,13 @@
 				</span>
 			</div>
 		</div>
-		<div class="col-12 col-sm-1">
+		<div class="col-12 col-sm-2 col-md-1">
 			<div class="single-detail">
 				<h5 class="single-detail--label">Age:</h5>
 				<span class="single-detail--value">{{client.person.age}}</span>
 			</div>
 		</div>
-		<div class="col-12 col-sm-3">
+		<div class="col-12 col-sm-6 col-md-3">
 			<div class="single-detail">
 				<h5 class="single-detail--label">Social Security Number</h5>
 				<span class="single-detail--value">
@@ -62,9 +64,26 @@
 				</span>
 			</div>
 		</div>
+		<div class="col-12 col-md-4">
+			<div class="single-detail">
+				<h5 class="single-detail--label">
+					Place of Employment
+				</h5>
+				<span class="single-detail--value">
+					{{ client.placeOfEmployment }}
+				</span>
+			</div>
+		</div>
+	</div>
+	<div class="row mb-3">
 		<div class="col-12">
       <div class="light-divider"></div>
     </div>
+	</div>
+	<div class="row">
+		<div class="col-12 col">
+
+		</div>
 	</div>
 	<div class="row mt-5 mb-3">
 		<div class="col-12">
