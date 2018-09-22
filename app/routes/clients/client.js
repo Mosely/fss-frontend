@@ -5,6 +5,9 @@ export default Route.extend(AuthenticatedRouteMixin, {
   model(params) {
     let store = this.store;
     return this.store.findRecord("client", params.id).then(function(client) {
+      store.findRecord("clientethnicity", client.id).then(function(ethnicity) {
+        client.set("clientEthnicities", ethnicity);
+      });
       store.findRecord("person", client.id).then(function(person) {
         client.set("person", person);
         store
