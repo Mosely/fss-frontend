@@ -4,6 +4,16 @@ import AuthenticatedRouteMixin from "ember-simple-auth/mixins/authenticated-rout
 export default Route.extend(AuthenticatedRouteMixin, {
   model() {
     let store = this.store;
+    let scopes = this.get("session.data.authenticated.scope");
+    if (scopes.indexOf("user") < 0) {
+      // transition to dashboard and display unauthorizedmessage
+      this.transitionTo("dashboard").then(function() {
+        alert("You Are Not Authorized");
+      });
+      return false;
+    } else {
+      console.log("Authorized to see this.");
+    }
     return store.findAll("user", { reload: true }).then(function(users) {
       users.forEach(user => {
         store

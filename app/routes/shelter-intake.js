@@ -15,7 +15,7 @@ export default Route.extend(AuthenticatedRouteMixin, {
     if (scopes.indexOf("shelter_client") < 0) {
       // transition to dashboard and display unauthorizedmessage
       this.transitionTo("dashboard").then(function() {
-        alert("Not Authorized");
+        alert("You Are Not Authorized");
       });
       return false;
     } else {

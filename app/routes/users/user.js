@@ -5,6 +5,16 @@ export default Route.extend(AuthenticatedRouteMixin, {
   // NOTE: May ahve to deserialize the returned date for it to display
   model(params) {
     let store = this.store;
+    let scopes = this.get("session.data.authenticated.scope");
+    if (scopes.indexOf("user") < 0) {
+      // transition to dashboard and display unauthorizedmessage
+      this.transitionTo("dashboard").then(function() {
+        alert("You Are Not Authorized");
+      });
+      return false;
+    } else {
+      console.log("Authorized to see this.");
+    }
     return store
       .findRecord("user", params.id, { reload: true })
       .then(function(user) {

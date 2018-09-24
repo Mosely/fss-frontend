@@ -5,10 +5,10 @@ export default Route.extend(AuthenticatedRouteMixin, {
   model(params) {
     let store = this.store;
     let scopes = this.get("session.data.authenticated.scope");
-    if (scopes.indexOf("veteran") < 0) {
+    if (scopes.indexOf("shelter_client_identity_preference") < 0) {
       // transition to dashboard and display unauthorizedmessage
       this.transitionTo("dashboard");
-      alert("Not Authorized");
+      alert("You Are Not Authorized");
       return false;
     } else {
       console.log("Authorized to see this.");

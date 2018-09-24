@@ -1,10 +1,20 @@
-import Route from '@ember/routing/route';
-import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
+import Route from "@ember/routing/route";
+import AuthenticatedRouteMixin from "ember-simple-auth/mixins/authenticated-route-mixin";
 
 export default Route.extend(AuthenticatedRouteMixin, {
-   model() {
+  model() {
     let store = this.store;
-    return store.findAll('personphone').then(function(primaryModels){
+    let scopes = this.get("session.data.authenticated.scope");
+    if (scopes.indexOf("person_phone") < 0) {
+      // transition to dashboard and display unauthorizedmessage
+      this.transitionTo("dashboard").then(function() {
+        alert("You Are Not Authorized");
+      });
+      return false;
+    } else {
+      console.log("Authorized to see this.");
+    }
+    return store.findAll("personphone").then(function(primaryModels) {
       // Modify the following to pull in any related models as needed
       //primaryModels.forEach(primaryModel => {
       //  store.findRecord('REPLACEWITHRELATEDMODEL', primaryModel.id).then(function(secondaryModel) {
@@ -13,5 +23,5 @@ export default Route.extend(AuthenticatedRouteMixin, {
       //});
       return primaryModels;
     });
-   }
+  }
 });
