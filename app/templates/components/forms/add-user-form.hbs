@@ -94,7 +94,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-12">
+			<div class="col-12 col-sm-6">
 				<div class="form-group">
 					<label class="form-label">
 						Password
@@ -102,8 +102,25 @@
 					</label>
 					{{input type="password"
 									value=password
-									class="form-control required"}}
+									class="form-control required password"}}
 				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 col-sm-6">
+				<div class="form-group">
+					<label class="form-label">
+						Comfirm Password
+						<span class="star">*</span>
+					</label>
+					{{input type="password"
+									value=passwordConfirm
+									class="form-control required password"}}
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12">
 				<div class="card--details">
 					<span class="star">*</span>
 					Required Fields

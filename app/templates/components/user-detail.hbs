@@ -40,7 +40,19 @@
     </div>
 	</div>
 	<div class="row">
-		<div class="col-12 col-sm-4">
+		<div class="col-12 col-sm-3">
+			<div class="single-detail">
+				<h5 class="single-detail--label">User Username:</h5>
+				<span class="single-detail--value">
+					{{#if user.username}}
+						{{user.username}}
+					{{else}}
+						No username provided by user
+					{{/if}}
+				</span>
+			</div>
+		</div>
+		<div class="col-12 col-sm-3">
 			<div class="single-detail">
 				<h5 class="single-detail--label">User Email:</h5>
 				<span class="single-detail--value">

@@ -30,6 +30,7 @@ export default Component.extend({
       let personProps,
         userProps,
         newPerson,
+        userPassword,
         newUser,
         store = this.get("store");
 
@@ -39,18 +40,35 @@ export default Component.extend({
         "lastName",
         "dateOfBirth"
       );
-      newPerson = store.createRecord("person", personProps);
-      newPerson.set("gender", this.get("gender"));
-      userProps = this.getProperties("username", "email", "password");
+      console.log(this.get("password"));
+      console.log(this.get("passwordConfirm"));
+      let pwInput = document.querySelectorAll(".password");
+      if (this.get("password") != this.get("passwordConfirm")) {
+        for (let i = 0; i < pwInput.length; i++) {
+          pwInput[i].classList.add("invalid");
+        }
+        console.log("Not Matching");
+      } else {
+        for (let i = 0; i < pwInput.length; i++) {
+          if (pwInput[i].classList.contains("invalid")) {
+            pwInput[i].classList.remove("invalid");
+          }
+        }
+        console.log("Matching");
+        newPerson = store.createRecord("person", personProps);
+        newPerson.set("gender", this.get("gender"));
 
-      newPerson.save().then(() => {
-        let pid = parseInt(newPerson.get("id"));
-        newUser = store.createRecord("user", userProps);
-        newUser.set("id", pid);
-        return newUser.save().then(() => {
-          this.get("router").transitionTo("users");
+        userProps = this.getProperties("username", "email", "password");
+
+        newPerson.save().then(() => {
+          let pid = parseInt(newPerson.get("id"));
+          newUser = store.createRecord("user", userProps);
+          newUser.set("id", pid);
+          return newUser.save().then(() => {
+            this.get("router").transitionTo("users");
+          });
         });
-      });
+      }
     }
   }
 });
