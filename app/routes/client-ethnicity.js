@@ -14,6 +14,11 @@ export default Route.extend(AuthenticatedRouteMixin, {
     } else {
       console.log("Authorized to see this.");
     }
-    return store.findRecord("clientethnicity", params.id);
+    return store
+      .findRecord("clientethnicity", params.id)
+      .then(function(clientethnicity) {
+        store.findRecord("ethnicity", clientethnicity.get("ethnicityId"));
+        return clientethnicity;
+      });
   }
 });
