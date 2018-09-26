@@ -8,6 +8,7 @@ export default DS.Model.extend({
   hasFamilyWhoIsServiceMemberOrVeteran: DS.attr("boolean"),
   isReferredByVeteranResourceCenter: DS.attr("boolean"),
   referral: DS.attr("string"),
+  clientEthnicitiesId: DS.attr("number"),
 
   //relationships, if any
   updatedBy: DS.belongsTo("user", { async: false }),
