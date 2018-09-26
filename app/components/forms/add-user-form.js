@@ -40,8 +40,6 @@ export default Component.extend({
         "lastName",
         "dateOfBirth"
       );
-      console.log(this.get("password"));
-      console.log(this.get("passwordConfirm"));
       let pwInput = document.querySelectorAll(".password");
       if (this.get("password") != this.get("passwordConfirm")) {
         for (let i = 0; i < pwInput.length; i++) {
