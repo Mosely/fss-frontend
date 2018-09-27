@@ -67,20 +67,23 @@
 		<div class="col-12 col-md-4">
 			<div class="single-detail">
 				<h5 class="single-detail--label">
-					Place of Employment
+					Ethnicity
 				</h5>
 				<span class="single-detail--value">
-					{{ client.placeOfEmployment }}
+					{{ client.clientethnicity.name }}
 				</span>
 			</div>
 		</div>
 		<div class="col">
 			<div class="single-detail">
 				<h5 class="single-detail--label">
-					Ethnicity
+					Language
 				</h5>
 				<span class="single-detail--value">
-					{{ client.clientethnicity.name }}
+					{{!-- {{ client.clientlanguage.name }} --}}
+					{{#each client.clientlanguage as |language| }}
+						{{ language.languageId }}
+					{{/each}}
 				</span>
 			</div>
 		</div>
@@ -91,9 +94,21 @@
     </div>
 	</div>
 	<div class="row">
-		<div class="col-12 col">
-
+		<div class="col-12 col-md-4">
+			<div class="single-detail">
+				<h5 class="single-detail--label">
+					Place of Employment
+				</h5>
+				<span class="single-detail--value">
+					{{ client.placeOfEmployment }}
+				</span>
+			</div>
 		</div>
+	</div>
+	<div class="row mb-3">
+		<div class="col-12">
+      <div class="light-divider"></div>
+    </div>
 	</div>
 	<div class="row mt-5 mb-3">
 		<div class="col-12">

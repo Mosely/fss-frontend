@@ -26,6 +26,18 @@ export default Route.extend(AuthenticatedRouteMixin, {
               });
           });
         });
+      store
+        .query("clientlanguage", { client_id: client.id })
+        .then(function(clientlanguage) {
+          client.set("clientlanguage", clientlanguage);
+          // clientlanguage.forEach(function(language) {
+          //   store
+          //     .findRecord("language", language.get("languageId"))
+          //     .then(function(language) {
+          //       client.set("clientlanguage", language);
+          //     });
+          // });
+        });
       store.findRecord("person", client.id).then(function(person) {
         client.set("person", person);
         store
