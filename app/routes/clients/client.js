@@ -16,9 +16,9 @@ export default Route.extend(AuthenticatedRouteMixin, {
     }
     return store.findRecord("client", params.id).then(function(client) {
       store
-        .query("clientethnicity", { clientId: client.id })
+        .query("clientethnicity", { client_id: client.id })
         .then(function(clientethnicity) {
-          client.set("clientethnicity", clientethnicity);
+          console.log(clientethnicity);
         });
       store.findRecord("person", client.id).then(function(person) {
         client.set("person", person);

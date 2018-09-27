@@ -17,7 +17,6 @@ export default Route.extend(AuthenticatedRouteMixin, {
     return store
       .findRecord("clientethnicity", params.id)
       .then(function(clientethnicity) {
-        store.findRecord("ethnicity", clientethnicity.get("ethnicityId"));
         return clientethnicity;
       });
   }

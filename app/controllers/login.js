@@ -14,7 +14,6 @@ function parseBase64(token) {
 export default Controller.extend({
   // injecting session service
   session: service("session"),
-  currentUser: service("current-user"),
 
   actions: {
     authenticate() {
