@@ -18,7 +18,13 @@ export default Route.extend(AuthenticatedRouteMixin, {
       store
         .query("clientethnicity", { client_id: client.id })
         .then(function(clientethnicity) {
-          console.log(clientethnicity);
+          clientethnicity.forEach(function(ethnicity) {
+            store
+              .findRecord("ethnicity", ethnicity.get("ethnicityId"))
+              .then(function(ethnicity) {
+                client.set("clientethnicity", ethnicity);
+              });
+          });
         });
       store.findRecord("person", client.id).then(function(person) {
         client.set("person", person);
