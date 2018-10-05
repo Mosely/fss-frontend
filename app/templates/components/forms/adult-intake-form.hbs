@@ -89,11 +89,19 @@
 										class="form-control required"}}
 					</div>
 				</div>
-				<div class="col-12 col-sm-8">
+				<div class="col-12 col-sm-6">
 					<div class="form-group">
 						{{input type="text"
 										value=streetName
 										placeholder="Street Name"
+										class="form-control required"}}
+					</div>
+				</div>
+				<div class="col-5 col-sm-2">
+					<div class="form-group">
+						{{input type="text"
+										value=streetSuffix
+										placeholder="Street Suffix"
 										class="form-control required"}}
 					</div>
 				</div>
@@ -161,6 +169,21 @@
 										placeholder="Zip code"
 										min="0"
 										class="form-control required"}}
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12">
+					<div class="form-group">
+						{{x-toggle
+							value=isPrimary
+							showLabels=true
+							theme="light"
+							size="medium"
+							onLabel="Is Primary"
+							offLabel=""
+							onToggle=(action (mut isPrimary))
+						}}
 					</div>
 				</div>
 			</div>
