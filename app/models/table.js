@@ -1,9 +1,9 @@
-import DS from 'ember-data';
+import DS from "ember-data";
 
 export default DS.Model.extend({
   //attributes, if any
-	tablesInFss: DS.attr('string'),
+  tablesInFss: DS.attr("string"),
 
   //relationships, if any
-	tableColumns: DS.hasMany('tablecolumn', { async: false })
+  tableColumns: DS.hasMany("tablecolumn", { async: false })
 });

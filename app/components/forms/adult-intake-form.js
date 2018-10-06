@@ -53,15 +53,16 @@ export default Component.extend({
       );
       // Setting newAddress to newly created record
       let newAddress = store.createRecord("address", addressProps);
+      // Setting newAddress cityData, stateData, countyData properties
+      newAddress.set("cityData", this.get("selectedCities"));
+      newAddress.set("stateData", this.get("selectedStates"));
+      newAddress.set("countyData", this.get("selectedCounties"));
+
       let personAddress = store.createRecord("personAddresses", {
         personId: newPerson.get("id"),
         addressId: newAddress.get("id"),
         isPrimary: this.get("isPrimary")
       });
-      // Setting newAddress cityData, stateData, countyData properties
-      newAddress.set("cityData", this.get("selectedCities"));
-      newAddress.set("stateData", this.get("selectedStates"));
-      newAddress.set("countyData", this.get("selectedCounties"));
 
       // Getting client proerties
       let clientProps = this.getProperties(
