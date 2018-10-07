@@ -28,7 +28,7 @@ export default Component.extend({
     /**
      * Creates a record to save a new patient
      *
-     * @return the saved records of the person then user model.
+     * @return the saved records of the person and client.
      **/
     triggerSave() {
       let personProps,
@@ -43,7 +43,12 @@ export default Component.extend({
       );
       // Setting newPerson to newly created record
       newPerson = store.createRecord("person", personProps);
+      //Saving the newPerson object
       newPerson.save().then(function(person) {
+        /**
+         * Creating and saving address and personaddress records and
+         * setting properties.
+         **/
         // Getting address props
         let addressProps = this.getProperties(
           "streetNumber",
@@ -52,22 +57,46 @@ export default Component.extend({
           "apartmentNumber",
           "zipcode"
         );
-        // Setting newAddress to newly created record
+        // creating newAddress record
         let newAddress = store.createRecord("address", addressProps);
-        // Setting newAddress cityData, stateData, countyData properties
+        // Saving newAddress then setting properties
         newAddress.save().then(function(address) {
           address.set("cityData", this.get("selectedCities"));
           address.set("stateData", this.get("selectedStates"));
           address.set("countyData", this.get("selectedCounties"));
+          // Creating personAddress record and setting it to personAddresses
           let personAddress = store.createRecord("personaddress", {
             personId: person.get("id"),
             addressId: address.get("id"),
-            isPrimary: this.get("isPrimary")
+            isPrimary: this.get("isPrimaryAddress")
           });
           person.set("personAddresses", personAddress);
         });
-        console.log("Yeet " + person.get("id"));
-        console.log("Yeet2 " + person.get("personAddresses"));
+
+        /**
+         * Creating and saving phone and personphone records and
+         * setting properties.
+         **/
+        // getting phone properties
+        let phoneProps = this.getProperties(
+          "areaCode",
+          "phoneNumber",
+          "extension",
+          "phoneType"
+        );
+        // creating newPhone record
+        let newPhone = store.createRecord("phone", phoneProps);
+        // saving newPhone and personPhone record and setting properties
+        newPhone.save().then(function(phone) {
+          let personPhone = store.createRecord("personphone", {
+            personId: person.get("id"),
+            phoneId: phone.get("id"),
+            isPrimary: this.get("isPrimaryPhone"),
+            canCall: this.get("canCall")
+          });
+        });
+
+        // returning person object model
         // return person;
       });
 

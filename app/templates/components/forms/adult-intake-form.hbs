@@ -176,13 +176,13 @@
 				<div class="col-12">
 					<div class="form-group">
 						{{x-toggle
-							value=isPrimary
+							value=isPrimaryAddress
 							showLabels=true
 							theme="light"
 							size="medium"
 							onLabel="Is Primary"
 							offLabel=""
-							onToggle=(action (mut isPrimary))
+							onToggle=(action (mut isPrimaryAddress))
 						}}
 					</div>
 				</div>
@@ -252,136 +252,88 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col">
+				<div class="col-12">
 					<label class="form-label mt-3">
-						Work Phone:
+						Clent Phone:
 					</label>
-					<div class="form-group phone-number">
-						( {{input type="number"
-										min="0"
-										class="form-control number"
-										name="areaCode"
-										placeholder="XXX"
-										value=areaCode}} )
-						{{input type="number"
-										min="0"
-										class="form-control number phone"
-										name="phoneNumber"
-										placeholder="XXX-XXXX"
-										value=phoneNumber}}
-					</div>
-					<label class="block">
-						May we call you here?
-					</label>
-					<div class="form-check inline-block">
-						{{input type="radio"
-										class="form-check-input"
-										name="canCall"
-										id="canCallWorkYes"
-										value=yes}}
-						<label for="canCallWorkYes"
-									 class="form-check-label">
-							Yes
-						</label>
-					</div>
-					<div class="form-check inline-block">
-						{{input type="radio"
-										class="form-check-input"
-										name="canCall"
-										id="canCallWorkNo"
-										value=no}}
-						<label for="canCallWorkNo"
-									 class="form-check-label">
-							No
-						</label>
+				</div>
+				<div class="col-12">
+					<div class="row">
+						<div class="col-3">
+							<div class="form-group">
+								<select
+									id="medicationSelect"
+									value="medication"
+									onchange={{action (mut phoneType) value="target.value"}}
+									class="form-control">
+										<option value="" hidden>Phone Type...</option>
+										<option value="HOME">Home</option>
+										<option value="MOBILE">Mobile</option>
+										<option value="WORK">Work</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-4">
+							<div class="form-group phone-number">
+								( {{input type="number"
+												min="0"
+												class="form-control number"
+												name="areaCode"
+												placeholder="XXX"
+												value=areaCode}} )
+								{{input type="number"
+												min="0"
+												class="form-control number phone"
+												name="phoneNumber"
+												placeholder="XXX-XXXX"
+												value=phoneNumber}}
+							</div>
+						</div>
+						<div class="col-2">
+							<div class="form-group">
+								{{input type="number"
+												min="0"
+												class="form-control"
+												placeholder="(Ext. #)"
+												value=extension}}
+							</div>
+						</div>
 					</div>
 				</div>
-				<div class="col">
-					<label class="form-label mt-3">
-						Home Phone:
-					</label>
-					<div class="form-group phone-number">
-						( {{input type="number"
-										min="0"
-										class="form-control number"
-										name="areaCode"
-										placeholder="XXX"
-										value=areaCode}} )
-						{{input type="number"
-										min="0"
-										class="form-control number phone"
-										name="phoneNumber"
-										placeholder="XXX-XXXX"
-										value=phoneNumber}}
-					</div>
-					<label class="block">
-						May we call you here?
-					</label>
-					<div class="form-check inline-block">
-						{{input type="radio"
-										class="form-check-input"
-										name="canCall"
-										id="canCallHomeYes"
-										value=yes}}
-						<label for="canCallHomeYes"
-									 class="form-check-label">
-							Yes
-						</label>
-					</div>
-					<div class="form-check inline-block">
-						{{input type="radio"
-										class="form-check-input"
-										name="canCall"
-										id="canCallHomeNo"
-										value=no}}
-						<label for="canCallHomeNo"
-									 class="form-check-label">
-							No
-						</label>
-					</div>
-				</div>
-				<div class="col">
-					<label class="form-label mt-3">
-						Cell Phone:
-					</label>
-					<div class="form-group phone-number">
-						( {{input type="number"
-										min="0"
-										class="form-control number"
-										name="areaCode"
-										placeholder="XXX"
-										value=areaCode}} )
-						{{input type="number"
-										min="0"
-										class="form-control number phone"
-										name="phoneNumber"
-										placeholder="XXX-XXXX"
-										value=phoneNumber}}
-					</div>
-					<label class="block">
-						May we call you here?
-					</label>
-					<div class="form-check inline-block">
-						{{input type="radio"
-										class="form-check-input"
-										name="canCall"
-										id="canCallCellYes"
-										value=yes}}
-						<label for="canCallCellYes"
-									 class="form-check-label">
-							Yes
-						</label>
-					</div>
-					<div class="form-check inline-block">
-						{{input type="radio"
-										class="form-check-input"
-										name="canCall"
-										id="canCallCellNo"
-										value=no}}
-						<label for="canCallCellNo"
-									 class="form-check-label">
-							No
-						</label>
+				<div class="col-12">
+					<div class="row">
+						<div class="col-3">
+							<label class="block">
+								Can Call?
+							</label>
+							<div class="form-group">
+								{{x-toggle
+									value=canCall
+									showLabels=true
+									theme="light"
+									size="medium"
+									onLabel="Yes"
+									offLabel="No"
+									onToggle=(action (mut canCall))
+								}}
+							</div>
+						</div>
+						<div class="col-3">
+							<label class="block">
+								Is Primary?
+							</label>
+							<div class="form-group">
+								{{x-toggle
+									value=isPrimaryPhone
+									showLabels=true
+									theme="light"
+									size="medium"
+									onLabel="Yes"
+									offLabel="No"
+									onToggle=(action (mut isPrimaryPhone))
+								}}
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
