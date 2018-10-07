@@ -12,7 +12,7 @@ export default Route.extend(AuthenticatedRouteMixin, {
       });
       return false;
     } else {
-      console.log("Authorized to see this.");
+       return true
     }
     return store.findAll("clientethnicity").then(function(ethnicity) {
       // Modify the following to pull in any related models as needed

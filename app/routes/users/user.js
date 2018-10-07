@@ -13,7 +13,7 @@ export default Route.extend(AuthenticatedRouteMixin, {
       });
       return false;
     } else {
-      console.log("Authorized to see this.");
+       return true
     }
     return store
       .findRecord("user", params.id, { reload: true })

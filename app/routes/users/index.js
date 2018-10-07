@@ -12,7 +12,7 @@ export default Route.extend(AuthenticatedRouteMixin, {
       });
       return false;
     } else {
-      console.log("Authorized to see this.");
+       return true
     }
     return store.findAll("user", { reload: true }).then(function(users) {
       users.forEach(user => {

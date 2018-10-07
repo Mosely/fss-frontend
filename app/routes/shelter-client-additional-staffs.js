@@ -11,7 +11,7 @@ export default Route.extend(AuthenticatedRouteMixin, {
       alert("You Are Not Authorized");
       return false;
     } else {
-      console.log("Authorized to see this.");
+       return true
     }
     return store
       .findAll("shelterclientadditionalstaff")

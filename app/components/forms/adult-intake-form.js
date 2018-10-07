@@ -94,6 +94,7 @@ export default Component.extend({
             isPrimary: this.get("isPrimaryPhone"),
             canCall: this.get("canCall")
           });
+          person.set("personPhones", personPhone);
         });
 
         // returning person object model
