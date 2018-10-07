@@ -45,21 +45,19 @@ export default Component.extend({
         for (let i = 0; i < pwInput.length; i++) {
           pwInput[i].classList.add("invalid");
         }
-        console.log("Not Matching");
       } else {
         for (let i = 0; i < pwInput.length; i++) {
           if (pwInput[i].classList.contains("invalid")) {
             pwInput[i].classList.remove("invalid");
           }
         }
-        console.log("Matching");
         newPerson = store.createRecord("person", personProps);
         newPerson.set("gender", this.get("gender"));
 
         userProps = this.getProperties("username", "email", "password");
 
-        newPerson.save().then(() => {
-          let pid = parseInt(newPerson.get("id"));
+        newPerson.save().then(function(person) {
+          let pid = parseInt(person.get("id"));
           newUser = store.createRecord("user", userProps);
           newUser.set("id", pid);
           return newUser.save().then(() => {

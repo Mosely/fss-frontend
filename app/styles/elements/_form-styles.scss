@@ -12,13 +12,44 @@
   font-size: 1em !important;
   font-weight: 600 !important;
 }
+.datepicker {
+  &::-webkit-input-placeholder {
+    color: #939393 !important;
+  }
+
+  &:-ms-input-placeholder {
+    color: #939393 !important;
+  }
+
+  &::-ms-input-placeholder {
+    color: #939393 !important;
+  }
+
+  &::placeholder {
+    color: #939393 !important;
+  }
+}
 .form-control {
   border: 1px solid #eeeeef;
-  color: #999999;
+  color: #2d2d2d;
   border-radius: 3px;
   background: rgba(238, 238, 239, 0.5);
   transition: all 0.3s ease;
+  &::-webkit-input-placeholder {
+    color: #939393;
+  }
 
+  &:-ms-input-placeholder {
+    color: #939393;
+  }
+
+  &::-ms-input-placeholder {
+    color: #939393;
+  }
+
+  &::placeholder {
+    color: #939393;
+  }
   &:focus {
     border-color: #dedede;
     background-color: #fcfeff;
@@ -263,4 +294,27 @@
 .star {
   color: $error-red;
   padding-left: 5px;
+}
+/**
+ * Toggle Button
+**/
+.x-toggle-light {
+  &.x-toggle-btn {
+    background: #f6f6f7;
+  }
+}
+.x-toggle {
+  &:checked + label {
+    > .x-toggle-light {
+      &.x-toggle-btn {
+        background: #2a8aff;
+      }
+    }
+  }
+}
+.x-toggle-component {
+  justify-content: unset;
+  label.on-label {
+    padding-left: 1.5rem;
+  }
 }

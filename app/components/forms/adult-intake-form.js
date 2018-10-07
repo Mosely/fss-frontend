@@ -43,25 +43,32 @@ export default Component.extend({
       );
       // Setting newPerson to newly created record
       newPerson = store.createRecord("person", personProps);
-      // Getting address props
-      let addressProps = this.getProperties(
-        "streetNumber",
-        "streetName",
-        "streetSuffix",
-        "apartmentNumber",
-        "zipcode"
-      );
-      // Setting newAddress to newly created record
-      let newAddress = store.createRecord("address", addressProps);
-      // Setting newAddress cityData, stateData, countyData properties
-      newAddress.set("cityData", this.get("selectedCities"));
-      newAddress.set("stateData", this.get("selectedStates"));
-      newAddress.set("countyData", this.get("selectedCounties"));
-
-      let personAddress = store.createRecord("personAddresses", {
-        personId: newPerson.get("id"),
-        addressId: newAddress.get("id"),
-        isPrimary: this.get("isPrimary")
+      newPerson.save().then(function(person) {
+        // Getting address props
+        let addressProps = this.getProperties(
+          "streetNumber",
+          "streetName",
+          "streetSuffix",
+          "apartmentNumber",
+          "zipcode"
+        );
+        // Setting newAddress to newly created record
+        let newAddress = store.createRecord("address", addressProps);
+        // Setting newAddress cityData, stateData, countyData properties
+        newAddress.save().then(function(address) {
+          address.set("cityData", this.get("selectedCities"));
+          address.set("stateData", this.get("selectedStates"));
+          address.set("countyData", this.get("selectedCounties"));
+          let personAddress = store.createRecord("personaddress", {
+            personId: person.get("id"),
+            addressId: address.get("id"),
+            isPrimary: this.get("isPrimary")
+          });
+          person.set("personAddresses", personAddress);
+        });
+        console.log("Yeet " + person.get("id"));
+        console.log("Yeet2 " + person.get("personAddresses"));
+        // return person;
       });
 
       // Getting client proerties
