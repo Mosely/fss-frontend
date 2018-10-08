@@ -12,8 +12,7 @@ export default Route.extend(AuthenticatedRouteMixin, {
       });
       return false;
     } else {
-       return true
+      return store.findRecord("druguse", params.id);
     }
-    return store.findRecord("druguse", params.id);
   }
 });

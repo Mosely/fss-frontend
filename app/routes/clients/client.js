@@ -12,41 +12,40 @@ export default Route.extend(AuthenticatedRouteMixin, {
       });
       return false;
     } else {
-      return true;
-    }
-    return store.findRecord("client", params.id).then(function(client) {
-      store
-        .query("clientethnicity", { client_id: client.id })
-        .then(function(clientethnicity) {
-          clientethnicity.forEach(function(ethnicity) {
-            store
-              .findRecord("ethnicity", ethnicity.get("ethnicityId"))
-              .then(function(ethnicity) {
-                client.set("clientethnicity", ethnicity);
-              });
-          });
-        });
-      store
-        .query("clientlanguage", { client_id: client.id })
-        .then(function(clientlanguage) {
-          client.set("clientlanguage", clientlanguage);
-          // clientlanguage.forEach(function(language) {
-          //   store
-          //     .findRecord("language", language.get("languageId"))
-          //     .then(function(language) {
-          //       client.set("clientlanguage", language);
-          //     });
-          // });
-        });
-      store.findRecord("person", client.id).then(function(person) {
-        client.set("person", person);
+      return store.findRecord("client", params.id).then(function(client) {
         store
-          .findRecord("gender", person.get("genderId"), { reload: true })
-          .then(function(gender) {
-            person.set("gender", gender);
+          .query("clientethnicity", { client_id: client.id })
+          .then(function(clientethnicity) {
+            clientethnicity.forEach(function(ethnicity) {
+              store
+                .findRecord("ethnicity", ethnicity.get("ethnicityId"))
+                .then(function(ethnicity) {
+                  client.set("clientethnicity", ethnicity);
+                });
+            });
           });
+        store
+          .query("clientlanguage", { client_id: client.id })
+          .then(function(clientlanguage) {
+            client.set("clientlanguage", clientlanguage);
+            // clientlanguage.forEach(function(language) {
+            //   store
+            //     .findRecord("language", language.get("languageId"))
+            //     .then(function(language) {
+            //       client.set("clientlanguage", language);
+            //     });
+            // });
+          });
+        store.findRecord("person", client.id).then(function(person) {
+          client.set("person", person);
+          store
+            .findRecord("gender", person.get("genderId"), { reload: true })
+            .then(function(gender) {
+              person.set("gender", gender);
+            });
+        });
+        return client;
       });
-      return client;
-    });
+    }
   }
 });

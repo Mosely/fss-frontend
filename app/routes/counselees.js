@@ -12,19 +12,18 @@ export default Route.extend(AuthenticatedRouteMixin, {
       });
       return false;
     } else {
-       return true
-    }
-    return store.findAll("counselee").then(function(counselees) {
-      // Modify the following to pull in any related models as needed
-      counselees.forEach(counselee => {
-        store.findRecord("client", counselee.id).then(function(client) {
-          counselee.set("client", client);
+      return store.findAll("counselee").then(function(counselees) {
+        // Modify the following to pull in any related models as needed
+        counselees.forEach(counselee => {
+          store.findRecord("client", counselee.id).then(function(client) {
+            counselee.set("client", client);
+          });
+          store.findRecord("person", counselee.id).then(function(person) {
+            counselee.set("person", person);
+          });
         });
-        store.findRecord("person", counselee.id).then(function(person) {
-          counselee.set("person", person);
-        });
+        return counselees;
       });
-      return counselees;
-    });
+    }
   }
 });

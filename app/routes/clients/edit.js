@@ -12,20 +12,21 @@ export default Route.extend(AuthenticatedRouteMixin, {
       });
       return false;
     } else {
-       return true
-    }
-    return store
-      .findRecord("client", params.id, { reload: true })
-      .then(client => {
-        store.findRecord("person", client.id, { reload: true }).then(person => {
-          client.set("person", person);
+      return store
+        .findRecord("client", params.id, { reload: true })
+        .then(client => {
           store
-            .findRecord("gender", person.get("genderId"), { reload: true })
-            .then(gender => {
-              person.set("gender", gender);
+            .findRecord("person", client.id, { reload: true })
+            .then(person => {
+              client.set("person", person);
+              store
+                .findRecord("gender", person.get("genderId"), { reload: true })
+                .then(gender => {
+                  person.set("gender", gender);
+                });
             });
+          return client;
         });
-        return client;
-      });
+    }
   }
 });

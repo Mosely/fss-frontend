@@ -12,18 +12,17 @@ export default Route.extend(AuthenticatedRouteMixin, {
       });
       return false;
     } else {
-       return true
+      return store
+        .findAll("shelterclientfundingsource")
+        .then(function(primaryModels) {
+          // Modify the following to pull in any related models as needed
+          //primaryModels.forEach(primaryModel => {
+          //  store.findRecord('REPLACEWITHRELATEDMODEL', primaryModel.id).then(function(secondaryModel) {
+          //    primaryModel.set('REPLACEWITHRELATEDMODEL', secondaryModel);
+          //  });
+          //});
+          return primaryModels;
+        });
     }
-    return store
-      .findAll("shelterclientfundingsource")
-      .then(function(primaryModels) {
-        // Modify the following to pull in any related models as needed
-        //primaryModels.forEach(primaryModel => {
-        //  store.findRecord('REPLACEWITHRELATEDMODEL', primaryModel.id).then(function(secondaryModel) {
-        //    primaryModel.set('REPLACEWITHRELATEDMODEL', secondaryModel);
-        //  });
-        //});
-        return primaryModels;
-      });
   }
 });

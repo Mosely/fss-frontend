@@ -11,8 +11,10 @@ export default Route.extend(AuthenticatedRouteMixin, {
       alert("You Are Not Authorized");
       return false;
     } else {
-       return true
+      return this.store.findRecord(
+        "shelterclientidentitypreference",
+        params.id
+      );
     }
-    return this.store.findRecord("shelterclientidentitypreference", params.id);
   }
 });

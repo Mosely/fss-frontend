@@ -16,13 +16,12 @@ export default Route.extend(AuthenticatedRouteMixin, {
       });
       return false;
     } else {
-       return true
+      return RSVP.hash({
+        branchofservices: store.findAll("branchofservice"),
+        ethnicities: store.findAll("ethnicity"),
+        // discharges: store.findAll('militarydischargetype'),
+        genders: store.findAll("gender")
+      });
     }
-    return RSVP.hash({
-      branchofservices: store.findAll("branchofservice"),
-      ethnicities: store.findAll("ethnicity"),
-      // discharges: store.findAll('militarydischargetype'),
-      genders: store.findAll("gender")
-    });
   }
 });

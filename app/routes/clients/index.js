@@ -12,23 +12,22 @@ export default Route.extend(AuthenticatedRouteMixin, {
       });
       return false;
     } else {
-       return true
-    }
-    return store.findAll("client", { reload: true }).then(function(clients) {
-      // Modify the following to pull in any related models as needed
-      clients.forEach(client => {
-        store
-          .findRecord("person", client.id, { reload: true })
-          .then(function(person) {
-            store
-              .findRecord("gender", person.get("genderId"), { reload: true })
-              .then(function(gender) {
-                person.set("gender", gender);
-              });
-            client.set("person", person);
-          });
+      return store.findAll("client", { reload: true }).then(function(clients) {
+        // Modify the following to pull in any related models as needed
+        clients.forEach(client => {
+          store
+            .findRecord("person", client.id, { reload: true })
+            .then(function(person) {
+              store
+                .findRecord("gender", person.get("genderId"), { reload: true })
+                .then(function(gender) {
+                  person.set("gender", gender);
+                });
+              client.set("person", person);
+            });
+        });
+        return clients;
       });
-      return clients;
-    });
+    }
   }
 });

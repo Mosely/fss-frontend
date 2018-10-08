@@ -13,15 +13,14 @@ export default Route.extend(AuthenticatedRouteMixin, {
       });
       return false;
     } else {
-       return true
+      return store
+        .findRecord("person", params.id, { reload: true })
+        .then(person => {
+          // store.findRecord("gender", person.genderId).then((gender) => {
+          //   person.set("gender", gender);
+          // });
+          return person;
+        });
     }
-    return store
-      .findRecord("person", params.id, { reload: true })
-      .then(person => {
-        // store.findRecord("gender", person.genderId).then((gender) => {
-        //   person.set("gender", gender);
-        // });
-        return person;
-      });
   }
 });

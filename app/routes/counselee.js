@@ -12,17 +12,16 @@ export default Route.extend(AuthenticatedRouteMixin, {
       });
       return false;
     } else {
-       return true
+      return this.store
+        .findRecord("counselee", params.id)
+        .then(function(counselee) {
+          store.findRecord("client", counselee.id).then(function(client) {
+            counselee.set("client", client);
+          });
+          store.findRecord("person", counselee.id).then(function(person) {
+            counselee.set("person", person);
+          });
+        });
     }
-    return this.store
-      .findRecord("counselee", params.id)
-      .then(function(counselee) {
-        store.findRecord("client", counselee.id).then(function(client) {
-          counselee.set("client", client);
-        });
-        store.findRecord("person", counselee.id).then(function(person) {
-          counselee.set("person", person);
-        });
-      });
   }
 });

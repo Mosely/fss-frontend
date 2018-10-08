@@ -12,19 +12,18 @@ export default Route.extend(AuthenticatedRouteMixin, {
       });
       return false;
     } else {
-       return true
-    }
-    return this.store
-      .findAll("person", { reload: true })
-      .then(function(people) {
-        people.forEach(person => {
-          store
-            .findRecord("user", person.id, { reload: true })
-            .then(function(user) {
-              person.set("user", user);
-            });
+      return this.store
+        .findAll("person", { reload: true })
+        .then(function(people) {
+          people.forEach(person => {
+            store
+              .findRecord("user", person.id, { reload: true })
+              .then(function(user) {
+                person.set("user", user);
+              });
+          });
+          return people;
         });
-        return people;
-      });
+    }
   }
 });

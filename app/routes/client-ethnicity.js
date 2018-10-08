@@ -12,12 +12,11 @@ export default Route.extend(AuthenticatedRouteMixin, {
       });
       return false;
     } else {
-       return true
+      return store
+        .findRecord("clientethnicity", params.id)
+        .then(function(clientethnicity) {
+          return clientethnicity;
+        });
     }
-    return store
-      .findRecord("clientethnicity", params.id)
-      .then(function(clientethnicity) {
-        return clientethnicity;
-      });
   }
 });

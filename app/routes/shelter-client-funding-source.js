@@ -12,8 +12,7 @@ export default Route.extend(AuthenticatedRouteMixin, {
       });
       return false;
     } else {
-       return true
+      return this.store.findRecord("shelterclientfundingsource", params.id);
     }
-    return this.store.findRecord("shelterclientfundingsource", params.id);
   }
 });
