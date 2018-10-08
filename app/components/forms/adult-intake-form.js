@@ -97,20 +97,23 @@ export default Component.extend({
           person.set("personPhones", personPhone);
         });
 
+        /**
+         * Creating client record
+         **/
+        // Getting client proerties
+        let clientProps = this.getProperties(
+          "socialSecurityNumber",
+          "placeOfEmployment",
+          "isServiceMemberOrVeteran",
+          "hasFamilyWhoIsServiceMemberOrVeteran",
+          "isReferredByVeteranResourceCenter",
+          "referral"
+        );
+        let newClient = store.createRecord("client", clientProps);
+
         // returning person object model
         // return person;
       });
-
-      // Getting client proerties
-      let clientProps = this.getProperties(
-        "socialSecurityNumber",
-        "placeOfEmployment",
-        "isServiceMemberOrVeteran",
-        "hasFamilyWhoIsServiceMemberOrVeteran",
-        "isReferredByVeteranResourceCenter",
-        "referral"
-      );
-      let newClient = store.createRecord("client", clientProps);
     }
   }
 });

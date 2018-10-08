@@ -13,25 +13,21 @@ export default Route.extend(AuthenticatedRouteMixin, {
       });
       return false;
     } else {
-       return true
+      return store
+        .findRecord("user", params.id, { reload: true })
+        .then(function(user) {
+          store
+            .findRecord("person", user.id, { reload: true })
+            .then(function(person) {
+              user.set("person", person);
+              store
+                .findRecord("gender", person.get("genderId"), { reload: true })
+                .then(function(gender) {
+                  person.set("gender", gender);
+                });
+            });
+          return user;
+        });
     }
-    return store
-      .findRecord("user", params.id, { reload: true })
-      .then(function(user) {
-        store
-          .findRecord("person", user.id, { reload: true })
-          .then(function(person) {
-            user.set("person", person);
-            store
-              .findRecord("gender", person.get("genderId"), { reload: true })
-              .then(function(gender) {
-                person.set("gender", gender);
-              });
-          });
-        return user;
-      });
-    //this.store.query('user', { filter: { id: params.id } }).then(function (user) {
-    //    return user.get('firstObject');
-    //});
   }
 });

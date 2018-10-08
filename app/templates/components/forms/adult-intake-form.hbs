@@ -348,7 +348,8 @@
 										class="form-check-input"
 										name="isServiceMemberOrVeteran"
 										id="isServiceMemberOrVeteranYes"
-										value=Yes}}
+										change=(action (mut isServiceMemberOrVeteran) value="target.value")
+										value=true}}
 						<label for="isServiceMemberOrVeteranYes"
 									 class="form-check-label">
 							Yes
@@ -359,7 +360,8 @@
 										class="form-check-input"
 										name="isServiceMemberOrVeteran"
 										id="isServiceMemberOrVeteranNo"
-										value=no}}
+										change=(action (mut isServiceMemberOrVeteran) value="target.value")
+										value=false}}
 						<label for="isServiceMemberOrVeteranNo"
 									 class="form-check-label">
 							No
@@ -376,7 +378,8 @@
 										class="form-check-input"
 										name="hasFamilyWhoIsServiceMemberOrVeteran"
 										id="hasFamilyWhoIsServiceMemberOrVeteranYes"
-										value=Yes}}
+										change=(action (mut hasFamilyWhoIsServiceMemberOrVeteran) value="target.value")
+										value=true}}
 						<label for="hasFamilyWhoIsServiceMemberOrVeteranYes"
 									 class="form-check-label">
 							Yes
@@ -387,7 +390,8 @@
 										class="form-check-input"
 										name="hasFamilyWhoIsServiceMemberOrVeteran"
 										id="hasFamilyWhoIsServiceMemberOrVeteranNo"
-										value=no}}
+										change=(action (mut hasFamilyWhoIsServiceMemberOrVeteran) value="target.value")
+										value=false}}
 						<label for="hasFamilyWhoIsServiceMemberOrVeteranNo"
 									 class="form-check-label">
 							No
@@ -404,7 +408,8 @@
 										class="form-check-input"
 										name="isReferredByVeteranResourceCenter"
 										id="isReferredByVeteranResourceCenterYes"
-										value=Yes}}
+										change=(action (mut isReferredByVeteranResourceCenter) value="target.value")
+										value=true}}
 						<label for="isReferredByVeteranResourceCenterYes"
 									 class="form-check-label">
 							Yes
@@ -415,7 +420,8 @@
 										class="form-check-input"
 										name="isReferredByVeteranResourceCenter"
 										id="isReferredByVeteranResourceCenterNo"
-										value=no}}
+										change=(action (mut isReferredByVeteranResourceCenter) value="target.value")
+										value=false}}
 						<label for="isReferredByVeteranResourceCenterNo"
 									 class="form-check-label">
 							No

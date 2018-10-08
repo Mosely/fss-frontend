@@ -54,13 +54,12 @@ export default Component.extend({
         newPerson = store.createRecord("person", personProps);
         newPerson.set("gender", this.get("gender"));
 
-        userProps = this.getProperties("username", "email", "password");
-
         newPerson.save().then(function(person) {
-          let pid = parseInt(person.get("id"));
+          let pid = person.get("id");
+          userProps = this.getProperties("username", "email", "password");
           newUser = store.createRecord("user", userProps);
-          newUser.set("id", pid);
-          return newUser.save().then(() => {
+          return newUser.save().then(function(user) {
+            user.set("id", pid);
             this.get("router").transitionTo("users");
           });
         });
