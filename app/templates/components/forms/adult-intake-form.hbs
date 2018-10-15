@@ -200,7 +200,7 @@
 							{{input type="radio"
 											class="form-check-input ethnicity"
 											name="ethnicity"
-											change=(action "updateEthnicity" value="target.value")
+											change=(action (mut clientEthnicities ) value="target.value")
 											id=ethnicity.id
 											value=ethnicity.id}}
 							<label for="{{ethnicity.id}}"
@@ -230,6 +230,32 @@
 					<div class="form-group">
 						{{#power-select
 							placeholder="Select Language..."
+							searchField="name"
+							selected=clientLanguages
+							options=adult.languages
+							onchange=(action (mut clientLanguages)) as |language|}}
+							{{language.name}}
+						{{/power-select}}
+					</div>
+					<div class="form-group">
+						{{x-toggle
+							value=isPrimaryLanguage
+							showLabels=true
+							theme="light"
+							size="medium"
+							onLabel="Is Primary"
+							offLabel=""
+							onToggle=(action (mut isPrimaryLanguage))
+						}}
+					</div>
+				</div>
+				<div class="col-12 col-sm-6">
+					<label class="form-label mt-3">
+						Other Languages:
+					</label>
+					<div class="form-group">
+						{{#power-select
+							placeholder="Select Other Language..."
 							searchField="name"
 							selected=selectedLanguages
 							options=adult.languages

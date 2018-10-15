@@ -34,6 +34,9 @@ export default Component.extend({
       let personProps,
         newPerson,
         store = this.get("store");
+      /**
+       * Creating and saving person record and setting properties.
+       **/
       // Getting person properties
       personProps = this.getProperties(
         "firstName",
@@ -109,8 +112,20 @@ export default Component.extend({
           "isReferredByVeteranResourceCenter",
           "referral"
         );
+        // creating newClient record
         let newClient = store.createRecord("client", clientProps);
-
+        // saving newClient record
+        newClient.save().then(function(client) {
+          client.set("id", person.get("id"));
+          //creating clientEthnicities record
+          let clientEthnicities = store.createRecord("clientethnicity", {
+            clientId: client.get("id"),
+            ethnicityId: this.get("clientEthnicities")
+          });
+          //setting clientEthnicities
+          client.set("clientEthnicities", clientEthnicities);
+          let clientLanguages = store.createRecord("clientlanguage", {});
+        });
         // returning person object model
         // return person;
       });
