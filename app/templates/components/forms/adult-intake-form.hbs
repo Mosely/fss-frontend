@@ -15,7 +15,7 @@
 					<div class="form-group">
 						{{input type="text"
 										value=firstName
-										class="form-control required"
+										class="form-control"
 										placeholder="First Name"
 										autocomplete="false"}}
 					</div>
@@ -33,7 +33,7 @@
 					<div class="form-group">
 						{{input type="text"
 										value=lastName
-										class="form-control required"
+										class="form-control"
 										placeholder="Last Name"
 										autocomplete="false"}}
 					</div>
@@ -49,7 +49,7 @@
 							<div class="input-group">
 								{{input type="date"
 												value=dateOfBirth
-												class="form-control datepicker date required"
+												class="form-control datepicker date"
 												autocomplete="false"}}
 								<div class="input-group-prepend">
 									<span class="input-group-text">
@@ -70,7 +70,7 @@
 										value=socialSecurityNumber
 										placeholder="XXX-XX-XXXX"
 										min="0"
-										class="form-control required"}}
+										class="form-control"}}
 					</div>
 				</div>
 			</div>
@@ -86,7 +86,7 @@
 						{{input type="number"
 										value=streetNumber
 										placeholder="Street Number"
-										class="form-control required"}}
+										class="form-control"}}
 					</div>
 				</div>
 				<div class="col-12 col-sm-6">
@@ -94,7 +94,7 @@
 						{{input type="text"
 										value=streetName
 										placeholder="Street Name"
-										class="form-control required"}}
+										class="form-control"}}
 					</div>
 				</div>
 				<div class="col-5 col-sm-2">
@@ -102,7 +102,7 @@
 						{{input type="text"
 										value=streetSuffix
 										placeholder="Street Suffix"
-										class="form-control required"}}
+										class="form-control"}}
 					</div>
 				</div>
 				<div class="col-5 col-sm-2">
@@ -168,7 +168,7 @@
 										value=zipcode
 										placeholder="Zip code"
 										min="0"
-										class="form-control required"}}
+										class="form-control"}}
 					</div>
 				</div>
 			</div>
@@ -218,13 +218,13 @@
 			</div>
 		</div>
 		<div id="adult-intake-2" class="form-step--item hidden">
-			<div class="row justify-content-between mb-2 align-items-center">
+			<div class="row justify-content-between mb-2">
 				<div class="col-12">
 					<span class="form-title">Personal Details</span>
 				</div>
 				<div class="col-12 col-sm-6">
 					<label class="form-label mt-3">
-						Primary Language:
+						Client Language:
 						<span class="star">*</span>
 					</label>
 					<div class="form-group">
@@ -506,20 +506,48 @@
 						Have you ever been hit, slapped, thrown or molested?
 						<span class="star">*</span>
 					</label>
+					{{!-- <div class="form-check inline-block">
+						{{input type="radio"
+										class="form-check-input"
+										name="hasBeenAbused"
+										data-toggle="hasBeenAbusedToggle"
+										id="hasBeenAbusedYes"
+										change=(action (mut hasBeenAbused) value="target.value")
+										value=true}}
+						<label for="hasBeenAbusedYes"
+									 class="form-check-label">
+							Yes
+						</label>
+					</div>
+					<div class="form-check inline-block">
+						{{input type="radio"
+										class="form-check-input"
+										name="hasBeenAbused"
+										data-toggle="hasBeenAbusedToggle"
+										id="hasBeenAbusedNo"
+										change=(action (mut hasBeenAbused) value="target.value")
+										value=false}}
+						<label for="hasBeenAbusedNo"
+									 class="form-check-label">
+							No
+						</label>
+					</div> --}}
 					{{inputs/toggle-radio
 							idValue="hasBeenAbusedYes"
 							label="Yes"
 							name="hasBeenAbused"
-							value="yes"
-							data-toggle="hasBeenAbusedExample"}}
+							change=(action 'ifYesToggle' value="target.value")
+							value=true
+							data-toggle="hasBeenAbusedToggle"}}
 					{{inputs/toggle-radio
 							idValue="hasBeenAbusedNo"
 							label="No"
 							name="hasBeenAbused"
-							value="no"
-							data-toggle="hasBeenAbusedExample"}}
+							change=(action 'ifYesToggle' value="target.value")
+							value=false
+							data-toggle="hasBeenAbusedToggle"}}
 
-					<div id="hasBeenAbusedExample" class="if-yes hidden">
+					<div id="hasBeenAbusedToggle" class="if-yes hidden">
 						<div class="col-6">
 							<div class="form-group">
 								<label class="form-label sub-label">
