@@ -7,7 +7,6 @@ export default Component.extend({
   classNames: ["form-check", "inline-block"],
   label: null,
   idValue: null,
-  groupValue: null,
   attributeBindings: ["data-toggle"],
 
   actions: {

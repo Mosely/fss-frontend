@@ -7,19 +7,21 @@ export default Component.extend({
   store: service("store"),
 
   actions: {
-    ifYesToggle(value) {
-      let store = this.get("store");
-      let parentElem = document.getElementById(event.target.parentElement.id);
-      let targetElem = document.getElementById(parentElem.dataset.toggle);
-      console.log(value);
-      if (value == "true" && targetElem.classList.contains("hidden")) {
-        targetElem.classList.remove("hidden");
-        targetElem.classList.add("active");
-      } else {
-        targetElem.classList.remove("active");
-        targetElem.classList.add("hidden");
-      }
-    },
+    // ifYesToggle(value) {
+    //   let store = this.get("store");
+    //   let parentElem = document.getElementById(event.target.parentElement.id);
+    //   let targetElem = document.getElementById(parentElem.dataset.toggle);
+    //   console.log(this.get("hasBeenAbused"));
+    //   console.log(this.get("groupValue"));
+    //   console.log(value);
+    //   if (value == "true" && targetElem.classList.contains("hidden")) {
+    //     targetElem.classList.remove("hidden");
+    //     targetElem.classList.add("active");
+    //   } else {
+    //     targetElem.classList.remove("active");
+    //     targetElem.classList.add("hidden");
+    //   }
+    // },
     updateEthnicity(value) {
       let store = this.get("store");
       store.find("ethnicity", value).then(model => {
